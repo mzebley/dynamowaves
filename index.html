@@ -16,7 +16,7 @@
   <style>
     @import url('https://fonts.googleapis.com/css?family=Merriweather:wght@900&family=Nunito:wght@400;800&display=swap');
 
-    /* @import url('https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@700&family=Fascinate&family=Permanent+Marker&family=Rubik+Moonrocks&display=swap&text=randomize'); */
+    /* @import url('https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@700&family=Fascinate&family=Permanent+Marker&family=Rubik+Moonrocks&display=swap&text=shuffle'); */
     :root {
       --theme: hsl(179, 19%, 51%);
       --theme-light: hsl(179, 19%, 81%);
@@ -90,6 +90,33 @@
     .box > div {
       width:100%;
       max-width:800px;
+    }
+
+    .widget {
+      width: 220px;
+      height: 350px;
+      overflow-y: scroll;
+      background:white;
+      box-shadow: var(--shadow-elevation-medium);
+      border-radius: 1rem;
+      position:relative;
+      margin:3rem auto;
+    }
+
+    .widget .header {
+      position:sticky;
+      top:0;
+    }
+
+    .header h3 {
+      padding:1rem 1rem 0;
+      margin:0;
+      background:var(--theme);
+      color:white;
+    }
+
+    .content {
+      padding: 1rem 1rem 2rem;
     }
 
     button {
@@ -348,8 +375,8 @@
         d="M 211.225 252.806 C 211.225 252.806 226.149 267.513 237.427 257.907 C 246.924 249.817 251.547 252.806 251.547 252.806 L 251.547 273.393 L 211.225 273.393 L 211.225 259.24 L 211.225 252.806 Z"
         style="clip-path: url(#clip-1); fill: rgb(106, 154, 153);"></path>
     </svg>
-    <p style="opacity:.75;color:var(--theme-dark);font-size:1.425rem;margin:0 0 2rem;max-width:none"><strong>HTML</strong> templates
-      that <strong id="randomize">randomize</strong> themselves on render.</p>
+    <p style="opacity:.75;color:var(--theme-dark);font-size:1.425rem;margin:1rem 0 2rem;max-width:none"><strong>HTML</strong> templates
+      that <strong id="shuffle">shuffle</strong> themselves on render.</p>
   </header>
   <div class="wave-wrapper reveal">
     <dynamo-wave data-face="bottom" style="fill:var(--theme-light);height:4rem;margin-top:-1px;width:100%"
@@ -466,15 +493,58 @@
     <div>
       <h1>Practical Application</h1>
       <p>
-        <strong>Dynamowaves</strong> come out of the box as style agnostic as possible. The onus is on the developer to add the necessary classes and styles to get them to fit their intended platform, but at the same time this gives you nearly endless possbilities for customization.<br><br>
-        Make them <strong><code>position:sticky</code></strong> in conjunction with a header!
+        <strong>Dynamowaves</strong> come out of the box entirely style agnostic. The onus is on the developer to add the necessary attributes to get them to fit their intended platform, but at the same time this provides nearly endless possibilities for customization.<br><br>
+        Make use of <strong><code>position:sticky</code></strong> and create a neat little header!
       </p>
-      <pre>
-        <code class="html">&lt;!-- Bottom facing wave -->
-          &lt;dynamo-wave class="fill-theme" data-face="bottom"&gt;&lt;/dynamo-wave&gt;
-        </code>
-      </pre>
-      <dynamo-wave class="fill-theme" data-face="bottom"></dynamo-wave>
+      <pre style="white-space: pre;"><code class="html">&lt;!-- Widget classes not, uh, provided out-of-the-box -->
+&lt;div class="widget"&gt;
+  &lt;div class="header"&gt;
+    &lt;h3&gt;I'm the heading!&lt;/h3&gt;
+    &lt;dynamo-wave data-face="bottom"&gt;&lt;/dynamo-wave&gt;
+  &lt;/div&gt;
+  &lt;div class="content"&gt;...&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+      <div class="widget" id="widget_example_1">
+        <div class="header">
+          <h3>I'm the heading!</h3>
+          <dynamo-wave class="fill-theme" data-face="bottom"></dynamo-wave>
+        </div>
+        <div class="content">Lorem ipsum dolor sit amet, ea sea regione concludaturque. Te eam pericula prodesset constituto. In forensibus voluptatum nam. Ius ne modus laboramus, quo illud altera mandamus eu. Persius oportere molestiae vel ut. Ei vel nusquam forensibus eloquentiam.
+          <br><br>
+          Mei in posse error incorrupte. Ex rebum vidisse sea. Per sumo quando mucius cu, no persius signiferumque eos, et has deserunt pertinacia. Ea malis everti nostrud sed.
+          <br><br>
+          Id regione prompta denique est, mei at veri essent instructior, mei id congue instructior. Nec ne legere tritani sadipscing. Oblique propriae theophrastus id quo, vero persequeris vix cu. Qui singulis pertinacia ex, ad agam doctus graecis eos, vis et erat accumsan.
+          <br><br>
+          Cum esse quot essent te, in delicata conceptam cum, dicam iuvaret inimicus mei ad. Est ex cetero commune eleifend. Vim in aeque constituam, timeam debitis argumentum sed ea. His epicurei evertitur et, ea sanctus saperet sed. An harum referrentur nec, te sed errem patrioque, mei et tempor blandit sapientem. Vim te aeterno sapientem.
+          <br><br>
+          In eam putant labores accusam. Ne sed evertitur torquatos. Dolor option regione nam ei, summo constituto usu at. Postea accusata et has, his te prima porro verterem.</div>
+      </div>
+      <p style="margin-top:3rem">
+        Stack multiple <strong>dynamowaves</strong> with differing heights and colors to provide some visual interest when transitioning between content sections.
+      </p>
+      <pre style="white-space: pre;"><code class="html">&lt;div style="position:relative;height:4rem"&gt;
+  &lt;dynamo-wave style="position:absolute;height:4rem;bottom:0;fill:LightSteelBlue;width:100%"&gt;&lt;/dynamo-wave&gt;
+  &lt;dynamo-wave style="position:absolute;height:3rem;bottom:0;fill:CadetBlue;width:100%"&gt;&lt;/dynamo-wave&gt;
+  &lt;dynamo-wave style="position:absolute;height:2rem;bottom:0;fill:SteelBlue;width:100%"&gt;&lt;/dynamo-wave&gt;
+&lt;/div&gt;
+&lt;div style="padding:3rem;backgroundt:SteelBlue"&gt;...&lt;/div&gt;
+&lt;div style="position:relative;height:4rem"&gt;
+  &lt;dynamo-wave style="position:absolute;height:4rem;top:0;fill:LightSteelBlue;width:100%"&gt;&lt;/dynamo-wave&gt;
+  &lt;dynamo-wave style="position:absolute;height:3rem;bottom:0;fill:CadetBlue;width:100%"&gt;&lt;/dynamo-wave&gt;
+  &lt;dynamo-wave style="position:absolute;height:2rem;top:0;fill:SteelBlue;width:100%"&gt;&lt;/dynamo-wave&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+  </div>
+  <div style="position:relative;height:4rem">
+    <dynamo-wave style="position:absolute;height:4rem;bottom:0;fill:LightSteelBlue;width:100%"></dynamo-wave>
+    <dynamo-wave style="position:absolute;height:3rem;bottom:0;fill:CadetBlue;width:100%"></dynamo-wave>
+    <dynamo-wave style="position:absolute;height:2rem;bottom:0;fill:SteelBlue;width:100%"></dynamo-wave>
+  </div>
+    <div class="box" style="padding:3rem 0;color:white;background:SteelBlue;"><p style="text-align:center">Content content content....</p></div>
+    <div style="position:relative;height:4rem">
+      <dynamo-wave data-face="bottom" style="position:absolute;height:4rem;top:0;fill:LightSteelBlue;width:100%"></dynamo-wave>
+      <dynamo-wave data-face="bottom" style="position:absolute;height:3rem;top:0;fill:CadetBlue;width:100%"></dynamo-wave>
+      <dynamo-wave data-face="bottom" style="position:absolute;height:2rem;top:0;fill:SteelBlue;width:100%"></dynamo-wave>
     </div>
   </div>
   <dynamo-wave class="fill-theme fill-light" style="margin-bottom:-1px;height:4rem;width:100%;margin-top:6rem"></dynamo-wave>
