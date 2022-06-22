@@ -101,8 +101,6 @@
       border-radius: 1rem;
       position:relative;
       margin:3rem auto;
-      mask-image: radial-gradient(white, black);
-    -webkit-mask-image: -webkit-radial-gradient(white, black);
     }
 
     .widget .header {
@@ -113,8 +111,11 @@
     .header h3 {
       padding:1rem 1rem 0;
       margin:0;
+      border-radius: 1rem 1rem 0 0;
       background:var(--theme);
       color:white;
+      mask-image: radial-gradient(white, black);
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
     }
 
     .content {
