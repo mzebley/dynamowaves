@@ -53,7 +53,6 @@
       display: -ms-flexbox;
       display: flex;
       font-family: 'Nunito', sans-serif;
-      padding-bottom:5rem;
     }
 
     *,
@@ -133,29 +132,25 @@
       margin: -0.25rem 0.5rem -0.25rem 0;
     }
 
-    button:hover {
-      color: var(--theme-dark);
-    }
-
     button:active::before {
       transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
-      opacity: .75;
+      opacity: .5;
     }
 
     @media (hover: hover) and (pointer: fine) {
       button:hover::before {
       transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
-      opacity: .75;
+      opacity: .325;
     }
     }
 
-    header {
+    header, footer {
       padding-left: 1.5rem;
       padding-right: 1.5rem;
       padding-top: 1.5rem;
-      font-size: 2em;
       text-align: center;
       position: relative;
+      background:var(--theme-light);
     }
 
     header>svg {
@@ -222,7 +217,7 @@
 
   </style>
 
-  <header style="background:var(--theme-light)">
+  <header>
     <a href="https://markzebley.com" target="_blank"><svg version="1.0" viewBox="0 0 598.000000 598.000000"
         preserveAspectRatio="xMidYMid meet" fill="var(--theme)" xmlns="http://www.w3.org/2000/svg">
         <g transform="translate(0.000000,598.000000) scale(0.100000,-0.100000)" fill="inherit" stroke="none">
@@ -393,7 +388,7 @@
       <p>
         Since <strong>Dynamowaves</strong> use HTML templating syntax, all it takes to call one is to add the custom element to your HTML!</p>
       <pre>
-        <code class="html">&lt;!-- Without any added attributes you get a black, top-facing wave -->
+        <code class="html">&lt;!-- Without any added attributes you get a top facing wave filled with the current color of its parent -->
           &lt;dynamo-wave&gt;&lt;/dynamo-wave&gt;
         </code>
       </pre>
@@ -444,12 +439,46 @@
         <strong class="list-indicator">d)</strong> <strong><code>"left"</code></strong>
       </p>
       <pre>
-        <code class="html">&lt;dynamo-wave class="fill-theme" data-face="bottom"&gt;&lt;/dynamo-wave&gt;
+        <code class="html">&lt;!-- Bottom facing wave -->
+          &lt;dynamo-wave class="fill-theme" data-face="bottom"&gt;&lt;/dynamo-wave&gt;
+        </code>
+      </pre>
+      <dynamo-wave class="fill-theme" data-face="bottom"></dynamo-wave>
+      <div style="display:grid;grid-template-columns: 70% 30%;margin-top:1rem;">
+        <div style="align-self: center;">
+          <pre>
+            <code class="html">&lt;!-- Left facing wave -->
+              &lt;dynamo-wave class="fill-theme" data-face="left"&gt;&lt;/dynamo-wave&gt;
+
+              &lt;!-- Right facing wave -->
+              &lt;dynamo-wave class="fill-theme" data-face="right"&gt;&lt;/dynamo-wave&gt;
+            </code>
+          </pre>
+        </div>
+        <div style="margin:1.5rem 0 0">
+          <dynamo-wave class="fill-theme" data-face="left" style="width:45%;height:300px"></dynamo-wave>
+          <dynamo-wave class="fill-theme" data-face="right" style="width:45%;height:300px"></dynamo-wave>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="box" style="margin:3rem 0 0">
+    <div>
+      <h1>Practical Application</h1>
+      <p>
+        <strong>Dynamowaves</strong> come out of the box as style agnostic as possible. The onus is on the developer to add the necessary classes and styles to get them to fit their intended platform, but at the same time this gives you nearly endless possbilities for customization.<br><br>
+        Make them <strong><code>position:sticky</code></strong> in conjunction with a header!
+      </p>
+      <pre>
+        <code class="html">&lt;!-- Bottom facing wave -->
+          &lt;dynamo-wave class="fill-theme" data-face="bottom"&gt;&lt;/dynamo-wave&gt;
         </code>
       </pre>
       <dynamo-wave class="fill-theme" data-face="bottom"></dynamo-wave>
     </div>
   </div>
+  <dynamo-wave class="fill-theme fill-light" style="margin-bottom:-1px;height:4rem;width:100%;margin-top:6rem"></dynamo-wave>
+  <footer><p>hi</p></footer>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>

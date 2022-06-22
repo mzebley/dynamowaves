@@ -44,7 +44,7 @@ const vertical_paths = [
       let classes = $(this)[0].className;
       let id = $(this)[0].id;
       let styles = $(this).get(0).style.cssText;
-      let flip_x = $(this).data("face") == "left" ? true : false;
+      let flip_x = $(this).data("face") == "right" ? true : false;
       let flip_y = $(this).data("face") == "bottom" ? true : false;
       let vertical = ($(this).data("face") == "left" || $(this).data("face") == "right") ? true : false;
       $(this).replaceWith(`
