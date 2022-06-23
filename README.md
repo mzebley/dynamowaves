@@ -1,2 +1,4 @@
-# dynamowaves
-SVG wave HTML templates that randomize their shape on each render.
+# Dynamowaves
+SVG wave HTML templates that shuffle their shape on each render!
+
+[Documentation + examples](https://dynamowaves.markzebley.com)
