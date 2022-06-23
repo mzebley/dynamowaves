@@ -159,7 +159,7 @@
       that <strong id="shuffle">shuffle</strong> themselves on render.<br><span style="font-size:1rem;opacity:.75;margin-top:.75rem;display:inline-block"><em>5.1 KB minified!</em></span></p>
   </header>
   <div class="wave-wrapper reveal">
-    <dynamo-wave data-face="bottom" style="fill:var(--theme-light);height:4rem;margin-top:-1px;width:100%"
+    <dynamo-wave data-wave-face="bottom" data-wave-observe="true" style="fill:var(--theme-light);height:4rem;margin-top:-1px;width:100%"
       id="header_wave">
     </dynamo-wave>
   </div>
@@ -238,7 +238,7 @@
     <div>
       <h1>Wave Direction</h1>
       <p>
-        Need more than a just a wave that faces up? Leverage the <strong><code>data-face</code></strong> attribute.<br><br>
+        Need more than a just a wave that faces up? Leverage the <strong><code>data-wave-face</code></strong> attribute.<br><br>
         Available options:<br><br>
         <strong class="list-indicator">a)</strong> <strong><code>"top"</code></strong><br><br>
         <strong class="list-indicator">b)</strong> <strong><code>"bottom"</code></strong><br><br>
@@ -247,26 +247,39 @@
       </p>
       <pre>
         <code class="html">&lt;!-- Bottom facing wave -->
-          &lt;dynamo-wave class="fill-theme" data-face="bottom"&gt;&lt;/dynamo-wave&gt;
+          &lt;dynamo-wave class="fill-theme" data-wave-face="bottom"&gt;&lt;/dynamo-wave&gt;
         </code>
       </pre>
-      <dynamo-wave class="fill-theme" data-face="bottom"></dynamo-wave>
+      <dynamo-wave class="fill-theme" data-wave-face="bottom"></dynamo-wave>
       <div style="display:grid;grid-template-columns: 70% 30%;margin-top:1rem;">
         <div style="align-self: center;">
           <pre>
             <code class="html">&lt;!-- Left facing wave -->
-              &lt;dynamo-wave class="fill-theme" data-face="left"&gt;&lt;/dynamo-wave&gt;
+              &lt;dynamo-wave class="fill-theme" data-wave-face="left"&gt;&lt;/dynamo-wave&gt;
 
               &lt;!-- Right facing wave -->
-              &lt;dynamo-wave class="fill-theme" data-face="right"&gt;&lt;/dynamo-wave&gt;
+              &lt;dynamo-wave class="fill-theme" data-wave-face="right"&gt;&lt;/dynamo-wave&gt;
             </code>
           </pre>
         </div>
         <div style="margin:1.5rem 0 0;padding-left: 2rem;">
-          <dynamo-wave class="fill-theme" data-face="left" style="width:45%;height:300px"></dynamo-wave>
-          <dynamo-wave class="fill-theme" data-face="right" style="width:45%;height:300px"></dynamo-wave>
+          <dynamo-wave class="fill-theme" data-wave-face="left" style="width:45%;height:300px"></dynamo-wave>
+          <dynamo-wave class="fill-theme" data-wave-face="right" style="width:45%;height:300px"></dynamo-wave>
         </div>
       </div>
+    </div>
+  </div>
+  <div class="box" style="margin:3rem 0 0">
+    <div>
+      <h1>Wave Observation</h1>
+      <p>
+        Looking to <em>really</em> lean into generative design? Add <strong><code>data-wave-observe="true"</code></strong> to a <strong>dynamowave</strong>.<br><br> Now your wave will build it's own <strong><code>IntersectionObserver</code></strong> upon intitial render, shuffling itself each time it leaves the viewport!</p>
+      <pre>
+        <code class="html">&lt;!-- Self shuffling wave -->
+          &lt;dynamo-wave class="fill-theme" data-wave-observe="true"&gt;&lt;/dynamo-wave&gt;
+        </code>
+      </pre>
+      <dynamo-wave class="fill-theme" data-wave-observe="true"></dynamo-wave>
     </div>
   </div>
   <div class="box" style="margin:3rem 0 0">
@@ -280,14 +293,14 @@
 &lt;div class="widget"&gt;
   &lt;div class="header"&gt;
     &lt;h3&gt;I'm the heading!&lt;/h3&gt;
-    &lt;dynamo-wave data-face="bottom"&gt;&lt;/dynamo-wave&gt;
+    &lt;dynamo-wave data-wave-face="bottom"&gt;&lt;/dynamo-wave&gt;
   &lt;/div&gt;
   &lt;div class="content"&gt;...&lt;/div&gt;
 &lt;/div&gt;</code></pre>
       <div class="widget" id="widget_example_1">
         <div class="header">
           <h3>I'm the heading!</h3>
-          <dynamo-wave class="fill-theme" data-face="bottom"></dynamo-wave>
+          <dynamo-wave class="fill-theme" data-wave-face="bottom"></dynamo-wave>
         </div>
         <div class="content">Lorem ipsum dolor sit amet, ea sea regione concludaturque. Te eam pericula prodesset constituto. In forensibus voluptatum nam. Ius ne modus laboramus, quo illud altera mandamus eu. Persius oportere molestiae vel ut. Ei vel nusquam forensibus eloquentiam.
           <br><br>
@@ -359,9 +372,9 @@
   </div>
     <div class="box" style="padding:3rem 0;color:white;background:steelblue;"><p style="text-align:center">Content content content....</p></div>
     <div style="position:relative;height:4rem">
-      <dynamo-wave data-face="bottom" style="position:absolute;height:4rem;top:0;fill:lightsteelblue;width:100%"></dynamo-wave>
-      <dynamo-wave data-face="bottom" style="position:absolute;height:3rem;top:0;fill:cadetblue;width:100%"></dynamo-wave>
-      <dynamo-wave data-face="bottom" style="position:absolute;height:2rem;top:0;fill:steelblue;width:100%"></dynamo-wave>
+      <dynamo-wave data-wave-face="bottom" style="position:absolute;height:4rem;top:0;fill:lightsteelblue;width:100%"></dynamo-wave>
+      <dynamo-wave data-wave-face="bottom" style="position:absolute;height:3rem;top:0;fill:cadetblue;width:100%"></dynamo-wave>
+      <dynamo-wave data-wave-face="bottom" style="position:absolute;height:2rem;top:0;fill:steelblue;width:100%"></dynamo-wave>
     </div>
   </div>
   <div class="box" style="margin:1rem 0 0">
@@ -375,13 +388,13 @@
     &lt;!-- When covering an image, I find it helps the browser render 
     to set the far edge with a bit of a negative overlap
     It keeps the image from peeking through from behind the wave -->
-    &lt;dynamo-wave data-face="left" style="fill:white;position:absolute;right:-1px"&gt;&lt;/dynamo-wave&gt;
+    &lt;dynamo-wave data-wave-face="left" style="fill:white;position:absolute;right:-1px"&gt;&lt;/dynamo-wave&gt;
   &lt;/div&gt;
   &lt;div class="content"&gt;...&lt;/div&gt;
 &lt;/div&gt;</code></pre>
         <div class="widget horizontal">
           <div class="image-wrapper">
-            <dynamo-wave data-face="left" style="position:absolute;right:-1px;height:100%;width:1.5rem;fill:white"></dynamo-wave>
+            <dynamo-wave data-wave-face="left" style="position:absolute;right:-1px;height:100%;width:1.5rem;fill:white"></dynamo-wave>
           </div>
           <div class="content" style="align-self: center;padding:0 1rem">
             <h2 style="font-family:'Merriweather',serif;color:var(--theme);margin:0">Eye-catching headline.</h2>
@@ -418,7 +431,7 @@
       $(".wave-wrapper").removeClass("reveal");
       setTimeout(() => {
         $("#header_wave").replaceWith($(
-          `<dynamo-wave data-face="bottom" style="fill:var(--theme-light);height:4rem;margin-top:-1px;width:100%" id="header_wave"></dynamo-wave>`
+          `<dynamo-wave data-wave-face="bottom" style="fill:var(--theme-light);height:4rem;margin-top:-1px;width:100%" id="header_wave"></dynamo-wave>`
         ));
         $(".wave-wrapper").addClass("reveal");
       }, 225)
