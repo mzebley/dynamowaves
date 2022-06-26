@@ -43,7 +43,7 @@ function observeWave(wave, v) {
     ([e]) => {
       if (!e.isVisible) $(e.target).next().children().first().attr("d", v ? shuffleArray(vertical_paths)[0] : shuffleArray(horizontal_paths)[0]);
     }, {
-      rootMargin: "0px"
+      rootMargin: "200px 0px 200px 0px"
     }
   );
   observer.observe($(anchor)[0]);
