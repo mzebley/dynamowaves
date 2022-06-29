@@ -59,8 +59,8 @@ class DynamoWave extends HTMLElement {
   connectedCallback() {
     let classes = this.className;
     let id = this.id;
-    let styles = this.getAttribute("style") ? this.getAttribute("style") : null;
-    let wave_direction = this.getAttributeNode("data-wave-face") ? this.getAttributeNode("data-wave-face").value : null;
+    let styles = this.getAttribute("style");
+    let wave_direction = this.getAttribute("data-wave-face");
     let flip_x = wave_direction == "right" ? true : false;
     let flip_y = wave_direction == "bottom" ? true : false;
     let vertical = (wave_direction == "left" || wave_direction == "right") ? true : false;
