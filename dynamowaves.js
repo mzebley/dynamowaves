@@ -11,7 +11,7 @@ const vertical_paths = [
   "M -207.431 192.293 C -207.431 192.293 -102.255 248.661 -5.659 240.498 C 98.539 231.692 121.454 182.34 182.647 213.797 C 254.506 250.737 266.905 207.507 292.569 192.293 L 292.569 292.293 L -207.431 292.293 L -207.431 192.293 Z"
 ];
 const horizontal_paths = [
-"M 0 177.778 C 0 177.778 240 213.333 360 225.167 C 480 237.222 600 242.778 720 240 C 840 237.222 960 225 1080 210.389 C 1200 195.556 1440 160 1440 160 L 1440 320 L 0 320 L 0 177.778 Z",
+  "M 0 177.778 C 0 177.778 240 213.333 360 225.167 C 480 237.222 600 242.778 720 240 C 840 237.222 960 225 1080 210.389 C 1200 195.556 1440 160 1440 160 L 1440 320 L 0 320 L 0 177.778 Z",
   "M 0 177.778 C 0 177.778 152.333 246.166 360 225.167 C 479.99 213.015 600 242.778 720 240 C 840 237.222 960 225 1080 210.389 C 1200 195.556 1440 160 1440 160 L 1440 320 L 0 320 L 0 177.778 Z",
   "M 0 177.778 C 0 177.778 160.272 165.64 360 225.167 C 478.98 260.628 587.584 185.149 712.604 195.779 C 837.624 206.409 1008.755 296.934 1182.348 206.105 C 1289.482 150.049 1440 160 1440 160 L 1440 320 L 0 320 L 0 177.778 Z",
   "M 0 177.778 C -0.427 177.524 507.134 139.697 712.604 195.779 C 918.074 251.861 984.272 260.415 1182.348 206.105 C 1298.957 174.132 1440 160 1440 160 L 1440 320 L 0 320 L 0 177.778 Z",
@@ -37,16 +37,18 @@ function shuffleArray(array) {
 }
 
 function observeWave(wave, v) {
-  const anchor = $(`<a data-id="dynamowave_observation_anchor"></a>`);
-  $(anchor).insertBefore(wave);
+  const anchor = document.createElement(`a`);
+  wave.insertAdjacentElement("beforebegin", anchor);
   const observer = new IntersectionObserver(
     ([e]) => {
-      if (!e.isVisible) $(e.target).next().children().first().attr("d", v ? shuffleArray(vertical_paths)[0] : shuffleArray(horizontal_paths)[0]);
+      if (!e.isVisible) {
+        e.target.nextElementSibling.children[0].setAttribute("d", v ? shuffleArray(vertical_paths)[0] : shuffleArray(horizontal_paths)[0]);
+      }
     }, {
       rootMargin: "200px 0px 200px 0px"
     }
   );
-  observer.observe($(anchor)[0]);
+  observer.observe(anchor);
 };
 
 class DynamoWave extends HTMLElement {
@@ -55,18 +57,19 @@ class DynamoWave extends HTMLElement {
   }
 
   connectedCallback() {
-    let classes = $(this)[0].className;
-    let id = $(this)[0].id;
-    let styles = $(this).get(0).style.cssText;
-    let flip_x = $(this).data("wave-face") == "right" ? true : false;
-    let flip_y = $(this).data("wave-face") == "bottom" ? true : false;
-    let vertical = ($(this).data("wave-face") == "left" || $(this).data("wave-face") == "right") ? true : false;
-    if ($(this).data("wave-observe")) observeWave(this, vertical);
-    $(this).replaceWith(`
+    let classes = this.className;
+    let id = this.id;
+    let styles = this.getAttribute("style") ? this.getAttribute("style") : null;
+    let wave_direction = this.getAttributeNode("data-wave-face") ? this.getAttributeNode("data-wave-face").value : null;
+    let flip_x = wave_direction == "right" ? true : false;
+    let flip_y = wave_direction == "bottom" ? true : false;
+    let vertical = (wave_direction == "left" || wave_direction == "right") ? true : false;
+    if (this.getAttributeNode("data-wave-observe")) observeWave(this, vertical);
+    this.outerHTML = `
           <svg viewBox="${vertical ? "0 0 100 500" : "0 160 1440 160"}" preserveAspectRatio="none" class="${classes ? classes : ''}" style="${flip_x ? "transform:scaleX(-1);" : ""}${flip_y ? "transform:scaleY(-1);" : ""}${styles ? styles : ''}" ${id ? `id="${id}"` : ""}>
             <path d="${vertical ? shuffleArray(vertical_paths)[0] : shuffleArray(horizontal_paths)[0]}" style="stroke: none; fill: inherit" ${vertical ? `transform="matrix(-0.000001, -1, 1, -0.000001, -192.292949, 292.569243)"` : ""}></path>
           </svg>
-        `);
+        `;
   }
 }
 
