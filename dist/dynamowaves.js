@@ -28,12 +28,14 @@ const horizontal_paths = [
   "M 0 160 C -0.427 159.746 201.353 314.139 414.923 268.16 C 917.317 160 1440 160 1440 160 L 1440 320 L 0 320 L 0 160 Z"
 ];
 
-function shuffleArray(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
+function shuffleArray(array, static) {
+  if (!static) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
   }
-  return array;
+  return array[0];
 }
 
 function observeWave(wave, v) {
@@ -60,6 +62,7 @@ class DynamoWave extends HTMLElement {
     let classes = this.className;
     let id = this.id;
     let styles = this.getAttribute("style") ? this.getAttribute("style") : null;
+    let static = this.getAttributeNode("data-wave-static") ? this.getAttributeNode("data-wave-static").value : null;
     let wave_direction = this.getAttributeNode("data-wave-face") ? this.getAttributeNode("data-wave-face").value : null;
     let flip_x = wave_direction == "right" ? true : false;
     let flip_y = wave_direction == "bottom" ? true : false;
@@ -67,7 +70,7 @@ class DynamoWave extends HTMLElement {
     if (this.getAttributeNode("data-wave-observe")) observeWave(this, vertical);
     this.outerHTML = `
           <svg viewBox="${vertical ? "0 0 100 500" : "0 160 1440 160"}" preserveAspectRatio="none" class="${classes ? classes : ''}" style="${flip_x ? "transform:scaleX(-1);" : ""}${flip_y ? "transform:scaleY(-1);" : ""}${styles ? styles : ''}" ${id ? `id="${id}"` : ""}>
-            <path d="${vertical ? shuffleArray(vertical_paths)[0] : shuffleArray(horizontal_paths)[0]}" style="stroke: none; fill: inherit" ${vertical ? `transform="matrix(-0.000001, -1, 1, -0.000001, -192.292949, 292.569243)"` : ""}></path>
+            <path d="${vertical ? shuffleArray(vertical_paths, static) : shuffleArray(horizontal_paths, static)}" style="stroke: none; fill: inherit" ${vertical ? `transform="matrix(-0.000001, -1, 1, -0.000001, -192.292949, 292.569243)"` : ""}></path>
           </svg>
         `;
   }
