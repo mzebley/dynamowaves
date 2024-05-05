@@ -1,7 +1,7 @@
 {
   "name": "dynamowaves",
-  "version": "1.0.1",
-  "description": "Lightweight, jQuery-based SVG wave templates that shuffle themselves on render.",
+  "version": "1.0.2",
+  "description": "Lightweight, dependency-free SVG wave templates that shuffle themselves on render.",
   "main": "index.js",
   "scripts": {
     "build": "rollup -c",
@@ -29,7 +29,7 @@
   "bugs": {
     "url": "https://github.com/mzebley/dynamowaves/issues"
   },
-  "homepage": "https://github.com/mzebley/dynamowaves#readme",
+  "homepage": "https://dynamowaves.markzebley.com/",
   "devDependencies": {
     "rollup": "^2.79.1",
     "rollup-plugin-terser": "^7.0.2"

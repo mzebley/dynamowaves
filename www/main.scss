@@ -2,7 +2,7 @@
 
     /* @import url('https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@700&family=Fascinate&family=Permanent+Marker&family=Rubik+Moonrocks&display=swap&text=shuffle'); */
     :root {
-      --theme: hsl(179, 19%, 51%);
+      --theme: hsl(179, 19%, 44%);
       --theme-light: hsl(179, 19%, 81%);
       --theme-dark: hsl(179, 19%, 21%);
       --complement: hsl(359, 19%, 51%);
@@ -45,7 +45,7 @@
       box-sizing: inherit;
     }
 
-    h1 {
+    h1, h2, h3 {
       /* font-size: 2rem; */
       font-family: 'Merriweather', sans-serif;
       color:var(--theme-dark);
@@ -114,9 +114,10 @@
       top:0;
     }
 
-    .header h3 {
+    .header h2 {
       padding:1rem 1rem 0;
       margin:0;
+      font-size: 1.25rem;
       border-radius: 1rem 1rem 0 0;
       background:var(--theme);
       color:white;
@@ -136,7 +137,7 @@
 
     button {
       background: transparent;
-      color: var(--theme);
+      color: var(--theme-dark);
       height: 38px;
       border-radius: .425rem;
       border: 2px solid var(--theme);
@@ -196,8 +197,8 @@
     }
 
     footer {
-      display:grid;
-      grid-template-columns: auto 1fr auto auto;
+      display:flex;
+      justify-content: space-between;
       padding-bottom:1rem;
       text-align: left;
     }

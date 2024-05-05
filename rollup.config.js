@@ -14,6 +14,12 @@ export default {
       name: 'Dynamowaves',
       plugins: [terser()],
     },
+    {
+      file: 'www/dynamowaves.min.js',
+      format: 'umd',
+      name: 'Dynamowaves',
+      plugins: [terser()],
+    },
   ],
   plugins: [
     {
