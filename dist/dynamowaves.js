@@ -3,80 +3,373 @@
   factory();
 })((function () { 'use strict';
 
-  const vertical_paths = [
-    "M -207.431 192.293 C -181.046 314.653 277.653 213.013 292.569 192.293 L 292.569 292.293 L -207.431 292.293 L -207.431 192.293 Z",
-    "M -207.431 192.293 C -187.586 359.223 248.038 192.293 292.569 192.293 L 292.569 292.293 L -207.431 292.293 L -207.431 192.293 Z",
-    "M -207.431 192.293 C -100.72 221.893 27.276 275.183 292.569 192.293 L 292.569 292.293 L -207.431 292.293 L -207.431 192.293 Z",
-    "M -207.431 192.293 C 34.21 187.353 29.014 275.183 292.569 192.293 L 292.569 292.293 L -207.431 292.293 L -207.431 192.293 Z",
-    "M -207.431 192.293 C 34.21 187.353 195.487 273.736 292.569 192.293 L 292.569 292.293 L -207.431 292.293 L -207.431 192.293 Z",
-    "M -207.431 192.293 C -150.618 212.979 -121.29 184.015 57.844 240.874 C 145.606 268.731 240.964 222.885 292.569 192.293 L 292.569 292.293 L -207.431 292.293 L -207.431 192.293 Z",
-    "M -207.431 192.293 C -207.431 192.293 -159.918 195.427 -66.187 220.165 C 54.525 252.025 240.964 222.885 292.569 192.293 L 292.569 292.293 L -207.431 292.293 L -207.431 192.293 Z",
-    "M -207.431 192.293 C -207.431 192.293 -159.918 195.427 -66.187 220.165 C -5.506 236.181 73.039 214.605 140.205 229.533 C 220.559 247.392 266.905 207.507 292.569 192.293 L 292.569 292.293 L -207.431 292.293 L -207.431 192.293 Z",
-    "M -207.431 192.293 C -207.431 192.293 -162.783 228.328 -66.187 220.165 C 38.011 211.359 79.012 198.076 140.205 229.533 C 212.064 266.473 266.905 207.507 292.569 192.293 L 292.569 292.293 L -207.431 292.293 L -207.431 192.293 Z",
-    "M -207.431 192.293 C -207.431 192.293 -102.255 248.661 -5.659 240.498 C 98.539 231.692 121.454 182.34 182.647 213.797 C 254.506 250.737 266.905 207.507 292.569 192.293 L 292.569 292.293 L -207.431 292.293 L -207.431 192.293 Z"
-  ];
-  const horizontal_paths = [
-    "M 0 177.778 C 0 177.778 240 213.333 360 225.167 C 480 237.222 600 242.778 720 240 C 840 237.222 960 225 1080 210.389 C 1200 195.556 1440 160 1440 160 L 1440 320 L 0 320 L 0 177.778 Z",
-    "M 0 177.778 C 0 177.778 152.333 246.166 360 225.167 C 479.99 213.015 600 242.778 720 240 C 840 237.222 960 225 1080 210.389 C 1200 195.556 1440 160 1440 160 L 1440 320 L 0 320 L 0 177.778 Z",
-    "M 0 177.778 C 0 177.778 160.272 165.64 360 225.167 C 478.98 260.628 587.584 185.149 712.604 195.779 C 837.624 206.409 1008.755 296.934 1182.348 206.105 C 1289.482 150.049 1440 160 1440 160 L 1440 320 L 0 320 L 0 177.778 Z",
-    "M 0 177.778 C -0.427 177.524 507.134 139.697 712.604 195.779 C 918.074 251.861 984.272 260.415 1182.348 206.105 C 1298.957 174.132 1440 160 1440 160 L 1440 320 L 0 320 L 0 177.778 Z",
-    "M 0 177.778 C -0.427 177.524 217.116 146.351 422.586 202.433 C 628.056 258.515 984.272 260.415 1182.348 206.105 C 1298.957 174.132 1440 160 1440 160 L 1440 320 L 0 320 L 0 177.778 Z",
-    "M 0 177.778 C -0.427 177.524 79.116 264.582 422.586 202.433 C 766.056 140.284 984.272 260.415 1182.348 206.105 C 1298.957 174.132 1440 160 1440 160 L 1440 320 L 0 320 L 0 177.778 Z",
-    "M 0 177.778 C -0.427 177.524 79.116 264.582 422.586 202.433 C 766.056 140.284 812.939 190.347 1017.833 204.571 C 1162.904 214.642 1440 160 1440 160 L 1440 320 L 0 320 L 0 177.778 Z",
-    "M 0 196.617 C -0.427 196.363 103.505 127.431 392.253 207.335 C 681.001 287.239 812.939 190.347 1017.833 204.571 C 1162.904 214.642 1440 160 1440 160 L 1440 320 L 0 320 L 0 196.617 Z",
-    "M 0 185.891 C -0.427 185.637 321.963 226.093 452.388 208.52 C 582.813 190.947 532.069 160 894.881 188.712 C 1258.553 217.492 1440 160 1440 160 L 1440 320 L 0 320 L 0 185.891 Z",
-    "M 0 185.891 C -0.427 185.637 243.238 213.446 373.663 195.873 C 504.088 178.3 758.167 162.183 1120.979 190.895 C 1484.651 219.675 1440 160 1440 160 L 1440 320 L 0 320 L 0 185.891 Z",
-    "M 0 185.891 C -0.427 185.637 180.134 245.643 310.559 228.07 C 440.984 210.497 758.167 162.183 1120.979 190.895 C 1484.651 219.675 1440 160 1440 160 L 1440 320 L 0 320 L 0 185.891 Z",
-    "M 0 185.891 C -0.427 185.637 610.059 207.245 972.871 235.957 C 1336.543 264.737 1440 160 1440 160 L 1440 320 L 0 320 L 0 185.891 Z",
-    "M 0 160 C -0.427 159.746 74.038 222.359 292.42 216.4 C 644.741 206.787 1440 160 1440 160 L 1440 320 L 0 320 L 0 160 Z",
-    "M 0 160 C -0.427 159.746 194.066 225.589 409.217 187.689 C 566.403 160 1440 160 1440 160 L 1440 320 L 0 320 L 0 160 Z",
-    "M 0 160 C -0.427 159.746 201.353 314.139 414.923 268.16 C 917.317 160 1440 160 1440 160 L 1440 320 L 0 320 L 0 160 Z"
-  ];
-
-  function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
-  }
-
-  function observeWave(wave, v) {
-    const anchor = document.createElement(`a`);
-    wave.insertAdjacentElement("beforebegin", anchor);
-    const observer = new IntersectionObserver(
-      ([e]) => {
-        if (!e.isVisible) {
-          e.target.nextElementSibling.children[0].setAttribute("d", v ? shuffleArray(vertical_paths)[0] : shuffleArray(horizontal_paths)[0]);
-        }
-      }, {
-        rootMargin: "200px 0px 200px 0px"
-      }
-    );
-    observer.observe(anchor);
-  }
   class DynamoWave extends HTMLElement {
     constructor() {
       super();
+      this.isAnimating = false;
+      this.animationFrameId = null;
+      this.elapsedTime = 0;
+      this.startTime = null;
+
+      this.isGeneratingWave = false; 
+
+      // Track current and target wave paths
+      this.currentPath = null;
+      this.targetPath = null;
+      this.pendingTargetPath = null; // New property to track the next wave
+
+      // Intersection Observer properties
+      this.intersectionObserver = null;
+      this.observerOptions = null;
     }
 
     connectedCallback() {
-      let classes = this.className;
-      let id = this.id;
-      let styles = this.getAttribute("style");
-      let wave_direction = this.getAttribute("data-wave-face");
-      let flip_x = wave_direction == "right" ? true : false;
-      let flip_y = wave_direction == "bottom" ? true : false;
-      let vertical = (wave_direction == "left" || wave_direction == "right") ? true : false;
-      if (this.getAttributeNode("data-wave-observe")) observeWave(this, vertical);
-      this.outerHTML = `
-          <svg viewBox="${vertical ? "0 0 100 500" : "0 160 1440 160"}" preserveAspectRatio="none" class="${classes ? classes : ''}" style="${flip_x ? "transform:scaleX(-1);" : ""}${flip_y ? "transform:scaleY(-1);" : ""}${styles ? styles : ''}" ${id ? `id="${id}"` : ""} aria-hidden="true" role="img">
-            <path d="${vertical ? shuffleArray(vertical_paths)[0] : shuffleArray(horizontal_paths)[0]}" style="stroke: none; fill: inherit" ${vertical ? `transform="matrix(-0.000001, -1, 1, -0.000001, -192.292949, 292.569243)"` : ""}></path>
-          </svg>
-        `;
+      const classes = this.className;
+      const id = this.id ?? Math.random().toString(36).substring(7);
+      const styles = this.getAttribute("style");
+
+      const waveDirection = this.getAttribute("data-wave-face") || "top";
+      this.points = parseInt(this.getAttribute("data-wave-points")) || 6;
+      this.variance = parseFloat(this.getAttribute("data-variance")) || 3;
+      this.duration = parseFloat(this.getAttribute("data-wave-speed")) || 7500;
+
+      this.vertical = waveDirection === "left" || waveDirection === "right";
+      const flipX = waveDirection === "right";
+      const flipY = waveDirection === "bottom";
+
+      this.width = this.vertical ? 160 : 1440;
+      this.height = this.vertical ? 1440 : 160;
+
+      // Initialize current and target paths
+      this.currentPath = generateWave({
+        width: this.width,
+        height: this.height,
+        points: this.points,
+        variance: this.variance,
+        vertical: this.vertical,
+      });
+
+      this.targetPath = generateWave({
+        width: this.width,
+        height: this.height,
+        points: this.points,
+        variance: this.variance,
+        vertical: this.vertical,
+      });
+
+      // Construct the SVG
+      this.innerHTML = `
+      <svg 
+        viewBox="${this.vertical ? "0 0 160 1440" : "0 0 1440 160"}"
+        preserveAspectRatio="none"
+        class="${classes || ""}"
+        style="${flipX ? "transform:scaleX(-1);" : ""}${flipY ? "transform:scaleY(-1);" : ""}${styles || ""}"
+        id="${id}"
+        aria-hidden="true"
+        role="img"
+      >
+        <path d="${this.currentPath}" style="stroke:inherit; fill: inherit"></path>
+      </svg>
+    `;
+
+      // Save SVG references
+      this.svg = this.querySelector("svg");
+      this.path = this.querySelector("path");
+
+      // Bind methods
+      this.play = this.play.bind(this);
+      this.pause = this.pause.bind(this);
+      this.generateNewWave = this.generateNewWave.bind(this);
+
+      // Check for wave observation attribute
+      const observeAttr = this.getAttribute("data-wave-observe");
+      if (observeAttr) {
+        this.setupIntersectionObserver(observeAttr);
+      }
+
+      // Automatically start animation if enabled
+      if (this.getAttribute("data-wave-animate") === "true") {
+        if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          this.play();
+        }
+      }
+    }
+
+    // Public method to play the animation
+    play(customDuration = null) {
+      if (this.isAnimating) return;
+      this.isAnimating = true;
+
+      // Use custom duration if provided, otherwise use the instance duration
+      const animationDuration = customDuration || this.duration;
+
+      const continueAnimation = () => {
+        // If there's no pending target path, generate a new one
+        if (!this.pendingTargetPath) {
+          this.pendingTargetPath = generateWave({
+            width: this.width,
+            height: this.height,
+            points: this.points,
+            variance: this.variance,
+            vertical: this.vertical,
+          });
+        }
+
+        // Animate to the pending target path
+        this.animateWave(animationDuration, () => {
+          // Update current path to the target path
+          this.currentPath = this.targetPath;
+
+          // Set the pending path as the new target
+          this.targetPath = this.pendingTargetPath;
+
+          // Clear the pending path and generate a new one for the next iteration
+          this.pendingTargetPath = generateWave({
+            width: this.width,
+            height: this.height,
+            points: this.points,
+            variance: this.variance,
+            vertical: this.vertical,
+          });
+
+          // Continue the animation loop if still playing
+          if (this.isAnimating) {
+            continueAnimation();
+          }
+        });
+      };
+
+      // Start the continuous animation
+      continueAnimation();
+    }
+
+    // Public method to pause the animation
+    pause() {
+      if (!this.isAnimating) return;
+      this.isAnimating = false;
+      cancelAnimationFrame(this.animationFrameId);
+      this.animationFrameId = null;
+
+      // Save the current elapsed time
+      this.elapsedTime += performance.now() - (this.startTime || performance.now());
+      this.startTime = null;
+    }
+
+    disconnectedCallback() {
+      // Clean up intersection observer when element is removed
+      if (this.intersectionObserver) {
+        this.intersectionObserver.disconnect();
+        this.intersectionObserver = null;
+      }
+    }
+
+    setupIntersectionObserver(observeConfig) {
+      // Parse observation configuration
+      const [mode, rootMargin = '0px'] = observeConfig.split(':');
+      
+      // Determine observation mode
+      const isOneTime = mode === 'once';
+
+      // Default options if not specified
+      this.observerOptions = {
+        root: null, // viewport
+        rootMargin: rootMargin,
+        threshold: 0 // trigger as soon as element completely leaves/enters
+      };
+
+      this.intersectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          // Trigger new wave when completely outside viewport
+          if (!entry.isIntersecting) {
+            // Generate new wave
+            this.generateNewWave();
+
+            // If one-time mode, disconnect observer
+            if (isOneTime) {
+              this.intersectionObserver.disconnect();
+              this.intersectionObserver = null;
+            }
+          }
+        });
+      }, this.observerOptions);
+
+      // Start observing this element
+      this.intersectionObserver.observe(this);
+    }
+
+    // Public method to morph to a new wave
+    generateNewWave(duration = 800) {
+      // Prevent multiple simultaneous wave generations
+      if (this.isGeneratingWave || this.animationFrameId) {
+        return;
+      }
+
+      if (duration < 1) duration = 1;
+
+      // Set flag to prevent concurrent wave generations
+      this.isGeneratingWave = true;
+
+      // Set the pending target path to a new wave
+      this.pendingTargetPath = generateWave({
+        width: this.width,
+        height: this.height,
+        points: this.points,
+        variance: this.variance,
+        vertical: this.vertical,
+      });
+
+      // Animate from current path to new target
+      this.animateWave(duration, () => {
+        // Update paths
+        this.currentPath = this.targetPath;
+        this.targetPath = this.pendingTargetPath;
+        this.pendingTargetPath = null;
+
+        // Reset wave generation flag
+        this.isGeneratingWave = false;
+        this.animationFrameId = null;
+      });
+    }
+
+    // Core animation logic
+    animateWave(duration, onComplete = null) {
+      // Ensure we have valid start and target paths
+      const startPoints = parsePath(this.currentPath);
+      const endPoints = parsePath(this.targetPath);
+
+      if (startPoints.length !== endPoints.length) {
+        console.error("Point mismatch! Regenerating waves to ensure consistency.");
+        
+        // Regenerate both current and target paths to ensure consistency
+        this.currentPath = generateWave({
+          width: this.width,
+          height: this.height,
+          points: this.points,
+          variance: this.variance,
+          vertical: this.vertical,
+        });
+
+        this.targetPath = generateWave({
+          width: this.width,
+          height: this.height,
+          points: this.points,
+          variance: this.variance,
+          vertical: this.vertical,
+        });
+
+        return;
+      }
+
+      const animate = (timestamp) => {
+        if (!this.startTime) this.startTime = timestamp - this.elapsedTime;
+        const elapsed = timestamp - this.startTime;
+        const progress = Math.min(elapsed / duration, 1);
+
+        const interpolatedPath = interpolateWave(
+          startPoints,
+          endPoints,
+          progress,
+          this.vertical,
+          this.height,
+          this.width
+        );
+
+        this.path.setAttribute("d", interpolatedPath);
+
+        if (progress < 1) {
+          this.animationFrameId = requestAnimationFrame(animate);
+        } else {
+          // Animation completed
+          this.elapsedTime = 0;
+          this.startTime = null;
+
+          // Call completion callback if provided
+          if (onComplete) onComplete();
+        }
+      };
+
+      this.animationFrameId = requestAnimationFrame(animate);
     }
   }
 
+  // Custom element definition
   customElements.define("dynamo-wave", DynamoWave);
+  // Existing helper functions remain the same (generateWave, parsePath, interpolateWave)
+  function generateWave({ width, height, points, variance, vertical = false }) {
+    const anchors = [];
+    const step = vertical ? height / (points - 1) : width / (points - 1);
+
+    for (let i = 0; i < points; i++) {
+      const x = vertical
+        ? height - step * i
+        : step * i;
+      const y = vertical
+        ? width - width * 0.1 - Math.random() * (variance * width * 0.25)
+        : height - height * 0.1 - Math.random() * (variance * height * 0.25);
+      anchors.push(vertical ? { x: y, y: x } : { x, y });
+    }
+
+    let path = vertical
+      ? `M ${width} ${height} L ${anchors[0].x} ${height}`
+      : `M 0 ${height} L 0 ${anchors[0].y}`;
+
+    for (let i = 0; i < anchors.length - 1; i++) {
+      const curr = anchors[i];
+      const next = anchors[i + 1];
+      const controlX = (curr.x + next.x) / 2;
+      const controlY = (curr.y + next.y) / 2;
+      path += ` Q ${curr.x} ${curr.y}, ${controlX} ${controlY}`;
+    }
+
+    const last = anchors[anchors.length - 1];
+    path += vertical
+      ? ` Q ${last.x} ${last.y}, 0 0 L ${width} 0 L ${width} ${height} Z`
+      : ` Q ${last.x} ${last.y}, ${width} ${last.y} L ${width} ${height} Z`;
+
+    return path;
+  }
+
+  function parsePath(pathString) {
+    const points = [];
+    const regex = /Q\s([\d.]+)\s([\d.]+),\s([\d.]+)\s([\d.]+)/g;
+    let match;
+
+    while ((match = regex.exec(pathString)) !== null) {
+      points.push({
+        cpX: parseFloat(match[1]),
+        cpY: parseFloat(match[2]),
+        x: parseFloat(match[3]),
+        y: parseFloat(match[4]),
+      });
+    }
+    return points;
+  }
+
+  function interpolateWave(currentPoints, targetPoints, progress, vertical = false, height, width) {
+    const interpolatedPoints = currentPoints.map((current, i) => {
+      const target = targetPoints[i];
+      return {
+        cpX: current.cpX + (target.cpX - current.cpX) * progress,
+        cpY: vertical ? current.cpY : current.cpY + (target.cpY - current.cpY) * progress,
+        x: vertical ? current.x + (target.x - current.x) * progress : current.x,
+        y: vertical ? current.y : current.y + (target.y - current.y) * progress,
+      };
+    });
+
+    let path = vertical
+      ? `M ${width} ${height} L ${interpolatedPoints[0].x} ${height}`
+      : `M 0 ${height} L 0 ${interpolatedPoints[0].y}`;
+
+    for (let i = 0; i < interpolatedPoints.length; i++) {
+      const { cpX, cpY, x, y } = interpolatedPoints[i];
+      path += ` Q ${cpX} ${cpY}, ${x} ${y}`;
+    }
+
+    path += vertical
+      ? ` L 0 0 L ${width} 0 L ${width} ${height} Z`
+      : ` L ${width} ${height} Z`;
+
+    return path;
+  }
 
 }));
