@@ -16,8 +16,7 @@
   <meta name="og:description" content="Lightweight, jQuery-based SVG wave templates that shuffle themselves on render.">
   <meta name="msapplication-TileColor" content="#e4ecec">
   <meta name="theme-color" content="#c5d8d7">
-  <meta name="viewport"
-    content="target-densitydpi=device-dpi, width=device-width, user-scalable=no, maximum-scale=1, minimum-scale=1, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/dark.min.css">
   <link rel="stylesheet" href="normalize.css">
   <link rel="stylesheet" href="main.css">
@@ -25,8 +24,9 @@
 
 <body>
   <header>
-    <a href="https://markzebley.com" aria-label="External link to markzebley.com homepage" target="_blank"><svg version="1.0" viewBox="0 0 598.000000 598.000000"
-        preserveAspectRatio="xMidYMid meet" fill="var(--theme)" xmlns="http://www.w3.org/2000/svg">
+    <a href="https://markzebley.com" aria-label="External link to markzebley.com homepage" target="_blank"><svg
+        version="1.0" viewBox="0 0 598.000000 598.000000" preserveAspectRatio="xMidYMid meet" fill="var(--theme)"
+        xmlns="http://www.w3.org/2000/svg">
         <g transform="translate(0.000000,598.000000) scale(0.100000,-0.100000)" fill="inherit" stroke="none">
           <path d="M4790 5795 c-19 -9 -44 -24 -55 -34 -23 -22 -155 -109 -251 -166 -59
     -36 -273 -180 -299 -202 -5 -4 -44 -33 -85 -63 -41 -30 -77 -57 -80 -60 -3 -3
@@ -111,7 +111,7 @@
     21 18 24 16 4 -3 6 -42 5 -88z"></path>
         </g>
       </svg></a>
-    <svg viewBox="37.23 219.337 380.514 61.672" width="380.514" height="61.672">
+    <svg viewBox="37.23 219.337 380.514 61.672" width="380.514" height="61.672" role="img" aria-hidden="true">
       <defs>
         <clipPath id="clip-0">
           <path
@@ -158,364 +158,547 @@
         d="M 211.225 252.806 C 211.225 252.806 226.149 267.513 237.427 257.907 C 246.924 249.817 251.547 252.806 251.547 252.806 L 251.547 273.393 L 211.225 273.393 L 211.225 259.24 L 211.225 252.806 Z"
         style="clip-path: url(#clip-1); fill: rgb(106, 154, 153);"></path>
     </svg>
-    <p style="opacity:.75;color:var(--theme-dark);font-size:1.425rem;margin:1rem 0 2rem;max-width:none">
-      <strong>HTML</strong> templates
-      that <strong id="shuffle">shuffle</strong> themselves on render.<br><span
-        style="font-size:1rem;opacity:.75;margin-top:.75rem;display:inline-block"><em>5.5 KB minified with no
+    <h1 style="position: absolute;overflow: hidden; width:.1px;height:.1px;opacity:0" id="heading">Dynamowaves</h1>
+    <p style="opacity:.75;color:var(--theme-dark);font-size:1.5rem;margin:1rem 0 2rem;max-width:none">
+      Buttery smooth <strong>HTML</strong> templates
+      that <strong id="shuffle">randomly generate</strong> themselves on render.<br><span
+        style="font-size:1.25rem;margin-top:.75rem;display:inline-block"><em>5.4 KB minified—with no
           dependencies!</em></span>
     </p>
   </header>
-  <div class="wave-wrapper reveal" id="header_wave_wrapper">
-    <dynamo-wave data-wave-face="bottom" data-wave-observe="true"
-      style="fill:var(--theme-light);height:4rem;margin-top:-1px;width:100%" id="header_wave">
-    </dynamo-wave>
-  </div>
-  <div class="box" style="margin:3rem 0">
-    <button onclick="regenHeader()"><i data-feather="refresh-cw"></i>Regen Header</button>
-  </div>
-  <div class="box">
-    <div>
-      <h1>Installation</h1>
-      <p style="margin:0 0 1.25rem">
-        To make render times functionally instant, <strong>Dynamowaves</strong> intentionally eskews importing a library
-        such as <b>SVG.js</b> to build a new SVG on execution.<br><br>
-        Instead, it selects at random from a curated collection of potential <strong><code>&lt;paths&gt;</code></strong>
-        and leverages <strong>HTML web components</strong> (sorry, IE) to allow it to easily grab its reference
-        element's applied attributes and then fully replaces the reference with a slick lil' wave.<br><br>
-        You can install <strong>Dynamowaves</strong> via npm or by including the script file directly in your project.
-      </p>
-      <h2>npm Installation</h2>
-      <p>
-        To install <strong>Dynamowaves</strong> via npm, run the following command:
-      </p>
-      <pre>
-        <code class="bash">npm install dynamowaves</code>
-      </pre>
-      <p>
-        After installation, you can import <strong>Dynamowaves</strong> in your JavaScript or TypeScript files:
-      </p>
-      <pre>
-        <code class="javascript">import 'dynamowaves';</code>
-      </pre>
-      <h3>Angular Setup</h3>
-      <p>
-        To use <strong>Dynamowaves</strong> in an Angular project, follow these additional steps:
-      </p>
-      <ol>
-        <li>
-          In your <code>angular.json</code> file, add the <code>dynamowaves</code> script to the <code>scripts</code>
-          array:
-          <pre>
-            <code class="json">"scripts": [
-  "node_modules/dynamowaves/dist/dynamowaves.js"
-]</code>
-          </pre>
-        </li>
-        <li>
-          In your <code>app.module.ts</code> file, add <code>CUSTOM_ELEMENTS_SCHEMA</code> to the <code>schemas</code>
-          array:
-          <pre>
-            <code class="typescript">import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-@NgModule({
-// ...
-schemas: [CUSTOM_ELEMENTS_SCHEMA]
-})
-export class AppModule { }</code>
-</pre>
-        </li>
-      </ol>
-      <h2>Script Installation</h2>
-      <p>
-        Alternatively, you can include the <strong>Dynamowaves</strong> script file directly in your project:
-      </p>
-      <pre>
-        <code class="html">&lt;!-- Download and add to your project locally -->
-          &lt;script src="path/to/dynamowaves.js"&gt;&lt;/script&gt;
+  <main>
+    <div class="wave-wrapper reveal" id="header_wave_wrapper">
+      <dynamo-wave data-wave-face="bottom" data-wave-points="8" data-wave-speed="5000"
+        style="fill:var(--theme-light);height:4rem;margin-top:-1px;width:100%" id="header_wave">
+      </dynamo-wave>
+    </div>
+    <div class="box" style="margin:3rem 0">
+      <button onclick="regenHeader('header_wave')"><i data-feather="refresh-cw"></i>Regen Header</button>
+    </div>
+    <section class="box" aria-labelledby="installationHeader">
+      <div>
+        <h2 id="installationHeader">Installation</h2>
+        <p style="margin:0 0 1.25rem">
+          To make render times functionally instant, <strong>Dynamowaves</strong> intentionally eskews importing a
+          library
+          such as <b>SVG.js</b> to build a new SVG on execution.<br><br>
+          Instead, it selects at random from a curated collection of potential
+          <strong><code>&lt;paths&gt;</code></strong>
+          and leverages <strong>HTML web components</strong> (sorry, IE) to allow it to easily grab its reference
+          element's applied attributes and then fully replaces the reference with a slick lil' wave.<br><br>
+          You can install <strong>Dynamowaves</strong> via npm or by including the script file directly in your project.
+        </p>
+        <h3>npm Installation</h3>
+        <p>
+          To install <strong>Dynamowaves</strong> via npm, run the following command:
+        </p>
+        <pre>
+          <code class="bash">npm install dynamowaves</code>
+        </pre>
+        <p>
+          After installation, you can import <strong>Dynamowaves</strong> in your JavaScript or TypeScript files:
+        </p>
+        <pre>
+          <code class="javascript">import 'dynamowaves';</code>
+        </pre>
+        <h4>Angular Setup</h4>
+        <p>
+          To use <strong>Dynamowaves</strong> in an Angular project, follow these additional steps:
+        </p>
+        <ol>
+          <li>
+            In your <code class="file-name">angular.json</code> file, add the <code class="file-name">dynamowaves</code>
+            script to the <code class="file-name">scripts</code>
+            array:
+            <pre>
+              <code class="json">"scripts": [
+    "node_modules/dynamowaves/dist/dynamowaves.js"
+  ]</code>
+            </pre>
+          </li>
+          <li>
+            In your <code class="file-name">app.module.ts</code> file, add <code
+              class="file-name">CUSTOM_ELEMENTS_SCHEMA</code> to the <code class="file-name">schemas</code>
+            array:
+            <pre>
+              <code class="typescript">import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+  @NgModule({
+  // ...
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  })
+  export class AppModule { }</code>
+  </pre>
+          </li>
+        </ol>
+        <h3>Script Installation</h3>
+        <p>
+          Alternatively, you can include the <strong>Dynamowaves</strong> script file directly in your project:
+        </p>
+        <pre>
+          <code class="html">&lt;!-- Download and add to your project locally -->
+            &lt;script src="path/to/dynamowaves.js"&gt;&lt;/script&gt;
+  
+            &lt;!-- Or, reference the CDN -->
+            &lt;script src="https://cdn.jsdelivr.net/gh/mzebley/dynamowaves/dist/dynamowaves.min.js" crossorigin="anonymous"&gt;&lt;/script&gt;
+          </code>
+  </pre>
+      </div>
+    </section>
+    <section class="box" aria-labelledby="usageHeader">
+      <div>
+        <h2 id="usageHeader">Usage</h2>
+        <p>
+          Since <strong>Dynamowaves</strong> use HTML templating syntax, all it takes to call one is to add the custom
+          element to your HTML!</p>
+        <pre>
+          <code class="html">&lt;!-- Without any added attributes you get a top facing wave filled with the current color of its parent --> 
+            &lt;dynamo-wave&gt;&lt;/dynamo-wave&gt;
+          </code>
+        </pre>
+        <dynamo-wave></dynamo-wave>
+        <p style="margin-top:3rem">
+          A <strong>dynamo-wave</strong> will inherit any <strong><code>class</code></strong>,
+          <strong><code>id</code></strong>, or <strong><code>style</code></strong> applied to its invoking element.
+        </p>
+        <pre>
+          <code class="html">&lt;!-- Example 1 -->
+            &lt;dynamo-wave style="fill:slateblue"&gt;&lt;/dynamo-wave&gt;
+          </code>
+        </pre>
+        <dynamo-wave style="fill:slateblue"></dynamo-wave>
+        <pre style="margin:1rem 0 -6rem -1.25rem;white-space: pre;">
+          <code class="css">.fill-theme {
+    fill: var(--theme);
+  }</code>
+        </pre>
+        <pre>
+          <code class="html">&lt;!-- Example 2 -->
+            &lt;dynamo-wave class="fill-theme"&gt;&lt;/dynamo-wave&gt;
+          </code>
+        </pre>
+        <dynamo-wave class="fill-theme"></dynamo-wave>
+        <pre style="margin:1rem 0 -6rem -1.25rem;white-space: pre;">
+          <code class="css">#special_wave {
+    height: 3rem;
+    width:80%;
+    transform: translateX(10%);
+  }</code>
+        </pre>
+        <pre>
+          <code class="html">&lt;!-- Example 2 -->
+            &lt;dynamo-wave id="special_wave" class="fill-theme fill-light"&gt;&lt;/dynamo-wave&gt;
+          </code>
+        </pre>
+        <dynamo-wave id="special_wave" class="fill-theme fill-light"></dynamo-wave>
+      </div>
+      <div>
+        <h3>Data Attributes</h3>
+        <p style="margin-bottom:1rem">
+          <strong>Dynamowaves</strong> come out of the box with a variety of data attributes that can be used to
+          customize their
+          appearance and behavior.
+        </p>
+        <h4>Points and Variance</h4>
+        <p>
+          A <strong>dynamowave</strong> will generate itself a new, randomized wave path each time it's rendered. This
+          wave path is calculated using <strong><code>points</code></strong>, which determine the number of points that
+          make up the wave path, and <strong><code>variance</code></strong> - the maximum amount each point can deviate
+          from the wave's center.
+        </p>
+        <div class="table-container" tabindex="0">
+          <table aria-label="Wave point and variance attribute configuration table">
+            <thead>
+              <tr>
+                <th scope="col">Attribute</th>
+                <th scope="col">Default</th>
+                <th scope="col">Options</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <p style="min-width: max-content;">data-wave-points</p>
+                </td>
+                <td>6</td>
+                <td>Any positive integer</td>
+              </tr>
+              <tr>
+                <td>
+                  <p>data-wave-variance</p>
+                </td>
+                <td>3</td>
+                <td>Any positive integer</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
-          &lt;!-- Or, reference the CDN -->
-          &lt;script src="https://cdn.jsdelivr.net/gh/mzebley/dynamowaves/dist/dynamowaves.min.js" crossorigin="anonymous"&gt;&lt;/script&gt;
-        </code>
-</pre>
-    </div>
-  </div>
-  <div class="box" style="margin:2rem 0 0">
-    <div>
-      <h1>Usage</h1>
-      <p>
-        Since <strong>Dynamowaves</strong> use HTML templating syntax, all it takes to call one is to add the custom
-        element to your HTML!</p>
-      <pre>
-        <code class="html">&lt;!-- Without any added attributes you get a top facing wave filled with the current color of its parent -->
-          &lt;dynamo-wave&gt;&lt;/dynamo-wave&gt;
-        </code>
-      </pre>
-      <dynamo-wave></dynamo-wave>
-      <p style="margin-top:3rem">
-        A <strong>dynamo-wave</strong> will inherit any <strong><code>class</code></strong>,
-        <strong><code>id</code></strong>, or <strong><code>style</code></strong> applied to its invoking element.
-      </p>
-      <pre>
-        <code class="html">&lt;!-- Example 1 -->
-          &lt;dynamo-wave style="fill:slateblue"&gt;&lt;/dynamo-wave&gt;
-        </code>
-      </pre>
-      <dynamo-wave style="fill:slateblue"></dynamo-wave>
-      <pre style="margin:1rem 0 -6rem -1rem;white-space: pre;">
-        <code class="css">.fill-theme {
-  fill: var(--theme);
-}</code>
-      </pre>
-      <pre>
-        <code class="html">&lt;!-- Example 2 -->
-          &lt;dynamo-wave class="fill-theme"&gt;&lt;/dynamo-wave&gt;
-        </code>
-      </pre>
-      <dynamo-wave class="fill-theme"></dynamo-wave>
-      <pre style="margin:1rem 0 -6rem -1rem;white-space: pre;">
-        <code class="css">#special_wave {
-  height: 3rem;
-  width:80%;
-  transform: translateX(10%);
-}</code>
-      </pre>
-      <pre>
-        <code class="html">&lt;!-- Example 2 -->
-          &lt;dynamo-wave id="special_wave" class="fill-theme fill-light"&gt;&lt;/dynamo-wave&gt;
-        </code>
-      </pre>
-      <dynamo-wave id="special_wave" class="fill-theme fill-light"></dynamo-wave>
-    </div>
-  </div>
-  <div class="box" style="margin:3rem 0 0">
-    <div>
-      <h1>Wave Direction</h1>
-      <p>
-        Need more than a just a wave that faces up? Leverage the <strong><code>data-wave-face</code></strong>
-        attribute.<br><br>
-        Available options:<br><br>
-        <strong class="list-indicator">a)</strong> <strong><code>"top"</code></strong><br><br>
-        <strong class="list-indicator">b)</strong> <strong><code>"bottom"</code></strong><br><br>
-        <strong class="list-indicator">c)</strong> <strong><code>"right"</code></strong><br><br>
-        <strong class="list-indicator">d)</strong> <strong><code>"left"</code></strong>
-      </p>
-      <pre>
-        <code class="html">&lt;!-- Bottom facing wave -->
-          &lt;dynamo-wave class="fill-theme" data-wave-face="bottom"&gt;&lt;/dynamo-wave&gt;
-        </code>
-      </pre>
-      <dynamo-wave class="fill-theme" data-wave-face="bottom"></dynamo-wave>
-      <div style="display:grid;grid-template-columns: 70% 30%;margin-top:1rem;">
-        <div style="align-self: center;">
-          <pre>
-            <code class="html">&lt;!-- Left facing wave -->
-              &lt;dynamo-wave class="fill-theme" data-wave-face="left"&gt;&lt;/dynamo-wave&gt;
+        <pre>
+          <code class="html">&lt;!-- Update the points and variance to change up your wave feel --> 
+            &lt;dynamo-wave data-wave-points="100" data-wave-variance="2"&gt;&lt;/dynamo-wave&gt;
+          </code>
+        </pre>
+        <dynamo-wave data-wave-points="120" data-wave-variance="2"></dynamo-wave>
+      </div>
+      <div>
+        <h4>Wave Direction</h4>
+        <p>
+          Need more than a just a wave that faces up? Leverage the <strong><code>data-wave-face</code></strong>
+          attribute.</p>
+        <div class="table-container" tabindex="0">
+          <table aria-label="Wave direction attribute configuration table">
+            <thead>
+              <tr>
+                <th scope="col">Attribute</th>
+                <th scope="col">Default</th>
+                <th scope="col">Options</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <p>data-wave-face</p>
+                </td>
+                <td>'top'</td>
+                <td>'top', 'bottom', 'left', 'right'</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <pre>
+          <code class="html">&lt;!-- Bottom facing wave -->
+            &lt;dynamo-wave class="fill-theme" data-wave-face="bottom"&gt;&lt;/dynamo-wave&gt;
+          </code>
+        </pre>
+        <dynamo-wave class="fill-theme" data-wave-face="bottom"></dynamo-wave>
+        <div style="display:grid;grid-template-columns: 70% 30%;margin-top:1rem;">
+          <div style="align-self: center;">
+            <pre>
+              <code class="html">&lt;!-- Left facing wave -->
+                &lt;dynamo-wave class="fill-theme" data-wave-face="left"&gt;&lt;/dynamo-wave&gt;
+  
+                &lt;!-- Right facing wave -->
+                &lt;dynamo-wave class="fill-theme" data-wave-face="right"&gt;&lt;/dynamo-wave&gt;
+              </code>
+            </pre>
+          </div>
+          <div style="margin:1.5rem 0 0;padding-left: 2rem;">
+            <dynamo-wave class="fill-theme" data-wave-face="left" style="width:45%;height:300px"></dynamo-wave>
+            <dynamo-wave class="fill-theme" data-wave-face="right" style="width:45%;height:300px"></dynamo-wave>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h4>Wave Animation</h4>
+        <p>
+          Want a <strong>dynamowave</strong> that you can just sit around and stare at? You might be interested in the
+          <strong><code>data-wave-speed</code></strong> and <strong><code>data-wave-animate</code></strong> attributes.
+        </p>
+        <div class="table-container" tabindex="0">
+          <table aria-label="Wave animation attribute configuration table">
+            <thead>
+              <tr>
+                <th scope="col">Attribute</th>
+                <th scope="col">Default</th>
+                <th scope="col">Options</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <p>data-wave-speed</p>
+                </td>
+                <td>7500</td>
+                <td>Duration in milliseconds</td>
+              </tr>
+              <tr>
+                <td>
+                  <p>data-wave-animate</p>
+                </td>
+                <td>false</td>
+                <td>true, false</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="note">
+          <p>
+            <strong>Accessibility Note:</strong> The <strong>data-wave-animate</strong> attribute will be ignored if the
+            viewer's browser has <strong>reduced motion</strong> enabled.
+          </p>
+        </div>
+        <pre>
+          <code class="html">&lt;!-- Animated wave -->
+            &lt;dynamo-wave class="fill-theme" data-wave-speed="5000" data-wave-animate="true"&gt;&lt;/dynamo-wave&gt;
+          </code>
+        </pre>
+        <dynamo-wave class="fill-theme" data-wave-speed="5000" data-wave-animate="true"></dynamo-wave>
+      </div>
+      <div>
+        <h4>Wave Observation</h4>
+        <p>
+          Looking to <em>really</em> lean into generative design? The <strong><code>data-wave-observe</code></strong>
+          attribute adds an intelligent <a class="link" rel="external" target="_blank"
+            href="https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API">IntersectionObserver</a>
+          to your <strong>dynamowave</strong>, enabling dynamic wave regeneration.
+        </p>
+        <div class="table-container" tabindex="0">
+          <table aria-label="Wave observation attribute configuration table">
+            <thead>
+              <tr>
+                <th scope="col">Attribute</th>
+                <th scope="col">Default</th>
+                <th scope="col">Options</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <p>data-wave-observe</p>
+                </td>
+                <td>unset</td>
+                <td>
+                  <ul>
+                    <li><strong><code>once</code></strong> Generates a wave when leaving viewport, then stops</li>
+                    <li><strong><code>repeat</code></strong> Continuously regenerates waves when leaving viewport</li>
+                    <li><strong><code>once:300px</code></strong> Adds custom root margin</li>
+                    <li><strong><code>repeat:100px</code></strong> Combines mode with custom margin</li>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
-              &lt;!-- Right facing wave -->
-              &lt;dynamo-wave class="fill-theme" data-wave-face="right"&gt;&lt;/dynamo-wave&gt;
-            </code>
-          </pre>
+        <div class="note">
+          <p>
+            <strong>Margin Configuration:</strong> The optional pixel value after a colon adjusts the viewport
+            intersection threshold. Use positive margins to start regeneration earlier, or negative margins to delay
+            wave regeneration until the element is further from the viewport.
+          </p>
         </div>
-        <div style="margin:1.5rem 0 0;padding-left: 2rem;">
-          <dynamo-wave class="fill-theme" data-wave-face="left" style="width:45%;height:300px"></dynamo-wave>
-          <dynamo-wave class="fill-theme" data-wave-face="right" style="width:45%;height:300px"></dynamo-wave>
+
+        <pre>
+          <code class="html">&lt;!-- One-time wave regeneration --&gt;
+      &lt;dynamo-wave class="fill-theme" data-wave-observe="once"&gt;&lt;/dynamo-wave&gt;
+      
+      &lt;!-- Continuous wave regeneration --&gt;
+      &lt;dynamo-wave class="fill-theme" data-wave-observe="repeat"&gt;&lt;/dynamo-wave&gt;
+      
+      &lt;!-- Wave regenerates with 100px expanded viewport --&gt;
+      &lt;dynamo-wave class="fill-theme" data-wave-observe="repeat:100px"&gt;&lt;/dynamo-wave&gt;
+      
+      &lt;!-- Wave regenerates with 50px contracted viewport --&gt;
+      &lt;dynamo-wave class="fill-theme" data-wave-observe="once:-50px"&gt;&lt;/dynamo-wave&gt;</code>
+        </pre>
+        <!-- One-time wave regeneration -->
+        <dynamo-wave class="fill-theme" data-wave-observe="once"></dynamo-wave>
+
+        <!-- Continuous wave regeneration -->
+        <dynamo-wave class="fill-theme" data-wave-observe="repeat"></dynamo-wave>
+
+        <!-- Wave regenerates with 100px expanded viewport -->
+        <dynamo-wave class="fill-theme" data-wave-observe="repeat:100px"></dynamo-wave>
+
+        <!-- Wave regenerates with 50px contracted viewport -->
+        <dynamo-wave class="fill-theme" data-wave-observe="once:-50px"></dynamo-wave>
+      </div>
+      <div>
+        <h3>Available Functions</h3>
+        <p style="margin-bottom:1rem">
+          <strong>Dynamowaves</strong> come with a few functions that can be called to manipulate the wave after it's
+          been rendered.
+        </p>
+        <h4>.generateNewWave()</h4>
+        <p>
+          Want to see a new wave? Call <strong><code>generateNewWave(<em>duration</em>)</code></strong> on the
+          <strong>dynamowave</strong> you'd like to regenerate. The <strong><code>duration</code></strong> parameter is
+          an optional integer that determines how quickly the old wave morphs into the new wave - default is
+          <strong>800</strong>(ms).
+        </p>
+        <pre>
+          <code class="javascript">const wave = document.querySelector('dynamo-wave');
+            wave.generateNewWave(500);</code>
+        </pre>
+        <dynamo-wave class="fill-theme" id="regen-example-wave"></dynamo-wave>
+        <button style="margin-top:1rem" onclick="regenHeader('regen-example-wave', 500)"><i
+            data-feather="refresh-cw"></i>New Wave</button>
+      </div>
+      <div>
+        <h4>.play()</h4>
+        <p>
+          Call <strong><code>play(<em>duration</em>)</code></strong> on any <strong>dynamowave</strong> that you'd like
+          to animate. The <strong><code>duration</code></strong> parameter is an optional integer that determines the
+          length of the animation loop - default is <strong>7500</strong>(ms).
+        </p>
+        <h4>.pause()</h4>
+        <p>
+          To stop the animation loop, call <strong><code>pause()</code></strong> on the <strong>dynamowave</strong>
+          you'd like to stop.
+        </p>
+        <pre style="white-space: pre;">
+          <code class="javascript">const wave = document.querySelector('dynamo-wave');
+
+function toggleWaveAnimation() { 
+  if (wave.isAnimating) {
+    wave.pause();
+  } else {
+    wave.play(5000);
+  }
+}</code>
+        </pre>
+        <dynamo-wave class="fill-theme" id="play-example-wave"></dynamo-wave>
+        <button style="margin:1rem .5rem 0 0" onclick="play('play-example-wave', 5000)"><i data-feather="play"></i>Play
+          Wave</button>
+        <button style="margin-top:1rem" onclick="pause('play-example-wave')"><i data-feather="pause"></i>Pause
+          Wave</button>
+      </div>
+    </section>
+
+    <section class="box" style="margin-top:1rem" aria-labelledby="practicalApplicationHeader">
+      <div>
+        <h2 id="practicalApplicationHeader">Practical Application</h2>
+        <p>
+          <strong>Dynamowaves</strong> come out of the box entirely style agnostic. The onus is on the developer to add
+          the necessary attributes to get them to fit their intended platform, but at the same time this provides nearly
+          endless possibilities for customization.<br><br>
+          Make use of <strong><code>position:sticky</code></strong> and create a neat little header!
+        </p>
+        <pre style="white-space: pre;"><code class="html">&lt;!-- Widget classes not, uh, provided out-of-the-box -->
+  &lt;div class="widget"&gt;
+    &lt;div class="header"&gt;
+      &lt;h2&gt;I'm the heading!&lt;/h2&gt;
+      &lt;dynamo-wave data-wave-face="bottom"&gt;&lt;/dynamo-wave&gt;
+    &lt;/div&gt;
+    &lt;div class="content"&gt;...&lt;/div&gt;
+  &lt;/div&gt;</code></pre>
+        <div class="widget" id="widget_example_1">
+          <div class="header">
+            <h2>I'm the heading!</h2>
+            <dynamo-wave class="fill-theme" data-wave-face="bottom"></dynamo-wave>
+          </div>
+          <div class="content">Lorem ipsum dolor sit amet, ea sea regione concludaturque. Te eam pericula prodesset
+            constituto. In forensibus voluptatum nam. Ius ne modus laboramus, quo illud altera mandamus eu. Persius
+            oportere molestiae vel ut. Ei vel nusquam forensibus eloquentiam.
+            <br><br>
+            Mei in posse error incorrupte. Ex rebum vidisse sea. Per sumo quando mucius cu, no persius signiferumque
+            eos,
+            et has deserunt pertinacia. Ea malis everti nostrud sed.
+            <br><br>
+            Id regione prompta denique est, mei at veri essent instructior, mei id congue instructior. Nec ne legere
+            tritani sadipscing. Oblique propriae theophrastus id quo, vero persequeris vix cu. Qui singulis pertinacia
+            ex,
+            ad agam doctus graecis eos, vis et erat accumsan.
+            <br><br>
+            Cum esse quot essent te, in delicata conceptam cum, dicam iuvaret inimicus mei ad. Est ex cetero commune
+            eleifend. Vim in aeque constituam, timeam debitis argumentum sed ea. His epicurei evertitur et, ea sanctus
+            saperet sed. An harum referrentur nec, te sed errem patrioque, mei et tempor blandit sapientem. Vim te
+            aeterno
+            sapientem.
+            <br><br>
+            In eam putant labores accusam. Ne sed evertitur torquatos. Dolor option regione nam ei, summo constituto usu
+            at. Postea accusata et has, his te prima porro verterem.
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-  <div class="box" style="margin:3rem 0 0">
-    <div>
-      <h1>Wave Observation</h1>
-      <p>
-        Looking to <em>really</em> lean into generative design? Add
-        <strong><code>data-wave-observe="true"</code></strong> to a <strong>dynamowave</strong>.<br><br> Now your wave
-        will build it's own <strong><code>IntersectionObserver</code></strong> upon intitial render, shuffling itself
-        each time it leaves the viewport!
-      </p>
-      <pre>
-        <code class="html">&lt;!-- Self shuffling wave -->
-          &lt;dynamo-wave class="fill-theme" data-wave-observe="true"&gt;&lt;/dynamo-wave&gt;
-        </code>
-      </pre>
-      <dynamo-wave class="fill-theme" data-wave-observe="true"></dynamo-wave>
-    </div>
-  </div>
-  <div class="box" style="margin:3rem 0 0">
-    <div>
-      <h1>Practical Application</h1>
-      <p>
-        <strong>Dynamowaves</strong> come out of the box entirely style agnostic. The onus is on the developer to add
-        the necessary attributes to get them to fit their intended platform, but at the same time this provides nearly
-        endless possibilities for customization.<br><br>
-        Make use of <strong><code>position:sticky</code></strong> and create a neat little header!
-      </p>
-      <pre style="white-space: pre;"><code class="html">&lt;!-- Widget classes not, uh, provided out-of-the-box -->
-&lt;div class="widget"&gt;
-  &lt;div class="header"&gt;
-    &lt;h2&gt;I'm the heading!&lt;/h2&gt;
-    &lt;dynamo-wave data-wave-face="bottom"&gt;&lt;/dynamo-wave&gt;
-  &lt;/div&gt;
-  &lt;div class="content"&gt;...&lt;/div&gt;
-&lt;/div&gt;</code></pre>
-      <div class="widget" id="widget_example_1">
-        <div class="header">
-          <h2>I'm the heading!</h2>
-          <dynamo-wave class="fill-theme" data-wave-face="bottom"></dynamo-wave>
-        </div>
-        <div class="content">Lorem ipsum dolor sit amet, ea sea regione concludaturque. Te eam pericula prodesset
-          constituto. In forensibus voluptatum nam. Ius ne modus laboramus, quo illud altera mandamus eu. Persius
-          oportere molestiae vel ut. Ei vel nusquam forensibus eloquentiam.
-          <br><br>
-          Mei in posse error incorrupte. Ex rebum vidisse sea. Per sumo quando mucius cu, no persius signiferumque eos,
-          et has deserunt pertinacia. Ea malis everti nostrud sed.
-          <br><br>
-          Id regione prompta denique est, mei at veri essent instructior, mei id congue instructior. Nec ne legere
-          tritani sadipscing. Oblique propriae theophrastus id quo, vero persequeris vix cu. Qui singulis pertinacia ex,
-          ad agam doctus graecis eos, vis et erat accumsan.
-          <br><br>
-          Cum esse quot essent te, in delicata conceptam cum, dicam iuvaret inimicus mei ad. Est ex cetero commune
-          eleifend. Vim in aeque constituam, timeam debitis argumentum sed ea. His epicurei evertitur et, ea sanctus
-          saperet sed. An harum referrentur nec, te sed errem patrioque, mei et tempor blandit sapientem. Vim te aeterno
-          sapientem.
-          <br><br>
-          In eam putant labores accusam. Ne sed evertitur torquatos. Dolor option regione nam ei, summo constituto usu
-          at. Postea accusata et has, his te prima porro verterem.
+      <div>
+        <p>
+          Use an animated <strong>dynamowave</strong> to add some more pizzazz to transition effects.
+        </p>
+        <div class="widget" id="widget_example_2">
+          <div class="content" style="flex:1">
+            <div>Content 1</div>
+            <div>Content 2</div>
+            <div>Content 3</div>
+            <div>Content 4</div>
+          </div>
+          <div class="footer">
+            <dynamo-wave class="fill-theme fill-light" id="transition-wave-example" data-wave-face="top"></dynamo-wave>
+            <div class="content">
+              <button style="margin-top:1rem" id="transition-wave-button" onclick="transition()">
+                <span>Next</span>
+                <i data-feather="chevrons-right"></i>
+              </button>
+            </div>
+           
+          </div>
+          
         </div>
       </div>
-      <p style="margin-top:3rem">
-        Stack multiple <strong>dynamowaves</strong> with differing heights and colors to provide some visual interest
-        when transitioning between content sections.
-      </p>
-      <pre style="white-space: pre;"><code class="html">&lt;!-- Probably, you know, use classes for this in real life -->
-&lt;div style="position:relative;height:4rem"&gt;
-  &lt;dynamo-wave style="
-    position:absolute;
-    height:4rem;
-    bottom:0;
-    fill:lightsteelblue;
-    width:100%"&gt;
-  &lt;/dynamo-wave&gt;
-  &lt;dynamo-wave style="
-    position:absolute;
-    height:3rem;
-    bottom:0;
-    fill:cadetblue;
-    width:100%"&gt;
-    &lt;/dynamo-wave&gt;
-  &lt;dynamo-wave style="
-    position:absolute;
-    height:2rem;
-    bottom:0;
-    fill:#25455F;
-    width:100%"&gt;
-  &lt;/dynamo-wave&gt;
-&lt;/div&gt;
-&lt;div style="padding:3rem;backgroundt:#25455F"&gt;...&lt;/div&gt;
-&lt;div style="position:relative;height:4rem"&gt;
-  &lt;dynamo-wave style="
-    position:absolute;
-    height:4rem;
-    top:0;
-    fill:lightsteelblue;
-    width:100%"&gt;
-  &lt;/dynamo-wave&gt;
-  &lt;dynamo-wave style="
-    position:absolute;
-    height:3rem;
-    bottom:0;
-    fill:cadetblue;
-    width:100%"&gt;
-  &lt;/dynamo-wave&gt;
-  &lt;dynamo-wave style="
-    position:absolute;
-    height:2rem;
-    top:0;
-    fill:#25455F;
-    width:100%"&gt;
-  &lt;/dynamo-wave&gt;
-&lt;/div&gt;</code></pre>
-    </div>
-  </div>
-  <div style="position:relative;height:4rem">
-    <dynamo-wave style="position:absolute;height:4rem;bottom:0;fill:lightsteelblue;width:100%"></dynamo-wave>
-    <dynamo-wave style="position:absolute;height:3rem;bottom:0;fill:cadetblue;width:100%"></dynamo-wave>
-    <dynamo-wave style="position:absolute;height:2rem;bottom:0;fill:#25455F;width:100%"></dynamo-wave>
-  </div>
-  <div class="box" style="padding:3rem 0;color:white;background:#25455F;">
-    <p style="text-align:center">Content content content....</p>
-  </div>
-  <div style="position:relative;height:4rem">
-    <dynamo-wave data-wave-face="bottom" style="position:absolute;height:4rem;top:0;fill:lightsteelblue;width:100%">
-    </dynamo-wave>
-    <dynamo-wave data-wave-face="bottom" style="position:absolute;height:3rem;top:0;fill:cadetblue;width:100%">
-    </dynamo-wave>
-    <dynamo-wave data-wave-face="bottom" style="position:absolute;height:2rem;top:0;fill:#25455F;width:100%">
-    </dynamo-wave>
-  </div>
-  </div>
-  <div class="box" style="margin:1rem 0 0">
-    <div>
-      <p>
-        Slap one of these bad boys along the edge of a photo to create an always fresh, </strong>
-        <strong><code>mask-image</code></strong> effect without having to actually create multiple clip paths or image
-        masks!
-      </p>
-      <pre style="white-space: pre;"><code class="html">&lt;div class="widget horizontal"&gt;
-  &lt;div class="image-wrapper"&gt;
-    &lt;img src="./img/image_path.jpeg" /&gt;
-    &lt;!-- When covering an image, I find it helps the browser render 
-    to set the far edge with a bit of a negative overlap
-    It keeps the image from peeking through from behind the wave -->
-    &lt;dynamo-wave data-wave-face="left" style="fill:white;position:absolute;right:-1px"&gt;&lt;/dynamo-wave&gt;
-  &lt;/div&gt;
-  &lt;div class="content"&gt;...&lt;/div&gt;
-&lt;/div&gt;</code></pre>
-      <div class="widget horizontal">
-        <div class="image-wrapper">
-          <dynamo-wave data-wave-face="left" style="position:absolute;right:-1px;height:100%;width:1.5rem;fill:white">
-          </dynamo-wave>
-        </div>
-        <div class="content" style="align-self: center;padding:0 1rem">
-          <h2 style="font-family:'Merriweather',serif;color:var(--theme);margin:0">Eye-catching headline.</h2>
-          <p style="font-size:1rem">Further information to draw interest.</p>
-          <a>Explore This <i data-feather="arrow-right" style="width:20px;height:20px"></i></a>
+      <div>
+        <div>
+          <p>
+            Slap one of these bad boys along the edge of a photo to create an always fresh, </strong>
+            <strong><code>mask-image</code></strong> effect without having to actually create multiple clip paths or
+            image
+            masks!
+          </p>
+          <pre style="white-space: pre;"><code class="html">&lt;div class="widget horizontal"&gt;
+    &lt;div class="image-wrapper"&gt;
+      &lt;img src="./img/image_path.jpeg" /&gt;
+      &lt;!-- When covering an image, I find it helps the browser render 
+      to set the far edge with a bit of a negative overlap
+      It keeps the image from peeking through from behind the wave -->
+      &lt;dynamo-wave data-wave-face="left" style="fill:white;position:absolute;right:-1px"&gt;&lt;/dynamo-wave&gt;
+    &lt;/div&gt;
+    &lt;div class="content"&gt;...&lt;/div&gt;
+  &lt;/div&gt;</code></pre>
+          <div class="widget horizontal" id="widget_example_3" style="min-height:max-content">
+            <div class="image-wrapper">
+              <dynamo-wave data-wave-face="left"
+                style="position:absolute;right:-1px;height:100%;width:1.5rem;fill:white">
+              </dynamo-wave>
+            </div>
+            <div class="content" style="align-self: center;padding:1rem">
+              <h2 style="font-family:'Merriweather',serif;color:var(--theme);margin:0">Eye-catching headline.</h2>
+              <p>Further information to draw interest.</p>
+              <a href="#" aria-label="Fake example link">Explore This <i data-feather="arrow-right"
+                  style="width:20px;height:20px"></i></a>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-  <div class="box" style="margin:3rem 0 0">
-    <div>
-      <h1>Dive Deeper</h1>
-      <p>
-        Take a more in-depth look at the process behind <b>dynamowaves</b> in the article <a target="_blank"
-          href="https://www.markzebley.com/#/article?slug=so-fresh-so-wavy&anchor=so-fresh-so-wavy_wrapper"
-          style="color:var(--theme);cursor:pointer"><b><em>So fresh. So wavy.</em></b></a> on <a target="_blank"
-          href="https://markzebley.com" style="color: #4169e1;cursor:pointer;font-weight:600">markzebley.com</a>!</p>
-    </div>
-  </div>
-  <dynamo-wave class="fill-theme fill-light" style="margin-bottom:-1px;height:4rem;width:100%;margin-top:6rem">
-  </dynamo-wave>
+    </section>
+    <section class="box" style="margin-top:1rem" aria-labelledby="diveDeeperHeading">
+      <div>
+        <h2 id="diveDeeperHeading">Dive Deeper</h2>
+        <p>
+          Take a more in-depth look at the process behind <b>Dynamowaves</b> in the article <a rel="external"
+            target="_blank"
+            href="https://www.markzebley.com/#/article?slug=so-fresh-so-wavy&anchor=so-fresh-so-wavy_wrapper"
+            class="link"><b><em>So fresh. So wavy.</em></b></a> on <a target="_blank" href="https://markzebley.com"
+            rel="external" class="link">markzebley.com</a>!
+        </p>
+      </div>
+    </section>
+    <dynamo-wave class="fill-theme fill-light" style="margin-bottom:-1px;height:4rem;width:100%;margin-top:6rem">
+    </dynamo-wave>
+  </main>
   <footer>
     <div style="align-self: center;">
-      <a href="https://github.com/mzebley/dynamowaves" style="display:inline-flex;align-items: center;gap:.25rem" aria-label="External link to Dynamowaves on Github"
+      <a href="https://github.com/mzebley/dynamowaves" rel="external"
+        style="display:inline-flex;align-items: center;gap:.25rem" aria-label="External link to Dynamowaves on Github"
         target="_blank">
         <i style="color:var(--theme);margin: -2px 0.5rem 0 0;" data-feather="github"></i>
-        <p style="font-size:.75rem;color:var(--theme-dark);opacity:.75;line-height: .85rem;">
+        <p style="font-size:1rem;color:var(--theme-dark);line-height: 1.325rem;">
           <em><strong>Dynamowaves</strong></em><br>on <strong>Github</strong>
         </p>
       </a>
     </div>
     <div style="align-self: center;">
-      <a href="https://www.npmjs.com/package/dynamowaves" style="display:inline-flex;align-items: center;gap:.25rem" aria-label="External link to Dynamowaves on npmjs"
+      <a href="https://www.npmjs.com/package/dynamowaves" rel="external"
+        style="display:inline-flex;align-items: center;gap:.25rem" aria-label="External link to Dynamowaves on npmjs"
         target="_blank">
         <i style="color:var(--theme);margin: -2px 0.5rem 0 0;" data-feather="code"></i>
-        <p style="font-size:.75rem;color:var(--theme-dark);opacity:.75;line-height: .85rem;">
+        <p style="font-size:1rem;color:var(--theme-dark);line-height: 1.325rem;">
           <em><strong>Dynamowaves</strong></em><br>on <strong>npmjs</strong>
         </p>
       </a>
     </div>
     <div style="align-self: center;">
-      <a href="https://markzebley.com" style="display:inline-flex;align-items: center;gap:.25rem" target="_blank">
-        <p style="text-align:right;font-size:.75rem;color:var(--theme-dark);opacity:.75;line-height: .85rem;">
+      <a href="https://markzebley.com" rel="external" style="display:inline-flex;align-items: center;gap:.25rem"
+        target="_blank">
+        <p style="text-align:right;font-size:1rem;color:var(--theme-dark);line-height: 1.325rem;">
           <em>Handcoded in<br>Northwest Arkansas</em>
         </p>
         <svg style="width:56px;fill:var(--theme);cursor:pointer" viewBox="0 0 40 32">
@@ -530,14 +713,36 @@ export class AppModule { }</code>
   <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
   <script>
-    function regenHeader() {
-      document.getElementById("header_wave_wrapper").classList.remove("reveal");
-      setTimeout(() => {
-        document.getElementById("header_wave").outerHTML =
-          `<dynamo-wave data-wave-face="bottom" style="fill:var(--theme-light);height:4rem;margin-top:-1px;width:100%" id="header_wave"></dynamo-wave>`;
-        document.getElementById("header_wave_wrapper").classList.add("reveal");
-      }, 225)
+    function regenHeader(id, duration = 800) {
+      document.getElementById(id).generateNewWave(duration);
     };
+    function play(id, duration = 7500) {
+      document.getElementById(id).play(duration);
+    };
+    function pause(id) {
+      document.getElementById(id).pause();
+    };
+    let transitionCount = 0;
+    function transition() {
+      const wave = document.getElementById('transition-wave-example');
+      const button = document.getElementById('transition-wave-button');
+      if (transitionCount >= 3) {
+        return
+      }
+      transitionCount++;
+ 
+      const content = document.querySelector('#widget_example_2 .content');
+      // translate content to the left 25% each click
+      content.style.transform = `translateX(-${25 * transitionCount}%)`;
+      button.disabled = true;
+      wave.generateNewWave(500);
+      setTimeout(() => {
+        button.disabled = false;
+        if (transitionCount === 3) {
+        button.innerText = 'Complete!';
+      }
+      }, 500);
+    }
     feather.replace({
       'stroke-width': ".175rem"
     });
