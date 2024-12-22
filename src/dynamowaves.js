@@ -1,4 +1,24 @@
 class DynamoWave extends HTMLElement {
+  /**
+   * Constructs a new instance of the class.
+   * 
+   * @constructor
+   * 
+   * @property {boolean} isAnimating - Indicates whether the animation is currently running.
+   * @property {number|null} animationFrameId - The ID of the current animation frame request.
+   * @property {number} elapsedTime - The elapsed time since the animation started.
+   * @property {number|null} startTime - The start time of the animation.
+   * 
+   * @property {boolean} isGeneratingWave - Indicates whether a wave is currently being generated.
+   * 
+   * @property {Path2D|null} currentPath - The current wave path.
+   * @property {Path2D|null} targetPath - The target wave path.
+   * @property {Path2D|null} pendingTargetPath - The next wave path to be generated.
+   * 
+   * @property {IntersectionObserver|null} intersectionObserver - The Intersection Observer instance.
+   * @property {Object|null} observerOptions - The options for the Intersection Observer.
+   */
+
   constructor() {
     super();
     this.isAnimating = false;
@@ -18,6 +38,14 @@ class DynamoWave extends HTMLElement {
     this.observerOptions = null;
   }
 
+  /**
+   * Called when the custom element is appended to the DOM.
+   * Initializes the wave properties, constructs the SVG element,
+   * and sets up animation and observation if specified.
+   * 
+   * @method connectedCallback
+   * @returns {void}
+   */
   connectedCallback() {
     const classes = this.className;
     const id = this.id ?? Math.random().toString(36).substring(7);
@@ -61,7 +89,7 @@ class DynamoWave extends HTMLElement {
         style="${flipX ? "transform:scaleX(-1);" : ""}${flipY ? "transform:scaleY(-1);" : ""}${styles || ""}"
         id="${id}"
         aria-hidden="true"
-        role="img"
+        role="presentation"
       >
         <path d="${this.currentPath}" style="stroke:inherit; fill: inherit"></path>
       </svg>
@@ -91,6 +119,13 @@ class DynamoWave extends HTMLElement {
   }
 
   // Public method to play the animation
+  /**
+   * Starts the wave animation. If a custom duration is provided, it will be used for the animation;
+   * otherwise, the instance's default duration will be used. The animation will continue looping
+   * until `stop` is called.
+   *
+   * @param {number|null} [customDuration=null] - Optional custom duration for the animation in milliseconds.
+   */
   play(customDuration = null) {
     if (this.isAnimating) return;
     this.isAnimating = true;
@@ -139,6 +174,11 @@ class DynamoWave extends HTMLElement {
   }
 
   // Public method to pause the animation
+  /**
+   * Pauses the animation if it is currently running.
+   * Sets the `isAnimating` flag to false, cancels the animation frame,
+   * and saves the current elapsed time.
+   */
   pause() {
     if (!this.isAnimating) return;
     this.isAnimating = false;
@@ -150,6 +190,10 @@ class DynamoWave extends HTMLElement {
     this.startTime = null;
   }
 
+  /**
+   * Called when the element is disconnected from the document's DOM.
+   * Cleans up the intersection observer if it exists.
+   */
   disconnectedCallback() {
     // Clean up intersection observer when element is removed
     if (this.intersectionObserver) {
@@ -158,13 +202,28 @@ class DynamoWave extends HTMLElement {
     }
   }
 
+  /**
+   * Sets up an IntersectionObserver to monitor the visibility of the element.
+   * 
+   * @param {string} observeConfig - Configuration string for observation. 
+   *                                 Format: "mode:rootMargin". 
+   *                                 "mode" can be "once" for one-time observation.
+   *                                 "rootMargin" is an optional margin around the root.
+   * 
+   * @example
+   * // Observe with default root margin and trigger only once
+   * setupIntersectionObserver('once:0px');
+   * 
+   * @example
+   * // Observe with custom root margin and continuous triggering
+   * setupIntersectionObserver('continuous:10px');
+   */
   setupIntersectionObserver(observeConfig) {
     // Parse observation configuration
     const [mode, rootMargin = '0px'] = observeConfig.split(':');
     
     // Determine observation mode
     const isOneTime = mode === 'once';
-    const isRepeated = mode === 'repeat';
 
     // Default options if not specified
     this.observerOptions = {
@@ -194,6 +253,12 @@ class DynamoWave extends HTMLElement {
   }
 
   // Public method to morph to a new wave
+  /**
+   * Generates a new wave animation with the specified duration.
+   * Prevents multiple simultaneous wave generations by setting a flag.
+   * 
+   * @param {number} [duration=800] - The duration of the wave animation in milliseconds. Minimum value is 1.
+   */
   generateNewWave(duration = 800) {
     // Prevent multiple simultaneous wave generations
     if (this.isGeneratingWave || this.animationFrameId) {
@@ -228,6 +293,12 @@ class DynamoWave extends HTMLElement {
   }
 
   // Core animation logic
+  /**
+   * Animates the wave transition from the current path to the target path over a specified duration.
+   *
+   * @param {number} duration - The duration of the animation in milliseconds.
+   * @param {Function} [onComplete=null] - Optional callback function to be called upon animation completion.
+   */
   animateWave(duration, onComplete = null) {
     // Ensure we have valid start and target paths
     const startPoints = parsePath(this.currentPath);
@@ -290,7 +361,18 @@ class DynamoWave extends HTMLElement {
 
 // Custom element definition
 customElements.define("dynamo-wave", DynamoWave);
-// Existing helper functions remain the same (generateWave, parsePath, interpolateWave)
+
+/**
+ * Generates an SVG path string representing a wave pattern.
+ *
+ * @param {Object} options - The options for generating the wave.
+ * @param {number} options.width - The width of the wave.
+ * @param {number} options.height - The height of the wave.
+ * @param {number} options.points - The number of points in the wave.
+ * @param {number} options.variance - The variance factor for the wave's randomness.
+ * @param {boolean} [options.vertical=false] - Whether the wave should be vertical.
+ * @returns {string} The SVG path string representing the wave.
+ */
 function generateWave({ width, height, points, variance, vertical = false }) {
   const anchors = [];
   const step = vertical ? height / (points - 1) : width / (points - 1);
@@ -325,6 +407,12 @@ function generateWave({ width, height, points, variance, vertical = false }) {
   return path;
 }
 
+/**
+ * Parses a path string containing quadratic Bezier curve commands and extracts the control points and end points.
+ *
+ * @param {string} pathString - The path string containing 'Q' commands followed by control point and end point coordinates.
+ * @returns {Array<Object>} An array of objects, each containing the control point (cpX, cpY) and end point (x, y) coordinates.
+ */
 function parsePath(pathString) {
   const points = [];
   const regex = /Q\s([\d.]+)\s([\d.]+),\s([\d.]+)\s([\d.]+)/g;
@@ -341,6 +429,17 @@ function parsePath(pathString) {
   return points;
 }
 
+/**
+ * Interpolates between two sets of points to create a smooth wave transition.
+ *
+ * @param {Array<Object>} currentPoints - The current set of points.
+ * @param {Array<Object>} targetPoints - The target set of points.
+ * @param {number} progress - The progress of the interpolation (0 to 1).
+ * @param {boolean} [vertical=false] - Whether the wave is vertical or horizontal.
+ * @param {number} height - The height of the wave container.
+ * @param {number} width - The width of the wave container.
+ * @returns {string} - The SVG path data for the interpolated wave.
+ */
 function interpolateWave(currentPoints, targetPoints, progress, vertical = false, height, width) {
   const interpolatedPoints = currentPoints.map((current, i) => {
     const target = targetPoints[i];
