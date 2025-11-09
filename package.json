@@ -33,7 +33,7 @@
   },
   "homepage": "https://dynamowaves.markzebley.com/",
   "devDependencies": {
-    "@rollup/plugin-terser": "^1.0.0",
+    "@rollup/plugin-terser": "^0.4.4",
     "rollup": "^3.29.4",
     "rollup-plugin-dts": "^6.1.1"
   }

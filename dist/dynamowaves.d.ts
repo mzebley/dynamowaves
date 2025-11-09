@@ -7,6 +7,8 @@ interface WaveGenerationOptions {
   points: number;
   variance: number;
   vertical?: boolean;
+  random?: () => number;
+  startEndZero?: boolean;
 }
 
 // Interface for wave point structure
@@ -47,6 +49,8 @@ declare class DynamoWave extends HTMLElement {
   private height: number;
   private svg: SVGSVGElement;
   private path: SVGPathElement;
+  private random: () => number;
+  private startEndZero: boolean;
 
   constructor();
   
@@ -75,10 +79,13 @@ declare global {
 interface DynamoWaveAttributes {
   'data-wave-face'?: WaveDirection;
   'data-wave-points'?: string;
+  'data-wave-variance'?: string;
   'data-variance'?: string;
   'data-wave-speed'?: string;
   'data-wave-animate'?: string;
   'data-wave-observe'?: string;
+  'data-wave-seed'?: string;
+  'data-start-end-zero'?: string;
 }
 
 // Extend HTMLElement interface to include our attributes
