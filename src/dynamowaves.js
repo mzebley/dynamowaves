@@ -36,6 +36,8 @@ class DynamoWave extends HTMLElement {
     // Intersection Observer properties
     this.intersectionObserver = null;
     this.observerOptions = null;
+
+    this.random = Math.random;
   }
 
   /**
@@ -52,9 +54,19 @@ class DynamoWave extends HTMLElement {
     const styles = this.getAttribute("style");
 
     const waveDirection = this.getAttribute("data-wave-face") || "top";
-    this.points = parseInt(this.getAttribute("data-wave-points")) || 6;
-    this.variance = parseFloat(this.getAttribute("data-variance")) || 3;
+    const pointsAttr = parseInt(this.getAttribute("data-wave-points"), 10);
+    this.points = Number.isFinite(pointsAttr) ? Math.max(2, pointsAttr) : 6;
+
+    const varianceAttr = this.getAttribute("data-wave-variance");
+    const legacyVarianceAttr = this.getAttribute("data-variance");
+    const parsedVariance = parseFloat(varianceAttr ?? legacyVarianceAttr ?? "");
+    this.variance = Number.isFinite(parsedVariance) ? parsedVariance : 3;
     this.duration = parseFloat(this.getAttribute("data-wave-speed")) || 7500;
+
+    const seedAttr = this.getAttribute("data-wave-seed");
+    this.random = typeof seedAttr === "string" && seedAttr.trim() !== ""
+      ? createSeededRandom(seedAttr)
+      : Math.random;
 
     this.vertical = waveDirection === "left" || waveDirection === "right";
     const flipX = waveDirection === "right";
@@ -70,6 +82,7 @@ class DynamoWave extends HTMLElement {
       points: this.points,
       variance: this.variance,
       vertical: this.vertical,
+      random: this.random,
     });
 
     this.targetPath = generateWave({
@@ -78,6 +91,7 @@ class DynamoWave extends HTMLElement {
       points: this.points,
       variance: this.variance,
       vertical: this.vertical,
+      random: this.random,
     });
 
     // Construct the SVG
@@ -112,7 +126,11 @@ class DynamoWave extends HTMLElement {
 
     // Automatically start animation if enabled
     if (this.getAttribute("data-wave-animate") === "true") {
-      if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      if (
+        typeof window !== "undefined" &&
+        typeof window.matchMedia === "function" &&
+        !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+      ) {
         this.play();
       }
     }
@@ -142,6 +160,7 @@ class DynamoWave extends HTMLElement {
           points: this.points,
           variance: this.variance,
           vertical: this.vertical,
+          random: this.random,
         });
       }
 
@@ -160,6 +179,7 @@ class DynamoWave extends HTMLElement {
           points: this.points,
           variance: this.variance,
           vertical: this.vertical,
+          random: this.random,
         });
 
         // Continue the animation loop if still playing
@@ -232,6 +252,16 @@ class DynamoWave extends HTMLElement {
       threshold: 0 // trigger as soon as element completely leaves/enters
     };
 
+    if (
+      typeof window === "undefined" ||
+      typeof window.IntersectionObserver === "undefined"
+    ) {
+      console.warn(
+        "IntersectionObserver is not available in this environment. Wave regeneration on intersection will be disabled."
+      );
+      return;
+    }
+
     this.intersectionObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         // Trigger new wave when completely outside viewport
@@ -277,6 +307,7 @@ class DynamoWave extends HTMLElement {
       points: this.points,
       variance: this.variance,
       vertical: this.vertical,
+      random: this.random,
     });
 
     // Animate from current path to new target
@@ -314,6 +345,7 @@ class DynamoWave extends HTMLElement {
         points: this.points,
         variance: this.variance,
         vertical: this.vertical,
+        random: this.random,
       });
 
       this.targetPath = generateWave({
@@ -322,6 +354,7 @@ class DynamoWave extends HTMLElement {
         points: this.points,
         variance: this.variance,
         vertical: this.vertical,
+        random: this.random,
       });
 
       return;
@@ -352,6 +385,13 @@ class DynamoWave extends HTMLElement {
 
         // Call completion callback if provided
         if (onComplete) onComplete();
+        if (typeof CustomEvent === "function") {
+          this.dispatchEvent(
+            new CustomEvent("dynamo-wave-complete", {
+              detail: { duration, direction: this.vertical ? "vertical" : "horizontal" }
+            })
+          );
+        }
       }
     };
 
@@ -360,7 +400,13 @@ class DynamoWave extends HTMLElement {
 }
 
 // Custom element definition
-customElements.define("dynamo-wave", DynamoWave);
+if (
+  typeof window !== "undefined" &&
+  window.customElements &&
+  !window.customElements.get("dynamo-wave")
+) {
+  window.customElements.define("dynamo-wave", DynamoWave);
+}
 
 /**
  * Generates an SVG path string representing a wave pattern.
@@ -373,17 +419,25 @@ customElements.define("dynamo-wave", DynamoWave);
  * @param {boolean} [options.vertical=false] - Whether the wave should be vertical.
  * @returns {string} The SVG path string representing the wave.
  */
-function generateWave({ width, height, points, variance, vertical = false }) {
+function generateWave({
+  width,
+  height,
+  points,
+  variance,
+  vertical = false,
+  random = Math.random,
+}) {
+  const safePoints = Math.max(2, Number.isFinite(points) ? Math.floor(points) : 2);
   const anchors = [];
-  const step = vertical ? height / (points - 1) : width / (points - 1);
+  const step = vertical ? height / (safePoints - 1) : width / (safePoints - 1);
 
-  for (let i = 0; i < points; i++) {
+  for (let i = 0; i < safePoints; i++) {
     const x = vertical
       ? height - step * i
       : step * i;
     const y = vertical
-      ? width - width * 0.1 - Math.random() * (variance * width * 0.25)
-      : height - height * 0.1 - Math.random() * (variance * height * 0.25);
+      ? width - width * 0.1 - random() * (variance * width * 0.25)
+      : height - height * 0.1 - random() * (variance * height * 0.25);
     anchors.push(vertical ? { x: y, y: x } : { x, y });
   }
 
@@ -407,6 +461,27 @@ function generateWave({ width, height, points, variance, vertical = false }) {
   return path;
 }
 
+function createSeededRandom(seed) {
+  let hash = 0;
+  const seedString = String(seed);
+
+  for (let i = 0; i < seedString.length; i++) {
+    hash = (hash << 5) - hash + seedString.charCodeAt(i);
+    hash |= 0; // Convert to 32bit integer
+  }
+
+  let state = hash >>> 0;
+
+  return function seededRandom() {
+    // Mulberry32 PRNG
+    state += 0x6d2b79f5;
+    let t = state;
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
 /**
  * Parses a path string containing quadratic Bezier curve commands and extracts the control points and end points.
  *
@@ -415,7 +490,8 @@ function generateWave({ width, height, points, variance, vertical = false }) {
  */
 function parsePath(pathString) {
   const points = [];
-  const regex = /Q\s([\d.]+)\s([\d.]+),\s([\d.]+)\s([\d.]+)/g;
+  const numberPattern = "[+-]?\\d*(?:\\.\\d+)?(?:[eE][+-]?\\d+)?";
+  const regex = new RegExp(`Q\\s(${numberPattern})\\s(${numberPattern}),\\s(${numberPattern})\\s(${numberPattern})`, "g");
   let match;
 
   while ((match = regex.exec(pathString)) !== null) {
