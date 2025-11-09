@@ -26,7 +26,7 @@ class DynamoWave extends HTMLElement {
     this.elapsedTime = 0;
     this.startTime = null;
 
-    this.isGeneratingWave = false; 
+    this.isGeneratingWave = false;
 
     // Track current and target wave paths
     this.currentPath = null;
@@ -38,6 +38,7 @@ class DynamoWave extends HTMLElement {
     this.observerOptions = null;
 
     this.random = Math.random;
+    this.startEndZero = false;
   }
 
   /**
@@ -68,6 +69,11 @@ class DynamoWave extends HTMLElement {
       ? createSeededRandom(seedAttr)
       : Math.random;
 
+    const startEndZeroAttr = this.getAttribute("data-start-end-zero");
+    this.startEndZero =
+      typeof startEndZeroAttr === "string" &&
+      ["", "true", "1", "yes", "on"].includes(startEndZeroAttr.trim().toLowerCase());
+
     this.vertical = waveDirection === "left" || waveDirection === "right";
     const flipX = waveDirection === "right";
     const flipY = waveDirection === "bottom";
@@ -83,6 +89,7 @@ class DynamoWave extends HTMLElement {
       variance: this.variance,
       vertical: this.vertical,
       random: this.random,
+      startEndZero: this.startEndZero,
     });
 
     this.targetPath = generateWave({
@@ -92,6 +99,7 @@ class DynamoWave extends HTMLElement {
       variance: this.variance,
       vertical: this.vertical,
       random: this.random,
+      startEndZero: this.startEndZero,
     });
 
     // Construct the SVG
@@ -161,6 +169,7 @@ class DynamoWave extends HTMLElement {
           variance: this.variance,
           vertical: this.vertical,
           random: this.random,
+          startEndZero: this.startEndZero,
         });
       }
 
@@ -180,6 +189,7 @@ class DynamoWave extends HTMLElement {
           variance: this.variance,
           vertical: this.vertical,
           random: this.random,
+          startEndZero: this.startEndZero,
         });
 
         // Continue the animation loop if still playing
@@ -308,6 +318,7 @@ class DynamoWave extends HTMLElement {
       variance: this.variance,
       vertical: this.vertical,
       random: this.random,
+      startEndZero: this.startEndZero,
     });
 
     // Animate from current path to new target
@@ -346,6 +357,7 @@ class DynamoWave extends HTMLElement {
         variance: this.variance,
         vertical: this.vertical,
         random: this.random,
+        startEndZero: this.startEndZero,
       });
 
       this.targetPath = generateWave({
@@ -355,6 +367,7 @@ class DynamoWave extends HTMLElement {
         variance: this.variance,
         vertical: this.vertical,
         random: this.random,
+        startEndZero: this.startEndZero,
       });
 
       return;
@@ -417,6 +430,8 @@ if (
  * @param {number} options.points - The number of points in the wave.
  * @param {number} options.variance - The variance factor for the wave's randomness.
  * @param {boolean} [options.vertical=false] - Whether the wave should be vertical.
+ * @param {Function} [options.random=Math.random] - Random number generator to use.
+ * @param {boolean} [options.startEndZero=false] - Whether to force the wave to start and end at zero height.
  * @returns {string} The SVG path string representing the wave.
  */
 function generateWave({
@@ -426,6 +441,7 @@ function generateWave({
   variance,
   vertical = false,
   random = Math.random,
+  startEndZero = false,
 }) {
   const safePoints = Math.max(2, Number.isFinite(points) ? Math.floor(points) : 2);
   const anchors = [];
@@ -439,6 +455,16 @@ function generateWave({
       ? width - width * 0.1 - random() * (variance * width * 0.25)
       : height - height * 0.1 - random() * (variance * height * 0.25);
     anchors.push(vertical ? { x: y, y: x } : { x, y });
+  }
+
+  if (startEndZero && anchors.length) {
+    if (vertical) {
+      anchors[0].x = width;
+      anchors[anchors.length - 1].x = 0;
+    } else {
+      anchors[0].y = height;
+      anchors[anchors.length - 1].y = height;
+    }
   }
 
   let path = vertical
