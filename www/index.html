@@ -359,6 +359,37 @@
         <dynamo-wave data-wave-seed="brand-home-hero"></dynamo-wave>
       </div>
       <div>
+        <h4>Anchored endpoints</h4>
+        <p>
+          When you need the wave to begin and end on the baseline&mdash;perfect for pinned backgrounds or matching solid
+          color blocks&mdash;set <strong><code>data-start-end-zero</code></strong>. The attribute accepts boolean-like
+          values such as <code>"true"</code>, <code>"1"</code>, or you can include it without a value. It works for both
+          horizontal and vertical waves.
+        </p>
+        <pre>
+          <code class="html">&lt;!-- Empty attribute keeps the first and last points at height 0 -->
+            &lt;dynamo-wave data-start-end-zero&gt;&lt;/dynamo-wave&gt;
+
+            &lt;!-- Explicit true value works as well -->
+            &lt;dynamo-wave data-wave-face="left" data-start-end-zero="true"&gt;&lt;/dynamo-wave&gt;
+          </code>
+        </pre>
+        <div style="display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(12rem,1fr));align-items:center;">
+          <div>
+            <p class="note" style="margin-bottom:.75rem">Default wave</p>
+            <dynamo-wave class="fill-theme" style="height:5rem"></dynamo-wave>
+          </div>
+          <div>
+            <p class="note" style="margin-bottom:.75rem">Anchored endpoints</p>
+            <dynamo-wave class="fill-theme" data-start-end-zero style="height:5rem"></dynamo-wave>
+          </div>
+          <div>
+            <p class="note" style="margin-bottom:.75rem">Vertical anchored wave</p>
+            <dynamo-wave class="fill-theme" data-wave-face="left" data-start-end-zero style="width:6rem;height:12rem"></dynamo-wave>
+          </div>
+        </div>
+      </div>
+      <div>
         <h4>Wave Direction</h4>
         <p>
           Need more than a just a wave that faces up? Leverage the <strong><code>data-wave-face</code></strong>
