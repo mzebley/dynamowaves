@@ -188,7 +188,7 @@
           element's applied attributes fully replace it with a slick lil' wave.<br><br>
           You can install <strong>Dynamowaves</strong> via npm or by including the script file directly in your project.
         </p>
-        <h3>npm Installation</h3>
+        <h3 id="npm-installation">npm Installation</h3>
         <p>
           To install <strong>Dynamowaves</strong> via npm, run the following command:
         </p>
@@ -201,7 +201,7 @@
         <pre>
           <code class="javascript">import 'dynamowaves';</code>
         </pre>
-        <h4>Angular Setup</h4>
+        <h4 id="angular-setup">Angular Setup</h4>
         <p>
           To use <strong>Dynamowaves</strong> in an Angular project, follow these additional steps:
         </p>
@@ -230,7 +230,7 @@
   </pre>
           </li>
         </ol>
-        <h3>Script Installation</h3>
+        <h3 id="script-installation">Script Installation</h3>
         <p>
           Alternatively, you can include the <strong>Dynamowaves</strong> script file directly in your project:
         </p>
@@ -292,13 +292,13 @@
         <dynamo-wave id="special_wave" class="fill-theme fill-light"></dynamo-wave>
       </div>
       <div>
-        <h3>Data Attributes</h3>
+        <h3 id="data-attributes">Data Attributes</h3>
         <p style="margin-bottom:1rem">
           <strong>Dynamowaves</strong> come out of the box with a variety of data attributes that can be used to
           customize their
           appearance and behavior.
         </p>
-        <h4>Points and Variance</h4>
+        <h4 id="points-and-variance">Points and Variance</h4>
         <p>
           A <strong>dynamowave</strong> will generate itself a new, randomized wave path each time it's rendered. This
           wave path is calculated using <strong><code>points</code></strong>, which determine the number of points that
@@ -346,7 +346,7 @@
         <dynamo-wave data-wave-points="120" data-wave-variance="2"></dynamo-wave>
       </div>
       <div>
-        <h4>Deterministic waves</h4>
+        <h4 id="deterministic-waves">Deterministic waves</h4>
         <p>
           Need to reproduce the exact same wave shape across reloads or between environments? Provide a
           <strong><code>data-wave-seed</code></strong> attribute to initialize the generator with a deterministic seed.
@@ -361,7 +361,7 @@
         <dynamo-wave data-wave-seed="brand-home-hero"></dynamo-wave>
       </div>
       <div class="margin-bottom:2rem">
-        <h4>Anchored endpoints</h4>
+        <h4 id="anchored-endpoints">Anchored endpoints</h4>
         <p>
           When you need the wave to begin and end on the baseline&mdash;perfect for pinned backgrounds or matching solid
           color blocks&mdash;set <strong><code>data-start-end-zero</code></strong>. The attribute accepts boolean-like
@@ -379,7 +379,7 @@
         <dynamo-wave class="fill-theme" data-start-end-zero style="height:5rem"></dynamo-wave>
       </div>
       <div>
-        <h4>Wave Direction</h4>
+        <h4 id="wave-direction">Wave Direction</h4>
         <p>
           Need more than a just a wave that faces up? Leverage the <strong><code>data-wave-face</code></strong>
           attribute.</p>
@@ -427,7 +427,7 @@
         </div>
       </div>
       <div>
-        <h4>Wave Animation</h4>
+        <h4 id="wave-animation">Wave Animation</h4>
         <p>
           Want a <strong>dynamowave</strong> that you can just sit around and stare at? You might be interested in the
           <strong><code>data-wave-speed</code></strong> and <strong><code>data-wave-animate</code></strong> attributes.
@@ -484,7 +484,7 @@
         </pre>
       </div>
       <div>
-        <h4>Wave Observation</h4>
+        <h4 id="wave-observation">Wave Observation</h4>
         <p>
           Looking to <em>really</em> lean into generative design? The <strong><code>data-wave-observe</code></strong>
           attribute adds an intelligent <a class="link" rel="external" target="_blank"
@@ -553,12 +553,12 @@
         <dynamo-wave class="fill-theme" data-wave-observe="once:-50px"></dynamo-wave>
       </div>
       <div>
-        <h3>Available Functions</h3>
+        <h3 id="available-functions">Available Functions</h3>
         <p style="margin-bottom:1rem">
           <strong>Dynamowaves</strong> come with a few functions that can be called to manipulate the wave after it's
           been rendered.
         </p>
-        <h4>.generateNewWave()</h4>
+        <h4 id="generate-new-wave">.generateNewWave()</h4>
         <p>
           Want to see a new wave? Call <strong><code>generateNewWave(<em>duration</em>)</code></strong> on the
           <strong>dynamowave</strong> you'd like to regenerate. The <strong><code>duration</code></strong> parameter is
@@ -574,13 +574,13 @@
             data-feather="refresh-cw"></i>New Wave</button>
       </div>
       <div>
-        <h4>.play()</h4>
+        <h4 id="play">.play()</h4>
         <p>
           Call <strong><code>play(<em>duration</em>)</code></strong> on any <strong>dynamowave</strong> that you'd like
           to animate. The <strong><code>duration</code></strong> parameter is an optional integer that determines the
           length of the animation loop - default is <strong>7500</strong>(ms).
         </p>
-        <h4>.pause()</h4>
+        <h4 id="pause">.pause()</h4>
         <p>
           To stop the animation loop, call <strong><code>pause()</code></strong> on the <strong>dynamowave</strong>
           you'd like to stop.
@@ -623,7 +623,7 @@ function toggleWaveAnimation() {
   &lt;/div&gt;</code></pre>
         <div class="widget" id="widget_example_1">
           <div class="header">
-            <h2>I'm the heading!</h2>
+      <h2 id="im-the-heading">I'm the heading!</h2>
             <dynamo-wave class="fill-theme" data-wave-face="bottom"></dynamo-wave>
           </div>
           <div class="content">Lorem ipsum dolor sit amet, ea sea regione concludaturque. Te eam pericula prodesset
@@ -699,7 +699,7 @@ function toggleWaveAnimation() {
               </dynamo-wave>
             </div>
             <div class="content" style="align-self: center;padding:1rem">
-              <h2 style="font-family:'Merriweather',serif;color:var(--theme);margin:0">Eye-catching headline.</h2>
+              <h2 id="eye-catching-headline" style="font-family:'Merriweather',serif;color:var(--theme);margin:0">Eye-catching headline.</h2>
               <p>Further information to draw interest.</p>
               <a href="#" aria-label="Fake example link">Explore This <i data-feather="arrow-right"
                   style="width:20px;height:20px"></i></a>
