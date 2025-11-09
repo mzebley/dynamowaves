@@ -465,7 +465,7 @@
     if (startEndZero && anchors.length) {
       if (vertical) {
         anchors[0].x = width;
-        anchors[anchors.length - 1].x = 0;
+        anchors[anchors.length - 1].x = width;
       } else {
         anchors[0].y = height;
         anchors[anchors.length - 1].y = height;
