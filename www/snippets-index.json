@@ -1,0 +1,106 @@
+[
+  {
+    "slug": "examples",
+    "title": "Examples",
+    "order": 1,
+    "type": "docs",
+    "path": "practical-application/examples.md",
+    "group": "practical-application",
+    "extra": {
+      "group": "practical-application",
+      "groupOrder": 3,
+      "groupLabel": "Practical Application"
+    }
+  },
+  {
+    "slug": "installation-header",
+    "title": "Overview",
+    "order": 1,
+    "type": "docs",
+    "path": "installation/installation-header.md",
+    "group": "installation",
+    "extra": {
+      "group": "installation",
+      "groupOrder": 1,
+      "groupLabel": "Installation"
+    }
+  },
+  {
+    "slug": "usage-header",
+    "title": "Overview",
+    "order": 1,
+    "type": "docs",
+    "path": "usage/overview.md",
+    "group": "usage",
+    "extra": {
+      "group": "usage",
+      "groupOrder": 2,
+      "groupLabel": "Usage"
+    }
+  },
+  {
+    "slug": "data-attributes",
+    "title": "Data Attributes",
+    "order": 2,
+    "type": "docs",
+    "path": "usage/data-attributes.md",
+    "group": "usage",
+    "extra": {
+      "group": "usage",
+      "groupOrder": 2,
+      "groupLabel": "Usage"
+    }
+  },
+  {
+    "slug": "npm-installation",
+    "title": "npm",
+    "order": 2,
+    "type": "docs",
+    "path": "installation/npm.md",
+    "group": "installation",
+    "extra": {
+      "group": "installation",
+      "groupOrder": 1,
+      "groupLabel": "Installation"
+    }
+  },
+  {
+    "slug": "angular-installation",
+    "title": "Angular",
+    "order": 3,
+    "type": "docs",
+    "path": "installation/angular.md",
+    "group": "installation",
+    "extra": {
+      "group": "installation",
+      "groupOrder": 1,
+      "groupLabel": "Installation"
+    }
+  },
+  {
+    "slug": "usage-functions",
+    "title": "Functions",
+    "order": 3,
+    "type": "docs",
+    "path": "usage/functions.md",
+    "group": "usage",
+    "extra": {
+      "group": "usage",
+      "groupOrder": 2,
+      "groupLabel": "Usage"
+    }
+  },
+  {
+    "slug": "script-installation",
+    "title": "Direct Script",
+    "order": 4,
+    "type": "docs",
+    "path": "installation/script.md",
+    "group": "installation",
+    "extra": {
+      "group": "installation",
+      "groupOrder": 1,
+      "groupLabel": "Installation"
+    }
+  }
+]
