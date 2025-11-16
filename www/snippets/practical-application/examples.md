@@ -87,7 +87,7 @@ Slap one of these bad boys along the edge of a photo to create an always fresh, 
         <!-- When covering an image, I find it helps the browser render 
         to set the far edge with a bit of a negative overlap
         It keeps the image from peeking through from behind the wave -->
-        <dynamo-wave data-wave-face="left" style="fill:white;position:absolute;right:-1px"></dynamo-wave>
+        <dynamo-wave data-wave-face="left" style="fill:var(--widget-bg);position:absolute;right:-1px"></dynamo-wave>
     </div>
     <div class="content">...</div>
 </div>
@@ -96,7 +96,7 @@ Slap one of these bad boys along the edge of a photo to create an always fresh, 
 <div class="widget horizontal" id="widget_example_3" style="min-height:max-content">
     <div class="image-wrapper">
         <dynamo-wave data-wave-face="left"
-        style="position:absolute;right:-1px;height:100%;width:1.5rem;fill:white">
+        style="position:absolute;right:-1px;height:100%;width:1.5rem;fill:var(--widget-bg)">
         </dynamo-wave>
     </div>
     <div class="content" style="align-self: center;padding:1rem">

@@ -13,19 +13,6 @@
     }
   },
   {
-    "slug": "installation-header",
-    "title": "Overview",
-    "order": 1,
-    "type": "docs",
-    "path": "installation/installation-header.md",
-    "group": "installation",
-    "extra": {
-      "group": "installation",
-      "groupOrder": 1,
-      "groupLabel": "Installation"
-    }
-  },
-  {
     "slug": "usage-header",
     "title": "Overview",
     "order": 1,
@@ -36,6 +23,19 @@
       "group": "usage",
       "groupOrder": 2,
       "groupLabel": "Usage"
+    }
+  },
+  {
+    "slug": "installation-header",
+    "title": "Overview",
+    "order": 1,
+    "type": "docs",
+    "path": "installation/installation-header.md",
+    "group": "installation",
+    "extra": {
+      "group": "installation",
+      "groupOrder": 1,
+      "groupLabel": "Installation"
     }
   },
   {

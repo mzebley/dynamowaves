@@ -17,7 +17,34 @@
     1px 3.5px 4.3px -1.1px hsl(var(--shadow-color) / 0.24),
     1.9px 6.8px 8.3px -1.6px hsl(var(--shadow-color) / 0.26),
     3.6px 12.9px 15.7px -2.2px hsl(var(--shadow-color) / 0.27);
-    --ink: #1e1e1e;
+  --ink: #1e1e1e;
+  --filename-bg: hsl(179, 6%, 88%);
+  --button-blend-mode: darken;
+  --tbl-border: #bbb;
+  --tbl-header-bg: #eaeaea;
+  --note-bg: hsl(51, 78%, 88%);
+  --note-border: hsl(51, 78%, 62%);
+  --widget-bg: white;
+  --link: hsl(225, 73%, 57%);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --theme-light: hsl(179, 19%, 18%);
+     --theme-dark: hsl(179, 24%, 71%);
+     --theme: hsl(179, 19%, 49%);
+     --complement-light: hsl(359, 14%, 9%);
+     --ink: hsl(44, 28%, 82%);
+     --filename-bg: hsl(179, 6%, 12%);
+     --button-blend-mode: lighten;
+     --tbl-border: #333;
+     --tbl-header-bg: #1a1a1a;
+     --note-bg: hsl(51, 58%, 8%);
+     --note-border: hsl(51, 58%, 22%);
+     --widget-bg: black;
+       --shadow-color: 0deg 4% 5%;
+       --link: hsl(225, 53%, 67%);
+  }
 }
 
 html {
@@ -31,7 +58,7 @@ pre+svg {
 .file-name {
   padding: .125rem .25rem;
   border-radius: .425rem;
-  background: hsl(179, 6%, 88%)
+  background: var(--filename-bg);
 }
 
 body {
@@ -48,7 +75,8 @@ body {
   font-family: 'Nunito', sans-serif;
   font-size: 1.25rem;
   box-sizing: border-box;
-  color:var(--ink);
+  color: var(--ink);
+  fill: var(--ink);
 }
 
 *,
@@ -94,12 +122,58 @@ li {
   line-height: 150%;
 }
 
+
+header,
+footer {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 1.5rem;
+  text-align: center;
+  position: relative;
+  background: var(--theme-light);
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding-bottom: 1rem;
+  text-align: left;
+}
+
+
+
+header>svg {
+  margin: 3rem 0 0;
+  width: 100%;
+  max-width: 44rem;
+}
+
+header a>svg {
+  position: absolute;
+  width: 2rem;
+  height: 2rem;
+  opacity: .5;
+  right: 1rem;
+  top: 1rem;
+}
+
+
+.hero-lede {
+  opacity: .75;
+  color: var(--theme-dark);
+  font-size: 1.5rem;
+  margin: 1rem 0 2rem;
+  max-width: none
+}
+
 .note {
-  background: hsl(51, 78%, 88%);
+  background: var(--note-bg);
   padding: .5rem 1rem;
   border-radius: .425rem;
   margin: 2rem 0;
-  border: .125rem solid hsl(51, 78%, 62%);
+  border: .125rem solid var(--note-border);
 }
 
 .box {
@@ -149,17 +223,17 @@ li {
   font-weight: 700;
   margin: 0 0 .325rem;
   color: var(--theme-dark);
-  opacity:.66;
+  opacity: .66;
 }
 
 .toc-group {
-   margin: 0 0 .325rem;
+  margin: 0 0 .325rem;
 }
 
 .toc-group-title {
   font-size: 1rem;
   font-weight: 400;
-  opacity:.75;
+  opacity: .75;
   margin: 0;
   color: var(--ink);
 }
@@ -170,9 +244,10 @@ li {
   padding: 0 0 0 .5rem;
   display: flex;
   flex-direction: column;
-  > li {
-      margin:0;
-  padding:0;
+
+  >li {
+    margin: 0;
+    padding: 0;
   }
 }
 
@@ -209,7 +284,7 @@ li {
   width: 280px;
   height: 360px;
   overflow-y: scroll;
-  background: white;
+  background: var(--widget-bg);
   box-shadow: var(--shadow-elevation-medium);
   border-radius: 1rem;
   position: relative;
@@ -316,8 +391,8 @@ li {
 
 .content a,
 .link {
-  color: RoyalBlue;
-  font-weight: bold;
+  color: 	var(--link);
+  font-weight: 500;
   cursor: pointer;
   text-decoration: underline;
   display: inline-flex;
@@ -375,7 +450,7 @@ button::after {
   transform-origin: top left;
   transition: opacity .325s var(--transition-timing-natural), transform .325s var(--transition-timing-natural);
   z-index: 1;
-  mix-blend-mode: darken;
+  mix-blend-mode: var(--button-blend-mode);
 }
 
 button>svg {
@@ -403,42 +478,6 @@ button:active {
     transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
     opacity: .5;
   }
-}
-
-header,
-footer {
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  padding-top: 1.5rem;
-  text-align: center;
-  position: relative;
-  background: var(--theme-light);
-}
-
-footer {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 2rem;
-  padding-bottom: 1rem;
-  text-align: left;
-}
-
-
-
-header>svg {
-  margin: 3rem 0 0;
-  width: 100%;
-  max-width: 600px;
-}
-
-header a>svg {
-  position: absolute;
-  width: 32px;
-  height: 32px;
-  opacity: .5;
-  right: 1rem;
-  top: 1rem;
 }
 
 code {
@@ -515,7 +554,7 @@ table {
 th,
 td {
 
-  border: .125rem solid #bbb;
+  border: .125rem solid var(--tbl-border);
 
   padding: .725rem;
 
@@ -531,7 +570,7 @@ td {
 
 th {
 
-  background-color: #eaeaea;
+  background-color: var(--tbl-header-bg);
 
   font-weight: bold;
 
@@ -543,13 +582,13 @@ dynamo-wave svg {
   width: 100%;
 }
 
-dynamo-wave + p {
-  margin-top:3rem;
+dynamo-wave+p {
+  margin-top: 3rem;
 }
 
 tr:nth-child(even) {
 
-  background-color: #eaeaea;
+  background-color: var(--tbl-header-bg);
 
 }
 
