@@ -50,9 +50,7 @@ class DynamoWave extends HTMLElement {
    * @returns {void}
    */
   connectedCallback() {
-    const classes = this.className;
     const id = this.id ?? Math.random().toString(36).substring(7);
-    const styles = this.getAttribute("style");
 
     const waveDirection = this.getAttribute("data-wave-face") || "top";
     const pointsAttr = parseInt(this.getAttribute("data-wave-points"), 10);
@@ -107,13 +105,31 @@ class DynamoWave extends HTMLElement {
       startEndZero: this.startEndZero,
     });
 
+    const transforms = [];
+
+    if (flipX) transforms.push("scaleX(-1)");
+    if (flipY) transforms.push("scaleY(-1)");
+
+    const transformStyle = transforms.length ? `transform:${transforms.join(" ")};` : "";
+    const svgBaseStyle = "width:100%;height:100%;display:block;";
+
+    // Ensure the host element can size and space the SVG once
+    const computedDisplay =
+      typeof window !== "undefined" && typeof window.getComputedStyle === "function"
+        ? window.getComputedStyle(this)?.display
+        : "";
+
+    if (!this.style.display && computedDisplay === "inline") {
+      this.style.display = "block";
+    }
+
     // Construct the SVG
     this.innerHTML = `
-      <svg 
+      <svg
         viewBox="${this.vertical ? "0 0 160 1440" : "0 0 1440 160"}"
         preserveAspectRatio="none"
-        class="${classes || ""}"
-        style="${flipX ? "transform:scaleX(-1);" : ""}${flipY ? "transform:scaleY(-1);" : ""}${styles || ""}"
+        fill="currentColor"
+        style="${transformStyle}${svgBaseStyle}"
         id="${id}"
         aria-hidden="true"
         role="presentation"
