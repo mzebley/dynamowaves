@@ -65,7 +65,10 @@ class DynamoWave extends HTMLElement {
     this.duration = parseFloat(this.getAttribute("data-wave-speed")) || 7500;
 
     const seedAttr = this.getAttribute("data-wave-seed");
-    this.random = typeof seedAttr === "string" && seedAttr.trim() !== ""
+    const decodedSeedPath = decodeWaveSeed(seedAttr);
+    const hasSeedAttr = typeof seedAttr === "string" && seedAttr.trim() !== "";
+
+    this.random = hasSeedAttr && !decodedSeedPath
       ? createSeededRandom(seedAttr)
       : Math.random;
 
@@ -82,7 +85,7 @@ class DynamoWave extends HTMLElement {
     this.height = this.vertical ? 1440 : 160;
 
     // Initialize current and target paths
-    this.currentPath = generateWave({
+    this.currentPath = decodedSeedPath || generateWave({
       width: this.width,
       height: this.height,
       points: this.points,
@@ -91,6 +94,8 @@ class DynamoWave extends HTMLElement {
       random: this.random,
       startEndZero: this.startEndZero,
     });
+
+    this.updateSeedAttribute(this.currentPath);
 
     this.targetPath = generateWave({
       width: this.width,
@@ -177,6 +182,8 @@ class DynamoWave extends HTMLElement {
       this.animateWave(animationDuration, () => {
         // Update current path to the target path
         this.currentPath = this.targetPath;
+
+        this.updateSeedAttribute(this.currentPath);
 
         // Set the pending path as the new target
         this.targetPath = this.pendingTargetPath;
@@ -328,10 +335,24 @@ class DynamoWave extends HTMLElement {
       this.targetPath = this.pendingTargetPath;
       this.pendingTargetPath = null;
 
+      this.updateSeedAttribute(this.currentPath);
+
       // Reset wave generation flag
       this.isGeneratingWave = false;
       this.animationFrameId = null;
     });
+  }
+
+  updateSeedAttribute(pathString) {
+    const encodedSeed = encodeWaveSeed(pathString);
+
+    if (encodedSeed) {
+      const existing = this.getAttribute("data-wave-seed");
+
+      if (existing !== encodedSeed) {
+        this.setAttribute("data-wave-seed", encodedSeed);
+      }
+    }
   }
 
   // Core animation logic
@@ -506,6 +527,74 @@ function createSeededRandom(seed) {
     t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
     return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
   };
+}
+
+function encodeWaveSeed(pathString) {
+  if (typeof pathString !== "string") return "";
+
+  const normalizedPath = pathString.trim().replace(/\s+/g, " ");
+
+  try {
+    if (typeof btoa === "function") {
+      const binaryString = toBinaryString(normalizedPath);
+      return btoa(binaryString).replace(/=+$/, "");
+    }
+
+    if (typeof Buffer !== "undefined") {
+      return Buffer.from(normalizedPath, "utf8").toString("base64").replace(/=+$/, "");
+    }
+  } catch (error) {
+    console.warn("Failed to encode wave seed", error);
+  }
+
+  return "";
+}
+
+function decodeWaveSeed(seed) {
+  if (typeof seed !== "string" || seed.trim() === "") return null;
+
+  const paddedSeed = seed.padEnd(Math.ceil(seed.length / 4) * 4, "=");
+
+  try {
+    if (typeof atob === "function") {
+      const binaryString = atob(paddedSeed);
+      return fromBinaryString(binaryString);
+    }
+
+    if (typeof Buffer !== "undefined") {
+      return Buffer.from(paddedSeed, "base64").toString("utf8");
+    }
+  } catch (error) {
+    console.warn("Failed to decode wave seed", error);
+  }
+
+  return null;
+}
+
+function toBinaryString(text) {
+  if (typeof TextEncoder !== "undefined") {
+    const encoded = new TextEncoder().encode(text);
+    let binaryString = "";
+
+    encoded.forEach((byte) => {
+      binaryString += String.fromCharCode(byte);
+    });
+
+    return binaryString;
+  }
+
+  return Array.from(text)
+    .map((char) => String.fromCharCode(char.charCodeAt(0)))
+    .join("");
+}
+
+function fromBinaryString(binaryString) {
+  if (typeof TextDecoder !== "undefined") {
+    const bytes = Uint8Array.from(binaryString, (c) => c.charCodeAt(0));
+    return new TextDecoder().decode(bytes);
+  }
+
+  return binaryString;
 }
 
 /**
