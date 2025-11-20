@@ -64,9 +64,12 @@ declare class DynamoWave extends HTMLElement {
   generateNewWave(duration?: number): void;
 
   // Private methods
+  private updateSeedAttribute(pathString: string): void;
   private setupIntersectionObserver(observeConfig: string): void;
   private animateWave(duration: number, onComplete?: (() => void) | null): void;
 }
+declare function encodeWaveSeed(pathString: string): string;
+declare function decodeWaveSeed(seed: string): string | null;
 
 // Global declaration for custom element
 declare global {
@@ -101,4 +104,4 @@ declare global {
   }
 }
 
-export { DynamoWave, type DynamoWaveAttributes, type WaveDirection, type WaveGenerationOptions, type WaveObserverOptions, type WavePoint };
+export { DynamoWave, type DynamoWaveAttributes, type WaveDirection, type WaveGenerationOptions, type WaveObserverOptions, type WavePoint, decodeWaveSeed, encodeWaveSeed };

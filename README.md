@@ -65,7 +65,7 @@ Waves fill the width of their container by default. Use inline styles, classes, 
 | --- | --- | --- |
 | `data-wave-points` | `6` | Number of anchor points that make up the path. Higher = smoother detail. |
 | `data-wave-variance` | `3` | Maximum deviation for each point. Accepts legacy `data-variance`. |
-| `data-wave-seed` | _unset_ | Provide any string/number to make the wave deterministic across renders. |
+| `data-wave-seed` | _unset_ | When present, the wave decodes and renders that exact path. If unset, the component encodes the generated path onto this attribute so you can reuse it elsewhere. |
 | `data-start-end-zero` | _false_ | Keeps the first and last points pinned to the baseline (works for vertical waves too). |
 | `data-wave-face` | `top` | Controls orientation: `top`, `bottom`, `left`, or `right`. |
 | `data-wave-speed` | `7500` | Milliseconds for the animation loop when using `.play()` or `data-wave-animate="true"`. |
@@ -96,6 +96,24 @@ Examples:
   data-wave-variance="2">
 </dynamo-wave>
 ```
+
+### Reusing wave seeds
+Every generated wave encodes its exact SVG path into `data-wave-seed`. Copy that attribute to reuse the same shape anywhere:
+
+```html
+<dynamo-wave id="hero-wave" data-wave-animate="true"></dynamo-wave>
+
+<script>
+  const heroSeed = document.getElementById('hero-wave')?.getAttribute('data-wave-seed');
+
+  if (heroSeed) {
+    const footerWave = document.createElement('dynamo-wave');
+    footerWave.setAttribute('data-wave-seed', heroSeed);
+    document.body.appendChild(footerWave);
+  }
+</script>
+```
+The value is a compact, URL-safe string representation of the full path; if it is present on an element, the component renders that exact path instead of generating a new one.
 
 ## JavaScript API
 Every `<dynamo-wave>` instance exposes runtime helpers once it has connected to the DOM:
