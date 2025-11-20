@@ -120,16 +120,30 @@
       const svgBaseStyle = "width:100%;height:100%;display:block;";
 
       // Ensure the host element can size and space the SVG once
-      if (!this.style.display) {
+      const computedStyle =
+        typeof window !== "undefined" && typeof window.getComputedStyle === "function"
+          ? window.getComputedStyle(this)
+          : null;
+
+      const computedDisplay = computedStyle?.display || "";
+      const computedFill = computedStyle?.fill || "";
+
+      if (!this.style.display && computedDisplay === "inline") {
         this.style.display = "block";
       }
+
+      // Respect fill utility classes by inheriting fill when host sets one
+      const svgFill =
+        computedFill && computedFill !== "none" && computedFill !== "currentcolor"
+          ? "inherit"
+          : "currentColor";
 
       // Construct the SVG
       this.innerHTML = `
       <svg
         viewBox="${this.vertical ? "0 0 160 1440" : "0 0 1440 160"}"
         preserveAspectRatio="none"
-        fill="currentColor"
+        fill="${svgFill}"
         style="${transformStyle}${svgBaseStyle}"
         id="${id}"
         aria-hidden="true"
