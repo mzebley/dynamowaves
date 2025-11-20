@@ -10,6 +10,7 @@
     "dist"
   ],
   "scripts": {
+    "test": "node --test",
     "build": "rollup -c",
     "prepublishOnly": "npm run build",
     "release": "npm publish",
