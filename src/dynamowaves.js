@@ -114,7 +114,12 @@ class DynamoWave extends HTMLElement {
     const svgBaseStyle = "width:100%;height:100%;display:block;";
 
     // Ensure the host element can size and space the SVG once
-    if (!this.style.display) {
+    const computedDisplay =
+      typeof window !== "undefined" && typeof window.getComputedStyle === "function"
+        ? window.getComputedStyle(this)?.display
+        : "";
+
+    if (!this.style.display && computedDisplay === "inline") {
       this.style.display = "block";
     }
 
