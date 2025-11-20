@@ -128,7 +128,6 @@ class DynamoWave extends HTMLElement {
       <svg
         viewBox="${this.vertical ? "0 0 160 1440" : "0 0 1440 160"}"
         preserveAspectRatio="none"
-        fill="currentColor"
         style="${transformStyle}${svgBaseStyle}"
         id="${id}"
         aria-hidden="true"

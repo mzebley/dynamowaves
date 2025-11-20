@@ -1,6 +1,6 @@
 {
   "name": "dynamowaves",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "type": "module",
   "description": "Lightweight, dependency-free SVG wave templates that dynamically generate themselves on render.",
   "main": "dist/dynamowaves.js",
