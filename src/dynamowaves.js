@@ -657,3 +657,12 @@ function interpolateWave(currentPoints, targetPoints, progress, vertical = false
 
   return path;
 }
+
+export {
+  DynamoWave,
+  generateWave,
+  parsePath,
+  interpolateWave,
+  encodeWaveSeed,
+  decodeWaveSeed,
+};
