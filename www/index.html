@@ -255,7 +255,8 @@
   <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
   <script type="module">
-    import { SnippetClient } from "https://cdn.jsdelivr.net/npm/@mzebley/mark-down/+esm";
+    import { marked } from "https://cdn.jsdelivr.net/npm/marked@12.0.2/lib/marked.esm.js";
+
 
     const snippetTargets = document.querySelectorAll("[data-snippet]");
     const snippetTargetMap = new Map();
@@ -376,47 +377,68 @@
       });
     };
 
-    if (snippetTargets.length > 0) {
-      const snippetsUrl = new URL("./snippets/", window.location.href);
-      const snippetClient = new SnippetClient({
-        manifest: "./snippets-index.json",
-        resolveSnippetPath: (entry) => new URL(entry.path, snippetsUrl).toString()
+    const snippetsUrl = new URL("./snippets/", window.location.href);
+    const manifestPromise = fetch("./snippets-index.json")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`Failed to fetch manifest: ${response.status}`);
+        }
+        return response.json();
       });
 
-      async function hydrateSnippet(el) {
-        const slug = el.dataset.snippet;
-        if (!slug) {
+    const stripFrontMatter = (markdown = "") => {
+      const match = markdown.match(/^---[\s\S]*?\n---\s*\n?/);
+      return match ? markdown.slice(match[0].length) : markdown;
+    };
+
+    async function loadSnippetHtml(path) {
+      const url = new URL(path, snippetsUrl);
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error(`Failed to fetch snippet "${path}": ${response.status}`);
+      }
+      const markdown = await response.text();
+      const content = stripFrontMatter(markdown);
+      return marked.parse(content);
+    }
+
+    async function hydrateSnippet(el, manifest) {
+      const slug = el.dataset.snippet;
+      if (!slug) {
+        return;
+      }
+
+      try {
+        const entry = manifest.find((item) => item.slug === slug);
+        if (!entry) {
+          console.warn(`mark↓: no snippet found for "${slug}"`);
           return;
         }
 
-        try {
-          const snippet = await snippetClient.get(slug);
-          if (!snippet) {
-            console.warn(`mark↓: no snippet found for "${slug}"`);
-            return;
-          }
-
-          el.innerHTML = snippet.html;
-        } catch (error) {
-          console.error(`mark↓: failed to hydrate "${slug}"`, error);
-        }
+        const html = await loadSnippetHtml(entry.path);
+        el.innerHTML = html;
+      } catch (error) {
+        console.error(`mark↓: failed to hydrate "${slug}"`, error);
       }
+    }
 
-      const hydrateAll = Promise.all(Array.from(snippetTargets, (el) => hydrateSnippet(el)));
-      const manifestPromise = typeof snippetClient.list === "function"
-        ? snippetClient.list()
-        : fetch("./snippets-index.json").then((response) => response.json());
-      const tocPromise = manifestPromise
-        .then((entries) => buildTableOfContents(entries))
-        .catch((error) => console.warn("mark↓: failed to build Table of Contents", error));
-
-      Promise.all([hydrateAll, tocPromise]).finally(() => {
-        highlightIfAvailable();
-        setLoadingAnimation();
-        feather.replace({
-          'stroke-width': ".175rem"
+    if (snippetTargets.length > 0) {
+      manifestPromise
+        .then((manifest) => {
+          const hydrateAll = Promise.all(Array.from(snippetTargets, (el) => hydrateSnippet(el, manifest)));
+          const tocPromise = Promise.resolve(buildTableOfContents(manifest));
+          return Promise.all([hydrateAll, tocPromise]);
+        })
+        .catch((error) => {
+          console.error("mark↓: failed to hydrate snippets", error);
+        })
+        .finally(() => {
+          highlightIfAvailable();
+          setLoadingAnimation();
+          feather.replace({
+            'stroke-width': ".175rem"
+          });
         });
-      });
     } else {
       highlightIfAvailable();
       setLoadingAnimation();
