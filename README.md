@@ -50,7 +50,6 @@ import 'dynamowaves';
 
 ## Quick start
 ```html
-<!-- Without attributes you get a top-facing wave that inherits its parent color -->
 <dynamo-wave class="fill-theme"></dynamo-wave>
 
 <style>
@@ -58,54 +57,23 @@ import 'dynamowaves';
 </style>
 ```
 
-Waves fill the width of their container by default. Use inline styles, classes, or utility frameworks to control height, width, transforms, and colors just as you would with any other SVG.
-
 ## Data attributes
 | Attribute | Default | Purpose |
 | --- | --- | --- |
-| `data-wave-points` | `6` | Number of anchor points that make up the path. Higher = smoother detail. |
-| `data-wave-variance` | `3` | Maximum deviation for each point. Accepts legacy `data-variance`. |
-| `data-wave-seed` | _unset_ | When present, the wave decodes and renders that exact path. If unset, the component encodes the generated path onto this attribute so you can reuse it elsewhere. |
-| `data-start-end-zero` | _false_ | Keeps the first and last points pinned to the baseline (works for vertical waves too). |
-| `data-wave-face` | `top` | Controls orientation: `top`, `bottom`, `left`, or `right`. |
-| `data-wave-speed` | `7500` | Milliseconds for the animation loop when using `.play()` or `data-wave-animate="true"`. |
-| `data-wave-animate` | `false` | `"true"` starts a continuous morphing loop (unless `prefers-reduced-motion` is enabled). |
-| `data-wave-observe` | _unset_ | Automatically regenerate when the element leaves the viewport. Use `once`, `repeat`, or either with a custom root margin (`repeat:100px`, `once:-50px`). |
+| `data-wave-points` | `6` | Number of anchor points. |
+| `data-wave-variance` | `3` | Max point deviation. |
+| `data-wave-seed` | _unset_ | Encoded deterministic path. |
+| `data-start-end-zero` | _false_ | Anchors endpoints on baseline. |
+| `data-wave-face` | `top` | Orientation of the wave. |
+| `data-wave-speed` | `7500` | Loop duration. |
+| `data-wave-animate` | `false` | Auto-animate. |
+| `data-wave-observe` | _unset_ | Regenerate on viewport changes. |
 
-Examples:
-```html
-<!-- Deterministic bottom wave -->
-<dynamo-wave
-  data-wave-face="bottom"
-  data-wave-seed="brand-home-hero">
-</dynamo-wave>
-
-<!-- Vertical wave with anchored endpoints -->
-<dynamo-wave
-  class="fill-theme"
-  data-wave-face="left"
-  data-start-end-zero
-  style="height: 100%; width: 1rem;">
-</dynamo-wave>
-
-<!-- Animated hero background -->
-<dynamo-wave
-  data-wave-animate="true"
-  data-wave-speed="5000"
-  data-wave-points="120"
-  data-wave-variance="2">
-</dynamo-wave>
-```
-
-### Reusing wave seeds
-Every generated wave encodes its exact SVG path into `data-wave-seed`. Copy that attribute to reuse the same shape anywhere:
-
+## Reusing wave seeds
 ```html
 <dynamo-wave id="hero-wave" data-wave-animate="true"></dynamo-wave>
-
 <script>
   const heroSeed = document.getElementById('hero-wave')?.getAttribute('data-wave-seed');
-
   if (heroSeed) {
     const footerWave = document.createElement('dynamo-wave');
     footerWave.setAttribute('data-wave-seed', heroSeed);
@@ -113,38 +81,21 @@ Every generated wave encodes its exact SVG path into `data-wave-seed`. Copy that
   }
 </script>
 ```
-The value is a compact, URL-safe string representation of the full path; if it is present on an element, the component renders that exact path instead of generating a new one.
 
 ## JavaScript API
-Every `<dynamo-wave>` instance exposes runtime helpers once it has connected to the DOM:
-
 | Method | Description |
 | --- | --- |
-| `generateNewWave(duration?: number)` | Smoothly morphs to a brand-new randomized path. Optional duration defaults to 800 ms. |
-| `play(duration?: number)` | Starts a continuous animation loop. Uses `data-wave-speed` unless a custom duration is provided. |
-| `pause()` | Stops the loop and saves progress so `play()` resumes smoothly. |
-
-Listen for `dynamo-wave-complete` to react when an animation loop finishes:
-
-```js
-const wave = document.querySelector('dynamo-wave');
-
-wave.addEventListener('dynamo-wave-complete', (event) => {
-  console.log('Wave finished animating', event.detail);
-});
-```
+| `generateNewWave(duration?)` | Morph to a new random path. |
+| `play(duration?)` | Start loop. |
+| `pause()` | Stop loop. |
 
 ## Practical ideas
-- Sticky card headers that keep refreshing their divider when scrolled away (`data-wave-face="bottom"` + `position: sticky`).
-- Animated transitions that re-render between steps—call `wave.generateNewWave(500)` when a stepper advances.
-- Image reveals using `data-wave-face="left"` plus `position:absolute` to fake a mask-edge over hero photography.
-
-Find more recipes in [`www/snippets/practical-application/examples.md`](www/snippets/practical-application/examples.md) or on the [docs site](https://dynamowaves.markzebley.com).
+See `www/snippets/practical-application/examples.md` or the docs site.
 
 ## Accessibility
-- Waves are decorative by default (`aria-hidden="true"`/`role="presentation"`).
-- `data-wave-animate="true"` respects system reduced-motion preferences and will not start if users opt out.
-- Use deterministic seeds if you need identical visuals for screenshots or server-side rendering.
+- Decorative by default.
+- Respects reduced-motion.
+- Seeds for SSR consistency.
 
 ## Development
 ```bash
@@ -154,8 +105,11 @@ npm install
 npm run build
 ```
 
-The docs under `www/` pull their copy from Markdown snippets maintained with [@mzebley/mark-down](https://www.npmjs.com/package/@mzebley/mark-down).  
-Use `npm run snippets:build` for a one-off compile or `npm run snippets:watch` while editing files inside `www/snippets/`.
+Docs use **mark↓**.  
+Use:
+- `npm run docs:manifest`
+- `npm run docs:build`
+- `npm run docs:watch`
 
 ## License
 ISC © Mark Zebley

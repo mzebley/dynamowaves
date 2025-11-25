@@ -15,8 +15,10 @@
     "prepublishOnly": "npm run build",
     "release": "npm publish",
     "release:dry": "npm run build && npm pack --dry-run",
-    "snippets:build": "mark-down build www/snippets --output www/snippets-index.json",
-    "snippets:watch": "mark-down watch www/snippets --output www/snippets-index.json"
+    "docs:manifest": "mark-down build www/snippets --output www/snippets/snippets-index.json",
+    "docs:manifest:watch": "mark-down watch www/snippets --output www/snippets/snippets-index.json",
+    "docs:build": "npm run docs:manifest && mark-down compile-page www-src/index.html --manifest www/snippets/snippets-index.json --outDir www",
+    "docs:watch": "chokidar \"www-src/index.html\" \"www/snippets/**/*.md\" -c \"npm run docs:build\""
   },
   "repository": {
     "type": "git",
@@ -38,8 +40,9 @@
   },
   "homepage": "https://dynamowaves.markzebley.com/",
   "devDependencies": {
-    "@mzebley/mark-down-cli": "^1.0.0",
+    "@mzebley/mark-down-cli": "^1.2.2",
     "@rollup/plugin-terser": "^0.4.4",
+    "chokidar-cli": "^3.0.0",
     "rollup": "^3.29.4",
     "rollup-plugin-dts": "^6.1.1"
   }
