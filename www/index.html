@@ -1,5 +1,5 @@
-<!doctype html>
-<!DOCTYPE html><html lang="en"><head>
+<!DOCTYPE html>
+<!DOCTYPE html><html lang="en" class="canvas-app"><head>
   <meta charset="utf-8">
   <title>Dynamowaves - SVG wave templates</title>
   <meta name="description" content="SVG wave templates that shuffle themselves on render.">
@@ -15,15 +15,63 @@
   <meta name="msapplication-TileColor" content="#e4ecec">
   <meta name="theme-color" content="#c5d8d7">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <script>
+    (function () {
+      const root = document.documentElement;
+      const storageKey = "dynamowaves-theme";
+
+      const readStoredTheme = () => {
+        try {
+          return window.localStorage.getItem(storageKey);
+        } catch (error) {
+          return null;
+        }
+      };
+
+      const prefersDark = () => {
+        try {
+          return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        } catch (error) {
+          return false;
+        }
+      };
+
+      const storedTheme = readStoredTheme();
+      const theme = storedTheme === "dark" || storedTheme === "light"
+        ? storedTheme
+        : prefersDark()
+          ? "dark"
+          : "light";
+
+      root.dataset.theme = theme;
+      root.dataset.themeSource = storedTheme ? "manual" : "system";
+    })();
+  </script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/dark.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/theme-toggles@4.10.1/css/within.min.css" integrity="sha256-4qLHDhzuDV3IgrWCWtrSlFovj05xXNXXOjXF5Oxsg4Y=" crossorigin="anonymous">
 
   <link rel="stylesheet" href="normalize.css">
   <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="zbk-dynamowaves.min.css">
 </head>
 
-<body style="overflow:hidden">
-  <header>
-    <a href="https://markzebley.com" aria-label="External link to markzebley.com homepage" target="_blank"><svg version="1.0" viewBox="0 0 598.000000 598.000000" preserveAspectRatio="xMidYMid meet" fill="var(--theme)" xmlns="http://www.w3.org/2000/svg">
+<body style="overflow:hidden" class="ink-app display-flex font-primary font-md flex-direction-column justify-content-between line-height-5">
+  <header class="canvas-brand-200 display-flex flex-direction-column align-items-center padding-inline-105 padding-block-start-105">
+    <label tabindex="0" class="theme-toggle" title="Toggle theme">
+  <input type="checkbox" id="theme-toggle-input">
+  <span class="theme-toggle-sr">Toggle theme</span>
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="theme-toggle__within" height="1em" width="1em" viewBox="0 0 32 32" fill="currentColor">
+    <clipPath id="theme-toggle__within__clip">
+      <path d="M0 0h32v32h-32ZM6 16A1 1 0 0026 16 1 1 0 006 16"></path>
+    </clipPath>
+    <g clip-path="url(#theme-toggle__within__clip)">
+      <path d="M30.7 21.3 27.1 16l3.7-5.3c.4-.5.1-1.3-.6-1.4l-6.3-1.1-1.1-6.3c-.1-.6-.8-.9-1.4-.6L16 5l-5.4-3.7c-.5-.4-1.3-.1-1.4.6l-1 6.3-6.4 1.1c-.6.1-.9.9-.6 1.3L4.9 16l-3.7 5.3c-.4.5-.1 1.3.6 1.4l6.3 1.1 1.1 6.3c.1.6.8.9 1.4.6l5.3-3.7 5.3 3.7c.5.4 1.3.1 1.4-.6l1.1-6.3 6.3-1.1c.8-.1 1.1-.8.7-1.4zM16 25.1c-5.1 0-9.1-4.1-9.1-9.1 0-5.1 4.1-9.1 9.1-9.1s9.1 4.1 9.1 9.1c0 5.1-4 9.1-9.1 9.1z"></path>
+    </g>
+    <path class="theme-toggle__within__circle" d="M16 7.7c-4.6 0-8.2 3.7-8.2 8.2s3.6 8.4 8.2 8.4 8.2-3.7 8.2-8.2-3.6-8.4-8.2-8.4zm0 14.4c-3.4 0-6.1-2.9-6.1-6.2s2.7-6.1 6.1-6.1c3.4 0 6.1 2.9 6.1 6.2s-2.7 6.1-6.1 6.1z"></path>
+    <path class="theme-toggle__within__inner" d="M16 9.5c-3.6 0-6.4 2.9-6.4 6.4s2.8 6.5 6.4 6.5 6.4-2.9 6.4-6.4-2.8-6.5-6.4-6.5z"></path>
+  </svg>
+</label>
+    <a href="https://markzebley.com" aria-label="External link to markzebley.com homepage" target="_blank"><svg version="1.0" viewBox="0 0 598.000000 598.000000" preserveAspectRatio="xMidYMid meet" fill="currentColor" class="width-2 height-2 ink-brand-300" xmlns="http://www.w3.org/2000/svg">
         <g transform="translate(0.000000,598.000000) scale(0.100000,-0.100000)" fill="inherit" stroke="none">
           <path d="M4790 5795 c-19 -9 -44 -24 -55 -34 -23 -22 -155 -109 -251 -166 -59
     -36 -273 -180 -299 -202 -5 -4 -44 -33 -85 -63 -41 -30 -77 -57 -80 -60 -3 -3
@@ -108,7 +156,7 @@
     21 18 24 16 4 -3 6 -42 5 -88z"></path>
         </g>
       </svg></a>
-    <svg viewBox="37.23 219.337 380.514 61.672" width="380.514" height="61.672" role="img" aria-hidden="true">
+    <svg viewBox="37.23 219.337 380.514 61.672" width="380.514" height="61.672" role="img" aria-hidden="true" class="width-full margin-block-start-3 max-width-50">
       <defs>
         <clipPath id="clip-0">
           <path d="M 213.238 250.328 C 213.238 250.328 219.068 252.487 230.345 242.882 C 239.841 234.793 253.567 250.328 253.567 250.328 L 253.574 270.913 L 213.245 270.913 L 213.24 256.761 L 213.238 250.328 Z" style="fill: rgb(194, 138, 138);" transform="matrix(0.408477, -0.912769, 0.912769, 0.408477, -95.357819, 364.316255)"></path>
@@ -130,11 +178,11 @@
       <path d="M 211.225 252.806 C 211.225 252.806 217.337 243.795 228.826 253.148 C 237.191 259.958 251.547 252.806 251.547 252.806 L 251.547 273.393 L 211.225 273.393 L 211.225 259.24 L 211.225 252.806 Z" style="clip-path: url(#clip-2); fill: rgb(240, 245, 245);"></path>
       <path d="M 211.225 252.806 C 211.225 252.806 226.149 267.513 237.427 257.907 C 246.924 249.817 251.547 252.806 251.547 252.806 L 251.547 273.393 L 211.225 273.393 L 211.225 259.24 L 211.225 252.806 Z" style="clip-path: url(#clip-1); fill: rgb(106, 154, 153);"></path>
     </svg>
-    <h1 style="position: absolute;overflow: hidden; width:.1px;height:.1px;opacity:0" id="heading">Dynamowaves</h1>
-    <p class="hero-lede">
+    <h1 class="visually-hidden" id="heading">Dynamowaves</h1>
+    <p class="ink-brand-700 font-lg measure-2 margin-block-start-1 margin-block-end-2">
       Buttery smooth <strong>HTML</strong> templates that <strong id="shuffle">randomly generate</strong> themselves on
       render.<br>
-      <span style="font-size:1.25rem;margin-top:.75rem;display:inline-block">
+      <span class="display-inline-block ink-brand-00 font-sm margin-block-start-05">
         <em>7.2 KB minified—with no dependencies!</em>
       </span>
     </p>
@@ -142,16 +190,18 @@
       <div class="loader" tabindex="0" aria-label="loading content"></div>
     </div>
   </header>
-  <main>
     <div class="wave-wrapper reveal" id="header_wave_wrapper">
-      <dynamo-wave data-wave-face="bottom" data-wave-points="8" data-wave-speed="5000" style="fill:var(--theme-light);height:4rem;margin-top:-1px;width:100%" id="header_wave">
+      <dynamo-wave data-wave-face="bottom" data-wave-points="8" data-wave-speed="5000" style="fill:var(--zbk-brand-200);height:var(--zbk-spacing-4);margin-top:-1px;width:100%" id="header_wave">
       </dynamo-wave>
     </div>
-    <div class="box" style="margin:3rem 0">
+    <div class="box margin-block-3">
       <button onclick="regenHeader('header_wave')"><i data-feather="refresh-cw" class="refresh"></i>Regen
         Header</button>
     </div>
     <div class="content-layout">
+           <aside id="toc" aria-label="Table of contents">
+        <div class="toc-placeholder">Loading table of contents…</div>
+      </aside>
       <div class="content-column">
         <section class="box" aria-labelledby="installationHeader">
           <div data-snippet="installation-header" id="installation-header"><h2 id="installation-header">Installation</h2>
@@ -211,7 +261,7 @@ and then leverages HTML web components (sorry, IE) to allow it to easily grab it
 <pre><code class="language-html">&lt;!-- Without any added attributes you get a top facing wave filled with the current color of its parent --&gt; 
 &lt;dynamo-wave&gt;&lt;/dynamo-wave&gt;
 </code></pre>
-<p><dynamo-wave style="margin-bottom:1.25rem"></dynamo-wave></p>
+<p><dynamo-wave class="fill-ink" style="margin-bottom:1.25rem"></dynamo-wave></p>
 <p>A <strong>dynamo-wave</strong> will inherit any <strong><code>class</code></strong>, <strong><code>id</code></strong>, or <strong><code>style</code></strong> applied to its invoking element.</p>
 <pre><code class="language-html">&lt;!-- Example 1 --&gt;
 &lt;dynamo-wave style="fill:slateblue"&gt;&lt;/dynamo-wave&gt;
@@ -277,11 +327,11 @@ and then leverages HTML web components (sorry, IE) to allow it to easily grab it
 <pre><code class="language-html">&lt;!-- Update the points and variance to change up your wave feel --&gt;
 &lt;dynamo-wave data-wave-points="100" data-wave-variance="2"&gt;&lt;/dynamo-wave&gt;
 </code></pre>
-<p class="note">
+<div class="note"><p>
 <strong>Legacy support:</strong> Existing markup that uses  <code>data-variance</code> will continue to work, but <code>data-wave-variance</code> is the preferred attribute for clarity going forward.
-</p>
+</p></div>
 
-<p><dynamo-wave style="margin-bottom:1.25rem" data-wave-points="120" data-wave-variance="2"></dynamo-wave></p>
+<p><dynamo-wave class="fill-ink" style="margin-bottom:1.25rem" data-wave-points="120" data-wave-variance="2"></dynamo-wave></p>
 <h4 id="deterministic-waves">Deterministic waves</h4>
 
 <p>Every generated wave encodes its exact SVG path into <code>data-wave-seed</code>. Copy that attribute to reuse the same shape anywhere:</p>
@@ -298,8 +348,8 @@ and then leverages HTML web components (sorry, IE) to allow it to easily grab it
 &lt;/script&gt;
 </code></pre>
 <p>The value is a compact, URL-safe string representation of the full path; if it is present on an element, the component renders that exact path instead of generating a new one.</p>
-<p><dynamo-wave data-wave-seed="TSAwIDE2MCBMIDAgNjguOTEzMzA4MTQ1MzQwODkgUSAwIDY4LjkxMzMwODE0NTM0MDg5LCAxNDQgOTQuOTQ3OTQzOTk4MjM1NjIgUSAyODggMTIwLjk4MjU3OTg1MTEzMDM1LCA0MzIgOTEuNTIyNzY5ODgxMDQ1MjQgUSA1NzYgNjIuMDYyOTU5OTEwOTYwMTMsIDcyMCA3MS4yNTU1NDIxOTY5NDc3NyBRIDg2NCA4MC40NDgxMjQ0ODI5MzU0MSwgMTAwOCAxMDEuODI4ODg1NjkwNTM3MTYgUSAxMTUyIDEyMy4yMDk2NDY4OTgxMzg5LCAxMjk2IDc5LjY4Nzg5MjUwODMyOTkgUSAxNDQwIDM2LjE2NjEzODExODUyMDg4LCAxNDQwIDM2LjE2NjEzODExODUyMDg4IEwgMTQ0MCAxNjAgWg"></dynamo-wave></p>
-<p><dynamo-wave data-wave-seed="TSAwIDE2MCBMIDAgNjguOTEzMzA4MTQ1MzQwODkgUSAwIDY4LjkxMzMwODE0NTM0MDg5LCAxNDQgOTQuOTQ3OTQzOTk4MjM1NjIgUSAyODggMTIwLjk4MjU3OTg1MTEzMDM1LCA0MzIgOTEuNTIyNzY5ODgxMDQ1MjQgUSA1NzYgNjIuMDYyOTU5OTEwOTYwMTMsIDcyMCA3MS4yNTU1NDIxOTY5NDc3NyBRIDg2NCA4MC40NDgxMjQ0ODI5MzU0MSwgMTAwOCAxMDEuODI4ODg1NjkwNTM3MTYgUSAxMTUyIDEyMy4yMDk2NDY4OTgxMzg5LCAxMjk2IDc5LjY4Nzg5MjUwODMyOTkgUSAxNDQwIDM2LjE2NjEzODExODUyMDg4LCAxNDQwIDM2LjE2NjEzODExODUyMDg4IEwgMTQ0MCAxNjAgWg" style="margin-bottom:1.25rem"></dynamo-wave></p>
+<p><dynamo-wave class="fill-ink" data-wave-seed="TSAwIDE2MCBMIDAgNjguOTEzMzA4MTQ1MzQwODkgUSAwIDY4LjkxMzMwODE0NTM0MDg5LCAxNDQgOTQuOTQ3OTQzOTk4MjM1NjIgUSAyODggMTIwLjk4MjU3OTg1MTEzMDM1LCA0MzIgOTEuNTIyNzY5ODgxMDQ1MjQgUSA1NzYgNjIuMDYyOTU5OTEwOTYwMTMsIDcyMCA3MS4yNTU1NDIxOTY5NDc3NyBRIDg2NCA4MC40NDgxMjQ0ODI5MzU0MSwgMTAwOCAxMDEuODI4ODg1NjkwNTM3MTYgUSAxMTUyIDEyMy4yMDk2NDY4OTgxMzg5LCAxMjk2IDc5LjY4Nzg5MjUwODMyOTkgUSAxNDQwIDM2LjE2NjEzODExODUyMDg4LCAxNDQwIDM2LjE2NjEzODExODUyMDg4IEwgMTQ0MCAxNjAgWg"></dynamo-wave></p>
+<p><dynamo-wave class="fill-ink" data-wave-seed="TSAwIDE2MCBMIDAgNjguOTEzMzA4MTQ1MzQwODkgUSAwIDY4LjkxMzMwODE0NTM0MDg5LCAxNDQgOTQuOTQ3OTQzOTk4MjM1NjIgUSAyODggMTIwLjk4MjU3OTg1MTEzMDM1LCA0MzIgOTEuNTIyNzY5ODgxMDQ1MjQgUSA1NzYgNjIuMDYyOTU5OTEwOTYwMTMsIDcyMCA3MS4yNTU1NDIxOTY5NDc3NyBRIDg2NCA4MC40NDgxMjQ0ODI5MzU0MSwgMTAwOCAxMDEuODI4ODg1NjkwNTM3MTYgUSAxMTUyIDEyMy4yMDk2NDY4OTgxMzg5LCAxMjk2IDc5LjY4Nzg5MjUwODMyOTkgUSAxNDQwIDM2LjE2NjEzODExODUyMDg4LCAxNDQwIDM2LjE2NjEzODExODUyMDg4IEwgMTQ0MCAxNjAgWg" style="margin-bottom:1.25rem"></dynamo-wave></p>
 <h4 id="anchored-endpoints">Anchored endpoints</h4>
 
 <p>When you need the wave to begin and end on the baseline—perfect for pinned backgrounds or matching solid color blocks—set <strong><code>data-start-end-zero</code></strong>. The attribute accepts boolean-like values such as <code>"true"</code>, <code>"1"</code>, or you can include it without a value. It works for both horizontal and vertical waves.</p>
@@ -376,7 +426,7 @@ and then leverages HTML web components (sorry, IE) to allow it to easily grab it
 &lt;dynamo-wave class="fill-theme" data-wave-speed="5000" data-wave-animate="true"&gt;&lt;/dynamo-wave&gt;
 </code></pre>
 <p><dynamo-wave class="fill-theme" data-wave-speed="5000" data-wave-animate="true"></dynamo-wave></p>
-<p class="note"><strong>Need to know when a loop finishes?</strong> Listen for the <code>dynamo-wave-complete</code> event to react when an animation cycle ends.</p>
+<div class="note"><p><strong>Need to know when a loop finishes?</strong> Listen for the <code>dynamo-wave-complete</code> event to react when an animation cycle ends.</p></div>
 
 <pre><code class="language-javascript">document.querySelector('dynamo-wave')
   .addEventListener('dynamo-wave-complete', (event) =&gt; {
@@ -469,7 +519,7 @@ function toggleWaveAnimation() {
 </div>
         </section>
 
-        <section class="box" style="margin-top:1rem" aria-labelledby="practicalApplicationHeader">
+        <section class="box margin-block-start-1" aria-labelledby="practicalApplicationHeader">
           <div data-snippet="examples" id="examples"><h2 id="practicalApplicationHeader">Practical Application</h2>
 
 <p><strong>Dynamowaves</strong> come out of the box entirely style agnostic. The onus is on the developer to add the necessary attributes to get them to fit their intended platform, but at the same time this provides nearly endless possibilities for customization.</p>
@@ -573,14 +623,12 @@ at. Postea accusata et has, his te prima porro verterem.
       </div>
     </section> -->
       </div>
-      <aside id="toc" aria-label="Table of contents">
-        <div class="toc-placeholder">Loading table of contents…</div>
-      </aside>
+ 
     </div>
     <dynamo-wave class="fill-theme fill-light" data-wave-speed="10000" data-wave-animate="true" style="margin-bottom:-.5rem;height:7rem;width:100%;">
     </dynamo-wave>
-  </main>
-  <footer>
+  
+  <footer class="canvas-brand-200 padding-inline-105 padding-block-end-05 display-flex">
     <div style="align-self: center;">
       <a href="https://github.com/mzebley/dynamowaves" rel="external" style="display:inline-flex;align-items: center;gap:.25rem" aria-label="External link to Dynamowaves on Github" target="_blank">
         <i style="color:var(--theme);margin: -2px 0.5rem 0 0;" data-feather="github"></i>
@@ -597,8 +645,8 @@ at. Postea accusata et has, his te prima porro verterem.
         </p>
       </a>
     </div>
-    <div style="align-self: center;">
-      <a href="https://markzebley.com" rel="external" style="display:inline-flex;align-items: center;gap:.25rem" target="_blank">
+    <div style="align-self: flex-end;">
+      <a href="https://markzebley.com" rel="external" style="display:inline-flex;align-items: center;gap:.25rem" aria-label="External link to author Mark Zebley's site" target="_blank">
         <svg style="width:56px;fill:var(--theme);cursor:pointer" viewBox="0 0 40 32">
           <path d="M19 2.76c-0.44 0.013-2.333 0.133-4.2 0.24s-4.44 0.253-5.707 0.32c-1.28 0.067-2.333 0.147-2.36 0.173-0.013 0.027 0.187 1.533 0.44 3.373l0.48 3.333 0.013 7.147c0 6.52 0.027 7.173 0.24 7.493 0.24 0.373 0.76 0.52 1.627 0.467l0.533-0.040 0.080 1.333c0.040 0.733 0.147 1.547 0.24 1.813l0.16 0.493 3.227 0.093c4.027 0.12 14.96 0.040 15.12-0.107 0.173-0.187 0.12-1.853-0.080-2.36-0.107-0.253-0.28-0.693-0.387-0.973-0.16-0.4-0.173-0.587-0.053-1.013 0.093-0.28 0.16-0.84 0.16-1.227 0-0.493 0.080-0.853 0.267-1.12 0.147-0.213 0.293-0.667 0.333-1 0.147-1.107 0.213-1.227 1.267-2.333 0.573-0.6 1.080-1.24 1.107-1.413 0.040-0.173 0.16-0.867 0.28-1.52 0.173-1.027 0.267-1.253 0.587-1.533 0.56-0.48 0.653-0.733 1.027-2.613 0.293-1.453 0.4-1.747 0.733-2.093 0.4-0.413 1.2-2.373 1.2-2.947 0-0.28-0.080-0.32-0.693-0.4-0.387-0.040-1.107-0.080-1.6-0.080-1.067 0-1.093-0.053-0.507-1.16 0.427-0.787 0.48-1.227 0.267-1.867l-0.147-0.4-1.813-0.080c-1.72-0.093-10.133-0.093-11.84 0zM15.214 9.541c0.272-0.67 0.654-1.283 1.036-1.897 0.084-0.119 0.167-0.238 0.251-0.357 0.149-0.201 0.361-0.301 0.564-0.336 0.286-0.062 0.571-0.032 0.818 0.071 0.349 0.131 0.512 0.446 0.582 0.851 0.025 0.359-0.006 0.736-0.064 1.122-0.116 0.68-0.295 1.35-0.411 2.030-0.19 0.826-0.427 1.699-0.553 2.535-0.028 0.101-0.048 0.23-0.039 0.349 0.093-0.091 0.149-0.201 0.177-0.302 0.411-0.898 0.823-1.797 1.207-2.686 0.27-0.693 0.578-1.349 0.875-2.042-0.039-0.041-0.077-0.085-0.114-0.132-0.146-0.167-0.144-0.443-0.041-0.69 0.066-0.174 0.159-0.358 0.298-0.495 0.289-0.43 0.631-0.786 1.020-1.096 0.731-0.574 1.443-1.111 2.22-1.547 0.148-0.109 0.305-0.191 0.444-0.328 0.176-0.118 0.342-0.172 0.544-0.116s0.413 0.141 0.559 0.308c0.137 0.139 0.191 0.305 0.107 0.516-0.151 0.477-0.347 0.908-0.571 1.348-0.421 0.871-0.841 1.742-1.262 2.612-0.253 0.541-0.514 1.054-0.794 1.604-0.046 0.046-0.056 0.11-0.084 0.211 0.138-0.045 0.249-0.081 0.369-0.089 0.313-0.071 0.598-0.041 0.846 0.062 0.138 0.047 0.165 0.038 0.24-0.109 0.4-0.558 0.772-1.107 1.172-1.665 0.623-0.906 1.479-2.102 1.581-2.166 0.046-0.046 0.174-0.175 0.22-0.129s-0.087 0.223-0.106 0.26c-0.084 0.119-0.052 0.125-0.266 0.408-0.345 0.54-0.698 1.053-1.042 1.593-0.41 0.623-0.819 1.245-1.229 1.867-0.195 0.247-0.14 0.229-0.049 0.414 0.173 0.25 0.216 0.572 0.232 0.903 0.039 0.874-0.096 1.775-0.269 2.656-0.26 1.461-0.648 2.902-1.229 4.315-0.282 0.734-0.673 1.412-1.193 1.978-0.297 0.311-0.612 0.566-0.944 0.765-0.73 0.39-1.187 0.019-1.376-0.47-0.154-0.378-0.205-0.82-0.138-1.271 0.098-0.735 0.259-1.461 0.541-2.195 0.525-1.302 1.188-2.558 1.896-3.767 0.354-0.604 0.708-1.209 1.099-1.795 0.084-0.119 0.112-0.22 0.104-0.339-0.035-0.203-0.070-0.405-0.124-0.571-0.064-0.102-0.073-0.129-0.202-0.057-0.157 0.081-0.286 0.154-0.407 0.255-0.185 0.183-0.398 0.282-0.564 0.428-0.324 0.228-0.636 0.207-0.911 0.021-0.165-0.13-0.19-0.397-0.115-0.636 0.066-0.266 0.161-0.542 0.264-0.789 0.206-0.495 0.449-0.972 0.655-1.467 0.412-0.899 0.86-1.778 1.308-2.658 0.075-0.146 0.149-0.293 0.224-0.44-0.055 0.018-0.055 0.018-0.055 0.018-0.611 0.474-1.221 0.948-1.732 1.542-0.158 0.174-0.26 0.329-0.354 0.513-0.121 0.192-0.094 0.275 0.034 0.387 0.037 0.019 0.073 0.037 0.091 0.093 0.045 0.046 0.045 0.138 0.008 0.212s-0.093 0.091-0.185 0.091c0 0-0.028 0.009-0.064-0.010-0.172-0.026-0.319-0.086-0.452-0.176-0.346 0.839-0.699 1.7-1.011 2.548-0.3 0.77-0.573 1.532-0.882 2.275-0.149 0.293-0.271 0.578-0.457 0.852-0.242 0.385-0.565 0.52-0.924 0.545-0.12 0.008-0.23-0.048-0.293-0.149-0.118-0.176-0.218-0.388-0.244-0.655-0.052-0.442-0.076-0.893-0.017-1.371 0.1-1.103 0.22-2.243 0.495-3.372 0.123-0.468 0.21-0.955 0.305-1.415-0.009-0.028 0.010-0.064-0.027-0.083-0.064-0.010-0.074 0.055-0.111 0.128-0.596 0.897-1.081 1.85-1.42 2.878-0.366 0.945-0.659 1.927-0.933 2.872-0.085 0.303-0.261 0.513-0.538 0.603-0.147 0.017-0.313 0.071-0.47 0.061-0.184-0.001-0.312-0.113-0.366-0.279-0.082-0.157-0.108-0.332-0.134-0.507-0.061-0.47-0.011-0.975 0.048-1.453 0.079-0.699 0.222-1.387 0.393-2.085 0.010-0.064 0.028-0.101 0.001-0.184-0.055 0.018-0.065 0.082-0.084 0.119-0.262 0.513-0.468 1.008-0.637 1.522-0.358 1.064-0.715 2.129-1.045 3.184-0.169 0.514-0.367 1.037-0.527 1.578-0.075 0.239-0.233 0.412-0.446 0.512-0.074 0.055-0.157 0.082-0.277 0.090-0.369 0.089-0.533-0.041-0.631-0.437-0.187-0.857-0.143-1.758-0.044-2.677 0.060-0.662 0.802-3.839 1.076-4.785 0.085-0.303 0.178-0.394 0.445-0.42 0.295-0.034 0.589 0.023 0.835 0.218 0.082 0.065 0.146 0.167 0.163 0.314 0.016 0.331 0.004 0.672-0.072 1.002-0.125 0.744-0.315 1.479-0.477 2.204-0.038 0.165-0.085 0.303-0.087 0.487 0.113-0.312 0.225-0.624 0.338-0.936 0.291-0.798 0.583-1.596 0.91-2.376 0.262-0.605 0.589-1.201 0.961-1.75 0.102-0.156 0.204-0.219 0.351-0.237 0.267-0.026 0.524 0.013 0.781 0.144 0.165 0.13 0.255 0.315 0.3 0.545 0.025 0.359 0.013 0.699 0.001 1.040-0.019 0.037-0.028 0.101 0.008 0.12 0.046-0.046 0.084-0.119 0.093-0.183zM22.37 13.395c-0.41 0.714-0.811 1.457-1.185 2.19-0.588 1.109-1.075 2.246-1.452 3.439-0.179 0.578-0.294 1.166-0.142 1.728 0.062 0.378 0.281 0.582 0.537 0.712 0.192 0.121 0.266 0.066 0.443-0.144 0.232-0.32 0.401-0.65 0.532-0.999 0.441-1.091 0.753-2.202 0.991-3.35 0.163-0.91 0.327-1.819 0.361-2.748 0.049-0.322 0.060-0.662 0.044-0.993-0.083 0.027-0.12 0.1-0.13 0.165z">
           </path>
@@ -777,6 +825,100 @@ at. Postea accusata et has, his te prima porro verterem.
     }
   }
 </script>
+  <script>
+    (function () {
+      const storageKey = "dynamowaves-theme";
+      const root = document.documentElement;
+      const toggleLabel = document.querySelector(".theme-toggle");
+      const toggle = document.querySelector(".theme-toggle input[type=\"checkbox\"]");
+      const prefersDarkQuery = "(prefers-color-scheme: dark)";
+      const mediaQuery = window.matchMedia ? window.matchMedia(prefersDarkQuery) : null;
+
+      const readStoredTheme = () => {
+        try {
+          return window.localStorage.getItem(storageKey);
+        } catch (error) {
+          return null;
+        }
+      };
+
+      const writeStoredTheme = (value) => {
+        try {
+          window.localStorage.setItem(storageKey, value);
+        } catch (error) {
+          /* localStorage unavailable */
+        }
+      };
+
+      const clearStoredTheme = () => {
+        try {
+          window.localStorage.removeItem(storageKey);
+        } catch (error) {
+          /* localStorage unavailable */
+        }
+      };
+
+      const applyTheme = (theme, source) => {
+        const nextTheme = theme === "dark" ? "dark" : "light";
+        root.dataset.theme = nextTheme;
+        root.dataset.themeSource = source;
+        if (toggle) {
+          toggle.checked = nextTheme === "dark";
+        }
+      };
+
+      const storedTheme = (() => {
+        const value = readStoredTheme();
+        return value === "dark" || value === "light" ? value : null;
+      })();
+
+      const initialTheme = root.dataset.theme || storedTheme || (mediaQuery && mediaQuery.matches ? "dark" : "light");
+      const initialSource = root.dataset.themeSource || (storedTheme ? "manual" : "system");
+      applyTheme(initialTheme, initialSource);
+
+      const handleToggle = (event) => {
+        const nextTheme = event.target.checked ? "dark" : "light";
+        applyTheme(nextTheme, "manual");
+        writeStoredTheme(nextTheme);
+      };
+
+      if (toggle) {
+        toggle.addEventListener("change", handleToggle);
+      }
+
+      const handleLabelKeydown = (event) => {
+        const isActivationKey =
+          event.key === "Enter" || event.key === " " || event.key === "Spacebar";
+        if (!isActivationKey || !toggle) {
+          return;
+        }
+        event.preventDefault();
+        toggle.checked = !toggle.checked;
+        toggle.dispatchEvent(new Event("change", { bubbles: true }));
+      };
+
+      if (toggleLabel) {
+        toggleLabel.addEventListener("keydown", handleLabelKeydown);
+      }
+
+      const handleSystemPreferenceChange = (event) => {
+        if (root.dataset.themeSource === "manual") {
+          return;
+        }
+        const nextTheme = event.matches ? "dark" : "light";
+        applyTheme(nextTheme, "system");
+        clearStoredTheme();
+      };
+
+      if (mediaQuery) {
+        if (mediaQuery.addEventListener) {
+          mediaQuery.addEventListener("change", handleSystemPreferenceChange);
+        } else if (mediaQuery.addListener) {
+          mediaQuery.addListener(handleSystemPreferenceChange);
+        }
+      }
+    })();
+  </script>
   <script>
     function regenHeader(id, duration = 800) {
       document.getElementById(id).generateNewWave(duration);

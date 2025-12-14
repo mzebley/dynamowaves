@@ -49,11 +49,11 @@ A **dynamowave** will generate itself a new, randomized wave path each time it's
 <dynamo-wave data-wave-points="100" data-wave-variance="2"></dynamo-wave>
 ```
 
-<p class="note">
+<div class="note"><p>
 <strong>Legacy support:</strong> Existing markup that uses  <code>data-variance</code> will continue to work, but <code>data-wave-variance</code> is the preferred attribute for clarity going forward.
-</p>
+</p></div>
 
-<dynamo-wave style="margin-bottom:1.25rem" data-wave-points="120" data-wave-variance="2"></dynamo-wave>
+<dynamo-wave class="fill-ink" style="margin-bottom:1.25rem" data-wave-points="120" data-wave-variance="2"></dynamo-wave>
 
 <h4 id="deterministic-waves">Deterministic waves</h4>
 
@@ -75,9 +75,9 @@ Every generated wave encodes its exact SVG path into ```data-wave-seed```. Copy 
 
 The value is a compact, URL-safe string representation of the full path; if it is present on an element, the component renders that exact path instead of generating a new one.
 
-<dynamo-wave data-wave-seed="TSAwIDE2MCBMIDAgNjguOTEzMzA4MTQ1MzQwODkgUSAwIDY4LjkxMzMwODE0NTM0MDg5LCAxNDQgOTQuOTQ3OTQzOTk4MjM1NjIgUSAyODggMTIwLjk4MjU3OTg1MTEzMDM1LCA0MzIgOTEuNTIyNzY5ODgxMDQ1MjQgUSA1NzYgNjIuMDYyOTU5OTEwOTYwMTMsIDcyMCA3MS4yNTU1NDIxOTY5NDc3NyBRIDg2NCA4MC40NDgxMjQ0ODI5MzU0MSwgMTAwOCAxMDEuODI4ODg1NjkwNTM3MTYgUSAxMTUyIDEyMy4yMDk2NDY4OTgxMzg5LCAxMjk2IDc5LjY4Nzg5MjUwODMyOTkgUSAxNDQwIDM2LjE2NjEzODExODUyMDg4LCAxNDQwIDM2LjE2NjEzODExODUyMDg4IEwgMTQ0MCAxNjAgWg"></dynamo-wave>
+<dynamo-wave class="fill-ink" data-wave-seed="TSAwIDE2MCBMIDAgNjguOTEzMzA4MTQ1MzQwODkgUSAwIDY4LjkxMzMwODE0NTM0MDg5LCAxNDQgOTQuOTQ3OTQzOTk4MjM1NjIgUSAyODggMTIwLjk4MjU3OTg1MTEzMDM1LCA0MzIgOTEuNTIyNzY5ODgxMDQ1MjQgUSA1NzYgNjIuMDYyOTU5OTEwOTYwMTMsIDcyMCA3MS4yNTU1NDIxOTY5NDc3NyBRIDg2NCA4MC40NDgxMjQ0ODI5MzU0MSwgMTAwOCAxMDEuODI4ODg1NjkwNTM3MTYgUSAxMTUyIDEyMy4yMDk2NDY4OTgxMzg5LCAxMjk2IDc5LjY4Nzg5MjUwODMyOTkgUSAxNDQwIDM2LjE2NjEzODExODUyMDg4LCAxNDQwIDM2LjE2NjEzODExODUyMDg4IEwgMTQ0MCAxNjAgWg"></dynamo-wave>
 
-<dynamo-wave data-wave-seed="TSAwIDE2MCBMIDAgNjguOTEzMzA4MTQ1MzQwODkgUSAwIDY4LjkxMzMwODE0NTM0MDg5LCAxNDQgOTQuOTQ3OTQzOTk4MjM1NjIgUSAyODggMTIwLjk4MjU3OTg1MTEzMDM1LCA0MzIgOTEuNTIyNzY5ODgxMDQ1MjQgUSA1NzYgNjIuMDYyOTU5OTEwOTYwMTMsIDcyMCA3MS4yNTU1NDIxOTY5NDc3NyBRIDg2NCA4MC40NDgxMjQ0ODI5MzU0MSwgMTAwOCAxMDEuODI4ODg1NjkwNTM3MTYgUSAxMTUyIDEyMy4yMDk2NDY4OTgxMzg5LCAxMjk2IDc5LjY4Nzg5MjUwODMyOTkgUSAxNDQwIDM2LjE2NjEzODExODUyMDg4LCAxNDQwIDM2LjE2NjEzODExODUyMDg4IEwgMTQ0MCAxNjAgWg" style="margin-bottom:1.25rem"></dynamo-wave>
+<dynamo-wave class="fill-ink" data-wave-seed="TSAwIDE2MCBMIDAgNjguOTEzMzA4MTQ1MzQwODkgUSAwIDY4LjkxMzMwODE0NTM0MDg5LCAxNDQgOTQuOTQ3OTQzOTk4MjM1NjIgUSAyODggMTIwLjk4MjU3OTg1MTEzMDM1LCA0MzIgOTEuNTIyNzY5ODgxMDQ1MjQgUSA1NzYgNjIuMDYyOTU5OTEwOTYwMTMsIDcyMCA3MS4yNTU1NDIxOTY5NDc3NyBRIDg2NCA4MC40NDgxMjQ0ODI5MzU0MSwgMTAwOCAxMDEuODI4ODg1NjkwNTM3MTYgUSAxMTUyIDEyMy4yMDk2NDY4OTgxMzg5LCAxMjk2IDc5LjY4Nzg5MjUwODMyOTkgUSAxNDQwIDM2LjE2NjEzODExODUyMDg4LCAxNDQwIDM2LjE2NjEzODExODUyMDg4IEwgMTQ0MCAxNjAgWg" style="margin-bottom:1.25rem"></dynamo-wave>
 
 <h4 id="anchored-endpoints">Anchored endpoints</h4>
 
@@ -167,7 +167,7 @@ Want a **dynamowave** that you can just sit around and stare at? You might be in
 
 <dynamo-wave class="fill-theme" data-wave-speed="5000" data-wave-animate="true"></dynamo-wave>
             
-<p class="note"><strong>Need to know when a loop finishes?</strong> Listen for the <code>dynamo-wave-complete</code> event to react when an animation cycle ends.</p>
+<div class="note"><p><strong>Need to know when a loop finishes?</strong> Listen for the <code>dynamo-wave-complete</code> event to react when an animation cycle ends.</p></div>
 
 ```javascript
 document.querySelector('dynamo-wave')

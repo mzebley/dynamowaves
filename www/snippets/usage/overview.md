@@ -17,7 +17,7 @@ Since **Dynamowaves** use HTML templating syntax, all it takes to call one is to
 <dynamo-wave></dynamo-wave>
 ```
 
-<dynamo-wave style="margin-bottom:1.25rem"></dynamo-wave>
+<dynamo-wave class="fill-ink" style="margin-bottom:1.25rem"></dynamo-wave>
 
 A **dynamo-wave** will inherit any **<code>class</code>**, **<code>id</code>**, or **<code>style</code>** applied to its invoking element.
 
