@@ -60,6 +60,10 @@ html[data-theme="dark"] {
   --focus-color: var(--zbk-color-cyan-500);
 }
 
+.canvas-brand-dark {
+  background: var(--zbk-brand-200);
+}
+
 ::selection {
   color: var(--selection-ink);
   background-color: var(--selection-canvas);
@@ -519,7 +523,6 @@ code {
 
 
 .wave-wrapper {
-  z-index: -1;
   width: 100%;
   transition: all .325s ease;
   transform-origin: top;
