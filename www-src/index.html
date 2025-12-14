@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="canvas-brand-dark"><head>
+<html lang="en"><head>
   <meta charset="utf-8">
   <title>Dynamowaves - SVG wave templates</title>
   <meta name="description" content="SVG wave templates that shuffle themselves on render.">
@@ -55,7 +55,7 @@
   <link rel="stylesheet" href="zbk-dynamowaves.min.css">
 </head>
 
-<body style="overflow:hidden" class="ink-app canvas-app display-flex font-primary font-md flex-direction-column justify-content-between line-height-5">
+<body style="overflow:hidden" class="ink-app canvas-brand-200 display-flex font-primary font-md flex-direction-column justify-content-between line-height-5">
   <header class="canvas-brand-200 display-flex flex-direction-column align-items-center padding-inline-105 padding-block-start-105">
     <label tabindex="0" class="theme-toggle" title="Toggle theme">
   <input type="checkbox" id="theme-toggle-input" />
@@ -204,16 +204,16 @@
       <div class="loader" tabindex="0" aria-label="loading content"></div>
     </div>
   </header>
-    <div class="wave-wrapper reveal" id="header_wave_wrapper">
+    <div class="wave-wrapper canvas-app reveal" id="header_wave_wrapper">
       <dynamo-wave data-wave-face="bottom" data-wave-points="8" data-wave-speed="5000"
         style="fill:var(--zbk-brand-200);height:var(--zbk-spacing-4);margin-top:-1px;width:100%" id="header_wave">
       </dynamo-wave>
     </div>
-    <div class="box margin-block-3">
+    <div class="box canvas-app padding-block-3">
       <button onclick="regenHeader('header_wave')"><i data-feather="refresh-cw" class="refresh"></i>Regen
         Header</button>
     </div>
-    <div class="content-layout">
+    <div class="content-layout canvas-app">
            <aside id="toc" aria-label="Table of contents">
         <div class="toc-placeholder">Loading table of contents…</div>
       </aside>
@@ -248,7 +248,7 @@
       </div>
  
     </div>
-    <dynamo-wave class="fill-theme fill-light" data-wave-speed="10000" data-wave-animate="true"
+    <dynamo-wave class="fill-theme fill-light canvas-app" data-wave-speed="10000" data-wave-animate="true"
       style="margin-bottom:-.5rem;height:7rem;width:100%;">
     </dynamo-wave>
   </main>

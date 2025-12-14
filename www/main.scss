@@ -524,7 +524,7 @@ code {
 
 .wave-wrapper {
   width: 100%;
-  transition: all .325s ease;
+  transition: transform .325s ease;
   transform-origin: top;
   transform: translate3d(0, -100%, 0);
 }
