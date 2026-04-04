@@ -1,0 +1,59 @@
+{
+  "zbk-accent-primary": {
+    "50": {
+      "value": "hsl(359, 14%, 97%)",
+      "type": "color",
+      "description": "For primary accent surfaces."
+    },
+    "100": {
+      "value": "hsl(359, 14%, 91%)",
+      "type": "color",
+      "description": "For primary accent surfaces."
+    },
+    "200": {
+      "value": "hsl(359, 14%, 78%)",
+      "type": "color",
+      "description": "For primary accent surfaces."
+    },
+    "300": {
+      "value": "hsl(359, 14%, 67%)",
+      "type": "color",
+      "description": "For primary accent surfaces."
+    },
+    "400": {
+      "value": "hsl(359, 14%, 56%)",
+      "type": "color",
+      "description": "For primary accent surfaces."
+    },
+    "500": {
+      "value": "hsl(359, 14%, 49%)",
+      "type": "color",
+      "description": "For primary accent surfaces."
+    },
+    "600": {
+      "value": "hsl(359, 14%, 39%)",
+      "type": "color",
+      "description": "For primary accent surfaces."
+    },
+    "700": {
+      "value": "hsl(359, 14%, 29%)",
+      "type": "color",
+      "description": "For primary accent surfaces."
+    },
+    "800": {
+      "value": "hsl(359, 14%, 20%)",
+      "type": "color",
+      "description": "For primary accent surfaces."
+    },
+    "900": {
+      "value": "hsl(359, 14%, 11%)",
+      "type": "color",
+      "description": "For primary accent surfaces."
+    },
+    "950": {
+      "value": "hsl(359, 14%, 4%)",
+      "type": "color",
+      "description": "For primary accent surfaces."
+    }
+  }
+}

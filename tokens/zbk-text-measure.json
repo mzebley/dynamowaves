@@ -1,0 +1,29 @@
+{
+  "zbk-text-measure": {
+    "1": {
+      "value": "32ch",
+      "type": "sizing",
+      "description": "Cards, sidebars, tight UI."
+    },
+    "2": {
+      "value": "45ch",
+      "type": "sizing",
+      "description": "Short text blocks, captions."
+    },
+    "3": {
+      "value": "60ch",
+      "type": "sizing",
+      "description": "Base body content measure."
+    },
+    "4": {
+      "value": "72ch",
+      "type": "sizing",
+      "description": "Articles, long-form content."
+    },
+    "5": {
+      "value": "85ch",
+      "type": "sizing",
+      "description": "Articles, long-form content."
+    }
+  }
+}

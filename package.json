@@ -45,5 +45,8 @@
     "chokidar-cli": "^3.0.0",
     "rollup": "^3.29.4",
     "rollup-plugin-dts": "^6.1.1"
+  },
+  "dependencies": {
+    "zebkit": "github:mzebley/zebkit"
   }
 }

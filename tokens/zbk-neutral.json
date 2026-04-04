@@ -1,0 +1,59 @@
+{
+  "zbk-neutral": {
+    "50": {
+      "value": "{color.charcoal-50}",
+      "type": "color",
+      "description": "For neutral surfaces."
+    },
+    "100": {
+      "value": "{color.charcoal-100}",
+      "type": "color",
+      "description": "For neutral surfaces."
+    },
+    "200": {
+      "value": "{color.charcoal-200}",
+      "type": "color",
+      "description": "For neutral surfaces."
+    },
+    "300": {
+      "value": "{color.charcoal-300}",
+      "type": "color",
+      "description": "For neutral surfaces."
+    },
+    "400": {
+      "value": "{color.charcoal-400}",
+      "type": "color",
+      "description": "For neutral surfaces."
+    },
+    "500": {
+      "value": "{color.charcoal-500}",
+      "type": "color",
+      "description": "For neutral surfaces."
+    },
+    "600": {
+      "value": "{color.charcoal-600}",
+      "type": "color",
+      "description": "For neutral surfaces."
+    },
+    "700": {
+      "value": "{color.charcoal-700}",
+      "type": "color",
+      "description": "For neutral surfaces."
+    },
+    "800": {
+      "value": "{color.charcoal-800}",
+      "type": "color",
+      "description": "For neutral surfaces."
+    },
+    "900": {
+      "value": "{color.charcoal-900}",
+      "type": "color",
+      "description": "For neutral surfaces."
+    },
+    "950": {
+      "value": "{color.charcoal-950}",
+      "type": "color",
+      "description": "For neutral surfaces."
+    }
+  }
+}

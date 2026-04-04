@@ -1,0 +1,89 @@
+{
+  "zbk-opacity": {
+    "0": {
+      "value": 0,
+      "type": "opacity",
+      "description": "Fully transparent (invisible)."
+    },
+    "5": {
+      "value": 0.05,
+      "type": "opacity",
+      "description": "5% opacity - barely visible."
+    },
+    "10": {
+      "value": 0.1,
+      "type": "opacity",
+      "description": "10% opacity - very faint."
+    },
+    "15": {
+      "value": 0.15,
+      "type": "opacity",
+      "description": "15% opacity - faint."
+    },
+    "20": {
+      "value": 0.2,
+      "type": "opacity",
+      "description": "20% opacity - subtle."
+    },
+    "25": {
+      "value": 0.25,
+      "type": "opacity",
+      "description": "25% opacity - quarter visible."
+    },
+    "30": {
+      "value": 0.3,
+      "type": "opacity",
+      "description": "30% opacity - light."
+    },
+    "40": {
+      "value": 0.4,
+      "type": "opacity",
+      "description": "40% opacity - moderate-light."
+    },
+    "50": {
+      "value": 0.5,
+      "type": "opacity",
+      "description": "50% opacity - half visible."
+    },
+    "60": {
+      "value": 0.6,
+      "type": "opacity",
+      "description": "60% opacity - moderate."
+    },
+    "70": {
+      "value": 0.7,
+      "type": "opacity",
+      "description": "70% opacity - mostly visible."
+    },
+    "75": {
+      "value": 0.75,
+      "type": "opacity",
+      "description": "75% opacity - three-quarters visible."
+    },
+    "80": {
+      "value": 0.8,
+      "type": "opacity",
+      "description": "80% opacity - largely visible."
+    },
+    "85": {
+      "value": 0.85,
+      "type": "opacity",
+      "description": "85% opacity - mostly opaque."
+    },
+    "90": {
+      "value": 0.9,
+      "type": "opacity",
+      "description": "90% opacity - nearly opaque."
+    },
+    "95": {
+      "value": 0.95,
+      "type": "opacity",
+      "description": "95% opacity - almost fully opaque."
+    },
+    "100": {
+      "value": 1,
+      "type": "opacity",
+      "description": "Fully opaque (default)."
+    }
+  }
+}

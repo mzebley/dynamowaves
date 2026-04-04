@@ -1,0 +1,59 @@
+{
+  "zbk-accent-secondary": {
+    "50": {
+      "value": "{color.teal-50}",
+      "type": "color",
+      "description": "For secondary accent surfaces."
+    },
+    "100": {
+      "value": "{color.teal-100}",
+      "type": "color",
+      "description": "For secondary accent surfaces."
+    },
+    "200": {
+      "value": "{color.teal-200}",
+      "type": "color",
+      "description": "For secondary accent surfaces."
+    },
+    "300": {
+      "value": "{color.teal-300}",
+      "type": "color",
+      "description": "For secondary accent surfaces."
+    },
+    "400": {
+      "value": "{color.teal-400}",
+      "type": "color",
+      "description": "For secondary accent surfaces."
+    },
+    "500": {
+      "value": "{color.teal-500}",
+      "type": "color",
+      "description": "For secondary accent surfaces."
+    },
+    "600": {
+      "value": "{color.teal-600}",
+      "type": "color",
+      "description": "For secondary accent surfaces."
+    },
+    "700": {
+      "value": "{color.teal-700}",
+      "type": "color",
+      "description": "For secondary accent surfaces."
+    },
+    "800": {
+      "value": "{color.teal-800}",
+      "type": "color",
+      "description": "For secondary accent surfaces."
+    },
+    "900": {
+      "value": "{color.teal-900}",
+      "type": "color",
+      "description": "For secondary accent surfaces."
+    },
+    "950": {
+      "value": "{color.teal-950}",
+      "type": "color",
+      "description": "For secondary accent surfaces."
+    }
+  }
+}

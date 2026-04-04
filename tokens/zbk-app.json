@@ -1,0 +1,114 @@
+{
+  "zbk-app": {
+    "canvas": {
+      "value": "{accent-primary.50}",
+      "type": "color",
+      "description": "Base app canvas color for primary surfaces."
+    },
+    "canvas-soft": {
+      "value": "{color.global-white}",
+      "type": "color",
+      "description": "Soft app canvas color for lightly tinted surfaces."
+    },
+    "canvas-muted": {
+      "value": "{accent-primary.100}",
+      "type": "color",
+      "description": "Muted app canvas color for low-emphasis surfaces."
+    },
+    "canvas-strong": {
+      "value": "{accent-primary.500}",
+      "type": "color",
+      "description": "Strong app canvas color for high-emphasis surfaces."
+    },
+    "canvas-inverse": {
+      "value": "{color.dusk-950}",
+      "type": "color",
+      "description": "Base inverse app canvas color for surfaces on dark or inverted contexts."
+    },
+    "canvas-inverse-soft": {
+      "value": "{color.dusk-900}",
+      "type": "color",
+      "description": "Soft inverse app canvas color for lightly tinted surfaces in inverse contexts."
+    },
+    "canvas-inverse-muted": {
+      "value": "{color.dusk-700}",
+      "type": "color",
+      "description": "Muted inverse app canvas color for low-emphasis surfaces in inverse contexts."
+    },
+    "canvas-inverse-strong": {
+      "value": "{color.dusk-200}",
+      "type": "color",
+      "description": "Strong inverse app canvas color for high-emphasis surfaces in inverse contexts."
+    },
+    "ink": {
+      "value": "{brand.950}",
+      "type": "color",
+      "description": "Base app ink color for text and icons on neutral or light canvases."
+    },
+    "ink-soft": {
+      "value": "{brand.700}",
+      "type": "color",
+      "description": "Soft app ink color for lower-emphasis text and icons."
+    },
+    "ink-muted": {
+      "value": "{brand.800}",
+      "type": "color",
+      "description": "Muted app ink color for subtle or secondary text and icons."
+    },
+    "ink-inverse": {
+      "value": "{color.dusk-200}",
+      "type": "color",
+      "description": "Base inverse app ink color for text and icons on inverse or dark canvases."
+    },
+    "ink-inverse-soft": {
+      "value": "{color.dusk-50}",
+      "type": "color",
+      "description": "Soft inverse app ink color for lower-emphasis text and icons on inverse canvases."
+    },
+    "ink-inverse-muted": {
+      "value": "{color.dusk-400}",
+      "type": "color",
+      "description": "Muted inverse app ink color for subtle text and icons on inverse canvases."
+    },
+    "border": {
+      "value": "",
+      "type": "color",
+      "description": "Base app border color for outlines, strokes, and dividers."
+    },
+    "border-soft": {
+      "value": "",
+      "type": "color",
+      "description": "Soft app border color for low-emphasis outlines and dividers."
+    },
+    "border-muted": {
+      "value": "",
+      "type": "color",
+      "description": "Muted app border color for subtle outlines and dividers."
+    },
+    "border-strong": {
+      "value": "",
+      "type": "color",
+      "description": "Strong app border color for high-emphasis outlines and dividers."
+    },
+    "border-inverse": {
+      "value": "",
+      "type": "color",
+      "description": "Base inverse app border color for outlines and dividers on inverse canvases."
+    },
+    "border-inverse-soft": {
+      "value": "",
+      "type": "color",
+      "description": "Soft inverse app border color for low-emphasis outlines on inverse canvases."
+    },
+    "border-inverse-muted": {
+      "value": "",
+      "type": "color",
+      "description": "Muted inverse app border color for subtle outlines on inverse canvases."
+    },
+    "border-inverse-strong": {
+      "value": "",
+      "type": "color",
+      "description": "Strong inverse app border color for high-emphasis outlines on inverse canvases."
+    }
+  }
+}

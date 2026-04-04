@@ -1,0 +1,59 @@
+{
+  "zbk-brand": {
+    "50": {
+      "value": "hsl(179, 19%, 98%)",
+      "type": "color",
+      "description": "For primary branded surfaces."
+    },
+    "100": {
+      "value": "hsl(179, 19%, 90%)",
+      "type": "color",
+      "description": "For primary branded surfaces."
+    },
+    "200": {
+      "value": "hsl(179, 19%, 81%)",
+      "type": "color",
+      "description": "For primary branded surfaces."
+    },
+    "300": {
+      "value": "hsl(179, 19%, 68%)",
+      "type": "color",
+      "description": "For primary branded surfaces."
+    },
+    "400": {
+      "value": "hsl(179, 19%, 56%)",
+      "type": "color",
+      "description": "For primary branded surfaces."
+    },
+    "500": {
+      "value": "hsl(179, 19%, 44%)",
+      "type": "color",
+      "description": "For primary branded surfaces."
+    },
+    "600": {
+      "value": "hsl(179, 19%, 36%)",
+      "type": "color",
+      "description": "For primary branded surfaces."
+    },
+    "700": {
+      "value": "hsl(179, 19%, 28%)",
+      "type": "color",
+      "description": "For primary branded surfaces."
+    },
+    "800": {
+      "value": "hsl(179, 19%, 21%)",
+      "type": "color",
+      "description": "For primary branded surfaces."
+    },
+    "900": {
+      "value": "hsl(179, 19%, 12%)",
+      "type": "color",
+      "description": "For primary branded surfaces."
+    },
+    "950": {
+      "value": "hsl(179, 19%, 4%)",
+      "type": "color",
+      "description": "For primary branded surfaces."
+    }
+  }
+}

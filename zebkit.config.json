@@ -1,0 +1,9 @@
+{
+  "tokens": {
+    "destinationPath": "./www",
+    "assetFilePath": "/",
+    "theme": "dynamowaves",
+    "customThemeName": "dynamowaves",
+    "customTokenPath": "./tokens"
+  }
+}
