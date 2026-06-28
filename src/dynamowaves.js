@@ -332,6 +332,20 @@ class DynamoWave extends HTMLElement {
     // Set flag to prevent concurrent wave generations
     this.isGeneratingWave = true;
 
+    // Begin a brand-new transition from a clean timeline. A prior play()/pause()
+    // cycle leaves a non-zero elapsedTime behind (used to *resume* that animation).
+    // If we don't clear it, animateWave treats this fresh transition as already
+    // elapsed and snaps straight to the target instead of tweening. Anchor the
+    // start of the tween to whatever shape is currently on screen so pausing
+    // mid-animation morphs smoothly rather than jumping back to the last keyframe.
+    this.elapsedTime = 0;
+    this.startTime = null;
+
+    const displayedPath = this.path && this.path.getAttribute("d");
+    if (displayedPath) {
+      this.currentPath = displayedPath;
+    }
+
     // Set the pending target path to a new wave
     this.pendingTargetPath = generateWave({
       width: this.width,
@@ -517,7 +531,7 @@ function generateWave({
 
   const last = anchors[anchors.length - 1];
   path += vertical
-    ? ` Q ${last.x} ${last.y}, 0 0 L ${width} 0 L ${width} ${height} Z`
+    ? ` Q ${last.x} ${last.y}, ${last.x} 0 L ${width} 0 L ${width} ${height} Z`
     : ` Q ${last.x} ${last.y}, ${width} ${last.y} L ${width} ${height} Z`;
 
   return path;
@@ -667,7 +681,7 @@ function interpolateWave(currentPoints, targetPoints, progress, vertical = false
   }
 
   path += vertical
-    ? ` L 0 0 L ${width} 0 L ${width} ${height} Z`
+    ? ` L ${width} 0 L ${width} ${height} Z`
     : ` L ${width} ${height} Z`;
 
   return path;
