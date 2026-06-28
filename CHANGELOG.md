@@ -10,6 +10,17 @@ release tags.
 
 ## [Unreleased]
 
+## [2.1.3] - 2026-06-28
+
+### Fixed
+
+- A wave's start anchor no longer jumps to a non-zero value on the first
+  animation frame. `interpolateWave` anchored its opening line to the first
+  curve segment's endpoint (the midpoint between anchors 0 and 1) instead of the
+  start anchor, so the statically rendered path and the first tweened frame
+  disagreed. Most visible with `data-start-end-zero="true"`, where the anchor
+  visibly left the base edge; affected both horizontal and vertical waves.
+
 ## [2.1.2] - 2026-06-28
 
 ### Fixed
@@ -84,7 +95,8 @@ release tags.
   speed, and animation.
 - `data-wave-observe` attribute to regenerate waves via `IntersectionObserver`.
 
-[Unreleased]: https://github.com/mzebley/dynamowaves/compare/v2.1.2...HEAD
+[Unreleased]: https://github.com/mzebley/dynamowaves/compare/v2.1.3...HEAD
+[2.1.3]: https://github.com/mzebley/dynamowaves/compare/v2.1.2...v2.1.3
 [2.1.2]: https://github.com/mzebley/dynamowaves/compare/v2.1.1...v2.1.2
 [2.1.1]: https://github.com/mzebley/dynamowaves/compare/v2.1.0...v2.1.1
 [2.1.0]: https://github.com/mzebley/dynamowaves/compare/v2.0.1...v2.1.0

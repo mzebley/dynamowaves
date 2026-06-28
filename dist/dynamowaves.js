@@ -677,9 +677,14 @@
       };
     });
 
+    // The opening line must reach the FIRST anchor, which is the first segment's
+    // control point (cpX/cpY) — not its endpoint (x/y), which is the midpoint
+    // between anchors 0 and 1. generateWave anchors this line the same way, so
+    // using the endpoint here makes the start anchor jump on the first frame
+    // (most visible with start-end-zero waves, where the anchor leaves zero).
     let path = vertical
-      ? `M ${width} ${height} L ${interpolatedPoints[0].x} ${height}`
-      : `M 0 ${height} L 0 ${interpolatedPoints[0].y}`;
+      ? `M ${width} ${height} L ${interpolatedPoints[0].cpX} ${height}`
+      : `M 0 ${height} L 0 ${interpolatedPoints[0].cpY}`;
 
     for (let i = 0; i < interpolatedPoints.length; i++) {
       const { cpX, cpY, x, y } = interpolatedPoints[i];

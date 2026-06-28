@@ -103,7 +103,9 @@ describe('interpolateWave', () => {
 
     const path = interpolateWave(current, target, 0.5, false, 80, 100);
 
-    const expected = 'M 0 80 L 0 40 Q 5 15, 20 40 Q 45 25, 60 50 L 100 80 Z';
+    // The opening line reaches the first anchor (cpY), not the first segment's
+    // endpoint, so it stays continuous with the curve that follows.
+    const expected = 'M 0 80 L 0 15 Q 5 15, 20 40 Q 45 25, 60 50 L 100 80 Z';
     assert.equal(path, expected);
   });
 
@@ -119,9 +121,42 @@ describe('interpolateWave', () => {
 
     const path = interpolateWave(current, target, 0.5, true, 10, 20);
 
-    const expected = 'M 20 10 L 12 10 Q 10 10, 12 5 Q 11 0, 11 0 L 20 0 L 20 10 Z';
+    // The opening line reaches the first anchor (cpX), not the first segment's
+    // endpoint, so it stays continuous with the curve that follows.
+    const expected = 'M 20 10 L 10 10 Q 10 10, 12 5 Q 11 0, 11 0 L 20 0 L 20 10 Z';
     assert.equal(path, expected);
     assert.ok(!path.includes(' L 0 0'));
+  });
+
+  it('anchors the first frame to the generated path so start-end-zero waves do not jump', () => {
+    // Regression: the opening L command used the first segment's endpoint
+    // (the midpoint between anchors 0 and 1) instead of the start anchor, so
+    // the start anchor of a start-end-zero wave jumped off the base edge on
+    // the very first animation frame. The progress-0 frame must reproduce the
+    // path generateWave drew statically, for both orientations.
+    for (const vertical of [false, true]) {
+      const opts = {
+        width: vertical ? 160 : 1440,
+        height: vertical ? 1440 : 160,
+        points: 6,
+        variance: 3,
+        vertical,
+        startEndZero: true,
+      };
+
+      const startPath = generateWave({ ...opts, random: () => 0.5 });
+      const targetPath = generateWave({ ...opts, random: () => 0.3 });
+      const frameZero = interpolateWave(
+        parsePath(startPath),
+        parsePath(targetPath),
+        0,
+        vertical,
+        opts.height,
+        opts.width
+      );
+
+      assert.equal(frameZero, startPath);
+    }
   });
 });
 
