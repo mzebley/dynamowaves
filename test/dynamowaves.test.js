@@ -1,18 +1,8 @@
 import assert from 'node:assert/strict';
 import { before, describe, it } from 'node:test';
 
-typeof globalThis.HTMLElement === 'undefined' && (globalThis.HTMLElement = class {});
-
-typeof globalThis.customElements === 'undefined' &&
-  (globalThis.customElements = {
-    registry: new Map(),
-    get(name) {
-      return this.registry.get(name);
-    },
-    define(name, ctor) {
-      this.registry.set(name, ctor);
-    },
-  });
+// No DOM shims on purpose: the module must import cleanly without
+// HTMLElement/customElements globals (SSR support).
 
 let DynamoWave;
 let generateWave;
@@ -224,6 +214,269 @@ describe('generateNewWave', () => {
   });
 });
 
+describe('lifecycle state handling', () => {
+  it('recovers from mismatched point counts instead of deadlocking', () => {
+    const width = 100;
+    const height = 50;
+
+    const wave = new DynamoWave();
+    Object.assign(wave, {
+      width,
+      height,
+      points: 4,
+      variance: 2,
+      vertical: false,
+      random: () => 0.5,
+      startEndZero: false,
+      // Deliberately incompatible paths (3 vs 6 anchor points).
+      currentPath: generateWave({ width, height, points: 3, variance: 2, random: () => 0.3 }),
+      targetPath: generateWave({ width, height, points: 6, variance: 2, random: () => 0.7 }),
+    });
+    wave.dispatchEvent = () => {};
+    wave.getAttribute = () => null;
+    wave.setAttribute = () => {};
+
+    let rendered = null;
+    wave.path = {
+      setAttribute(name, value) {
+        if (name === 'd') rendered = value;
+      },
+      getAttribute(name) {
+        return name === 'd' ? rendered : null;
+      },
+    };
+
+    const originalRAF = globalThis.requestAnimationFrame;
+    const originalWarn = console.warn;
+    let frameCallback = null;
+    globalThis.requestAnimationFrame = (cb) => {
+      frameCallback = cb;
+      return 1;
+    };
+    console.warn = () => {};
+
+    try {
+      wave.generateNewWave(800);
+      frameCallback(1000); // first frame
+      frameCallback(2000); // past duration: completes the morph
+    } finally {
+      globalThis.requestAnimationFrame = originalRAF;
+      console.warn = originalWarn;
+    }
+
+    // The element must not be stranded mid-generation...
+    assert.equal(wave.isGeneratingWave, false);
+    assert.equal(wave.animationFrameId, null);
+    // ...and must end up with tween-compatible regenerated paths.
+    assert.ok(rendered.startsWith('M '));
+    assert.equal(parsePath(wave.currentPath).length, parsePath(wave.targetPath).length);
+  });
+
+  it('refuses to start the play loop while a morph is in flight', () => {
+    const wave = new DynamoWave();
+    wave.isGeneratingWave = true;
+
+    wave.play();
+
+    assert.equal(wave.isAnimating, false);
+  });
+
+  it('cancels the animation loop on disconnect and flags it to resume', () => {
+    const wave = new DynamoWave();
+    wave.isAnimating = true;
+    wave.animationFrameId = 7;
+
+    const original = globalThis.cancelAnimationFrame;
+    let cancelled = null;
+    globalThis.cancelAnimationFrame = (id) => {
+      cancelled = id;
+    };
+
+    try {
+      wave.disconnectedCallback();
+    } finally {
+      globalThis.cancelAnimationFrame = original;
+    }
+
+    assert.equal(cancelled, 7);
+    assert.equal(wave.isAnimating, false);
+    assert.equal(wave.animationFrameId, null);
+    assert.equal(wave.resumeOnConnect, true);
+  });
+
+  it('pause() cancels an in-flight morph and resets its timeline', () => {
+    const wave = new DynamoWave();
+    wave.isGeneratingWave = true;
+    wave.animationFrameId = 3;
+    wave.elapsedTime = 400;
+
+    const original = globalThis.cancelAnimationFrame;
+    let cancelled = null;
+    globalThis.cancelAnimationFrame = (id) => {
+      cancelled = id;
+    };
+
+    try {
+      wave.pause();
+    } finally {
+      globalThis.cancelAnimationFrame = original;
+    }
+
+    assert.equal(cancelled, 3);
+    assert.equal(wave.isGeneratingWave, false);
+    assert.equal(wave.elapsedTime, 0);
+    assert.equal(wave.animationFrameId, null);
+  });
+});
+
+describe('attribute reactivity', () => {
+  // Minimal element stub that mirrors the DOM contract the component relies
+  // on: attribute storage that invokes attributeChangedCallback, innerHTML
+  // capture, and querySelector for the svg/path references.
+  function createStubWave(initialAttrs = {}) {
+    const wave = new DynamoWave();
+    const attributes = { ...initialAttrs };
+
+    wave.style = {};
+    wave.isConnected = true;
+    wave.dispatchEvent = () => {};
+
+    wave.getAttribute = (name) => (name in attributes ? attributes[name] : null);
+    wave.setAttribute = (name, value) => {
+      const old = name in attributes ? attributes[name] : null;
+      attributes[name] = String(value);
+      wave.attributeChangedCallback(name, old, String(value));
+    };
+    wave.removeAttribute = (name) => {
+      if (!(name in attributes)) return;
+      const old = attributes[name];
+      delete attributes[name];
+      wave.attributeChangedCallback(name, old, null);
+    };
+
+    let html = '';
+    Object.defineProperty(wave, 'innerHTML', {
+      set(value) {
+        html = value;
+      },
+      get() {
+        return html;
+      },
+    });
+
+    let rendered = null;
+    const pathStub = {
+      setAttribute(name, value) {
+        if (name === 'd') rendered = value;
+      },
+      getAttribute(name) {
+        return name === 'd' ? rendered : null;
+      },
+    };
+    wave.querySelector = (sel) => (sel === 'path' ? pathStub : { id: 'stub-svg' });
+
+    return { wave, attributes, getHtml: () => html };
+  }
+
+  it('ignores attribute changes before the first render', () => {
+    const { wave } = createStubWave();
+
+    wave.setAttribute('data-wave-points', '9');
+
+    assert.equal(wave.points, undefined);
+  });
+
+  it('re-renders with the new point count and refreshes the recorded seed', () => {
+    const { wave, attributes } = createStubWave({ 'data-wave-points': '4' });
+    wave.connectedCallback();
+    assert.equal(parsePath(wave.currentPath).length, 4);
+
+    wave.setAttribute('data-wave-points', '8');
+
+    assert.equal(parsePath(wave.currentPath).length, 8);
+    assert.equal(parsePath(wave.targetPath).length, 8);
+    // The recorded seed snapshot must describe the new shape, not the old one.
+    assert.equal(decodeWaveSeed(attributes['data-wave-seed']), wave.currentPath);
+  });
+
+  it('switches orientation when data-wave-face changes', () => {
+    const { wave, getHtml } = createStubWave();
+    wave.connectedCallback();
+    assert.equal(wave.vertical, false);
+
+    wave.setAttribute('data-wave-face', 'left');
+
+    assert.equal(wave.vertical, true);
+    assert.ok(getHtml().includes('0 0 160 1440'));
+  });
+
+  it('applies a new speed without touching a stopped wave', () => {
+    const { wave } = createStubWave();
+    wave.connectedCallback();
+
+    wave.setAttribute('data-wave-speed', '3000');
+
+    assert.equal(wave.duration, 3000);
+    assert.equal(wave.isAnimating, false);
+  });
+
+  it('starts and stops the loop when data-wave-animate is toggled', () => {
+    const { wave } = createStubWave();
+    wave.connectedCallback();
+
+    const originalRAF = globalThis.requestAnimationFrame;
+    const originalCAF = globalThis.cancelAnimationFrame;
+    globalThis.requestAnimationFrame = () => 42;
+    globalThis.cancelAnimationFrame = () => {};
+
+    try {
+      wave.setAttribute('data-wave-animate', 'true');
+      assert.equal(wave.isAnimating, true);
+
+      wave.setAttribute('data-wave-animate', 'false');
+      assert.equal(wave.isAnimating, false);
+    } finally {
+      globalThis.requestAnimationFrame = originalRAF;
+      globalThis.cancelAnimationFrame = originalCAF;
+    }
+  });
+
+  it('resumes a running loop after a geometry change', () => {
+    const { wave } = createStubWave();
+    wave.connectedCallback();
+
+    const originalRAF = globalThis.requestAnimationFrame;
+    const originalCAF = globalThis.cancelAnimationFrame;
+    globalThis.requestAnimationFrame = () => 42;
+    globalThis.cancelAnimationFrame = () => {};
+
+    try {
+      wave.play();
+      assert.equal(wave.isAnimating, true);
+
+      wave.setAttribute('data-wave-points', '7');
+
+      assert.equal(wave.isAnimating, true);
+      assert.equal(parsePath(wave.currentPath).length, 7);
+    } finally {
+      globalThis.requestAnimationFrame = originalRAF;
+      globalThis.cancelAnimationFrame = originalCAF;
+    }
+  });
+
+  it('re-renders from a user-provided seed change', () => {
+    const { wave } = createStubWave();
+    wave.connectedCallback();
+
+    const other = createStubWave({ 'data-wave-points': '6' });
+    other.wave.connectedCallback();
+
+    wave.setAttribute('data-wave-seed', other.attributes['data-wave-seed']);
+
+    assert.equal(wave.currentPath, other.wave.currentPath);
+  });
+});
+
 describe('wave seed encoding', () => {
   it('round-trips seeds even with non-breaking spaces removed', () => {
     const basePath = 'M 0 80 L 0 40   Q 5 15, 25 40';
@@ -236,5 +489,11 @@ describe('wave seed encoding', () => {
   it('returns null for invalid input', () => {
     assert.equal(decodeWaveSeed(''), null);
     assert.equal(decodeWaveSeed('%%%'), null);
+  });
+
+  it('treats seeds that decode to non-path garbage as PRNG seeds', () => {
+    // "test" is decodable base64, but the result is not a wave path.
+    assert.equal(decodeWaveSeed('test'), null);
+    assert.equal(decodeWaveSeed(btoa('not a wave path')), null);
   });
 });

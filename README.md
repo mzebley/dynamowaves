@@ -69,6 +69,8 @@ import 'dynamowaves';
 | `data-wave-animate` | `false` | Auto-animate. |
 | `data-wave-observe` | _unset_ | Regenerate on viewport changes. |
 
+All attributes are observed at runtime: changing one after render re-renders or reconfigures the wave immediately (a running loop resumes with the new settings).
+
 ## Reusing wave seeds
 ```html
 <dynamo-wave id="hero-wave" data-wave-animate="true"></dynamo-wave>

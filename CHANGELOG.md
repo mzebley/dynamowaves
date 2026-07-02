@@ -10,6 +10,51 @@ release tags.
 
 ## [Unreleased]
 
+## [2.1.4] - 2026-07-01
+
+### Added
+
+- Observed attributes: changing any supported `data-*` attribute after render
+  now takes effect immediately. Geometry attributes (`data-wave-points`,
+  `data-wave-variance`, `data-wave-face`, `data-start-end-zero`,
+  `data-wave-seed`) re-render the wave, `data-wave-speed` retimes a running
+  loop in place from the shape currently on screen, `data-wave-animate`
+  starts/stops the loop, and `data-wave-observe` reconfigures the
+  IntersectionObserver. A loop that was running resumes after a geometry
+  change. Geometry changes also invalidate a recorded path snapshot in
+  `data-wave-seed` (it is dropped and re-recorded for the new shape), while
+  plain PRNG seed strings are kept.
+
+### Fixed
+
+- Importing the module in non-DOM environments (SSR, Node tests) no longer
+  throws `HTMLElement is not defined`; the class extends a stub base class when
+  the DOM is unavailable.
+- Removing an animating element from the DOM now cancels its animation frame
+  loop instead of animating a detached node forever. Re-attaching the element
+  resumes the loop automatically.
+- A point-count mismatch between current and target paths (e.g. a
+  `data-wave-seed` recorded with a different `data-wave-points` value) no
+  longer permanently deadlocks `play()` and `generateNewWave()`; both paths are
+  regenerated, rendered, and animation continues.
+- Seed strings that happen to be decodable base64 but are not wave paths
+  (e.g. `data-wave-seed="test"`) no longer render a garbage path; they are now
+  treated as deterministic PRNG seeds as intended.
+- Calling `play()` while a `generateNewWave()` morph is in flight no longer
+  starts a second competing animation loop; it is ignored until the morph
+  completes (listen for `dynamo-wave-complete` to chain them).
+- `pause()` now also cancels an in-flight `generateNewWave()` morph.
+- The inner SVG no longer duplicates the host element's `id`; it gets a unique
+  `-svg`-suffixed id, and the random fallback id can no longer be empty.
+- `data-wave-speed="0"` and `play(0)` no longer silently fall back mid-parse;
+  durations must be finite and positive, otherwise the default applies.
+
+### Changed
+
+- Path coordinates are rounded to 2 decimals, roughly halving the size of
+  every rendered `d` attribute and encoded `data-wave-seed` value with no
+  visual difference.
+
 ## [2.1.3] - 2026-06-28
 
 ### Fixed
