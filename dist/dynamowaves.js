@@ -16,6 +16,16 @@
     );
   }
 
+  // Declared ahead of the class body (and customElements.define below) because
+  // a <dynamo-wave> already present in the DOM is upgraded synchronously on
+  // define(), which can call connectedCallback -> parsePath before a
+  // const declared later in the file would be initialized (TDZ).
+  const WAVE_NUMBER_PATTERN = "[+-]?\\d+(?:\\.\\d+)?(?:[eE][+-]?\\d+)?";
+  const QUAD_SEGMENT_REGEX = new RegExp(
+    `Q\\s(${WAVE_NUMBER_PATTERN})\\s(${WAVE_NUMBER_PATTERN}),\\s(${WAVE_NUMBER_PATTERN})\\s(${WAVE_NUMBER_PATTERN})`,
+    "g"
+  );
+
   class DynamoWave extends BaseElement {
     static get observedAttributes() {
       return [
@@ -822,12 +832,6 @@
    * @param {string} pathString - The path string containing 'Q' commands followed by control point and end point coordinates.
    * @returns {Array<Object>} An array of objects, each containing the control point (cpX, cpY) and end point (x, y) coordinates.
    */
-  const WAVE_NUMBER_PATTERN = "[+-]?\\d+(?:\\.\\d+)?(?:[eE][+-]?\\d+)?";
-  const QUAD_SEGMENT_REGEX = new RegExp(
-    `Q\\s(${WAVE_NUMBER_PATTERN})\\s(${WAVE_NUMBER_PATTERN}),\\s(${WAVE_NUMBER_PATTERN})\\s(${WAVE_NUMBER_PATTERN})`,
-    "g"
-  );
-
   function parsePath(pathString) {
     const points = [];
     QUAD_SEGMENT_REGEX.lastIndex = 0;

@@ -10,6 +10,18 @@ release tags.
 
 ## [Unreleased]
 
+## [2.1.5] - 2026-07-02
+
+### Fixed
+
+- Fixed a `ReferenceError: Cannot access 'QUAD_SEGMENT_REGEX' before
+  initialization` thrown from `parsePath` when a `<dynamo-wave>` element was
+  already present in the DOM at module load. `customElements.define` upgrades
+  such elements synchronously, which could call `connectedCallback` (and
+  therefore `parsePath`) before the module finished evaluating a `const`
+  declared later in the file. The regex is now declared ahead of the class
+  definition.
+
 ## [2.1.4] - 2026-07-01
 
 ### Added
