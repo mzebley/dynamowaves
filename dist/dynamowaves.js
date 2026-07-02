@@ -4,7 +4,33 @@
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.Dynamowaves = {}));
 })(this, (function (exports) { 'use strict';
 
-  class DynamoWave extends HTMLElement {
+  // Allow the module to be imported in non-DOM environments (SSR, tests):
+  // only the custom element registration below requires a real DOM.
+  const BaseElement = typeof HTMLElement !== "undefined" ? HTMLElement : class {};
+
+  function prefersReducedMotion() {
+    return (
+      typeof window !== "undefined" &&
+      typeof window.matchMedia === "function" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    );
+  }
+
+  class DynamoWave extends BaseElement {
+    static get observedAttributes() {
+      return [
+        "data-wave-face",
+        "data-wave-points",
+        "data-wave-variance",
+        "data-variance",
+        "data-wave-speed",
+        "data-wave-animate",
+        "data-wave-observe",
+        "data-wave-seed",
+        "data-start-end-zero",
+      ];
+    }
+
     /**
      * Constructs a new instance of the class.
      * 
@@ -45,6 +71,18 @@
 
       this.random = Math.random;
       this.startEndZero = false;
+
+      // Set when an animating element is detached so connectedCallback can
+      // restart the loop if the element is re-attached.
+      this.resumeOnConnect = false;
+
+      // True while the component writes data-wave-seed itself, so
+      // attributeChangedCallback can tell self-reflection from user changes.
+      this.reflectingSeed = false;
+
+      this.play = this.play.bind(this);
+      this.pause = this.pause.bind(this);
+      this.generateNewWave = this.generateNewWave.bind(this);
     }
 
     /**
@@ -56,7 +94,9 @@
      * @returns {void}
      */
     connectedCallback() {
-      const id = this.id ?? Math.random().toString(36).substring(7);
+      // Suffix the host id so the inner SVG never duplicates it in the document.
+      const hostId = this.id || `dynamo-wave-${Math.random().toString(36).slice(2, 9)}`;
+      const svgId = `${hostId}-svg`;
 
       const waveDirection = this.getAttribute("data-wave-face") || "top";
       const pointsAttr = parseInt(this.getAttribute("data-wave-points"), 10);
@@ -66,7 +106,8 @@
       const legacyVarianceAttr = this.getAttribute("data-variance");
       const parsedVariance = parseFloat(varianceAttr ?? legacyVarianceAttr ?? "");
       this.variance = Number.isFinite(parsedVariance) ? parsedVariance : 3;
-      this.duration = parseFloat(this.getAttribute("data-wave-speed")) || 7500;
+      const speedAttr = parseFloat(this.getAttribute("data-wave-speed"));
+      this.duration = Number.isFinite(speedAttr) && speedAttr > 0 ? speedAttr : 7500;
 
       const seedAttr = this.getAttribute("data-wave-seed");
       const decodedSeedPath = decodeWaveSeed(seedAttr);
@@ -135,7 +176,7 @@
         viewBox="${this.vertical ? "0 0 160 1440" : "0 0 1440 160"}"
         preserveAspectRatio="none"
         style="${transformStyle}${svgBaseStyle}"
-        id="${id}"
+        id="${svgId}"
         aria-hidden="true"
         role="presentation"
       >
@@ -147,27 +188,118 @@
       this.svg = this.querySelector("svg");
       this.path = this.querySelector("path");
 
-      // Bind methods
-      this.play = this.play.bind(this);
-      this.pause = this.pause.bind(this);
-      this.generateNewWave = this.generateNewWave.bind(this);
-
       // Check for wave observation attribute
       const observeAttr = this.getAttribute("data-wave-observe");
       if (observeAttr) {
         this.setupIntersectionObserver(observeAttr);
       }
 
-      // Automatically start animation if enabled
-      if (this.getAttribute("data-wave-animate") === "true") {
-        if (
-          typeof window !== "undefined" &&
-          typeof window.matchMedia === "function" &&
-          !window.matchMedia("(prefers-reduced-motion: reduce)").matches
-        ) {
-          this.play();
+      // Automatically start animation if enabled, or resume a loop that was
+      // running when the element was detached (e.g. moved within the DOM).
+      const shouldAnimate =
+        this.getAttribute("data-wave-animate") === "true" || this.resumeOnConnect;
+      this.resumeOnConnect = false;
+
+      if (shouldAnimate && !prefersReducedMotion()) {
+        this.play();
+      }
+    }
+
+    /**
+     * Reacts to observed attribute changes after the initial render.
+     * Cheap changes (speed, animate, observe) are applied in place; geometry
+     * changes (points, variance, face, start-end-zero, seed) re-render the wave.
+     */
+    attributeChangedCallback(name, oldValue, newValue) {
+      // Ignore changes before the first render (fires ahead of
+      // connectedCallback for initial attributes) and while detached.
+      if (!this.svg || !this.isConnected) return;
+      if (oldValue === newValue) return;
+      if (this.reflectingSeed) return;
+
+      switch (name) {
+        case "data-wave-speed": {
+          const parsed = parseFloat(newValue);
+          this.duration = Number.isFinite(parsed) && parsed > 0 ? parsed : 7500;
+
+          if (this.isAnimating) {
+            // Restart so the loop picks up the new duration, tweening onward
+            // from the shape currently on screen instead of jumping back.
+            this.pause();
+            this.elapsedTime = 0;
+            const displayedPath = this.path && this.path.getAttribute("d");
+            if (displayedPath) {
+              this.currentPath = displayedPath;
+            }
+            this.play();
+          }
+          break;
+        }
+
+        case "data-wave-animate": {
+          if (newValue === "true") {
+            if (!prefersReducedMotion()) this.play();
+          } else {
+            this.pause();
+          }
+          break;
+        }
+
+        case "data-wave-observe": {
+          if (this.intersectionObserver) {
+            this.intersectionObserver.disconnect();
+            this.intersectionObserver = null;
+          }
+          if (newValue) {
+            this.setupIntersectionObserver(newValue);
+          }
+          break;
+        }
+
+        case "data-wave-seed": {
+          this.reinitialize();
+          break;
+        }
+
+        default: {
+          // Geometry attributes invalidate a recorded path snapshot in
+          // data-wave-seed (the shape no longer matches the new settings);
+          // PRNG seed strings still apply and are kept.
+          const seedAttr = this.getAttribute("data-wave-seed");
+          if (seedAttr && decodeWaveSeed(seedAttr)) {
+            this.reflectingSeed = true;
+            this.removeAttribute("data-wave-seed");
+            this.reflectingSeed = false;
+          }
+          this.reinitialize();
         }
       }
+    }
+
+    /**
+     * Tears down animation and observer state, then re-runs the initial render.
+     * A loop that was running resumes against the new configuration.
+     */
+    reinitialize() {
+      this.resumeOnConnect = this.isAnimating;
+
+      if (this.animationFrameId != null) {
+        cancelAnimationFrame(this.animationFrameId);
+        this.animationFrameId = null;
+      }
+
+      this.isAnimating = false;
+      this.isGeneratingWave = false;
+      this.elapsedTime = 0;
+      this.startTime = null;
+      this.pendingTargetPath = null;
+
+      if (this.intersectionObserver) {
+        this.intersectionObserver.disconnect();
+        this.intersectionObserver = null;
+      }
+
+      this.connectedCallback();
     }
 
     // Public method to play the animation
@@ -179,11 +311,17 @@
      * @param {number|null} [customDuration=null] - Optional custom duration for the animation in milliseconds.
      */
     play(customDuration = null) {
-      if (this.isAnimating) return;
+      // A morph from generateNewWave shares the animation state (startTime,
+      // elapsedTime, animationFrameId); starting the loop mid-morph would run
+      // two competing frame loops. Callers can retry on dynamo-wave-complete.
+      if (this.isAnimating || this.isGeneratingWave || this.animationFrameId) return;
       this.isAnimating = true;
 
       // Use custom duration if provided, otherwise use the instance duration
-      const animationDuration = customDuration || this.duration;
+      const animationDuration =
+        Number.isFinite(customDuration) && customDuration > 0
+          ? customDuration
+          : this.duration;
 
       const continueAnimation = () => {
         // If there's no pending target path, generate a new one
@@ -238,13 +376,23 @@
      * and saves the current elapsed time.
      */
     pause() {
-      if (!this.isAnimating) return;
+      if (!this.isAnimating && this.animationFrameId == null) return;
       this.isAnimating = false;
-      cancelAnimationFrame(this.animationFrameId);
-      this.animationFrameId = null;
 
-      // Save the current elapsed time
-      this.elapsedTime += performance.now() - (this.startTime || performance.now());
+      if (this.animationFrameId != null) {
+        cancelAnimationFrame(this.animationFrameId);
+        this.animationFrameId = null;
+      }
+
+      if (this.isGeneratingWave) {
+        // A cancelled morph is not resumable; clear its timeline so the next
+        // play()/generateNewWave() starts fresh from the displayed shape.
+        this.isGeneratingWave = false;
+        this.elapsedTime = 0;
+      } else {
+        // Save the current elapsed time so play() can resume mid-tween
+        this.elapsedTime += performance.now() - (this.startTime || performance.now());
+      }
       this.startTime = null;
     }
 
@@ -253,6 +401,20 @@
      * Cleans up the intersection observer if it exists.
      */
     disconnectedCallback() {
+      // Stop any running loop or morph so detached elements don't keep
+      // animating; connectedCallback restarts the loop if re-attached.
+      this.resumeOnConnect = this.isAnimating;
+
+      if (this.animationFrameId != null) {
+        cancelAnimationFrame(this.animationFrameId);
+        this.animationFrameId = null;
+      }
+
+      this.isAnimating = false;
+      this.isGeneratingWave = false;
+      this.elapsedTime = 0;
+      this.startTime = null;
+
       // Clean up intersection observer when element is removed
       if (this.intersectionObserver) {
         this.intersectionObserver.disconnect();
@@ -385,7 +547,9 @@
         const existing = this.getAttribute("data-wave-seed");
 
         if (existing !== encodedSeed) {
+          this.reflectingSeed = true;
           this.setAttribute("data-wave-seed", encodedSeed);
+          this.reflectingSeed = false;
         }
       }
     }
@@ -399,13 +563,16 @@
      */
     animateWave(duration, onComplete = null) {
       // Ensure we have valid start and target paths
-      const startPoints = parsePath(this.currentPath);
-      const endPoints = parsePath(this.targetPath);
+      let startPoints = parsePath(this.currentPath);
+      let endPoints = parsePath(this.targetPath);
 
       if (startPoints.length !== endPoints.length) {
-        console.error("Point mismatch! Regenerating waves to ensure consistency.");
-        
-        // Regenerate both current and target paths to ensure consistency
+        // Paths with different point counts (e.g. a seed recorded with another
+        // data-wave-points value) can't be tweened point-for-point. Rebuild
+        // both and carry on animating — bailing out here would strand
+        // isAnimating/isGeneratingWave and permanently dead-lock the element.
+        console.warn("Point mismatch! Regenerating waves to ensure consistency.");
+
         this.currentPath = generateWave({
           width: this.width,
           height: this.height,
@@ -426,7 +593,12 @@
           startEndZero: this.startEndZero,
         });
 
-        return;
+        if (this.path) {
+          this.path.setAttribute("d", this.currentPath);
+        }
+
+        startPoints = parsePath(this.currentPath);
+        endPoints = parsePath(this.targetPath);
       }
 
       const animate = (timestamp) => {
@@ -490,6 +662,12 @@
    * @param {boolean} [options.startEndZero=false] - Whether to force the wave to start and end at zero height.
    * @returns {string} The SVG path string representing the wave.
    */
+  // Round path coordinates to 2 decimals: visually identical, but roughly
+  // halves the size of every d-attribute write and encoded seed.
+  function round2(value) {
+    return Math.round(value * 100) / 100;
+  }
+
   function generateWave({
     width,
     height,
@@ -504,12 +682,12 @@
     const step = vertical ? height / (safePoints - 1) : width / (safePoints - 1);
 
     for (let i = 0; i < safePoints; i++) {
-      const x = vertical
+      const x = round2(vertical
         ? height - step * i
-        : step * i;
-      const y = vertical
+        : step * i);
+      const y = round2(vertical
         ? width - width * 0.1 - random() * (variance * width * 0.25)
-        : height - height * 0.1 - random() * (variance * height * 0.25);
+        : height - height * 0.1 - random() * (variance * height * 0.25));
       anchors.push(vertical ? { x: y, y: x } : { x, y });
     }
 
@@ -530,8 +708,8 @@
     for (let i = 0; i < anchors.length - 1; i++) {
       const curr = anchors[i];
       const next = anchors[i + 1];
-      const controlX = (curr.x + next.x) / 2;
-      const controlY = (curr.y + next.y) / 2;
+      const controlX = round2((curr.x + next.x) / 2);
+      const controlY = round2((curr.y + next.y) / 2);
       path += ` Q ${curr.x} ${curr.y}, ${controlX} ${controlY}`;
     }
 
@@ -585,25 +763,31 @@
     return "";
   }
 
+  // Short human-friendly seeds (e.g. "test") can be valid base64 and decode
+  // "successfully" into garbage. Only accept decodes that look like the wave
+  // paths encodeWaveSeed produces; everything else is treated as a PRNG seed.
+  function looksLikeWavePath(value) {
+    return typeof value === "string" && value.startsWith("M ") && value.includes("Q ");
+  }
+
   function decodeWaveSeed(seed) {
     if (typeof seed !== "string" || seed.trim() === "") return null;
 
     const paddedSeed = seed.padEnd(Math.ceil(seed.length / 4) * 4, "=");
 
+    let decoded = null;
+
     try {
       if (typeof atob === "function") {
-        const binaryString = atob(paddedSeed);
-        return fromBinaryString(binaryString);
-      }
-
-      if (typeof Buffer !== "undefined") {
-        return Buffer.from(paddedSeed, "base64").toString("utf8");
+        decoded = fromBinaryString(atob(paddedSeed));
+      } else if (typeof Buffer !== "undefined") {
+        decoded = Buffer.from(paddedSeed, "base64").toString("utf8");
       }
     } catch (error) {
-      console.warn("Failed to decode wave seed", error);
+      return null;
     }
 
-    return null;
+    return looksLikeWavePath(decoded) ? decoded : null;
   }
 
   function toBinaryString(text) {
@@ -638,13 +822,18 @@
    * @param {string} pathString - The path string containing 'Q' commands followed by control point and end point coordinates.
    * @returns {Array<Object>} An array of objects, each containing the control point (cpX, cpY) and end point (x, y) coordinates.
    */
+  const WAVE_NUMBER_PATTERN = "[+-]?\\d+(?:\\.\\d+)?(?:[eE][+-]?\\d+)?";
+  const QUAD_SEGMENT_REGEX = new RegExp(
+    `Q\\s(${WAVE_NUMBER_PATTERN})\\s(${WAVE_NUMBER_PATTERN}),\\s(${WAVE_NUMBER_PATTERN})\\s(${WAVE_NUMBER_PATTERN})`,
+    "g"
+  );
+
   function parsePath(pathString) {
     const points = [];
-    const numberPattern = "[+-]?\\d*(?:\\.\\d+)?(?:[eE][+-]?\\d+)?";
-    const regex = new RegExp(`Q\\s(${numberPattern})\\s(${numberPattern}),\\s(${numberPattern})\\s(${numberPattern})`, "g");
+    QUAD_SEGMENT_REGEX.lastIndex = 0;
     let match;
 
-    while ((match = regex.exec(pathString)) !== null) {
+    while ((match = QUAD_SEGMENT_REGEX.exec(pathString)) !== null) {
       points.push({
         cpX: parseFloat(match[1]),
         cpY: parseFloat(match[2]),
@@ -670,10 +859,10 @@
     const interpolatedPoints = currentPoints.map((current, i) => {
       const target = targetPoints[i];
       return {
-        cpX: current.cpX + (target.cpX - current.cpX) * progress,
-        cpY: vertical ? current.cpY : current.cpY + (target.cpY - current.cpY) * progress,
-        x: vertical ? current.x + (target.x - current.x) * progress : current.x,
-        y: vertical ? current.y : current.y + (target.y - current.y) * progress,
+        cpX: round2(current.cpX + (target.cpX - current.cpX) * progress),
+        cpY: vertical ? current.cpY : round2(current.cpY + (target.cpY - current.cpY) * progress),
+        x: vertical ? round2(current.x + (target.x - current.x) * progress) : current.x,
+        y: vertical ? current.y : round2(current.y + (target.y - current.y) * progress),
       };
     });
 

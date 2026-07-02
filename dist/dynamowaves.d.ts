@@ -51,12 +51,21 @@ declare class DynamoWave extends HTMLElement {
   private path: SVGPathElement;
   private random: () => number;
   private startEndZero: boolean;
+  private resumeOnConnect: boolean;
+  private reflectingSeed: boolean;
+
+  static readonly observedAttributes: string[];
 
   constructor();
-  
+
   // Lifecycle methods
   connectedCallback(): void;
   disconnectedCallback(): void;
+  attributeChangedCallback(
+    name: string,
+    oldValue: string | null,
+    newValue: string | null
+  ): void;
 
   // Public methods
   play(customDuration?: number | null): void;
@@ -64,6 +73,7 @@ declare class DynamoWave extends HTMLElement {
   generateNewWave(duration?: number): void;
 
   // Private methods
+  private reinitialize(): void;
   private updateSeedAttribute(pathString: string): void;
   private setupIntersectionObserver(observeConfig: string): void;
   private animateWave(duration: number, onComplete?: (() => void) | null): void;
