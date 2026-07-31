@@ -1,0 +1,4 @@
+interface:
+  display_name: "Zebkit"
+  short_description: "Build and review verified Zebkit interfaces"
+  default_prompt: "Use $zebkit to build or review this interface against the project-specific Zebkit contracts."

@@ -1,0 +1,227 @@
+{
+  "canvas": {
+    "$value": "{color.dusk-50}",
+    "$type": "color",
+    "$description": "Base critical canvas color for primary surfaces."
+  },
+  "canvas-subtle": {
+    "$value": "",
+    "$type": "color",
+    "$description": "Soft critical canvas color for lightly tinted surfaces.",
+    "$extensions": {
+      "dev.zebkit": {
+        "emptyColorPlaceholder": true
+      }
+    }
+  },
+  "canvas-muted": {
+    "$value": "",
+    "$type": "color",
+    "$description": "Muted critical canvas color for low-emphasis surfaces.",
+    "$extensions": {
+      "dev.zebkit": {
+        "emptyColorPlaceholder": true
+      }
+    }
+  },
+  "canvas-emphasis": {
+    "$value": "",
+    "$type": "color",
+    "$description": "Strong critical canvas color for high-emphasis surfaces.",
+    "$extensions": {
+      "dev.zebkit": {
+        "emptyColorPlaceholder": true
+      }
+    }
+  },
+  "canvas-inverse": {
+    "$value": "",
+    "$type": "color",
+    "$description": "Base inverse critical canvas color for surfaces on dark or inverted contexts.",
+    "$extensions": {
+      "dev.zebkit": {
+        "emptyColorPlaceholder": true
+      }
+    }
+  },
+  "canvas-inverse-subtle": {
+    "$value": "",
+    "$type": "color",
+    "$description": "Soft inverse critical canvas color for lightly tinted surfaces in inverse contexts.",
+    "$extensions": {
+      "dev.zebkit": {
+        "emptyColorPlaceholder": true
+      }
+    }
+  },
+  "canvas-inverse-muted": {
+    "$value": "",
+    "$type": "color",
+    "$description": "Muted inverse critical canvas color for low-emphasis surfaces in inverse contexts.",
+    "$extensions": {
+      "dev.zebkit": {
+        "emptyColorPlaceholder": true
+      }
+    }
+  },
+  "canvas-inverse-emphasis": {
+    "$value": "",
+    "$type": "color",
+    "$description": "Strong inverse critical canvas color for high-emphasis surfaces in inverse contexts.",
+    "$extensions": {
+      "dev.zebkit": {
+        "emptyColorPlaceholder": true
+      }
+    }
+  },
+  "ink": {
+    "$value": "",
+    "$type": "color",
+    "$description": "Base critical ink color for text and icons on neutral or light canvases.",
+    "$extensions": {
+      "dev.zebkit": {
+        "emptyColorPlaceholder": true
+      }
+    }
+  },
+  "ink-subtle": {
+    "$value": "",
+    "$type": "color",
+    "$description": "Soft critical ink color for lower-emphasis text and icons.",
+    "$extensions": {
+      "dev.zebkit": {
+        "emptyColorPlaceholder": true
+      }
+    }
+  },
+  "ink-muted": {
+    "$value": "",
+    "$type": "color",
+    "$description": "Muted critical ink color for subtle or secondary text and icons.",
+    "$extensions": {
+      "dev.zebkit": {
+        "emptyColorPlaceholder": true
+      }
+    }
+  },
+  "ink-emphasis": {
+    "$value": "{color.red-800}",
+    "$type": "color",
+    "$description": "Emphasis critical ink color for high-prominence text and icons."
+  },
+  "ink-inverse": {
+    "$value": "",
+    "$type": "color",
+    "$description": "Base inverse critical ink color for text and icons on inverse or dark canvases.",
+    "$extensions": {
+      "dev.zebkit": {
+        "emptyColorPlaceholder": true
+      }
+    }
+  },
+  "ink-inverse-subtle": {
+    "$value": "",
+    "$type": "color",
+    "$description": "Soft inverse critical ink color for lower-emphasis text and icons on inverse canvases.",
+    "$extensions": {
+      "dev.zebkit": {
+        "emptyColorPlaceholder": true
+      }
+    }
+  },
+  "ink-inverse-muted": {
+    "$value": "",
+    "$type": "color",
+    "$description": "Muted inverse critical ink color for subtle text and icons on inverse canvases.",
+    "$extensions": {
+      "dev.zebkit": {
+        "emptyColorPlaceholder": true
+      }
+    }
+  },
+  "ink-inverse-emphasis": {
+    "$value": "{color.red-200}",
+    "$type": "color",
+    "$description": "Emphasis inverse critical ink color for high-prominence text on inverse canvases."
+  },
+  "border": {
+    "$value": "",
+    "$type": "color",
+    "$description": "Base critical border color for outlines, strokes, and dividers.",
+    "$extensions": {
+      "dev.zebkit": {
+        "emptyColorPlaceholder": true
+      }
+    }
+  },
+  "border-subtle": {
+    "$value": "",
+    "$type": "color",
+    "$description": "Soft critical border color for low-emphasis outlines and dividers.",
+    "$extensions": {
+      "dev.zebkit": {
+        "emptyColorPlaceholder": true
+      }
+    }
+  },
+  "border-muted": {
+    "$value": "",
+    "$type": "color",
+    "$description": "Muted critical border color for subtle outlines and dividers.",
+    "$extensions": {
+      "dev.zebkit": {
+        "emptyColorPlaceholder": true
+      }
+    }
+  },
+  "border-emphasis": {
+    "$value": "",
+    "$type": "color",
+    "$description": "Strong critical border color for high-emphasis outlines and dividers.",
+    "$extensions": {
+      "dev.zebkit": {
+        "emptyColorPlaceholder": true
+      }
+    }
+  },
+  "border-inverse": {
+    "$value": "",
+    "$type": "color",
+    "$description": "Base inverse critical border color for outlines and dividers on inverse canvases.",
+    "$extensions": {
+      "dev.zebkit": {
+        "emptyColorPlaceholder": true
+      }
+    }
+  },
+  "border-inverse-subtle": {
+    "$value": "",
+    "$type": "color",
+    "$description": "Soft inverse critical border color for low-emphasis outlines on inverse canvases.",
+    "$extensions": {
+      "dev.zebkit": {
+        "emptyColorPlaceholder": true
+      }
+    }
+  },
+  "border-inverse-muted": {
+    "$value": "",
+    "$type": "color",
+    "$description": "Muted inverse critical border color for subtle outlines on inverse canvases.",
+    "$extensions": {
+      "dev.zebkit": {
+        "emptyColorPlaceholder": true
+      }
+    }
+  },
+  "border-inverse-emphasis": {
+    "$value": "",
+    "$type": "color",
+    "$description": "Strong inverse critical border color for high-emphasis outlines on inverse canvases.",
+    "$extensions": {
+      "dev.zebkit": {
+        "emptyColorPlaceholder": true
+      }
+    }
+  }
+}

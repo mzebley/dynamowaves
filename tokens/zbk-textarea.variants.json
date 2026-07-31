@@ -1,0 +1,23 @@
+{
+  "textarea": {
+    "lg": {
+      "axis": "size",
+      "description": "Larger type and padding.",
+      "overrides": {
+        "font-size": "{font-size.lg}",
+        "label-font-size": "{font-size.md}",
+        "padding-inline": "{spacing.md}",
+        "padding-block": "{spacing.xs}"
+      }
+    },
+    "sm": {
+      "axis": "size",
+      "description": "Smaller type and padding; keeps the 44px minimum tap target.",
+      "overrides": {
+        "font-size": "{font-size.sm}",
+        "label-font-size": "{font-size.xs}",
+        "padding-inline": "{spacing.xs}"
+      }
+    }
+  }
+}

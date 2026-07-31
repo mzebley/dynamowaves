@@ -1,0 +1,395 @@
+{
+  "control-width": {
+    "$value": "{spacing.105}",
+    "$type": "dimension",
+    "$description": "Width of the checkbox control."
+  },
+  "control-height": {
+    "$value": "{spacing.105}",
+    "$type": "dimension",
+    "$description": "Height of the checkbox control."
+  },
+  "canvas": {
+    "$value": "{app.canvas}",
+    "$type": "color",
+    "$description": "Background of an unchecked checkbox control."
+  },
+  "canvas-hover": {
+    "$value": "{app.canvas-subtle}",
+    "$type": "color",
+    "$description": "Control background when hovered."
+  },
+  "canvas-active": {
+    "$value": "{app.canvas-muted}",
+    "$type": "color",
+    "$description": "Control background while pressed."
+  },
+  "canvas-checked": {
+    "$value": "{action.ink}",
+    "$type": "color",
+    "$description": "Control background when checked."
+  },
+  "canvas-checked-hover": {
+    "$value": "{checkbox.canvas-checked}",
+    "$type": "color",
+    "$description": "Control background when checked and hovered."
+  },
+  "canvas-checked-active": {
+    "$value": "{checkbox.canvas-checked}",
+    "$type": "color",
+    "$description": "Control background when checked and pressed."
+  },
+  "canvas-checked-disabled": {
+    "$value": "{checkbox.canvas-disabled}",
+    "$type": "color",
+    "$description": "Control background when checked and disabled."
+  },
+  "canvas-indeterminate": {
+    "$value": "{checkbox.canvas-checked}",
+    "$type": "color",
+    "$description": "Control background in the indeterminate state."
+  },
+  "canvas-indeterminate-hover": {
+    "$value": "{checkbox.canvas-indeterminate}",
+    "$type": "color",
+    "$description": "Control background when indeterminate and hovered."
+  },
+  "canvas-indeterminate-active": {
+    "$value": "{checkbox.canvas-indeterminate}",
+    "$type": "color",
+    "$description": "Control background when indeterminate and pressed."
+  },
+  "canvas-indeterminate-disabled": {
+    "$value": "{checkbox.canvas-disabled}",
+    "$type": "color",
+    "$description": "Control background when indeterminate and disabled."
+  },
+  "canvas-disabled": {
+    "$value": "{disabled.canvas}",
+    "$type": "color",
+    "$description": "Control background when disabled."
+  },
+  "border-color": {
+    "$value": "{app.border-emphasis}",
+    "$type": "color",
+    "$description": "Border color of an unchecked checkbox control."
+  },
+  "border-color-hover": {
+    "$value": "{action.ink}",
+    "$type": "color",
+    "$description": "Control border color when hovered."
+  },
+  "border-color-active": {
+    "$value": "{action.ink}",
+    "$type": "color",
+    "$description": "Control border color while pressed."
+  },
+  "border-color-checked": {
+    "$value": "{checkbox.canvas-checked}",
+    "$type": "color",
+    "$description": "Control border color when checked."
+  },
+  "border-color-checked-hover": {
+    "$value": "{checkbox.border-color-checked}",
+    "$type": "color",
+    "$description": "Control border color when checked and hovered."
+  },
+  "border-color-checked-active": {
+    "$value": "{checkbox.border-color-checked}",
+    "$type": "color",
+    "$description": "Control border color when checked and pressed."
+  },
+  "border-color-checked-disabled": {
+    "$value": "{checkbox.border-color-disabled}",
+    "$type": "color",
+    "$description": "Control border color when checked and disabled."
+  },
+  "border-color-indeterminate": {
+    "$value": "{checkbox.canvas-indeterminate}",
+    "$type": "color",
+    "$description": "Control border color in the indeterminate state."
+  },
+  "border-color-indeterminate-hover": {
+    "$value": "{checkbox.border-color-indeterminate}",
+    "$type": "color",
+    "$description": "Control border color when indeterminate and hovered."
+  },
+  "border-color-indeterminate-active": {
+    "$value": "{checkbox.border-color-indeterminate}",
+    "$type": "color",
+    "$description": "Control border color when indeterminate and pressed."
+  },
+  "border-color-indeterminate-disabled": {
+    "$value": "{checkbox.border-color-disabled}",
+    "$type": "color",
+    "$description": "Control border color when indeterminate and disabled."
+  },
+  "border-color-disabled": {
+    "$value": "{disabled.border}",
+    "$type": "color",
+    "$description": "Control border color when disabled."
+  },
+  "border-width": {
+    "$value": "{border.width-md}",
+    "$type": "dimension",
+    "$description": "Border thickness of the checkbox control."
+  },
+  "border-style": {
+    "$value": "{border.style}",
+    "$type": "strokeStyle",
+    "$description": "Border style of the checkbox control."
+  },
+  "border-radius": {
+    "$value": "{border.radius-xs}",
+    "$type": "dimension",
+    "$description": "Corner radius of the checkbox control."
+  },
+  "indicator-ink": {
+    "$value": "{app.ink-inverse}",
+    "$type": "color",
+    "$description": "Color of the checkmark and indeterminate bar."
+  },
+  "indicator-ink-checked": {
+    "$value": "{checkbox.indicator-ink}",
+    "$type": "color",
+    "$description": "Checkmark color when checked."
+  },
+  "indicator-ink-checked-hover": {
+    "$value": "{checkbox.indicator-ink-checked}",
+    "$type": "color",
+    "$description": "Checkmark color when checked and hovered."
+  },
+  "indicator-ink-checked-active": {
+    "$value": "{checkbox.indicator-ink-checked}",
+    "$type": "color",
+    "$description": "Checkmark color when checked and pressed."
+  },
+  "indicator-ink-checked-disabled": {
+    "$value": "{checkbox.indicator-ink-disabled}",
+    "$type": "color",
+    "$description": "Checkmark color when checked and disabled."
+  },
+  "indicator-ink-indeterminate": {
+    "$value": "{checkbox.indicator-ink}",
+    "$type": "color",
+    "$description": "Indicator bar color in the indeterminate state."
+  },
+  "indicator-ink-indeterminate-hover": {
+    "$value": "{checkbox.indicator-ink-indeterminate}",
+    "$type": "color",
+    "$description": "Indicator bar color when indeterminate and hovered."
+  },
+  "indicator-ink-indeterminate-active": {
+    "$value": "{checkbox.indicator-ink-indeterminate}",
+    "$type": "color",
+    "$description": "Indicator bar color when indeterminate and pressed."
+  },
+  "indicator-ink-indeterminate-disabled": {
+    "$value": "{checkbox.indicator-ink-disabled}",
+    "$type": "color",
+    "$description": "Indicator bar color when indeterminate and disabled."
+  },
+  "indicator-ink-disabled": {
+    "$value": "{disabled.ink}",
+    "$type": "color",
+    "$description": "Indicator color when disabled."
+  },
+  "indicator-stroke-width": {
+    "$value": "{border.width-md}",
+    "$type": "dimension",
+    "$description": "Stroke width of the checkmark; also the indeterminate bar's thickness."
+  },
+  "indicator-radius": {
+    "$value": "{border.radius-xs}",
+    "$type": "dimension",
+    "$description": "Corner radius of the indeterminate bar."
+  },
+  "indicator-size": {
+    "$value": "{spacing.1}",
+    "$type": "cssDimension",
+    "$description": "Size of slotted indicator content (checked/unchecked/indeterminate slots); 1em tracks the component's font-size so size variants rescale it."
+  },
+  "ink": {
+    "$value": "{app.ink}",
+    "$type": "color",
+    "$description": "Label text color."
+  },
+  "ink-disabled": {
+    "$value": "{disabled.ink}",
+    "$type": "color",
+    "$description": "Label text color when disabled."
+  },
+  "font-family": {
+    "$value": "{font-family.interface}",
+    "$type": "fontFamily",
+    "$description": "Font family for the checkbox label."
+  },
+  "font-size": {
+    "$value": "{p.font-size}",
+    "$type": "cssDimension",
+    "$description": "Font size for the checkbox label."
+  },
+  "font-weight": {
+    "$value": "{font-weight.normal}",
+    "$type": "fontWeight",
+    "$description": "Font weight for the checkbox label."
+  },
+  "line-height": {
+    "$value": "{line-height.2}",
+    "$type": "number",
+    "$description": "Line height for the checkbox label."
+  },
+  "letter-spacing": {
+    "$value": "{letter-spacing.normal}",
+    "$type": "cssDimension",
+    "$description": "Letter spacing for the checkbox label."
+  },
+  "gap": {
+    "$value": "{spacing.sm}",
+    "$type": "dimension",
+    "$description": "Space between the control and its label."
+  },
+  "align-items": {
+    "$value": "center",
+    "$type": "flex",
+    "$description": "Cross-axis alignment of control and label."
+  },
+  "group-gap": {
+    "$value": "{spacing.md}",
+    "$type": "dimension",
+    "$description": "Gap between checkboxes in a .zbk-checkbox-group."
+  },
+  "group-direction": {
+    "$value": "column",
+    "$type": "flex",
+    "$description": "Flow direction of a .zbk-checkbox-group (column or row)."
+  },
+  "focus-color": {
+    "$value": "{focus.color}",
+    "$type": "color",
+    "$description": "Outline color for keyboard focus."
+  },
+  "focus-width": {
+    "$value": "{focus.width}",
+    "$type": "dimension",
+    "$description": "Outline width for keyboard focus."
+  },
+  "focus-offset": {
+    "$value": "{focus.offset}",
+    "$type": "dimension",
+    "$description": "Outline offset for keyboard focus."
+  },
+  "box-shadow": {
+    "$value": [],
+    "$type": "shadow",
+    "$description": "Default control shadow."
+  },
+  "box-shadow-hover": {
+    "$value": [],
+    "$type": "shadow",
+    "$description": "Control shadow when hovered."
+  },
+  "box-shadow-active": {
+    "$value": [],
+    "$type": "shadow",
+    "$description": "Control shadow while pressed."
+  },
+  "box-shadow-checked": {
+    "$value": [],
+    "$type": "shadow",
+    "$description": "Control shadow when checked."
+  },
+  "box-shadow-checked-hover": {
+    "$value": "{checkbox.box-shadow-checked}",
+    "$type": "shadow",
+    "$description": "Control shadow when checked and hovered."
+  },
+  "box-shadow-checked-active": {
+    "$value": "{checkbox.box-shadow-checked}",
+    "$type": "shadow",
+    "$description": "Control shadow when checked and pressed."
+  },
+  "box-shadow-checked-disabled": {
+    "$value": [],
+    "$type": "shadow",
+    "$description": "Control shadow when checked and disabled."
+  },
+  "box-shadow-indeterminate": {
+    "$value": "{checkbox.box-shadow-checked}",
+    "$type": "shadow",
+    "$description": "Control shadow in the indeterminate state."
+  },
+  "box-shadow-indeterminate-hover": {
+    "$value": "{checkbox.box-shadow-indeterminate}",
+    "$type": "shadow",
+    "$description": "Control shadow when indeterminate and hovered."
+  },
+  "box-shadow-indeterminate-active": {
+    "$value": "{checkbox.box-shadow-indeterminate}",
+    "$type": "shadow",
+    "$description": "Control shadow when indeterminate and pressed."
+  },
+  "box-shadow-indeterminate-disabled": {
+    "$value": [],
+    "$type": "shadow",
+    "$description": "Control shadow when indeterminate and disabled."
+  },
+  "box-shadow-focus": {
+    "$value": [],
+    "$type": "shadow",
+    "$description": "Control shadow in the focus state (in addition to the outline)."
+  },
+  "box-shadow-disabled": {
+    "$value": [],
+    "$type": "shadow",
+    "$description": "Control shadow when disabled."
+  },
+  "cursor": {
+    "$value": "pointer",
+    "$type": "cursor",
+    "$description": "Cursor when hovering an enabled checkbox."
+  },
+  "cursor-disabled": {
+    "$value": "not-allowed",
+    "$type": "cursor",
+    "$description": "Cursor when hovering a disabled checkbox."
+  },
+  "transition-duration": {
+    "$value": "{transition.playful-fx-duration-default}",
+    "$type": "duration",
+    "$description": "Duration for checkbox state transitions.",
+    "$extensions": {
+      "dev.zebkit": {
+        "a11y": true
+      }
+    }
+  },
+  "transition-timing-function": {
+    "$value": "{transition.playful-fx-function-default}",
+    "$type": "cubicBezier",
+    "$description": "Easing for checkbox state transitions."
+  },
+  "transition-property": {
+    "$value": "background-color, border-color, box-shadow, transform, opacity, outline",
+    "$type": "transitionProperty",
+    "$description": "CSS properties that animate on state changes."
+  },
+  "transition-delay": {
+    "$value": {
+      "value": 0,
+      "unit": "ms"
+    },
+    "$type": "duration",
+    "$description": "Delay before checkbox transitions run."
+  },
+  "opacity": {
+    "$value": 1,
+    "$type": "number",
+    "$description": "Opacity of the checkbox."
+  },
+  "opacity-disabled": {
+    "$value": "{opacity.70}",
+    "$type": "number",
+    "$description": "Control opacity when disabled."
+  }
+}

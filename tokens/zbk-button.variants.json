@@ -1,0 +1,122 @@
+{
+  "button": {
+    "ghost": {
+      "axis": "style",
+      "description": "Transparent canvas and border; ink takes the action role with a subtle hover wash.",
+      "overrides": {
+        "canvas": "transparent",
+        "canvas-hover": "{action.canvas-subtle}",
+        "canvas-active": "{action.canvas-muted}",
+        "canvas-disabled": "transparent",
+        "ink": "{action.ink}",
+        "ink-hover": "{action.ink-emphasis}",
+        "ink-active": "{action.ink-emphasis}",
+        "border-color": "transparent",
+        "border-color-hover": "transparent",
+        "border-color-active": "transparent",
+        "border-color-disabled": "transparent"
+      }
+    },
+    "lg": {
+      "axis": "size",
+      "description": "Larger type and padding.",
+      "overrides": {
+        "font-size": "{font-size.lg}",
+        "padding-inline": "{spacing.lg}",
+        "padding-block": "{spacing.sm}",
+        "icon-size": "{spacing.lg}"
+      }
+    },
+    "outline": {
+      "axis": "style",
+      "description": "Transparent canvas with an action-colored border; subtle wash on hover.",
+      "overrides": {
+        "canvas": "transparent",
+        "canvas-hover": "{action.canvas-subtle}",
+        "canvas-active": "{action.canvas-muted}",
+        "canvas-disabled": "transparent",
+        "ink": "{action.ink}",
+        "ink-hover": "{action.ink-emphasis}",
+        "ink-active": "{action.ink-emphasis}",
+        "border-color": "{action.border}",
+        "border-color-hover": "{action.border-emphasis}",
+        "border-color-active": "{action.border-emphasis}"
+      }
+    },
+    "sm": {
+      "axis": "size",
+      "description": "Smaller type and padding; keeps the 44px minimum tap target.",
+      "overrides": {
+        "font-size": "{font-size.sm}",
+        "padding-inline": "{spacing.xs}",
+        "padding-block": "{spacing.2xs}",
+        "icon-size": "1rem"
+      }
+    },
+    "subtle": {
+      "axis": "style",
+      "description": "Low-emphasis fill on the subtle action canvas; no border.",
+      "overrides": {
+        "canvas": "{action.canvas-subtle}",
+        "canvas-hover": "{action.canvas-muted}",
+        "canvas-active": "{action.canvas-muted}",
+        "ink": "{action.ink}",
+        "ink-hover": "{action.ink-emphasis}",
+        "ink-active": "{action.ink-emphasis}",
+        "border-color": "transparent",
+        "border-color-hover": "transparent",
+        "border-color-active": "transparent"
+      }
+    },
+    "wave-pop": {
+      "axis": "effect",
+      "description": "Offset blended surface that settles on hover and press for Dynamowaves actions.",
+      "overrides": {
+        "transition-delay": "0ms"
+      }
+    },
+    "wave-action": {
+      "axis": "style",
+      "description": "Outlined, elevated action treatment matching the Dynamowaves demo controls.",
+      "overrides": {
+        "canvas": "transparent",
+        "canvas-hover": "transparent",
+        "canvas-active": "transparent",
+        "ink": "{brand.ink-emphasis}",
+        "ink-hover": "{brand.ink-emphasis}",
+        "ink-active": "{brand.ink-emphasis}",
+        "border-color": "{brand.canvas}",
+        "border-color-hover": "{brand.canvas}",
+        "border-color-active": "{brand.canvas}",
+        "border-width": "{border.width-sm}",
+        "border-radius": "{border.radius-md}",
+        "box-shadow": "{elevation.sm}",
+        "box-shadow-hover": "none",
+        "box-shadow-active": "none",
+        "transform": "translateY(0)",
+        "transform-hover": "translateY(2%)",
+        "transform-active": "translateY(2%)"
+      }
+    },
+    "wave-action-strong": {
+      "axis": "style",
+      "description": "Filled action treatment for controls placed on branded demo surfaces.",
+      "overrides": {
+        "canvas": "{accent-primary.canvas-emphasis}",
+        "canvas-hover": "{accent-primary.canvas-emphasis}",
+        "canvas-active": "{accent-primary.canvas-emphasis}",
+        "ink": "{accent-primary.ink-inverse-emphasis}",
+        "ink-hover": "{accent-primary.ink-inverse-emphasis}",
+        "ink-active": "{accent-primary.ink-inverse-emphasis}",
+        "border-color": "{accent-primary.canvas-emphasis}",
+        "border-color-hover": "{accent-primary.canvas-emphasis}",
+        "border-color-active": "{accent-primary.canvas-emphasis}",
+        "border-width": "{border.width-sm}",
+        "border-radius": "{border.radius-md}",
+        "box-shadow": "none",
+        "box-shadow-hover": "none",
+        "box-shadow-active": "none"
+      }
+    }
+  }
+}

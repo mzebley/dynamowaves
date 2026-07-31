@@ -1,0 +1,12 @@
+{
+  "canvas-subtle": {
+    "$value": "{color.lavenderfield-800}",
+    "$type": "color",
+    "$description": "Dark-mode text selection surface."
+  },
+  "ink-emphasis": {
+    "$value": "{color.mint-200}",
+    "$type": "color",
+    "$description": "Dark-mode text selection ink."
+  }
+}

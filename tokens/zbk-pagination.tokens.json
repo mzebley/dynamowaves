@@ -1,0 +1,230 @@
+{
+  "ink": {
+    "$value": "{action.ink}",
+    "$type": "color",
+    "$description": "Label color of page, previous, and next items."
+  },
+  "ink-hover": {
+    "$value": "{action.ink-emphasis}",
+    "$type": "color",
+    "$description": "Item label color when hovered."
+  },
+  "ink-active": {
+    "$value": "{action.ink-emphasis}",
+    "$type": "color",
+    "$description": "Item label color when pressed."
+  },
+  "ink-disabled": {
+    "$value": "{disabled.ink}",
+    "$type": "color",
+    "$description": "Label color of a disabled previous/next control."
+  },
+  "ink-selected": {
+    "$value": "{app.ink-inverse}",
+    "$type": "color",
+    "$description": "Label color of the current page item (aria-current)."
+  },
+  "ink-selected-hover": {
+    "$value": "{pagination.ink-selected}",
+    "$type": "color",
+    "$description": "Label color of the current page item when hovered."
+  },
+  "ink-selected-active": {
+    "$value": "{pagination.ink-selected}",
+    "$type": "color",
+    "$description": "Label color of the current page item when pressed."
+  },
+  "canvas": {
+    "$value": "{color.global-transparent}",
+    "$type": "color",
+    "$description": "Item background at rest."
+  },
+  "canvas-hover": {
+    "$value": "{action.canvas-subtle}",
+    "$type": "color",
+    "$description": "Item background when hovered."
+  },
+  "canvas-active": {
+    "$value": "{action.canvas-muted}",
+    "$type": "color",
+    "$description": "Item background when pressed."
+  },
+  "canvas-disabled": {
+    "$value": "{color.global-transparent}",
+    "$type": "color",
+    "$description": "Background of a disabled previous/next control."
+  },
+  "canvas-selected": {
+    "$value": "{accent-primary.500}",
+    "$type": "color",
+    "$description": "Background of the current page item (aria-current)."
+  },
+  "canvas-selected-hover": {
+    "$value": "{pagination.canvas-selected}",
+    "$type": "color",
+    "$description": "Background of the current page item when hovered."
+  },
+  "canvas-selected-active": {
+    "$value": "{pagination.canvas-selected}",
+    "$type": "color",
+    "$description": "Background of the current page item when pressed."
+  },
+  "border-color": {
+    "$value": "{color.global-transparent}",
+    "$type": "color",
+    "$description": "Item border color at rest."
+  },
+  "border-color-hover": {
+    "$value": "{color.global-transparent}",
+    "$type": "color",
+    "$description": "Item border color when hovered."
+  },
+  "border-color-active": {
+    "$value": "{color.global-transparent}",
+    "$type": "color",
+    "$description": "Item border color when pressed."
+  },
+  "border-color-disabled": {
+    "$value": "{color.global-transparent}",
+    "$type": "color",
+    "$description": "Border color of a disabled previous/next control."
+  },
+  "border-color-selected": {
+    "$value": "{accent-primary.500}",
+    "$type": "color",
+    "$description": "Border color of the current page item (aria-current)."
+  },
+  "border-color-selected-hover": {
+    "$value": "{pagination.border-color-selected}",
+    "$type": "color",
+    "$description": "Border color of the current page item when hovered."
+  },
+  "border-color-selected-active": {
+    "$value": "{pagination.border-color-selected}",
+    "$type": "color",
+    "$description": "Border color of the current page item when pressed."
+  },
+  "border-width": {
+    "$value": "{border.width-sm}",
+    "$type": "dimension",
+    "$description": "Item border width."
+  },
+  "border-style": {
+    "$value": "{border.style}",
+    "$type": "strokeStyle",
+    "$description": "Item border style."
+  },
+  "border-radius": {
+    "$value": "{border.radius-md}",
+    "$type": "dimension",
+    "$description": "Item corner radius."
+  },
+  "font-family": {
+    "$value": "{font-family.interface}",
+    "$type": "fontFamily",
+    "$description": "Font family for pagination content."
+  },
+  "font-size": {
+    "$value": "{font-size.md}",
+    "$type": "cssDimension",
+    "$description": "Base font size for pagination content."
+  },
+  "font-weight": {
+    "$value": "{font-weight.medium}",
+    "$type": "fontWeight",
+    "$description": "Font weight for pagination content."
+  },
+  "line-height": {
+    "$value": "{line-height.2}",
+    "$type": "number",
+    "$description": "Line height for pagination content."
+  },
+  "display": {
+    "$value": "inline-flex",
+    "$type": "display",
+    "$description": "Display mode for the pagination nav."
+  },
+  "gap": {
+    "$value": "{spacing.2xs}",
+    "$type": "dimension",
+    "$description": "Gap between pagination items."
+  },
+  "min-width": {
+    "$value": "{a11y.min-interaction-size}",
+    "$type": "dimension",
+    "$description": "Minimum item width to keep the tap target."
+  },
+  "min-height": {
+    "$value": "{a11y.min-interaction-size}",
+    "$type": "dimension",
+    "$description": "Minimum item height to keep the tap target."
+  },
+  "padding-inline": {
+    "$value": "{spacing.2xs}",
+    "$type": "dimension",
+    "$description": "Inline padding inside each item."
+  },
+  "padding-block": {
+    "$value": "{spacing.2xs}",
+    "$type": "dimension",
+    "$description": "Block padding inside each item."
+  },
+  "icon-size": {
+    "$value": "{pagination.font-size}",
+    "$type": "cssDimension",
+    "$description": "Size of the previous/next glyphs (drawn or slotted)."
+  },
+  "ellipsis-ink": {
+    "$value": "{app.ink-subtle}",
+    "$type": "color",
+    "$description": "Color of the non-interactive ellipsis separators."
+  },
+  "status-ink": {
+    "$value": "{app.ink}",
+    "$type": "color",
+    "$description": "Color of the compact-mode \"Page X of Y\" status text."
+  },
+  "focus-color": {
+    "$value": "{focus.color}",
+    "$type": "color",
+    "$description": "Outline color for a focused item."
+  },
+  "focus-width": {
+    "$value": "{focus.width}",
+    "$type": "dimension",
+    "$description": "Outline width for a focused item."
+  },
+  "focus-offset": {
+    "$value": "{focus.offset}",
+    "$type": "dimension",
+    "$description": "Outline offset for a focused item."
+  },
+  "transition-property": {
+    "$value": "background-color, color, border-color, outline",
+    "$type": "transitionProperty",
+    "$description": "CSS properties that animate on item interaction."
+  },
+  "transition-duration": {
+    "$value": {
+      "value": 150,
+      "unit": "ms"
+    },
+    "$type": "duration",
+    "$description": "Duration for item hover/active transitions.",
+    "$extensions": {
+      "dev.zebkit": {
+        "a11y": true
+      }
+    }
+  },
+  "transition-timing-function": {
+    "$value": "ease-out",
+    "$type": "cssEasingFunction",
+    "$description": "Timing function for item transitions."
+  },
+  "cursor": {
+    "$value": "pointer",
+    "$type": "cursor",
+    "$description": "Cursor over interactive pagination items."
+  }
+}

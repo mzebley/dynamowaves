@@ -1,0 +1,71 @@
+{
+  "card": {
+    "auto-orient": {
+      "axis": "layout",
+      "description": "Stacks or goes side by side based on the card's own inline size.",
+      "overrides": {
+        "container-type": "inline-size",
+        "flex-direction": "row",
+        "flex-wrap": "wrap",
+        "media-flex": "1 1 100%",
+        "body-flex": "1 1 100%"
+      }
+    },
+    "elevated": {
+      "axis": "style",
+      "description": "A canvas surface with no border and a shadow that deepens on hover.",
+      "overrides": {
+        "box-shadow": "{elevation.sm}",
+        "box-shadow-hover": "{elevation.md}",
+        "border-width": "0",
+        "canvas": "{app.canvas}"
+      }
+    },
+    "filled": {
+      "axis": "style",
+      "description": "A muted filled surface with neither border nor elevation.",
+      "overrides": {
+        "box-shadow": "{elevation.none}",
+        "border-width": "0",
+        "canvas": "{app.canvas-muted}"
+      }
+    },
+    "horizontal": {
+      "axis": "layout",
+      "description": "Places media and body side by side with equal flexible shares.",
+      "overrides": {
+        "flex-direction": "row",
+        "media-flex": "1 1 0",
+        "body-flex": "1 1 0",
+        "media-inline-size": "auto",
+        "media-block-size": "100%"
+      }
+    },
+    "media-end": {
+      "axis": "media-placement",
+      "description": "Moves the media region after the body without changing authored order.",
+      "overrides": {
+        "media-order": "1"
+      }
+    },
+    "outlined": {
+      "axis": "style",
+      "description": "A canvas surface bounded by the semantic border with no elevation.",
+      "overrides": {
+        "box-shadow": "{elevation.none}",
+        "border-width": "{border.width-sm}",
+        "canvas": "{app.canvas}"
+      }
+    },
+    "plain": {
+      "axis": "style",
+      "description": "An unframed transparent surface whose body aligns with its media edge.",
+      "overrides": {
+        "box-shadow": "{elevation.none}",
+        "border-width": "0",
+        "canvas": "transparent",
+        "body-padding-inline": "0"
+      }
+    }
+  }
+}

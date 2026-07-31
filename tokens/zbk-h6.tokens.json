@@ -1,0 +1,62 @@
+{
+  "font-family": {
+    "$value": "{font-family.heading}",
+    "$type": "fontFamily",
+    "$description": "Font size for H6 elements with .prose applied directly or that are a child of a .prose container."
+  },
+  "font-size": {
+    "$value": "{font-size.sm}",
+    "$type": "cssDimension",
+    "$description": "Font size for H6 elements with .prose applied directly or that are a child of a .prose container."
+  },
+  "font-weight": {
+    "$value": "{font-weight.semibold}",
+    "$type": "fontWeight",
+    "$description": "Font weight for H6 elements with .prose applied directly or that are a child of a .prose container."
+  },
+  "line-height": {
+    "$value": "{line-height.3}",
+    "$type": "number",
+    "$description": "Line height for H6 elements with .prose applied directly or that are a child of a .prose container."
+  },
+  "letter-spacing": {
+    "$value": "{letter-spacing.normal}",
+    "$type": "dimension",
+    "$description": "Tracking for H6 elements with .prose applied directly or that are a child of a .prose container."
+  },
+  "measure": {
+    "$value": "{text-measure.3}",
+    "$type": "cssDimension",
+    "$description": "Maximum width for H6 elements with .prose applied directly or that are a child of a .prose container."
+  },
+  "spacing-before": {
+    "$value": "{spacing.2}",
+    "$type": "dimension",
+    "$description": "Amount of margin inline start for H6 elements with .prose applied directly or that are a child of a .prose container."
+  },
+  "spacing-after": {
+    "$value": "{spacing.1}",
+    "$type": "dimension",
+    "$description": "Amount of margin inline end for H6 elements with .prose applied directly or that are a child of a .prose container."
+  },
+  "color": {
+    "$value": "{app.ink}",
+    "$type": "color",
+    "$description": "Color of H6 elements with .prose applied directly or that are a child of a .prose container."
+  },
+  "font-style": {
+    "$value": "normal",
+    "$type": "fontStyle",
+    "$description": "Font style for H6 elements with .prose applied directly or that are a child of a .prose container."
+  },
+  "text-transform": {
+    "$value": "uppercase",
+    "$type": "textTransform",
+    "$description": "Text transform for H6 elements with .prose applied directly or that are a child of a .prose container."
+  },
+  "text-align": {
+    "$value": "start",
+    "$type": "textAlignment",
+    "$description": "Text alignment for H6 elements with .prose applied directly or that are a child of a .prose container."
+  }
+}

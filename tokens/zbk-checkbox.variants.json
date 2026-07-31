@@ -1,0 +1,22 @@
+{
+  "checkbox": {
+    "lg": {
+      "axis": "size",
+      "description": "Larger control and label type.",
+      "overrides": {
+        "control-width": "{spacing.lg}",
+        "control-height": "{spacing.lg}",
+        "font-size": "{font-size.lg}"
+      }
+    },
+    "sm": {
+      "axis": "size",
+      "description": "Smaller control and label type.",
+      "overrides": {
+        "control-width": "{spacing.md}",
+        "control-height": "{spacing.md}",
+        "font-size": "{font-size.sm}"
+      }
+    }
+  }
+}

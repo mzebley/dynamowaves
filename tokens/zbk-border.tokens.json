@@ -1,0 +1,57 @@
+{
+  "width-xs": {
+    "$value": "{spacing.1px}",
+    "$type": "dimension",
+    "$description": "Smallest semantic border width."
+  },
+  "width-sm": {
+    "$value": "{spacing.2px}",
+    "$type": "dimension",
+    "$description": "Small semantic border width."
+  },
+  "width-md": {
+    "$value": "{spacing.025}",
+    "$type": "dimension",
+    "$description": "Base semantic border width."
+  },
+  "width-lg": {
+    "$value": "{spacing.05}",
+    "$type": "dimension",
+    "$description": "Larger semantic border width."
+  },
+  "width-xl": {
+    "$value": "{spacing.1}",
+    "$type": "dimension",
+    "$description": "Largest semantic border width."
+  },
+  "style": {
+    "$value": "solid",
+    "$type": "strokeStyle",
+    "$description": "Standarized border style for project."
+  },
+  "radius-xs": {
+    "$value": "{spacing.2px}",
+    "$type": "dimension",
+    "$description": "Smallest semantic corner radius."
+  },
+  "radius-sm": {
+    "$value": "{spacing.025}",
+    "$type": "dimension",
+    "$description": "Small semantic corner radius."
+  },
+  "radius-md": {
+    "$value": "{spacing.05}",
+    "$type": "dimension",
+    "$description": "Base semantic corner radius."
+  },
+  "radius-lg": {
+    "$value": "{spacing.1}",
+    "$type": "dimension",
+    "$description": "Larger semantic corner radius."
+  },
+  "radius-xl": {
+    "$value": "{spacing.205}",
+    "$type": "dimension",
+    "$description": "Largest semantic corner radius."
+  }
+}

@@ -1,0 +1,552 @@
+{
+  "ink": {
+    "$value": "{app.ink}",
+    "$type": "color",
+    "$description": "Default button label color."
+  },
+  "ink-hover": {
+    "$value": "{app.ink}",
+    "$type": "color",
+    "$description": "Label color when hovered."
+  },
+  "ink-active": {
+    "$value": "{app.ink}",
+    "$type": "color",
+    "$description": "Label color when active or pressed."
+  },
+  "ink-focus": {
+    "$value": "{button.ink}",
+    "$type": "color",
+    "$description": "Label color while the button has keyboard focus."
+  },
+  "ink-expanded": {
+    "$value": "{button.ink}",
+    "$type": "color",
+    "$description": "Label color while the button controls expanded content."
+  },
+  "ink-expanded-hover": {
+    "$value": "{button.ink-hover}",
+    "$type": "color",
+    "$description": "Label color of an expanded button when hovered."
+  },
+  "ink-expanded-active": {
+    "$value": "{button.ink-active}",
+    "$type": "color",
+    "$description": "Label color of an expanded button while pressed."
+  },
+  "ink-expanded-focus": {
+    "$value": "{button.ink-focus}",
+    "$type": "color",
+    "$description": "Label color of an expanded button with keyboard focus."
+  },
+  "ink-expanded-disabled": {
+    "$value": "{button.ink-disabled}",
+    "$type": "color",
+    "$description": "Label color of an expanded disabled button."
+  },
+  "ink-disabled": {
+    "$value": "{disabled.ink}",
+    "$type": "color",
+    "$description": "Label color for disabled buttons."
+  },
+  "ink-loading": {
+    "$value": "{button.ink}",
+    "$type": "color",
+    "$description": "Label color while the button is in its loading state."
+  },
+  "canvas": {
+    "$value": "{brand.200}",
+    "$type": "color",
+    "$description": "Default button background."
+  },
+  "canvas-hover": {
+    "$value": "{brand.300}",
+    "$type": "color",
+    "$description": "Background for hover state."
+  },
+  "canvas-active": {
+    "$value": "{brand.300}",
+    "$type": "color",
+    "$description": "Background for active/pressed state."
+  },
+  "canvas-focus": {
+    "$value": "{button.canvas}",
+    "$type": "color",
+    "$description": "Background while the button has keyboard focus."
+  },
+  "canvas-expanded": {
+    "$value": "{button.canvas}",
+    "$type": "color",
+    "$description": "Background while the button controls expanded content."
+  },
+  "canvas-expanded-hover": {
+    "$value": "{button.canvas-hover}",
+    "$type": "color",
+    "$description": "Background of an expanded button when hovered."
+  },
+  "canvas-expanded-active": {
+    "$value": "{button.canvas-active}",
+    "$type": "color",
+    "$description": "Background of an expanded button while pressed."
+  },
+  "canvas-expanded-focus": {
+    "$value": "{button.canvas-focus}",
+    "$type": "color",
+    "$description": "Background of an expanded button with keyboard focus."
+  },
+  "canvas-expanded-disabled": {
+    "$value": "{button.canvas-disabled}",
+    "$type": "color",
+    "$description": "Background of an expanded disabled button."
+  },
+  "canvas-disabled": {
+    "$value": "{disabled.canvas}",
+    "$type": "color",
+    "$description": "Background for disabled buttons."
+  },
+  "canvas-loading": {
+    "$value": "{button.canvas}",
+    "$type": "color",
+    "$description": "Background while the button is in its loading state."
+  },
+  "border-color": {
+    "$value": "{accent-primary.500}",
+    "$type": "color",
+    "$description": "Default button border color."
+  },
+  "border-color-hover": {
+    "$value": "{accent-primary.600}",
+    "$type": "color",
+    "$description": "Border color on hover."
+  },
+  "border-color-active": {
+    "$value": "{accent-primary.500}",
+    "$type": "color",
+    "$description": "Border color when the button is selected/active."
+  },
+  "border-color-focus": {
+    "$value": "{button.border-color}",
+    "$type": "color",
+    "$description": "Border color while the button has keyboard focus."
+  },
+  "border-color-expanded": {
+    "$value": "{button.border-color}",
+    "$type": "color",
+    "$description": "Border color while the button controls expanded content."
+  },
+  "border-color-expanded-hover": {
+    "$value": "{button.border-color-hover}",
+    "$type": "color",
+    "$description": "Border color of an expanded button when hovered."
+  },
+  "border-color-expanded-active": {
+    "$value": "{button.border-color-active}",
+    "$type": "color",
+    "$description": "Border color of an expanded button while pressed."
+  },
+  "border-color-expanded-focus": {
+    "$value": "{button.border-color-focus}",
+    "$type": "color",
+    "$description": "Border color of an expanded button with keyboard focus."
+  },
+  "border-color-expanded-disabled": {
+    "$value": "{button.border-color-disabled}",
+    "$type": "color",
+    "$description": "Border color of an expanded disabled button."
+  },
+  "border-color-disabled": {
+    "$value": "{disabled.border}",
+    "$type": "color",
+    "$description": "Border color for disabled buttons."
+  },
+  "border-color-loading": {
+    "$value": "{button.border-color}",
+    "$type": "color",
+    "$description": "Border color while the button is in its loading state."
+  },
+  "border-width": {
+    "$value": "{border.width-sm}",
+    "$type": "dimension",
+    "$description": "Base border width."
+  },
+  "border-style": {
+    "$value": "{border.style}",
+    "$type": "strokeStyle",
+    "$description": "Border style (solid, dashed, etc) for standard buttons."
+  },
+  "border-radius": {
+    "$value": "{border.radius-md}",
+    "$type": "dimension",
+    "$description": "Corner radius for standard buttons."
+  },
+  "font-family": {
+    "$value": "{font-family.interface}",
+    "$type": "fontFamily",
+    "$description": "Font family for button labels."
+  },
+  "font-size": {
+    "$value": "{font-size.md}",
+    "$type": "cssDimension",
+    "$description": "Base font size for button labels."
+  },
+  "font-weight": {
+    "$value": "{font-weight.medium}",
+    "$type": "fontWeight",
+    "$description": "Font weight for button labels."
+  },
+  "line-height": {
+    "$value": "{line-height.2}",
+    "$type": "number",
+    "$description": "Base line height for buttons."
+  },
+  "letter-spacing": {
+    "$value": "{letter-spacing.normal}",
+    "$type": "cssDimension",
+    "$description": "Letter spacing for button labels."
+  },
+  "text-transform": {
+    "$value": "none",
+    "$type": "textTransform",
+    "$description": "Text transform for button labels."
+  },
+  "text-decoration": {
+    "$value": "none",
+    "$type": "textDecoration",
+    "$description": "Text decoration for button labels."
+  },
+  "text-align": {
+    "$value": "center",
+    "$type": "textAlignment",
+    "$description": "Text alignment for button content."
+  },
+  "text-box-trim": {
+    "$value": "none",
+    "$type": "textBoxTrim",
+    "$description": "Which half-leading edges to trim off the label's text box. `trim-both` makes optical padding match the padding tokens; browsers without support fall back to the untrimmed box."
+  },
+  "text-box-edge": {
+    "$value": "auto",
+    "$type": "textBoxEdge",
+    "$description": "The font metrics text-box-trim trims to, e.g. `cap alphabetic`. Only takes effect where text-box-trim is set and the browser supports it."
+  },
+  "padding-inline": {
+    "$value": "{spacing.1}",
+    "$type": "dimension",
+    "$description": "Inline (horizontal) padding for standard buttons."
+  },
+  "padding-block": {
+    "$value": "{spacing.05}",
+    "$type": "dimension",
+    "$description": "Block (vertical) padding for standard buttons."
+  },
+  "padding-inline-start": {
+    "$value": "{button.padding-inline}",
+    "$type": "dimension",
+    "$description": "Inline-start padding override when needed."
+  },
+  "padding-inline-end": {
+    "$value": "{button.padding-inline}",
+    "$type": "dimension",
+    "$description": "Inline-end padding override when needed."
+  },
+  "padding-block-start": {
+    "$value": "{button.padding-block}",
+    "$type": "dimension",
+    "$description": "Block-start padding override when needed."
+  },
+  "padding-block-end": {
+    "$value": "{button.padding-block}",
+    "$type": "dimension",
+    "$description": "Block-end padding override when needed."
+  },
+  "margin-inline": {
+    "$value": "0",
+    "$type": "cssDimension",
+    "$description": "Inline margin for standalone buttons."
+  },
+  "margin-block": {
+    "$value": "0",
+    "$type": "cssDimension",
+    "$description": "Block margin for standalone buttons."
+  },
+  "margin-inline-start": {
+    "$value": "{button.margin-inline}",
+    "$type": "cssDimension",
+    "$description": "Inline-start margin override when needed."
+  },
+  "margin-inline-end": {
+    "$value": "{button.margin-inline}",
+    "$type": "cssDimension",
+    "$description": "Inline-end margin override when needed."
+  },
+  "margin-block-start": {
+    "$value": "{button.margin-block}",
+    "$type": "cssDimension",
+    "$description": "Block-start margin override when needed."
+  },
+  "margin-block-end": {
+    "$value": "{button.margin-block}",
+    "$type": "cssDimension",
+    "$description": "Block-end margin override when needed."
+  },
+  "gap": {
+    "$value": "{button.padding-block}",
+    "$type": "dimension",
+    "$description": "Gap between button icon and label."
+  },
+  "group-gap": {
+    "$value": "{spacing.105}",
+    "$type": "dimension",
+    "$description": "Gap between buttons when rendered in a group."
+  },
+  "display": {
+    "$value": "inline-flex",
+    "$type": "display",
+    "$description": "Display mode for buttons."
+  },
+  "width": {
+    "$value": "auto",
+    "$type": "cssDimension",
+    "$description": "Default button width."
+  },
+  "min-width": {
+    "$value": "44px",
+    "$type": "dimension",
+    "$description": "Minimum button width."
+  },
+  "max-width": {
+    "$value": "none",
+    "$type": "cssDimension",
+    "$description": "Maximum button width."
+  },
+  "height": {
+    "$value": "auto",
+    "$type": "cssDimension",
+    "$description": "Default button height."
+  },
+  "min-height": {
+    "$value": "44px",
+    "$type": "dimension",
+    "$description": "Minimum height to ensure tappable area."
+  },
+  "max-height": {
+    "$value": "none",
+    "$type": "cssDimension",
+    "$description": "Maximum button height."
+  },
+  "aspect-ratio": {
+    "$value": "auto",
+    "$type": "cssNumber",
+    "$description": "Preferred width-to-height ratio of the button box. `1` squares an icon-only button without pinning either dimension."
+  },
+  "icon-size": {
+    "$value": "1.125rem",
+    "$type": "cssDimension",
+    "$description": "Default icon size within buttons."
+  },
+  "icon-start-size": {
+    "$value": "{button.icon-size}",
+    "$type": "cssDimension",
+    "$description": "Default icon size for icons at start of buttons."
+  },
+  "icon-end-size": {
+    "$value": "{button.icon-size}",
+    "$type": "cssDimension",
+    "$description": "Default icon size for icons at end of buttons."
+  },
+  "icon-transform": {
+    "$value": "none",
+    "$type": "transform",
+    "$description": "Icon transform at rest."
+  },
+  "icon-transform-expanded": {
+    "$value": "{button.icon-transform}",
+    "$type": "transform",
+    "$description": "Icon transform while the button controls expanded content, for example rotating a disclosure chevron."
+  },
+  "focus-color": {
+    "$value": "{focus.color}",
+    "$type": "color",
+    "$description": "Outline color for focus state."
+  },
+  "focus-width": {
+    "$value": "{focus.width}",
+    "$type": "dimension",
+    "$description": "Outline width for focus state."
+  },
+  "focus-offset": {
+    "$value": "{focus.offset}",
+    "$type": "dimension",
+    "$description": "Outline offset for focus state."
+  },
+  "box-shadow": {
+    "$value": "none",
+    "$type": "shadow",
+    "$description": "Default box shadow for buttons."
+  },
+  "box-shadow-hover": {
+    "$value": "none",
+    "$type": "shadow",
+    "$description": "Box shadow on hover."
+  },
+  "box-shadow-active": {
+    "$value": "none",
+    "$type": "shadow",
+    "$description": "Box shadow when active/pressed."
+  },
+  "box-shadow-focus": {
+    "$value": "none",
+    "$type": "shadow",
+    "$description": "Box shadow in focus state (in addition to outline)."
+  },
+  "box-shadow-expanded": {
+    "$value": "{button.box-shadow}",
+    "$type": "shadow",
+    "$description": "Box shadow while the button controls expanded content."
+  },
+  "box-shadow-expanded-hover": {
+    "$value": "{button.box-shadow-hover}",
+    "$type": "shadow",
+    "$description": "Box shadow of an expanded button when hovered."
+  },
+  "box-shadow-expanded-active": {
+    "$value": "{button.box-shadow-active}",
+    "$type": "shadow",
+    "$description": "Box shadow of an expanded button while pressed."
+  },
+  "box-shadow-expanded-focus": {
+    "$value": "{button.box-shadow-focus}",
+    "$type": "shadow",
+    "$description": "Box shadow of an expanded button with keyboard focus."
+  },
+  "box-shadow-expanded-disabled": {
+    "$value": "{button.box-shadow-disabled}",
+    "$type": "shadow",
+    "$description": "Box shadow of an expanded disabled button."
+  },
+  "box-shadow-disabled": {
+    "$value": [],
+    "$type": "shadow",
+    "$description": "Box shadow for disabled buttons; flat by default so a raised base shadow doesn't imply the button is still actionable."
+  },
+  "transform": {
+    "$value": "translateY(0)",
+    "$type": "transform",
+    "$description": "Default transform property for buttons."
+  },
+  "transform-hover": {
+    "$value": "translateY(-1%)",
+    "$type": "transform",
+    "$description": "Transform effect on hover."
+  },
+  "transform-active": {
+    "$value": "translateY(0)",
+    "$type": "transform",
+    "$description": "Transform effect when active/pressed."
+  },
+  "transform-focus": {
+    "$value": "translateY(0)",
+    "$type": "transform",
+    "$description": "Transform effect in focus state (in addition to outline)."
+  },
+  "transform-expanded": {
+    "$value": "{button.transform}",
+    "$type": "transform",
+    "$description": "Transform while the button controls expanded content."
+  },
+  "transform-expanded-hover": {
+    "$value": "{button.transform-hover}",
+    "$type": "transform",
+    "$description": "Transform of an expanded button when hovered."
+  },
+  "transform-expanded-active": {
+    "$value": "{button.transform-active}",
+    "$type": "transform",
+    "$description": "Transform of an expanded button while pressed."
+  },
+  "transform-expanded-focus": {
+    "$value": "{button.transform-focus}",
+    "$type": "transform",
+    "$description": "Transform of an expanded button with keyboard focus."
+  },
+  "transform-expanded-disabled": {
+    "$value": "{button.transform-disabled}",
+    "$type": "transform",
+    "$description": "Transform of an expanded disabled button."
+  },
+  "transform-disabled": {
+    "$value": "none",
+    "$type": "transform",
+    "$description": "Transform for disabled buttons; flat by default so a lifted base transform doesn't survive into the disabled state."
+  },
+  "cursor": {
+    "$value": "pointer",
+    "$type": "cursor",
+    "$description": "Cursor style when hovering over buttons."
+  },
+  "cursor-disabled": {
+    "$value": "not-allowed",
+    "$type": "cursor",
+    "$description": "Cursor style when hovering a disabled button."
+  },
+  "cursor-loading": {
+    "$value": "progress",
+    "$type": "cursor",
+    "$description": "Cursor style while the button is in its loading state."
+  },
+  "flex-direction": {
+    "$value": "row",
+    "$type": "flex",
+    "$description": "Direction of icon and label layout."
+  },
+  "justify-content": {
+    "$value": "center",
+    "$type": "flex",
+    "$description": "Main axis alignment for button contents."
+  },
+  "align-items": {
+    "$value": "center",
+    "$type": "flex",
+    "$description": "Cross axis alignment for button contents."
+  },
+  "transition-duration": {
+    "$value": "150ms",
+    "$type": "duration",
+    "$description": "Duration for hover/active transitions.",
+    "$extensions": {
+      "dev.zebkit": {
+        "a11y": true
+      }
+    }
+  },
+  "transition-timing-function": {
+    "$value": "ease-out",
+    "$type": "cssEasingFunction",
+    "$description": "Timing function for button transitions."
+  },
+  "transition-property": {
+    "$value": "background-color, color, border-color, box-shadow, transform, outline",
+    "$type": "transitionProperty",
+    "$description": "CSS properties that should animate on interaction."
+  },
+  "transition-delay": {
+    "$value": "0ms",
+    "$type": "duration",
+    "$description": "Delay before CSS properties run through their animate on interaction."
+  },
+  "opacity": {
+    "$value": 1,
+    "$type": "number",
+    "$description": "Visual opacity of button."
+  },
+  "opacity-disabled": {
+    "$value": "{button.opacity}",
+    "$type": "number",
+    "$description": "Visual opacity for disabled buttons; disabled color tokens carry the state by default."
+  },
+  "opacity-loading": {
+    "$value": 1,
+    "$type": "number",
+    "$description": "Visual opacity while the button is in its loading state."
+  }
+}

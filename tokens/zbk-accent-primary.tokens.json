@@ -1,0 +1,177 @@
+{
+  "50": {
+    "$value": "hsl(359, 14%, 97%)",
+    "$type": "color",
+    "$description": "For primary accent surfaces."
+  },
+  "100": {
+    "$value": "hsl(359, 14%, 91%)",
+    "$type": "color",
+    "$description": "For primary accent surfaces."
+  },
+  "200": {
+    "$value": "hsl(359, 14%, 78%)",
+    "$type": "color",
+    "$description": "For primary accent surfaces."
+  },
+  "300": {
+    "$value": "hsl(359, 14%, 67%)",
+    "$type": "color",
+    "$description": "For primary accent surfaces."
+  },
+  "400": {
+    "$value": "hsl(359, 14%, 56%)",
+    "$type": "color",
+    "$description": "For primary accent surfaces."
+  },
+  "500": {
+    "$value": "hsl(359, 14%, 49%)",
+    "$type": "color",
+    "$description": "For primary accent surfaces."
+  },
+  "600": {
+    "$value": "hsl(359, 14%, 39%)",
+    "$type": "color",
+    "$description": "For primary accent surfaces."
+  },
+  "700": {
+    "$value": "hsl(359, 14%, 29%)",
+    "$type": "color",
+    "$description": "For primary accent surfaces."
+  },
+  "800": {
+    "$value": "hsl(359, 14%, 20%)",
+    "$type": "color",
+    "$description": "For primary accent surfaces."
+  },
+  "900": {
+    "$value": "hsl(359, 14%, 11%)",
+    "$type": "color",
+    "$description": "For primary accent surfaces."
+  },
+  "950": {
+    "$value": "hsl(359, 14%, 4%)",
+    "$type": "color",
+    "$description": "For primary accent surfaces."
+  },
+  "canvas": {
+    "$value": "{accent-primary.500}",
+    "$type": "color",
+    "$description": "Base primary-accent canvas color for primary accent surfaces."
+  },
+  "canvas-subtle": {
+    "$value": "{accent-primary.50}",
+    "$type": "color",
+    "$description": "Subtle primary-accent canvas color for the least-prominent, lightly tinted surfaces."
+  },
+  "canvas-muted": {
+    "$value": "{accent-primary.100}",
+    "$type": "color",
+    "$description": "Muted primary-accent canvas color for low-emphasis, recessed surfaces."
+  },
+  "canvas-emphasis": {
+    "$value": "{brand.700}",
+    "$type": "color",
+    "$description": "Emphasis primary-accent canvas color for high-prominence surfaces."
+  },
+  "canvas-inverse": {
+    "$value": "{accent-primary.400}",
+    "$type": "color",
+    "$description": "Base inverse primary-accent canvas color for surfaces on dark or inverted contexts."
+  },
+  "canvas-inverse-subtle": {
+    "$value": "{accent-primary.900}",
+    "$type": "color",
+    "$description": "Subtle inverse primary-accent canvas color for the least-prominent surfaces in inverse contexts."
+  },
+  "canvas-inverse-muted": {
+    "$value": "{accent-primary.800}",
+    "$type": "color",
+    "$description": "Muted inverse primary-accent canvas color for low-emphasis surfaces in inverse contexts."
+  },
+  "canvas-inverse-emphasis": {
+    "$value": "{accent-primary.300}",
+    "$type": "color",
+    "$description": "Emphasis inverse primary-accent canvas color for high-prominence surfaces in inverse contexts."
+  },
+  "ink": {
+    "$value": "{accent-primary.700}",
+    "$type": "color",
+    "$description": "Base primary-accent ink color (the accent hue) for body text and icons on neutral or light canvases."
+  },
+  "ink-subtle": {
+    "$value": "{accent-primary.400}",
+    "$type": "color",
+    "$description": "Subtle primary-accent ink color for the least-prominent, tertiary text and icons."
+  },
+  "ink-muted": {
+    "$value": "{accent-primary.500}",
+    "$type": "color",
+    "$description": "Muted primary-accent ink color for secondary text and icons."
+  },
+  "ink-emphasis": {
+    "$value": "{accent-primary.800}",
+    "$type": "color",
+    "$description": "Emphasis primary-accent ink color for high-prominence text and icons."
+  },
+  "ink-inverse": {
+    "$value": "{accent-primary.300}",
+    "$type": "color",
+    "$description": "Base inverse primary-accent ink color for body text and icons on inverse or dark canvases."
+  },
+  "ink-inverse-subtle": {
+    "$value": "{accent-primary.500}",
+    "$type": "color",
+    "$description": "Subtle inverse primary-accent ink color for the least-prominent text and icons on inverse canvases."
+  },
+  "ink-inverse-muted": {
+    "$value": "{accent-primary.400}",
+    "$type": "color",
+    "$description": "Muted inverse primary-accent ink color for secondary text and icons on inverse canvases."
+  },
+  "ink-inverse-emphasis": {
+    "$value": "{brand.100}",
+    "$type": "color",
+    "$description": "Emphasis inverse primary-accent ink color for high-prominence text on inverse canvases."
+  },
+  "border": {
+    "$value": "{accent-primary.500}",
+    "$type": "color",
+    "$description": "Base primary-accent border color for outlines, strokes, and dividers."
+  },
+  "border-subtle": {
+    "$value": "{accent-primary.200}",
+    "$type": "color",
+    "$description": "Subtle primary-accent border color for the least-prominent outlines and dividers."
+  },
+  "border-muted": {
+    "$value": "{accent-primary.300}",
+    "$type": "color",
+    "$description": "Muted primary-accent border color for low-emphasis outlines and dividers."
+  },
+  "border-emphasis": {
+    "$value": "{accent-primary.600}",
+    "$type": "color",
+    "$description": "Emphasis primary-accent border color for high-prominence outlines and dividers."
+  },
+  "border-inverse": {
+    "$value": "{accent-primary.500}",
+    "$type": "color",
+    "$description": "Base inverse primary-accent border color for outlines and dividers on inverse canvases."
+  },
+  "border-inverse-subtle": {
+    "$value": "{accent-primary.800}",
+    "$type": "color",
+    "$description": "Subtle inverse primary-accent border color for the least-prominent outlines on inverse canvases."
+  },
+  "border-inverse-muted": {
+    "$value": "{accent-primary.700}",
+    "$type": "color",
+    "$description": "Muted inverse primary-accent border color for low-emphasis outlines on inverse canvases."
+  },
+  "border-inverse-emphasis": {
+    "$value": "{accent-primary.400}",
+    "$type": "color",
+    "$description": "Emphasis inverse primary-accent border color for high-prominence outlines on inverse canvases."
+  }
+}

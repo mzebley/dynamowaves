@@ -1,0 +1,12 @@
+{
+  "canvas-subtle": {
+    "$value": "{color.stone-900}",
+    "$type": "color",
+    "$description": "Dark-mode note surface."
+  },
+  "border-muted": {
+    "$value": "{color.stone-800}",
+    "$type": "color",
+    "$description": "Dark-mode note border."
+  }
+}

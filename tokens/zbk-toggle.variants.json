@@ -1,0 +1,48 @@
+{
+  "toggle": {
+    "lg": {
+      "axis": "size",
+      "description": "Larger track and label type; thumb follows the track.",
+      "overrides": {
+        "track-width": "{spacing.xl}",
+        "track-height": "{spacing.lg}",
+        "font-size": "{font-size.lg}"
+      }
+    },
+    "sm": {
+      "axis": "size",
+      "description": "Smaller track and label type; thumb follows the track.",
+      "overrides": {
+        "track-width": "{spacing.lg}",
+        "track-height": "{spacing.md}",
+        "font-size": "{font-size.sm}"
+      }
+    },
+    "theme-icon": {
+      "axis": "style",
+      "description": "Icon-led switch for the site's persisted light and dark themes.",
+      "overrides": {
+        "canvas": "transparent",
+        "canvas-hover": "transparent",
+        "canvas-active": "transparent",
+        "canvas-checked": "transparent",
+        "canvas-checked-hover": "transparent",
+        "canvas-checked-active": "transparent",
+        "border-width": "0",
+        "ink": "{app.ink-muted}"
+      }
+    },
+    "icon-only": {
+      "axis": "size",
+      "description": "Suppresses the standard track when a labelled icon is the switch affordance.",
+      "overrides": {
+        "track-width": "0",
+        "track-height": "0",
+        "thumb-size": "0",
+        "thumb-border-width": "0",
+        "gap": "0",
+        "font-size": "{font-size.xl}"
+      }
+    }
+  }
+}

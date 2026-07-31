@@ -1,0 +1,17 @@
+{
+  "ink": {
+    "$value": "{color.deepcurrent-400}",
+    "$type": "color",
+    "$description": "Dark-mode link ink."
+  },
+  "ink-muted": {
+    "$value": "{color.stone-600}",
+    "$type": "color",
+    "$description": "Dark-mode link decoration."
+  },
+  "ink-emphasis": {
+    "$value": "{color.deepcurrent-400}",
+    "$type": "color",
+    "$description": "Dark-mode link hover ink."
+  }
+}

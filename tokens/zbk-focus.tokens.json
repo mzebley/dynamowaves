@@ -1,0 +1,17 @@
+{
+  "color": {
+    "$value": "{color.violet-500}",
+    "$type": "color",
+    "$description": "Color of focus outline"
+  },
+  "width": {
+    "$value": "{spacing.025}",
+    "$type": "dimension",
+    "$description": "Width of focus outline"
+  },
+  "offset": {
+    "$value": "{spacing.025}",
+    "$type": "dimension",
+    "$description": "Offset distance of focus outline"
+  }
+}

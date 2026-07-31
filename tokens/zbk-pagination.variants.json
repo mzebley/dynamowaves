@@ -1,0 +1,20 @@
+{
+  "pagination": {
+    "lg": {
+      "axis": "size",
+      "description": "Larger type and roomier item padding.",
+      "overrides": {
+        "font-size": "{font-size.lg}",
+        "padding-inline": "{spacing.xs}",
+        "padding-block": "{spacing.xs}"
+      }
+    },
+    "sm": {
+      "axis": "size",
+      "description": "Smaller type; keeps the 44px minimum tap target.",
+      "overrides": {
+        "font-size": "{font-size.sm}"
+      }
+    }
+  }
+}

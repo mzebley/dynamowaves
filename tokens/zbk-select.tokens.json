@@ -1,0 +1,313 @@
+{
+  "canvas": {
+    "$value": "{app.canvas}",
+    "$type": "color",
+    "$description": "Background of the field box."
+  },
+  "canvas-hover": {
+    "$value": "{app.canvas}",
+    "$type": "color",
+    "$description": "Field background when hovered."
+  },
+  "canvas-focus": {
+    "$value": "{app.canvas}",
+    "$type": "color",
+    "$description": "Field background while focused."
+  },
+  "canvas-active": {
+    "$value": "{select.canvas-focus}",
+    "$type": "color",
+    "$description": "Field background while pressed."
+  },
+  "canvas-disabled": {
+    "$value": "{disabled.canvas}",
+    "$type": "color",
+    "$description": "Field background when disabled."
+  },
+  "canvas-invalid": {
+    "$value": "{select.canvas}",
+    "$type": "color",
+    "$description": "Field background when the selection is invalid (after interaction)."
+  },
+  "ink": {
+    "$value": "{app.ink}",
+    "$type": "color",
+    "$description": "Color of the selected option's text."
+  },
+  "ink-disabled": {
+    "$value": "{disabled.ink}",
+    "$type": "color",
+    "$description": "Selected-option text color when disabled."
+  },
+  "ink-invalid": {
+    "$value": "{select.ink}",
+    "$type": "color",
+    "$description": "Selected-option text color when the selection is invalid."
+  },
+  "border-color": {
+    "$value": "{app.border-emphasis}",
+    "$type": "color",
+    "$description": "Border color of the field box."
+  },
+  "border-color-hover": {
+    "$value": "{accent-primary.400}",
+    "$type": "color",
+    "$description": "Field border color when hovered."
+  },
+  "border-color-focus": {
+    "$value": "{accent-primary.500}",
+    "$type": "color",
+    "$description": "Field border color while focused."
+  },
+  "border-color-active": {
+    "$value": "{select.border-color-focus}",
+    "$type": "color",
+    "$description": "Field border color while pressed."
+  },
+  "border-color-disabled": {
+    "$value": "{disabled.border}",
+    "$type": "color",
+    "$description": "Field border color when disabled."
+  },
+  "border-color-invalid": {
+    "$value": "{critical.border-emphasis}",
+    "$type": "color",
+    "$description": "Field border color when the selection is invalid."
+  },
+  "border-width": {
+    "$value": "{border.width-sm}",
+    "$type": "dimension",
+    "$description": "Border thickness of the field box."
+  },
+  "border-style": {
+    "$value": "{border.style}",
+    "$type": "strokeStyle",
+    "$description": "Border style of the field box."
+  },
+  "border-radius": {
+    "$value": "{border.radius-md}",
+    "$type": "dimension",
+    "$description": "Corner radius of the field box."
+  },
+  "font-family": {
+    "$value": "{font-family.interface}",
+    "$type": "fontFamily",
+    "$description": "Font family for the selected option's text."
+  },
+  "font-size": {
+    "$value": "{font-size.md}",
+    "$type": "cssDimension",
+    "$description": "Font size for the selected option's text."
+  },
+  "font-weight": {
+    "$value": "{font-weight.normal}",
+    "$type": "fontWeight",
+    "$description": "Font weight for the selected option's text."
+  },
+  "line-height": {
+    "$value": "{line-height.2}",
+    "$type": "number",
+    "$description": "Line height for the selected option's text."
+  },
+  "letter-spacing": {
+    "$value": "{letter-spacing.normal}",
+    "$type": "cssDimension",
+    "$description": "Letter spacing for the selected option's text."
+  },
+  "label-ink": {
+    "$value": "{app.ink}",
+    "$type": "color",
+    "$description": "Label text color."
+  },
+  "label-ink-disabled": {
+    "$value": "{disabled.ink}",
+    "$type": "color",
+    "$description": "Label text color when disabled."
+  },
+  "label-font-size": {
+    "$value": "{font-size.sm}",
+    "$type": "cssDimension",
+    "$description": "Font size for the label."
+  },
+  "label-font-weight": {
+    "$value": "{font-weight.medium}",
+    "$type": "fontWeight",
+    "$description": "Font weight for the label."
+  },
+  "label-gap": {
+    "$value": "{spacing.2xs}",
+    "$type": "dimension",
+    "$description": "Space between the label and the field box."
+  },
+  "affix-ink": {
+    "$value": "{app.ink-muted}",
+    "$type": "color",
+    "$description": "Color of prefix/suffix affix content (icon fonts and currentColor SVGs inherit it)."
+  },
+  "affix-ink-disabled": {
+    "$value": "{disabled.ink}",
+    "$type": "color",
+    "$description": "Affix color when disabled."
+  },
+  "icon-size": {
+    "$value": "1em",
+    "$type": "cssDimension",
+    "$description": "Size of slotted affix content (prefix/suffix slots); 1em tracks the field's font-size so size variants rescale it."
+  },
+  "indicator-ink": {
+    "$value": "{app.ink-muted}",
+    "$type": "color",
+    "$description": "Color of the drawn chevron indicator."
+  },
+  "indicator-ink-disabled": {
+    "$value": "{disabled.ink}",
+    "$type": "color",
+    "$description": "Chevron color when disabled."
+  },
+  "indicator-size": {
+    "$value": "0.5em",
+    "$type": "cssDimension",
+    "$description": "Side length of the drawn chevron; 0.5em tracks the field's font-size."
+  },
+  "indicator-stroke-width": {
+    "$value": "{border.width-md}",
+    "$type": "dimension",
+    "$description": "Stroke width of the drawn chevron."
+  },
+  "padding-inline": {
+    "$value": "{spacing.sm}",
+    "$type": "dimension",
+    "$description": "Inline (horizontal) padding of the field box."
+  },
+  "padding-block": {
+    "$value": "{spacing.2xs}",
+    "$type": "dimension",
+    "$description": "Block (vertical) padding of the field box."
+  },
+  "gap": {
+    "$value": "{spacing.2xs}",
+    "$type": "dimension",
+    "$description": "Space between affixes, the select, and the indicator."
+  },
+  "width": {
+    "$value": "auto",
+    "$type": "cssDimension",
+    "$description": "Width of the field box."
+  },
+  "min-width": {
+    "$value": "0",
+    "$type": "cssDimension",
+    "$description": "Minimum width of the field box."
+  },
+  "max-width": {
+    "$value": "100%",
+    "$type": "cssDimension",
+    "$description": "Maximum width of the field box."
+  },
+  "min-height": {
+    "$value": {
+      "value": 44,
+      "unit": "px"
+    },
+    "$type": "dimension",
+    "$description": "Minimum field height to ensure a tappable area."
+  },
+  "group-gap": {
+    "$value": "{spacing.md}",
+    "$type": "dimension",
+    "$description": "Gap between fields in a .zbk-select-group."
+  },
+  "group-direction": {
+    "$value": "column",
+    "$type": "flex",
+    "$description": "Flow direction of a .zbk-select-group (column or row)."
+  },
+  "focus-color": {
+    "$value": "{focus.color}",
+    "$type": "color",
+    "$description": "Outline color for keyboard focus."
+  },
+  "focus-width": {
+    "$value": "{focus.width}",
+    "$type": "dimension",
+    "$description": "Outline width for keyboard focus."
+  },
+  "focus-offset": {
+    "$value": "{focus.offset}",
+    "$type": "dimension",
+    "$description": "Outline offset for keyboard focus."
+  },
+  "box-shadow": {
+    "$value": [],
+    "$type": "shadow",
+    "$description": "Default field shadow."
+  },
+  "box-shadow-hover": {
+    "$value": [],
+    "$type": "shadow",
+    "$description": "Field shadow when hovered."
+  },
+  "box-shadow-focus": {
+    "$value": [],
+    "$type": "shadow",
+    "$description": "Field shadow while focused (in addition to the outline)."
+  },
+  "box-shadow-active": {
+    "$value": [],
+    "$type": "shadow",
+    "$description": "Field shadow while pressed."
+  },
+  "box-shadow-invalid": {
+    "$value": [],
+    "$type": "shadow",
+    "$description": "Field shadow when the selection is invalid."
+  },
+  "cursor": {
+    "$value": "pointer",
+    "$type": "cursor",
+    "$description": "Cursor over an enabled select."
+  },
+  "cursor-disabled": {
+    "$value": "not-allowed",
+    "$type": "cursor",
+    "$description": "Cursor over a disabled select."
+  },
+  "transition-duration": {
+    "$value": "{transition.calm-fx-duration-default}",
+    "$type": "duration",
+    "$description": "Duration for field state transitions.",
+    "$extensions": {
+      "dev.zebkit": {
+        "a11y": true
+      }
+    }
+  },
+  "transition-timing-function": {
+    "$value": "{transition.calm-fx-function-default}",
+    "$type": "cubicBezier",
+    "$description": "Easing for field state transitions."
+  },
+  "transition-property": {
+    "$value": "background-color, border-color, box-shadow, outline",
+    "$type": "transitionProperty",
+    "$description": "CSS properties that animate on state changes."
+  },
+  "transition-delay": {
+    "$value": {
+      "value": 0,
+      "unit": "ms"
+    },
+    "$type": "duration",
+    "$description": "Delay before field transitions run."
+  },
+  "opacity": {
+    "$value": 1,
+    "$type": "number",
+    "$description": "Opacity of the field."
+  },
+  "opacity-disabled": {
+    "$value": "{opacity.70}",
+    "$type": "number",
+    "$description": "Field opacity when disabled."
+  }
+}

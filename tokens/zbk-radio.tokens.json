@@ -1,0 +1,542 @@
+{
+  "control-width": {
+    "$value": "{spacing.105}",
+    "$type": "dimension",
+    "$description": "Width of the radio control."
+  },
+  "control-height": {
+    "$value": "{spacing.105}",
+    "$type": "dimension",
+    "$description": "Height of the radio control."
+  },
+  "canvas": {
+    "$value": "{app.canvas}",
+    "$type": "color",
+    "$description": "Background of an unselected radio control."
+  },
+  "canvas-hover": {
+    "$value": "{app.canvas-subtle}",
+    "$type": "color",
+    "$description": "Control background when hovered."
+  },
+  "canvas-active": {
+    "$value": "{app.canvas-muted}",
+    "$type": "color",
+    "$description": "Control background while pressed."
+  },
+  "canvas-checked": {
+    "$value": "{color.global-black}",
+    "$type": "color",
+    "$description": "Control background when selected."
+  },
+  "canvas-checked-hover": {
+    "$value": "{radio.canvas-checked}",
+    "$type": "color",
+    "$description": "Control background when selected and hovered."
+  },
+  "canvas-checked-active": {
+    "$value": "{radio.canvas-checked}",
+    "$type": "color",
+    "$description": "Control background when selected and pressed."
+  },
+  "canvas-checked-disabled": {
+    "$value": "{radio.canvas-disabled}",
+    "$type": "color",
+    "$description": "Control background when selected and disabled."
+  },
+  "canvas-disabled": {
+    "$value": "{disabled.canvas}",
+    "$type": "color",
+    "$description": "Control background when disabled."
+  },
+  "border-color": {
+    "$value": "{app.border-emphasis}",
+    "$type": "color",
+    "$description": "Border color of an unselected radio control."
+  },
+  "border-color-hover": {
+    "$value": "{action.ink}",
+    "$type": "color",
+    "$description": "Control border color when hovered."
+  },
+  "border-color-active": {
+    "$value": "{action.ink}",
+    "$type": "color",
+    "$description": "Control border color while pressed."
+  },
+  "border-color-checked": {
+    "$value": "{action.ink}",
+    "$type": "color",
+    "$description": "Control border color when selected."
+  },
+  "border-color-checked-hover": {
+    "$value": "{radio.border-color-checked}",
+    "$type": "color",
+    "$description": "Control border color when selected and hovered."
+  },
+  "border-color-checked-active": {
+    "$value": "{radio.border-color-checked}",
+    "$type": "color",
+    "$description": "Control border color when selected and pressed."
+  },
+  "border-color-checked-disabled": {
+    "$value": "{radio.border-color-disabled}",
+    "$type": "color",
+    "$description": "Control border color when selected and disabled."
+  },
+  "border-color-disabled": {
+    "$value": "{disabled.border}",
+    "$type": "color",
+    "$description": "Control border color when disabled."
+  },
+  "border-width": {
+    "$value": "{border.width-md}",
+    "$type": "dimension",
+    "$description": "Border thickness of the radio control."
+  },
+  "border-style": {
+    "$value": "{border.style}",
+    "$type": "strokeStyle",
+    "$description": "Border style of the radio control."
+  },
+  "border-radius": {
+    "$value": "50%",
+    "$type": "cssDimension",
+    "$description": "Corner radius of the radio control (a circle by default)."
+  },
+  "indicator-canvas": {
+    "$value": "{action.ink}",
+    "$type": "color",
+    "$description": "Indicator surface background when unselected."
+  },
+  "indicator-canvas-hover": {
+    "$value": "{radio.indicator-canvas}",
+    "$type": "color",
+    "$description": "Indicator surface background when hovered."
+  },
+  "indicator-canvas-active": {
+    "$value": "{radio.indicator-canvas}",
+    "$type": "color",
+    "$description": "Indicator surface background while pressed."
+  },
+  "indicator-canvas-checked": {
+    "$value": "{radio.indicator-canvas}",
+    "$type": "color",
+    "$description": "Indicator surface background when selected."
+  },
+  "indicator-canvas-checked-hover": {
+    "$value": "{radio.indicator-canvas-checked}",
+    "$type": "color",
+    "$description": "Indicator surface background when selected and hovered."
+  },
+  "indicator-canvas-checked-active": {
+    "$value": "{radio.indicator-canvas-checked}",
+    "$type": "color",
+    "$description": "Indicator surface background when selected and pressed."
+  },
+  "indicator-canvas-checked-disabled": {
+    "$value": "{radio.indicator-canvas-disabled}",
+    "$type": "color",
+    "$description": "Indicator surface background when selected and disabled."
+  },
+  "indicator-canvas-disabled": {
+    "$value": "{disabled.ink}",
+    "$type": "color",
+    "$description": "Indicator surface background when disabled."
+  },
+  "indicator-ink": {
+    "$value": "{action.ink}",
+    "$type": "color",
+    "$description": "Slotted indicator content color when unselected."
+  },
+  "indicator-ink-hover": {
+    "$value": "{radio.indicator-ink}",
+    "$type": "color",
+    "$description": "Slotted indicator content color when hovered."
+  },
+  "indicator-ink-active": {
+    "$value": "{radio.indicator-ink}",
+    "$type": "color",
+    "$description": "Slotted indicator content color while pressed."
+  },
+  "indicator-ink-checked": {
+    "$value": "{radio.indicator-ink}",
+    "$type": "color",
+    "$description": "Slotted indicator content color when selected."
+  },
+  "indicator-ink-checked-hover": {
+    "$value": "{radio.indicator-ink-checked}",
+    "$type": "color",
+    "$description": "Slotted indicator content color when selected and hovered."
+  },
+  "indicator-ink-checked-active": {
+    "$value": "{radio.indicator-ink-checked}",
+    "$type": "color",
+    "$description": "Slotted indicator content color when selected and pressed."
+  },
+  "indicator-ink-checked-disabled": {
+    "$value": "{radio.indicator-ink-disabled}",
+    "$type": "color",
+    "$description": "Slotted indicator content color when selected and disabled."
+  },
+  "indicator-ink-disabled": {
+    "$value": "{disabled.ink}",
+    "$type": "color",
+    "$description": "Slotted indicator content color when disabled."
+  },
+  "indicator-border-color": {
+    "$value": "{radio.indicator-canvas}",
+    "$type": "color",
+    "$description": "Indicator border color when unselected."
+  },
+  "indicator-border-color-hover": {
+    "$value": "{radio.indicator-border-color}",
+    "$type": "color",
+    "$description": "Indicator border color when hovered."
+  },
+  "indicator-border-color-active": {
+    "$value": "{radio.indicator-border-color}",
+    "$type": "color",
+    "$description": "Indicator border color while pressed."
+  },
+  "indicator-border-color-checked": {
+    "$value": "{radio.indicator-border-color}",
+    "$type": "color",
+    "$description": "Indicator border color when selected."
+  },
+  "indicator-border-color-checked-hover": {
+    "$value": "{radio.indicator-border-color-checked}",
+    "$type": "color",
+    "$description": "Indicator border color when selected and hovered."
+  },
+  "indicator-border-color-checked-active": {
+    "$value": "{radio.indicator-border-color-checked}",
+    "$type": "color",
+    "$description": "Indicator border color when selected and pressed."
+  },
+  "indicator-border-color-checked-disabled": {
+    "$value": "{radio.indicator-border-color-disabled}",
+    "$type": "color",
+    "$description": "Indicator border color when selected and disabled."
+  },
+  "indicator-border-color-disabled": {
+    "$value": "{radio.indicator-border-color}",
+    "$type": "color",
+    "$description": "Indicator border color when disabled."
+  },
+  "indicator-border-width": {
+    "$value": "{border.width-sm}",
+    "$type": "dimension",
+    "$description": "Indicator border thickness; zero preserves the standard dot."
+  },
+  "indicator-border-style": {
+    "$value": "{border.style}",
+    "$type": "strokeStyle",
+    "$description": "Indicator border line style."
+  },
+  "indicator-size": {
+    "$value": "{spacing.05}",
+    "$type": "cssDimension",
+    "$description": "Diameter of the selection dot and size of slotted indicator content; em-based so size variants rescale it through font-size."
+  },
+  "indicator-radius": {
+    "$value": "50%",
+    "$type": "cssDimension",
+    "$description": "Corner radius of the selection dot (a circle by default)."
+  },
+  "indicator-box-shadow": {
+    "$value": [
+      {
+        "color": "{color.global-black}",
+        "offsetX": {
+          "value": 0,
+          "unit": "px"
+        },
+        "offsetY": {
+          "value": 0,
+          "unit": "px"
+        },
+        "blur": {
+          "value": 0,
+          "unit": "px"
+        },
+        "spread": "{spacing.025}"
+      }
+    ],
+    "$type": "shadow",
+    "$description": "Default indicator shadow."
+  },
+  "indicator-box-shadow-hover": {
+    "$value": "{radio.indicator-box-shadow}",
+    "$type": "shadow",
+    "$description": "Indicator shadow when hovered."
+  },
+  "indicator-box-shadow-active": {
+    "$value": "{radio.indicator-box-shadow}",
+    "$type": "shadow",
+    "$description": "Indicator shadow while pressed."
+  },
+  "indicator-box-shadow-checked": {
+    "$value": "{radio.indicator-box-shadow}",
+    "$type": "shadow",
+    "$description": "Indicator shadow when selected."
+  },
+  "indicator-box-shadow-checked-hover": {
+    "$value": "{radio.indicator-box-shadow-checked}",
+    "$type": "shadow",
+    "$description": "Indicator shadow when selected and hovered."
+  },
+  "indicator-box-shadow-checked-active": {
+    "$value": "{radio.indicator-box-shadow-checked}",
+    "$type": "shadow",
+    "$description": "Indicator shadow when selected and pressed."
+  },
+  "indicator-box-shadow-checked-disabled": {
+    "$value": "{radio.indicator-box-shadow-disabled}",
+    "$type": "shadow",
+    "$description": "Indicator shadow when selected and disabled."
+  },
+  "indicator-box-shadow-focus": {
+    "$value": "{radio.indicator-box-shadow}",
+    "$type": "shadow",
+    "$description": "Indicator shadow when the native radio has keyboard focus."
+  },
+  "indicator-box-shadow-disabled": {
+    "$value": [],
+    "$type": "shadow",
+    "$description": "Indicator shadow when disabled."
+  },
+  "indicator-transform": {
+    "$value": "scale(0)",
+    "$type": "transform",
+    "$description": "Indicator transform when unselected; scale(0) hides the standard dot."
+  },
+  "indicator-transform-hover": {
+    "$value": "{radio.indicator-transform}",
+    "$type": "transform",
+    "$description": "Indicator transform when an unselected radio is hovered."
+  },
+  "indicator-transform-active": {
+    "$value": "{radio.indicator-transform}",
+    "$type": "transform",
+    "$description": "Indicator transform while an unselected radio is pressed."
+  },
+  "indicator-transform-checked": {
+    "$value": "scale(1)",
+    "$type": "transform",
+    "$description": "Indicator transform when selected; scale(1) reveals the standard dot."
+  },
+  "indicator-transform-checked-hover": {
+    "$value": "{radio.indicator-transform-checked}",
+    "$type": "transform",
+    "$description": "Indicator transform when selected and hovered."
+  },
+  "indicator-transform-checked-active": {
+    "$value": "{radio.indicator-transform-checked}",
+    "$type": "transform",
+    "$description": "Indicator transform when selected and pressed."
+  },
+  "indicator-transform-checked-disabled": {
+    "$value": "{radio.indicator-transform-checked}",
+    "$type": "transform",
+    "$description": "Indicator transform when selected and disabled."
+  },
+  "indicator-transform-focus": {
+    "$value": "{radio.indicator-transform}",
+    "$type": "transform",
+    "$description": "Indicator transform when an unselected radio has keyboard focus."
+  },
+  "indicator-transform-disabled": {
+    "$value": "{radio.indicator-transform}",
+    "$type": "transform",
+    "$description": "Indicator transform when an unselected radio is disabled."
+  },
+  "indicator-transition-duration": {
+    "$value": "{radio.transition-duration}",
+    "$type": "duration",
+    "$description": "Duration for indicator surface state transitions.",
+    "$extensions": {
+      "dev.zebkit": {
+        "a11y": true
+      }
+    }
+  },
+  "indicator-transition-timing-function": {
+    "$value": "{radio.transition-timing-function}",
+    "$type": "cubicBezier",
+    "$description": "Easing for indicator surface state transitions."
+  },
+  "indicator-transition-property": {
+    "$value": "background-color, border-color, box-shadow, transform, opacity",
+    "$type": "transitionProperty",
+    "$description": "Indicator surface properties that animate on state changes."
+  },
+  "indicator-transition-delay": {
+    "$value": "{radio.transition-delay}",
+    "$type": "duration",
+    "$description": "Delay before indicator surface transitions run."
+  },
+  "ink": {
+    "$value": "{app.ink}",
+    "$type": "color",
+    "$description": "Label text color."
+  },
+  "ink-disabled": {
+    "$value": "{disabled.ink}",
+    "$type": "color",
+    "$description": "Label text color when disabled."
+  },
+  "font-family": {
+    "$value": "{font-family.interface}",
+    "$type": "fontFamily",
+    "$description": "Font family for the radio label."
+  },
+  "font-size": {
+    "$value": "{font-size.md}",
+    "$type": "cssDimension",
+    "$description": "Font size for the radio label."
+  },
+  "font-weight": {
+    "$value": "{font-weight.normal}",
+    "$type": "fontWeight",
+    "$description": "Font weight for the radio label."
+  },
+  "line-height": {
+    "$value": "{line-height.2}",
+    "$type": "number",
+    "$description": "Line height for the radio label."
+  },
+  "letter-spacing": {
+    "$value": "{letter-spacing.normal}",
+    "$type": "cssDimension",
+    "$description": "Letter spacing for the radio label."
+  },
+  "gap": {
+    "$value": "{spacing.sm}",
+    "$type": "dimension",
+    "$description": "Space between the control and its label."
+  },
+  "align-items": {
+    "$value": "center",
+    "$type": "flex",
+    "$description": "Cross-axis alignment of control and label."
+  },
+  "group-gap": {
+    "$value": "{spacing.md}",
+    "$type": "dimension",
+    "$description": "Gap between radios in a .zbk-radio-group."
+  },
+  "group-direction": {
+    "$value": "column",
+    "$type": "flex",
+    "$description": "Flow direction of a .zbk-radio-group (column or row)."
+  },
+  "focus-color": {
+    "$value": "{focus.color}",
+    "$type": "color",
+    "$description": "Outline color for keyboard focus."
+  },
+  "focus-width": {
+    "$value": "{focus.width}",
+    "$type": "dimension",
+    "$description": "Outline width for keyboard focus."
+  },
+  "focus-offset": {
+    "$value": "{focus.offset}",
+    "$type": "dimension",
+    "$description": "Outline offset for keyboard focus."
+  },
+  "box-shadow": {
+    "$value": [],
+    "$type": "shadow",
+    "$description": "Default control shadow."
+  },
+  "box-shadow-hover": {
+    "$value": [],
+    "$type": "shadow",
+    "$description": "Control shadow when hovered."
+  },
+  "box-shadow-active": {
+    "$value": [],
+    "$type": "shadow",
+    "$description": "Control shadow while pressed."
+  },
+  "box-shadow-checked": {
+    "$value": [],
+    "$type": "shadow",
+    "$description": "Control shadow when selected."
+  },
+  "box-shadow-checked-hover": {
+    "$value": "{radio.box-shadow-checked}",
+    "$type": "shadow",
+    "$description": "Control shadow when selected and hovered."
+  },
+  "box-shadow-checked-active": {
+    "$value": "{radio.box-shadow-checked}",
+    "$type": "shadow",
+    "$description": "Control shadow when selected and pressed."
+  },
+  "box-shadow-checked-disabled": {
+    "$value": [],
+    "$type": "shadow",
+    "$description": "Control shadow when selected and disabled."
+  },
+  "box-shadow-focus": {
+    "$value": [],
+    "$type": "shadow",
+    "$description": "Control shadow in the focus state (in addition to the outline)."
+  },
+  "box-shadow-disabled": {
+    "$value": [],
+    "$type": "shadow",
+    "$description": "Control shadow when disabled."
+  },
+  "cursor": {
+    "$value": "pointer",
+    "$type": "cursor",
+    "$description": "Cursor when hovering an enabled radio."
+  },
+  "cursor-disabled": {
+    "$value": "not-allowed",
+    "$type": "cursor",
+    "$description": "Cursor when hovering a disabled radio."
+  },
+  "transition-duration": {
+    "$value": "{transition.playful-fx-duration-default}",
+    "$type": "duration",
+    "$description": "Duration for radio state transitions.",
+    "$extensions": {
+      "dev.zebkit": {
+        "a11y": true
+      }
+    }
+  },
+  "transition-timing-function": {
+    "$value": "{transition.playful-fx-function-default}",
+    "$type": "cubicBezier",
+    "$description": "Easing for radio state transitions."
+  },
+  "transition-property": {
+    "$value": "background-color, border-color, box-shadow, transform, opacity, outline",
+    "$type": "transitionProperty",
+    "$description": "CSS properties that animate on state changes."
+  },
+  "transition-delay": {
+    "$value": {
+      "value": 0,
+      "unit": "ms"
+    },
+    "$type": "duration",
+    "$description": "Delay before radio transitions run."
+  },
+  "opacity": {
+    "$value": 1,
+    "$type": "number",
+    "$description": "Opacity of the radio."
+  },
+  "opacity-disabled": {
+    "$value": "{opacity.70}",
+    "$type": "number",
+    "$description": "Control opacity when disabled."
+  }
+}

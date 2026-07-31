@@ -70,10 +70,10 @@ Use an animated **dynamowave** to add some more pizzazz to transition effects.
     <div class="footer">
         <dynamo-wave class="fill-theme fill-light" id="transition-wave-example" data-wave-face="top"></dynamo-wave>
         <div class="content">
-            <button style="margin-top:1rem" id="transition-wave-button" onclick="transition()">
-                <span>Next</span>
-                <i data-feather="chevrons-right"></i>
-            </button>
+            <zbk-button class="margin-block-start-1" variant="wave-action-strong lg" data-transition-control onclick="transition()">
+                <span id="transition-wave-label">Next</span>
+                <i slot="icon" data-position="end" data-feather="chevrons-right"></i>
+            </zbk-button>
         </div>
     </div>
 </div>
@@ -87,7 +87,7 @@ Slap one of these bad boys along the edge of a photo to create an always fresh, 
         <!-- When covering an image, I find it helps the browser render 
         to set the far edge with a bit of a negative overlap
         It keeps the image from peeking through from behind the wave -->
-        <dynamo-wave data-wave-face="left" style="fill:var(--widget-bg);position:absolute;right:-1px"></dynamo-wave>
+        <dynamo-wave data-wave-face="left" style="fill:var(--zbk-app-canvas-subtle);position:absolute;right:-1px"></dynamo-wave>
     </div>
     <div class="content">...</div>
 </div>
@@ -96,13 +96,13 @@ Slap one of these bad boys along the edge of a photo to create an always fresh, 
 <div class="widget horizontal" id="widget_example_3" style="min-height:max-content">
     <div class="image-wrapper">
         <dynamo-wave data-wave-face="left"
-        style="position:absolute;right:-1px;height:100%;width:1.5rem;fill:var(--widget-bg)">
+        style="position:absolute;right:-1px;height:100%;width:1.5rem;fill:var(--zbk-app-canvas-subtle)">
         </dynamo-wave>
     </div>
     <div class="content" style="align-self: center;padding:1rem">
-        <h2 id="eye-catching-headline" style="font-family:'Merriweather',serif;color:var(--theme);margin:0">
+        <h2 id="eye-catching-headline" class="margin-0 font-alt ink-brand">
         Eye-catching headline.</h2>
         <p>Further information to draw interest.</p>
-        <a href="#" aria-label="Fake example link">Explore This <i data-feather="arrow-right" style="width:20px;height:20px"></i></a>
+        <zbk-link href="#">Explore This <i slot="icon" data-position="end" data-feather="arrow-right"></i></zbk-link>
     </div>
 </div>

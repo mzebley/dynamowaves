@@ -1,0 +1,84 @@
+{
+  "thin": {
+    "$value": 100,
+    "$description": "Lightest font weight.",
+    "$extensions": {
+      "dev.zebkit": {
+        "a11y": true
+      }
+    }
+  },
+  "extralight": {
+    "$value": 200,
+    "$description": "Lighter font weight.",
+    "$extensions": {
+      "dev.zebkit": {
+        "a11y": true
+      }
+    }
+  },
+  "light": {
+    "$value": 300,
+    "$description": "Light font weight.",
+    "$extensions": {
+      "dev.zebkit": {
+        "a11y": true
+      }
+    }
+  },
+  "normal": {
+    "$value": 400,
+    "$description": "Default font weight.",
+    "$extensions": {
+      "dev.zebkit": {
+        "a11y": true
+      }
+    }
+  },
+  "medium": {
+    "$value": 500,
+    "$description": "Medium font weight.",
+    "$extensions": {
+      "dev.zebkit": {
+        "a11y": true
+      }
+    }
+  },
+  "semibold": {
+    "$value": 600,
+    "$description": "Semibold font weight.",
+    "$extensions": {
+      "dev.zebkit": {
+        "a11y": true
+      }
+    }
+  },
+  "bold": {
+    "$value": 700,
+    "$description": "Bold font weight.",
+    "$extensions": {
+      "dev.zebkit": {
+        "a11y": true
+      }
+    }
+  },
+  "extrabold": {
+    "$value": 800,
+    "$description": "Bolder font weight.",
+    "$extensions": {
+      "dev.zebkit": {
+        "a11y": true
+      }
+    }
+  },
+  "black": {
+    "$value": 900,
+    "$description": "Boldest font weight.",
+    "$extensions": {
+      "dev.zebkit": {
+        "a11y": true
+      }
+    }
+  },
+  "$type": "fontWeight"
+}

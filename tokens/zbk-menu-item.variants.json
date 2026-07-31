@@ -1,0 +1,14 @@
+{
+  "menu-item": {
+    "critical": {
+      "axis": "status",
+      "description": "Critical command ink and hover treatment.",
+      "overrides": {
+        "ink": "{critical.ink}",
+        "ink-hover": "{critical.ink-emphasis}",
+        "canvas-hover": "{critical.canvas-subtle}",
+        "icon-ink": "{critical.ink}"
+      }
+    }
+  }
+}

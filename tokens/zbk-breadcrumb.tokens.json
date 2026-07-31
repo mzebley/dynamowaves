@@ -1,0 +1,57 @@
+{
+  "display": {
+    "$value": "block",
+    "$type": "display",
+    "$description": "Display mode for the breadcrumb navigation landmark."
+  },
+  "gap": {
+    "$value": "{spacing.xs}",
+    "$type": "dimension",
+    "$description": "Space on both sides of each CSS-generated separator."
+  },
+  "separator-content": {
+    "$value": "\"/\"",
+    "$type": "content",
+    "$description": "CSS content for separators between trail items, including required quotes (for example, `\"/\"` or `\"›\"`)."
+  },
+  "separator-ink": {
+    "$value": "{app.ink-subtle}",
+    "$type": "color",
+    "$description": "Color of the decorative CSS-generated separators."
+  },
+  "ink": {
+    "$value": "{action.ink}",
+    "$type": "color",
+    "$description": "Color of authored native links in the trail."
+  },
+  "ink-current": {
+    "$value": "{app.ink}",
+    "$type": "color",
+    "$description": "Color of the current native link or plain-text crumb. Zebkit links retain their own token surface."
+  },
+  "decoration-line-current": {
+    "$value": "none",
+    "$type": "textDecoration",
+    "$description": "Text-decoration line applied to the current native link or plain-text crumb."
+  },
+  "font-family": {
+    "$value": "{font-family.interface}",
+    "$type": "fontFamily",
+    "$description": "Font family for breadcrumb content."
+  },
+  "font-size": {
+    "$value": "{font-size.sm}",
+    "$type": "cssDimension",
+    "$description": "Font size for breadcrumb content."
+  },
+  "line-height": {
+    "$value": "{line-height.2}",
+    "$type": "number",
+    "$description": "Line height for breadcrumb content."
+  },
+  "wrap": {
+    "$value": "wrap",
+    "$type": "flex",
+    "$description": "Flex wrapping behavior for the ordered trail."
+  }
+}

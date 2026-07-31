@@ -1,0 +1,275 @@
+{
+  "ink": {
+    "$value": "{action.ink}",
+    "$type": "color",
+    "$description": "Default link text color."
+  },
+  "ink-hover": {
+    "$value": "{action.ink-emphasis}",
+    "$type": "color",
+    "$description": "Link text color when hovered."
+  },
+  "ink-active": {
+    "$value": "{action.ink-emphasis}",
+    "$type": "color",
+    "$description": "Link text color while being activated."
+  },
+  "ink-focus": {
+    "$value": "{link.ink}",
+    "$type": "color",
+    "$description": "Link text color while the link has keyboard focus."
+  },
+  "ink-visited": {
+    "$value": "{link.ink}",
+    "$type": "color",
+    "$description": "Link text color once the destination has been visited. Defaults to the resting ink — a distinct visited color is valuable for reference content and noisy for app navigation, so it is opt-in."
+  },
+  "ink-visited-hover": {
+    "$value": "{link.ink-visited}",
+    "$type": "color",
+    "$description": "Text color of a visited link when hovered."
+  },
+  "ink-visited-active": {
+    "$value": "{link.ink-visited}",
+    "$type": "color",
+    "$description": "Text color of a visited link while being activated."
+  },
+  "ink-visited-focus": {
+    "$value": "{link.ink-focus}",
+    "$type": "color",
+    "$description": "Text color of a visited link with keyboard focus."
+  },
+  "ink-current": {
+    "$value": "{app.ink}",
+    "$type": "color",
+    "$description": "Link text color when the link points at the current page (aria-current). Reads as body text because the destination is where the reader already is."
+  },
+  "ink-current-hover": {
+    "$value": "{link.ink-current}",
+    "$type": "color",
+    "$description": "Text color of a current-destination link when hovered."
+  },
+  "ink-current-active": {
+    "$value": "{link.ink-current}",
+    "$type": "color",
+    "$description": "Text color of a current-destination link while being activated."
+  },
+  "ink-current-focus": {
+    "$value": "{link.ink-current}",
+    "$type": "color",
+    "$description": "Text color of a current-destination link with keyboard focus."
+  },
+  "decoration-line": {
+    "$value": "underline",
+    "$type": "textDecoration",
+    "$description": "Underline treatment at rest. Underlines are the non-color affordance that makes a link identifiable without relying on hue (WCAG 1.4.1)."
+  },
+  "decoration-line-hover": {
+    "$value": "{link.decoration-line}",
+    "$type": "textDecoration",
+    "$description": "Underline treatment on hover."
+  },
+  "decoration-style": {
+    "$value": "solid",
+    "$type": "textDecoration",
+    "$description": "Underline style at rest (solid, dotted, dashed, wavy). Dotted reads as a softer, more editorial link."
+  },
+  "decoration-style-hover": {
+    "$value": "{link.decoration-style}",
+    "$type": "textDecoration",
+    "$description": "Underline style on hover."
+  },
+  "decoration-color": {
+    "$value": "{action.ink-muted}",
+    "$type": "color",
+    "$description": "Underline color at rest. Muted against the text so the underline sits behind the word rather than competing with it."
+  },
+  "decoration-color-hover": {
+    "$value": "{action.ink}",
+    "$type": "color",
+    "$description": "Underline color on hover. Strengthening the rule is the cheapest possible hover signal — no layout moves."
+  },
+  "decoration-color-visited": {
+    "$value": "{link.decoration-color}",
+    "$type": "color",
+    "$description": "Underline color for visited links. One of only two properties browsers allow :visited to change (the other is color)."
+  },
+  "decoration-color-visited-hover": {
+    "$value": "{link.decoration-color-visited}",
+    "$type": "color",
+    "$description": "Underline color of a visited link when hovered. Kept separate because browsers permit visited styling only for color properties."
+  },
+  "decoration-thickness": {
+    "$value": "{spacing.2xs}",
+    "$type": "dimension",
+    "$description": "Underline thickness at rest."
+  },
+  "decoration-thickness-hover": {
+    "$value": "{link.decoration-thickness}",
+    "$type": "dimension",
+    "$description": "Underline thickness on hover."
+  },
+  "underline-offset": {
+    "$value": "{spacing.xs}",
+    "$type": "dimension",
+    "$description": "Distance from the text baseline to the underline. Offsetting keeps the rule clear of descenders, which is what makes an underlined link legible."
+  },
+  "underline-offset-hover": {
+    "$value": "{spacing.sm}",
+    "$type": "dimension",
+    "$description": "Underline offset on hover. Growing the offset drops the rule away from the word — motion the reader feels without anything reflowing."
+  },
+  "font-family": {
+    "$value": "inherit",
+    "$type": "cssFontFamily",
+    "$description": "Font family for link text. Inherits so an inline link matches the prose around it."
+  },
+  "font-size": {
+    "$value": "inherit",
+    "$type": "cssDimension",
+    "$description": "Font size for link text. Inherits so an inline link matches the prose around it."
+  },
+  "font-weight": {
+    "$value": "inherit",
+    "$type": "cssFontWeight",
+    "$description": "Font weight for link text."
+  },
+  "line-height": {
+    "$value": "inherit",
+    "$type": "cssNumber",
+    "$description": "Line height for link text. Inheriting keeps a wrapped inline link on the paragraph's own rhythm."
+  },
+  "letter-spacing": {
+    "$value": "inherit",
+    "$type": "cssDimension",
+    "$description": "Letter spacing for link text."
+  },
+  "text-box-trim": {
+    "$value": "none",
+    "$type": "textBoxTrim",
+    "$description": "Which half-leading edges to trim off the link's text box. Untrimmed by default: trimming a link inside a paragraph misaligns it against the surrounding line box. Set `trim-both` for standalone links."
+  },
+  "text-box-edge": {
+    "$value": "auto",
+    "$type": "textBoxEdge",
+    "$description": "The font metrics text-box-trim trims to, e.g. `cap alphabetic`. Only takes effect where text-box-trim is set and the browser supports it."
+  },
+  "display": {
+    "$value": "inline",
+    "$type": "display",
+    "$description": "Display mode for a text-only link. Deliberately `inline`, not `inline-flex`: an inline-flex link cannot break across lines, which breaks reflow mid-sentence (WCAG 1.4.10)."
+  },
+  "display-with-icon": {
+    "$value": "inline-flex",
+    "$type": "display",
+    "$description": "Display mode once the link carries an icon. A link with an icon is a discrete object rather than a run of words, so flex layout is safe there."
+  },
+  "align-items": {
+    "$value": "center",
+    "$type": "flex",
+    "$description": "Cross-axis alignment of label and icon when the link is flex."
+  },
+  "icon-gap": {
+    "$value": "{spacing.xs}",
+    "$type": "dimension",
+    "$description": "Gap between the link label and its icon."
+  },
+  "icon-size": {
+    "$value": "1em",
+    "$type": "cssDimension",
+    "$description": "Icon size within links. Relative to the link's own font size so the icon tracks the text it accompanies."
+  },
+  "icon-transform": {
+    "$value": "none",
+    "$type": "transform",
+    "$description": "Icon transform at rest."
+  },
+  "icon-transform-hover-start": {
+    "$value": "translateX(-0.125em) scale(1.125)",
+    "$type": "transform",
+    "$description": "Leading-icon transform on hover. Nudges away from the label (inline-start) so the pair opens outward rather than drifting sideways."
+  },
+  "icon-transform-hover-end": {
+    "$value": "translateX(0.125em) scale(1.125)",
+    "$type": "transform",
+    "$description": "Trailing-icon transform on hover. Nudges away from the label (inline-end); the mirrored sign is what makes the gesture read as 'onward' rather than 'shift'."
+  },
+  "new-tab-indicator": {
+    "$value": "\"↗\"",
+    "$type": "content",
+    "$description": "The affordance drawn after a link that opens a new tab, as `content:` on `[target=\"_blank\"]::after`. CSS rather than script, so it survives a blocked bundle and the pre-upgrade paint. `none` removes it; the `components.link.options.newTabIcon` config compiles into this value."
+  },
+  "cursor": {
+    "$value": "pointer",
+    "$type": "cursor",
+    "$description": "Cursor style when hovering a link."
+  },
+  "padding-inline": {
+    "$value": "0",
+    "$type": "cssDimension",
+    "$description": "Inline padding. Zero for inline links so they do not disturb the line; icon-only links raise it to build a tap target."
+  },
+  "padding-block": {
+    "$value": "0",
+    "$type": "cssDimension",
+    "$description": "Block padding. Zero for inline links; see padding-inline."
+  },
+  "min-inline-size": {
+    "$value": "0",
+    "$type": "cssDimension",
+    "$description": "Minimum inline size. Zero by default — an inline text link must not be force-grown to a 44px target inside a paragraph. Icon-only links raise this to `{a11y.min-interaction-size}`."
+  },
+  "min-block-size": {
+    "$value": "0",
+    "$type": "cssDimension",
+    "$description": "Minimum block size. Zero by default; see min-inline-size for the icon-only case."
+  },
+  "border-radius": {
+    "$value": "{border.radius-xs}",
+    "$type": "dimension",
+    "$description": "Corner radius, which the focus outline follows."
+  },
+  "focus-color": {
+    "$value": "{focus.color}",
+    "$type": "color",
+    "$description": "Outline color for focus state."
+  },
+  "focus-width": {
+    "$value": "{focus.width}",
+    "$type": "dimension",
+    "$description": "Outline width for focus state."
+  },
+  "focus-offset": {
+    "$value": "{focus.offset}",
+    "$type": "dimension",
+    "$description": "Outline offset for focus state."
+  },
+  "transition-duration": {
+    "$value": "{transition.playful-fx-duration-default}",
+    "$type": "duration",
+    "$description": "Duration for link hover transitions. The fx duration, not the motion one: the slower spatial timing reads as lag on a color change the pointer is sitting on.",
+    "$extensions": {
+      "dev.zebkit": {
+        "a11y": true
+      }
+    }
+  },
+  "transition-timing-function": {
+    "$value": "{transition.playful-motion-function-default}",
+    "$type": "cubicBezier",
+    "$description": "Easing for link hover transitions. The playful motion curve overshoots slightly, which is what gives the icon nudge its spring."
+  },
+  "transition-property": {
+    "$value": "color, text-decoration-color, text-decoration-thickness, text-underline-offset, transform",
+    "$type": "transitionProperty",
+    "$description": "CSS properties that animate on hover. Enumerated rather than `all` so layout properties never animate and the reduced-motion modifier has a known surface."
+  },
+  "transition-delay": {
+    "$value": {
+      "value": 0,
+      "unit": "ms"
+    },
+    "$type": "duration",
+    "$description": "Delay before link hover transitions run."
+  }
+}

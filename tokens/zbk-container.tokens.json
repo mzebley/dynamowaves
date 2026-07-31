@@ -1,0 +1,38 @@
+{
+  "xs": {
+    "$value": {
+      "value": 20,
+      "unit": "rem"
+    },
+    "$description": "Compact component containers."
+  },
+  "sm": {
+    "$value": {
+      "value": 30,
+      "unit": "rem"
+    },
+    "$description": "Small component containers and the card auto-orient threshold."
+  },
+  "md": {
+    "$value": {
+      "value": 40,
+      "unit": "rem"
+    },
+    "$description": "Wide component containers."
+  },
+  "lg": {
+    "$value": {
+      "value": 50,
+      "unit": "rem"
+    },
+    "$description": "Panel and region containers."
+  },
+  "xl": {
+    "$value": {
+      "value": 60,
+      "unit": "rem"
+    },
+    "$description": "Full-width region containers."
+  },
+  "$type": "dimension"
+}

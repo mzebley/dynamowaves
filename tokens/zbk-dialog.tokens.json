@@ -1,0 +1,148 @@
+{
+  "canvas": {
+    "$value": "{app.canvas}",
+    "$type": "color",
+    "$description": "Dialog surface background."
+  },
+  "ink": {
+    "$value": "{app.ink}",
+    "$type": "color",
+    "$description": "Dialog body text color."
+  },
+  "border-color": {
+    "$value": "{color.global-transparent}",
+    "$type": "color",
+    "$description": "Dialog border color."
+  },
+  "border-width": {
+    "$value": "{border.width-sm}",
+    "$type": "dimension",
+    "$description": "Dialog border width."
+  },
+  "border-style": {
+    "$value": "{border.style}",
+    "$type": "strokeStyle",
+    "$description": "Dialog border style."
+  },
+  "border-radius": {
+    "$value": "{border.radius-lg}",
+    "$type": "dimension",
+    "$description": "Dialog corner radius."
+  },
+  "padding-inline": {
+    "$value": "{spacing.lg}",
+    "$type": "dimension",
+    "$description": "Inline padding inside the dialog."
+  },
+  "padding-block": {
+    "$value": "{spacing.lg}",
+    "$type": "dimension",
+    "$description": "Block padding inside the dialog."
+  },
+  "width": {
+    "$value": {
+      "value": 32,
+      "unit": "rem"
+    },
+    "$type": "dimension",
+    "$description": "Preferred dialog width."
+  },
+  "max-width": {
+    "$value": "calc(100vw - 2 * var(--zbk-spacing-lg))",
+    "$type": "cssDimension",
+    "$description": "Maximum inline size, leaving viewport breathing room."
+  },
+  "max-height": {
+    "$value": "85vh",
+    "$type": "cssDimension",
+    "$description": "Maximum dialog block size before the content area scrolls."
+  },
+  "gap": {
+    "$value": "{spacing.md}",
+    "$type": "dimension",
+    "$description": "Gap between title, content, and footer."
+  },
+  "box-shadow": {
+    "$value": "{elevation.xl}",
+    "$type": "shadow",
+    "$description": "Dialog elevation."
+  },
+  "backdrop-canvas": {
+    "$value": "{app.canvas-inverse}",
+    "$type": "color",
+    "$description": "Modal backdrop color."
+  },
+  "backdrop-opacity": {
+    "$value": "{opacity.50}",
+    "$type": "number",
+    "$description": "Modal backdrop opacity."
+  },
+  "backdrop-blur": {
+    "$value": {
+      "value": 0,
+      "unit": "px"
+    },
+    "$type": "dimension",
+    "$description": "Modal backdrop blur radius."
+  },
+  "title-ink": {
+    "$value": "{app.ink-emphasis}",
+    "$type": "color",
+    "$description": "Dialog title color."
+  },
+  "title-font-family": {
+    "$value": "{font-family.interface}",
+    "$type": "fontFamily",
+    "$description": "Dialog title font family."
+  },
+  "title-font-size": {
+    "$value": "{font-size.lg}",
+    "$type": "cssDimension",
+    "$description": "Dialog title font size."
+  },
+  "title-font-weight": {
+    "$value": "{font-weight.bold}",
+    "$type": "fontWeight",
+    "$description": "Dialog title font weight."
+  },
+  "footer-gap": {
+    "$value": "{spacing.sm}",
+    "$type": "dimension",
+    "$description": "Gap between footer actions."
+  },
+  "footer-justify": {
+    "$value": "flex-end",
+    "$type": "flex",
+    "$description": "Footer action alignment."
+  },
+  "font-family": {
+    "$value": "{font-family.interface}",
+    "$type": "fontFamily",
+    "$description": "Dialog body font family."
+  },
+  "font-size": {
+    "$value": "{font-size.md}",
+    "$type": "cssDimension",
+    "$description": "Dialog body font size."
+  },
+  "line-height": {
+    "$value": "{line-height.2}",
+    "$type": "number",
+    "$description": "Dialog body line height."
+  },
+  "transition-duration": {
+    "$value": "{transition.calm-fx-duration-default}",
+    "$type": "duration",
+    "$description": "Duration reserved for dialog and backdrop visual effects.",
+    "$extensions": {
+      "dev.zebkit": {
+        "a11y": true
+      }
+    }
+  },
+  "transition-timing-function": {
+    "$value": "{transition.calm-fx-function-default}",
+    "$type": "cubicBezier",
+    "$description": "Timing function reserved for dialog and backdrop visual effects."
+  }
+}

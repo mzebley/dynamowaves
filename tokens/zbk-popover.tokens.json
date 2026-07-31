@@ -1,0 +1,108 @@
+{
+  "canvas": {
+    "$value": "{app.canvas}",
+    "$type": "color",
+    "$description": "Popover panel background."
+  },
+  "ink": {
+    "$value": "{app.ink}",
+    "$type": "color",
+    "$description": "Popover content color."
+  },
+  "border-color": {
+    "$value": "{app.border}",
+    "$type": "color",
+    "$description": "Popover panel border color."
+  },
+  "border-width": {
+    "$value": "{border.width-sm}",
+    "$type": "dimension",
+    "$description": "Popover panel border width."
+  },
+  "border-style": {
+    "$value": "{border.style}",
+    "$type": "strokeStyle",
+    "$description": "Popover panel border style."
+  },
+  "border-radius": {
+    "$value": "{border.radius-md}",
+    "$type": "dimension",
+    "$description": "Popover panel corner radius."
+  },
+  "padding-inline": {
+    "$value": "{spacing.md}",
+    "$type": "dimension",
+    "$description": "Inline padding inside the popover panel."
+  },
+  "padding-block": {
+    "$value": "{spacing.sm}",
+    "$type": "dimension",
+    "$description": "Block padding inside the popover panel."
+  },
+  "max-width": {
+    "$value": {
+      "value": 20,
+      "unit": "rem"
+    },
+    "$type": "dimension",
+    "$description": "Maximum panel width before content wraps."
+  },
+  "arrow-size": {
+    "$value": {
+      "value": 8,
+      "unit": "px"
+    },
+    "$type": "dimension",
+    "$description": "Arrow square size."
+  },
+  "offset": {
+    "$value": "{popover.arrow-size}",
+    "$type": "dimension",
+    "$description": "Gap between the trigger and panel."
+  },
+  "box-shadow": {
+    "$value": "{elevation.md}",
+    "$type": "shadow",
+    "$description": "Popover panel shadow."
+  },
+  "z-index": {
+    "$value": "{z-index.popover}",
+    "$type": "number",
+    "$description": "Stacking order when native top-layer promotion is unavailable."
+  },
+  "font-family": {
+    "$value": "{font-family.interface}",
+    "$type": "fontFamily",
+    "$description": "Popover content font family."
+  },
+  "font-size": {
+    "$value": "{font-size.sm}",
+    "$type": "cssDimension",
+    "$description": "Popover content font size."
+  },
+  "line-height": {
+    "$value": "{line-height.2}",
+    "$type": "number",
+    "$description": "Popover content line height."
+  },
+  "opacity": {
+    "$value": 1,
+    "$type": "number",
+    "$description": "Panel opacity — the property the transition below interpolates."
+  },
+  "transition-duration": {
+    "$value": "{transition.calm-fx-duration-default}",
+    "$type": "duration",
+    "$description": "Popover effect transition duration.",
+    "$extensions": {
+      "dev.zebkit": {
+        "a11y": true
+      }
+    }
+  },
+  "transition-timing-function": {
+    "$value": "{transition.calm-fx-function-default}",
+    "$type": "cubicBezier",
+    "$description": "Popover effect transition timing function."
+  }
+}

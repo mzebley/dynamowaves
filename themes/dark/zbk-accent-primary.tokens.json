@@ -1,0 +1,22 @@
+{
+  "canvas-emphasis": {
+    "$value": "{brand.300}",
+    "$type": "color",
+    "$description": "Dark-mode filled demo action surface."
+  },
+  "ink": {
+    "$value": "{accent-primary.300}",
+    "$type": "color",
+    "$description": "Dark-mode headings."
+  },
+  "ink-subtle": {
+    "$value": "{accent-primary.500}",
+    "$type": "color",
+    "$description": "Dark-mode table-of-contents labels."
+  },
+  "ink-inverse-emphasis": {
+    "$value": "{brand.900}",
+    "$type": "color",
+    "$description": "Dark-mode ink on filled demo actions."
+  }
+}

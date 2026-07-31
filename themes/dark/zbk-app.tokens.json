@@ -1,0 +1,37 @@
+{
+  "canvas": {
+    "$value": "{accent-primary.900}",
+    "$type": "color",
+    "$description": "Dark-mode documentation canvas."
+  },
+  "canvas-subtle": {
+    "$value": "{color.global-black}",
+    "$type": "color",
+    "$description": "Dark-mode raised widget surface."
+  },
+  "canvas-muted": {
+    "$value": "{neutral.800}",
+    "$type": "color",
+    "$description": "Dark-mode subdued inline surface."
+  },
+  "canvas-emphasis": {
+    "$value": "{neutral.900}",
+    "$type": "color",
+    "$description": "Dark-mode table header surface."
+  },
+  "ink": {
+    "$value": "{accent-primary.100}",
+    "$type": "color",
+    "$description": "Dark-mode body text."
+  },
+  "ink-muted": {
+    "$value": "{brand.300}",
+    "$type": "color",
+    "$description": "Dark-mode secondary icons and theme control."
+  },
+  "border": {
+    "$value": "{neutral.800}",
+    "$type": "color",
+    "$description": "Dark-mode table and content borders."
+  }
+}

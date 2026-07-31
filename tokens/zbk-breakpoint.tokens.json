@@ -1,0 +1,38 @@
+{
+  "tablet": {
+    "$value": {
+      "value": 40,
+      "unit": "rem"
+    },
+    "$description": "Small tablets and large phones in landscape (640px)."
+  },
+  "tablet-lg": {
+    "$value": {
+      "value": 50,
+      "unit": "rem"
+    },
+    "$description": "Large tablets (800px)."
+  },
+  "desktop": {
+    "$value": {
+      "value": 70,
+      "unit": "rem"
+    },
+    "$description": "Small desktops and laptops (1120px)."
+  },
+  "desktop-lg": {
+    "$value": {
+      "value": 80,
+      "unit": "rem"
+    },
+    "$description": "Large desktops (1280px)."
+  },
+  "widescreen": {
+    "$value": {
+      "value": 100,
+      "unit": "rem"
+    },
+    "$description": "Widescreen and ultra-wide displays (1600px)."
+  },
+  "$type": "dimension"
+}

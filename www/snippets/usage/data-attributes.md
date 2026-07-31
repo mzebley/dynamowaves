@@ -178,7 +178,7 @@ document.querySelector('dynamo-wave')
 
 <h4 id="wave-observation">Wave Observation</h4>
 
-Looking to <em>really</em> lean into generative design? The **```data-wave-observe```** attribute adds an intelligent <a class="link" rel="external" target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API">IntersectionObserver</a> to your **dynamowave**, enabling dynamic wave regeneration.
+Looking to <em>really</em> lean into generative design? The **```data-wave-observe```** attribute adds an intelligent <zbk-link target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API">IntersectionObserver</zbk-link> to your **dynamowave**, enabling dynamic wave regeneration.
 
 <div class="table-container" tabindex="0">
     <table aria-label="Wave observation attribute configuration table">

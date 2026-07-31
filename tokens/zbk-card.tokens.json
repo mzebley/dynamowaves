@@ -1,0 +1,727 @@
+{
+  "display": {
+    "$value": "flex",
+    "$type": "display",
+    "$description": "Card style-root display mode."
+  },
+  "flex-direction": {
+    "$value": "column",
+    "$type": "flex",
+    "$description": "Main axis for media and body."
+  },
+  "flex-wrap": {
+    "$value": "nowrap",
+    "$type": "flex",
+    "$description": "Root wrapping behavior for media and body."
+  },
+  "container-type": {
+    "$value": "normal",
+    "$type": "containerType",
+    "$description": "Container-query participation for card descendants."
+  },
+  "align-items": {
+    "$value": "stretch",
+    "$type": "flex",
+    "$description": "Cross-axis alignment of media and body."
+  },
+  "justify-content": {
+    "$value": "flex-start",
+    "$type": "flex",
+    "$description": "Main-axis distribution of media and body."
+  },
+  "gap": {
+    "$value": {
+      "value": 0,
+      "unit": "px"
+    },
+    "$type": "dimension",
+    "$description": "Gap between the media and body regions."
+  },
+  "inline-size": {
+    "$value": "auto",
+    "$type": "cssDimension",
+    "$description": "Preferred card inline size."
+  },
+  "min-inline-size": {
+    "$value": "0",
+    "$type": "cssDimension",
+    "$description": "Minimum card inline size."
+  },
+  "max-inline-size": {
+    "$value": "100%",
+    "$type": "cssDimension",
+    "$description": "Maximum card inline size."
+  },
+  "block-size": {
+    "$value": "auto",
+    "$type": "cssDimension",
+    "$description": "Preferred card block size."
+  },
+  "min-block-size": {
+    "$value": "0",
+    "$type": "cssDimension",
+    "$description": "Minimum card block size."
+  },
+  "max-block-size": {
+    "$value": "none",
+    "$type": "cssDimension",
+    "$description": "Maximum card block size."
+  },
+  "padding-inline": {
+    "$value": {
+      "value": 0,
+      "unit": "px"
+    },
+    "$type": "dimension",
+    "$description": "Inline padding around the full card."
+  },
+  "padding-block": {
+    "$value": {
+      "value": 0,
+      "unit": "px"
+    },
+    "$type": "dimension",
+    "$description": "Block padding around the full card."
+  },
+  "canvas": {
+    "$value": "{app.canvas-subtle}",
+    "$type": "color",
+    "$description": "Card surface background."
+  },
+  "canvas-hover": {
+    "$value": "{card.canvas}",
+    "$type": "color",
+    "$description": "Card surface background on hover."
+  },
+  "canvas-active": {
+    "$value": "{card.canvas}",
+    "$type": "color",
+    "$description": "Card surface background while active."
+  },
+  "canvas-focus": {
+    "$value": "{card.canvas}",
+    "$type": "color",
+    "$description": "Card surface background with keyboard focus."
+  },
+  "ink": {
+    "$value": "{app.ink}",
+    "$type": "color",
+    "$description": "Card text color."
+  },
+  "ink-hover": {
+    "$value": "{card.ink}",
+    "$type": "color",
+    "$description": "Card text color on hover."
+  },
+  "ink-active": {
+    "$value": "{card.ink}",
+    "$type": "color",
+    "$description": "Card text color while active."
+  },
+  "ink-focus": {
+    "$value": "{card.ink}",
+    "$type": "color",
+    "$description": "Card text color with keyboard focus."
+  },
+  "border-color": {
+    "$value": "{app.border}",
+    "$type": "color",
+    "$description": "Card border color."
+  },
+  "border-color-hover": {
+    "$value": "{card.border-color}",
+    "$type": "color",
+    "$description": "Card border color on hover."
+  },
+  "border-color-active": {
+    "$value": "{card.border-color}",
+    "$type": "color",
+    "$description": "Card border color while active."
+  },
+  "border-color-focus": {
+    "$value": "{card.border-color}",
+    "$type": "color",
+    "$description": "Card border color with keyboard focus."
+  },
+  "border-width": {
+    "$value": "{border.width-sm}",
+    "$type": "dimension",
+    "$description": "Card border width."
+  },
+  "border-style": {
+    "$value": "{border.style}",
+    "$type": "strokeStyle",
+    "$description": "Card border style."
+  },
+  "border-radius": {
+    "$value": "{border.radius-lg}",
+    "$type": "dimension",
+    "$description": "Card corner radius."
+  },
+  "box-shadow": {
+    "$value": "{elevation.none}",
+    "$type": "shadow",
+    "$description": "Card shadow."
+  },
+  "box-shadow-hover": {
+    "$value": "{card.box-shadow}",
+    "$type": "shadow",
+    "$description": "Card shadow on hover."
+  },
+  "box-shadow-active": {
+    "$value": "{card.box-shadow}",
+    "$type": "shadow",
+    "$description": "Card shadow while active."
+  },
+  "box-shadow-focus": {
+    "$value": "{card.box-shadow}",
+    "$type": "shadow",
+    "$description": "Card shadow with keyboard focus."
+  },
+  "transform": {
+    "$value": "none",
+    "$type": "transform",
+    "$description": "Card transform."
+  },
+  "transform-hover": {
+    "$value": "{card.transform}",
+    "$type": "transform",
+    "$description": "Card transform on hover."
+  },
+  "transform-active": {
+    "$value": "{card.transform}",
+    "$type": "transform",
+    "$description": "Card transform while active."
+  },
+  "transform-focus": {
+    "$value": "{card.transform}",
+    "$type": "transform",
+    "$description": "Card transform with keyboard focus."
+  },
+  "overflow": {
+    "$value": "clip",
+    "$type": "overflow",
+    "$description": "Card overflow policy."
+  },
+  "opacity": {
+    "$value": "{opacity.100}",
+    "$type": "number",
+    "$description": "Card opacity."
+  },
+  "cursor": {
+    "$value": "pointer",
+    "$type": "cursor",
+    "$description": "Pointer shown over the card surface."
+  },
+  "text-decoration": {
+    "$value": "none",
+    "$type": "textDecoration",
+    "$description": "Decoration applied to the card root."
+  },
+  "font-family": {
+    "$value": "{font-family.interface}",
+    "$type": "fontFamily",
+    "$description": "Card text font family."
+  },
+  "font-size": {
+    "$value": "{font-size.md}",
+    "$type": "cssDimension",
+    "$description": "Card text font size."
+  },
+  "font-weight": {
+    "$value": "{font-weight.normal}",
+    "$type": "fontWeight",
+    "$description": "Card text font weight."
+  },
+  "line-height": {
+    "$value": "{line-height.2}",
+    "$type": "number",
+    "$description": "Card text line height."
+  },
+  "letter-spacing": {
+    "$value": "{letter-spacing.normal}",
+    "$type": "cssDimension",
+    "$description": "Card text letter spacing."
+  },
+  "focus-color": {
+    "$value": "{focus.color}",
+    "$type": "color",
+    "$description": "Keyboard focus outline color."
+  },
+  "focus-width": {
+    "$value": "{focus.width}",
+    "$type": "dimension",
+    "$description": "Keyboard focus outline width."
+  },
+  "focus-offset": {
+    "$value": "{focus.offset}",
+    "$type": "dimension",
+    "$description": "Keyboard focus outline offset."
+  },
+  "transition-property": {
+    "$value": "background-color, border-color, box-shadow, transform",
+    "$type": "transitionProperty",
+    "$description": "Card properties that transition between interaction states."
+  },
+  "transition-duration": {
+    "$value": "{transition.calm-fx-duration-default}",
+    "$type": "duration",
+    "$description": "Card interaction transition duration.",
+    "$extensions": {
+      "dev.zebkit": {
+        "a11y": true
+      }
+    }
+  },
+  "transition-timing-function": {
+    "$value": "{transition.calm-fx-function-default}",
+    "$type": "cubicBezier",
+    "$description": "Card interaction transition timing function."
+  },
+  "media-display": {
+    "$value": "block",
+    "$type": "display",
+    "$description": "Media region display mode."
+  },
+  "media-order": {
+    "$value": "0",
+    "$type": "flex",
+    "$description": "Media region order on the card axis."
+  },
+  "media-flex": {
+    "$value": "0 0 auto",
+    "$type": "flex",
+    "$description": "Media region flex behavior."
+  },
+  "media-flex-wide": {
+    "$value": "1 1 0",
+    "$type": "flex",
+    "$description": "Media flex behavior when the card-wide container condition matches."
+  },
+  "media-canvas": {
+    "$value": "{app.canvas-muted}",
+    "$type": "color",
+    "$description": "Media region background."
+  },
+  "media-ink": {
+    "$value": "inherit",
+    "$type": "cssColor",
+    "$description": "Media region foreground color."
+  },
+  "media-inline-size": {
+    "$value": "100%",
+    "$type": "cssDimension",
+    "$description": "Media region inline size."
+  },
+  "media-inline-size-wide": {
+    "$value": "auto",
+    "$type": "cssDimension",
+    "$description": "Media inline size when the card-wide container condition matches."
+  },
+  "media-block-size": {
+    "$value": "auto",
+    "$type": "cssDimension",
+    "$description": "Media region block size."
+  },
+  "media-block-size-wide": {
+    "$value": "100%",
+    "$type": "cssDimension",
+    "$description": "Media block size when the card-wide container condition matches."
+  },
+  "media-min-block-size": {
+    "$value": "0",
+    "$type": "cssDimension",
+    "$description": "Minimum media region block size."
+  },
+  "media-aspect-ratio": {
+    "$value": "auto",
+    "$type": "cssNumber",
+    "$description": "Media region aspect ratio."
+  },
+  "media-object-fit": {
+    "$value": "cover",
+    "$type": "objectFit",
+    "$description": "How replaced media fits its region."
+  },
+  "media-border-radius": {
+    "$value": {
+      "value": 0,
+      "unit": "px"
+    },
+    "$type": "dimension",
+    "$description": "Media region corner radius."
+  },
+  "media-border-color": {
+    "$value": "{app.border}",
+    "$type": "color",
+    "$description": "Media region border color."
+  },
+  "media-border-width": {
+    "$value": {
+      "value": 0,
+      "unit": "px"
+    },
+    "$type": "dimension",
+    "$description": "Media region border width."
+  },
+  "media-border-style": {
+    "$value": "{border.style}",
+    "$type": "strokeStyle",
+    "$description": "Media region border style."
+  },
+  "media-padding-inline": {
+    "$value": {
+      "value": 0,
+      "unit": "px"
+    },
+    "$type": "dimension",
+    "$description": "Media region inline padding."
+  },
+  "media-padding-block": {
+    "$value": {
+      "value": 0,
+      "unit": "px"
+    },
+    "$type": "dimension",
+    "$description": "Media region block padding."
+  },
+  "media-overflow": {
+    "$value": "clip",
+    "$type": "overflow",
+    "$description": "Media region overflow policy."
+  },
+  "media-transform": {
+    "$value": "none",
+    "$type": "transform",
+    "$description": "Media transform."
+  },
+  "media-transform-hover": {
+    "$value": "{card.media-transform}",
+    "$type": "transform",
+    "$description": "Media transform when the card is hovered."
+  },
+  "media-transform-active": {
+    "$value": "{card.media-transform}",
+    "$type": "transform",
+    "$description": "Media transform while the card is active."
+  },
+  "media-transform-focus": {
+    "$value": "{card.media-transform}",
+    "$type": "transform",
+    "$description": "Media transform when the card has keyboard focus."
+  },
+  "media-transition-duration": {
+    "$value": "{transition.calm-fx-duration-default}",
+    "$type": "duration",
+    "$description": "Media transform transition duration.",
+    "$extensions": {
+      "dev.zebkit": {
+        "a11y": true
+      }
+    }
+  },
+  "media-transition-timing-function": {
+    "$value": "{transition.calm-fx-function-default}",
+    "$type": "cubicBezier",
+    "$description": "Media transform transition timing function."
+  },
+  "body-display": {
+    "$value": "flex",
+    "$type": "display",
+    "$description": "Body region display mode."
+  },
+  "body-flex-direction": {
+    "$value": "column",
+    "$type": "flex",
+    "$description": "Body region content direction."
+  },
+  "body-align-items": {
+    "$value": "stretch",
+    "$type": "flex",
+    "$description": "Body region cross-axis alignment."
+  },
+  "body-flex": {
+    "$value": "1 1 auto",
+    "$type": "flex",
+    "$description": "Body region flex behavior."
+  },
+  "body-flex-wide": {
+    "$value": "1 1 0",
+    "$type": "flex",
+    "$description": "Body flex behavior when the card-wide container condition matches."
+  },
+  "body-gap": {
+    "$value": "{spacing.xs}",
+    "$type": "dimension",
+    "$description": "Gap between body regions."
+  },
+  "body-canvas": {
+    "$value": "{color.global-transparent}",
+    "$type": "color",
+    "$description": "Body region background."
+  },
+  "body-padding-inline": {
+    "$value": "{spacing.md}",
+    "$type": "dimension",
+    "$description": "Body region inline padding."
+  },
+  "body-padding-block": {
+    "$value": "{spacing.md}",
+    "$type": "dimension",
+    "$description": "Body region block padding."
+  },
+  "content-ink": {
+    "$value": "{app.ink-muted}",
+    "$type": "color",
+    "$description": "Body-content text color."
+  },
+  "content-font-family": {
+    "$value": "inherit",
+    "$type": "cssFontFamily",
+    "$description": "Body-content font family."
+  },
+  "content-font-size": {
+    "$value": "{font-size.sm}",
+    "$type": "cssDimension",
+    "$description": "Body-content font size."
+  },
+  "content-font-weight": {
+    "$value": "inherit",
+    "$type": "cssFontWeight",
+    "$description": "Body-content font weight."
+  },
+  "content-line-height": {
+    "$value": "{line-height.2}",
+    "$type": "number",
+    "$description": "Body-content line height."
+  },
+  "content-margin-block": {
+    "$value": "0",
+    "$type": "cssDimension",
+    "$description": "Body-content wrapper block margin."
+  },
+  "content-max-inline-size": {
+    "$value": "none",
+    "$type": "cssDimension",
+    "$description": "Maximum body-content line measure."
+  },
+  "title-ink": {
+    "$value": "{app.ink}",
+    "$type": "color",
+    "$description": "Title text color."
+  },
+  "title-ink-hover": {
+    "$value": "{card.title-ink}",
+    "$type": "color",
+    "$description": "Title text color when the card is hovered."
+  },
+  "title-ink-active": {
+    "$value": "{card.title-ink}",
+    "$type": "color",
+    "$description": "Title text color while the card is active."
+  },
+  "title-ink-focus": {
+    "$value": "{card.title-ink}",
+    "$type": "color",
+    "$description": "Title text color when the card has keyboard focus."
+  },
+  "title-font-family": {
+    "$value": "{font-family.interface}",
+    "$type": "fontFamily",
+    "$description": "Title font family."
+  },
+  "title-font-size": {
+    "$value": "{font-size.lg}",
+    "$type": "cssDimension",
+    "$description": "Title font size."
+  },
+  "title-font-weight": {
+    "$value": "{font-weight.medium}",
+    "$type": "fontWeight",
+    "$description": "Title font weight."
+  },
+  "title-line-height": {
+    "$value": "{line-height.2}",
+    "$type": "number",
+    "$description": "Title line height."
+  },
+  "title-letter-spacing": {
+    "$value": "{letter-spacing.normal}",
+    "$type": "cssDimension",
+    "$description": "Title letter spacing."
+  },
+  "title-text-decoration": {
+    "$value": "none",
+    "$type": "textDecoration",
+    "$description": "Title text decoration."
+  },
+  "title-text-decoration-hover": {
+    "$value": "{card.title-text-decoration}",
+    "$type": "textDecoration",
+    "$description": "Title text decoration when the card is hovered."
+  },
+  "title-margin-block": {
+    "$value": "0",
+    "$type": "cssDimension",
+    "$description": "Title wrapper block margin."
+  },
+  "title-text-box-trim": {
+    "$value": "none",
+    "$type": "textBoxTrim",
+    "$description": "Title half-leading edges to trim where supported."
+  },
+  "title-text-box-edge": {
+    "$value": "auto",
+    "$type": "textBoxEdge",
+    "$description": "Font metrics used by title text-box trimming."
+  },
+  "meta-display": {
+    "$value": "flex",
+    "$type": "display",
+    "$description": "Metadata row display mode."
+  },
+  "meta-align-items": {
+    "$value": "center",
+    "$type": "flex",
+    "$description": "Metadata row cross-axis alignment."
+  },
+  "meta-flex-wrap": {
+    "$value": "wrap",
+    "$type": "flex",
+    "$description": "Metadata row wrapping behavior."
+  },
+  "meta-gap": {
+    "$value": "{spacing.xs}",
+    "$type": "dimension",
+    "$description": "Gap between metadata items."
+  },
+  "meta-ink": {
+    "$value": "{app.ink-subtle}",
+    "$type": "color",
+    "$description": "Metadata text color."
+  },
+  "meta-font-family": {
+    "$value": "inherit",
+    "$type": "cssFontFamily",
+    "$description": "Metadata font family."
+  },
+  "meta-font-size": {
+    "$value": "{font-size.xs}",
+    "$type": "cssDimension",
+    "$description": "Metadata font size."
+  },
+  "meta-font-weight": {
+    "$value": "inherit",
+    "$type": "cssFontWeight",
+    "$description": "Metadata font weight."
+  },
+  "meta-line-height": {
+    "$value": "{line-height.2}",
+    "$type": "number",
+    "$description": "Metadata line height."
+  },
+  "meta-letter-spacing": {
+    "$value": "{letter-spacing.normal}",
+    "$type": "cssDimension",
+    "$description": "Metadata letter spacing."
+  },
+  "meta-text-transform": {
+    "$value": "none",
+    "$type": "textTransform",
+    "$description": "Metadata text transform."
+  },
+  "meta-margin-block": {
+    "$value": "0",
+    "$type": "cssDimension",
+    "$description": "Metadata row block margin."
+  },
+  "footer-display": {
+    "$value": "flex",
+    "$type": "display",
+    "$description": "Footer row display mode."
+  },
+  "footer-align-items": {
+    "$value": "center",
+    "$type": "flex",
+    "$description": "Footer row cross-axis alignment."
+  },
+  "footer-justify-content": {
+    "$value": "flex-start",
+    "$type": "flex",
+    "$description": "Footer row main-axis distribution."
+  },
+  "footer-flex-wrap": {
+    "$value": "wrap",
+    "$type": "flex",
+    "$description": "Footer row wrapping behavior."
+  },
+  "footer-gap": {
+    "$value": "{spacing.sm}",
+    "$type": "dimension",
+    "$description": "Gap between footer items."
+  },
+  "footer-canvas": {
+    "$value": "{color.global-transparent}",
+    "$type": "color",
+    "$description": "Footer row background."
+  },
+  "footer-ink": {
+    "$value": "{app.ink-muted}",
+    "$type": "color",
+    "$description": "Footer row text color."
+  },
+  "footer-padding-inline": {
+    "$value": {
+      "value": 0,
+      "unit": "px"
+    },
+    "$type": "dimension",
+    "$description": "Footer row inline padding."
+  },
+  "footer-padding-block": {
+    "$value": {
+      "value": 0,
+      "unit": "px"
+    },
+    "$type": "dimension",
+    "$description": "Footer row block padding."
+  },
+  "footer-border-color": {
+    "$value": "{app.border}",
+    "$type": "color",
+    "$description": "Footer block-start divider color."
+  },
+  "footer-border-width": {
+    "$value": {
+      "value": 0,
+      "unit": "px"
+    },
+    "$type": "dimension",
+    "$description": "Footer block-start divider width."
+  },
+  "footer-border-style": {
+    "$value": "{border.style}",
+    "$type": "strokeStyle",
+    "$description": "Footer block-start divider style."
+  },
+  "footer-margin-block-start": {
+    "$value": "auto",
+    "$type": "cssDimension",
+    "$description": "Footer start margin; auto pins it to the body's block end."
+  },
+  "footer-font-family": {
+    "$value": "inherit",
+    "$type": "cssFontFamily",
+    "$description": "Footer font family."
+  },
+  "footer-font-size": {
+    "$value": "{font-size.sm}",
+    "$type": "cssDimension",
+    "$description": "Footer font size."
+  },
+  "footer-font-weight": {
+    "$value": "{font-weight.medium}",
+    "$type": "fontWeight",
+    "$description": "Footer font weight."
+  }
+}

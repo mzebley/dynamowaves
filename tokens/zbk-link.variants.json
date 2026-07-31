@@ -1,0 +1,15 @@
+{
+  "link": {
+    "subtle": {
+      "axis": "style",
+      "description": "No underline at rest; underline returns on hover so the affordance is never lost for keyboard and low-vision users.",
+      "overrides": {
+        "ink": "{app.ink}",
+        "ink-hover": "{action.ink}",
+        "decoration-line": "none",
+        "decoration-line-hover": "underline",
+        "decoration-color-hover": "{action.ink}"
+      }
+    }
+  }
+}

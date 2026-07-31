@@ -1,0 +1,62 @@
+{
+  "font-family": {
+    "$value": "{font-family.body}",
+    "$type": "fontFamily",
+    "$description": "Font family for introductory lede text with .lede applied directly or as a child of a .prose container."
+  },
+  "font-size": {
+    "$value": "{font-size.lg}",
+    "$type": "cssDimension",
+    "$description": "Font size for introductory lede text with .lede applied directly or as a child of a .prose container."
+  },
+  "font-weight": {
+    "$value": "{font-weight.normal}",
+    "$type": "fontWeight",
+    "$description": "Font weight for introductory lede text with .lede applied directly or as a child of a .prose container."
+  },
+  "line-height": {
+    "$value": "{line-height.3}",
+    "$type": "number",
+    "$description": "Line height for introductory lede text with .lede applied directly or as a child of a .prose container."
+  },
+  "letter-spacing": {
+    "$value": "{letter-spacing.normal}",
+    "$type": "dimension",
+    "$description": "Tracking for introductory lede text with .lede applied directly or as a child of a .prose container."
+  },
+  "measure": {
+    "$value": "{text-measure.3}",
+    "$type": "cssDimension",
+    "$description": "Maximum width for introductory lede text with .lede applied directly or as a child of a .prose container."
+  },
+  "spacing-before": {
+    "$value": "{spacing.0}",
+    "$type": "dimension",
+    "$description": "Block spacing before introductory lede text when it appears in a .prose flow."
+  },
+  "spacing-after": {
+    "$value": "{spacing.105}",
+    "$type": "dimension",
+    "$description": "Block spacing after introductory lede text when it appears in a .prose flow."
+  },
+  "color": {
+    "$value": "{app.ink-muted}",
+    "$type": "color",
+    "$description": "Text color for introductory lede text with .lede applied directly or as a child of a .prose container."
+  },
+  "font-style": {
+    "$value": "normal",
+    "$type": "fontStyle",
+    "$description": "Font style for introductory lede text with .lede applied directly or as a child of a .prose container."
+  },
+  "text-transform": {
+    "$value": "none",
+    "$type": "textTransform",
+    "$description": "Text transform for introductory lede text with .lede applied directly or as a child of a .prose container."
+  },
+  "text-align": {
+    "$value": "start",
+    "$type": "textAlignment",
+    "$description": "Text alignment for introductory lede text with .lede applied directly or as a child of a .prose container."
+  }
+}

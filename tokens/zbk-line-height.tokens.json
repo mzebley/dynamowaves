@@ -1,0 +1,52 @@
+{
+  "1": {
+    "$value": 1,
+    "$type": "number",
+    "$description": "Smallest line height.",
+    "$extensions": {
+      "dev.zebkit": {
+        "a11y": "--zbk-a11y-line-height-modifier"
+      }
+    }
+  },
+  "2": {
+    "$value": 1.25,
+    "$type": "number",
+    "$description": "Smaller line height.",
+    "$extensions": {
+      "dev.zebkit": {
+        "a11y": "--zbk-a11y-line-height-modifier"
+      }
+    }
+  },
+  "3": {
+    "$value": 1.5,
+    "$type": "number",
+    "$description": "Base line height.",
+    "$extensions": {
+      "dev.zebkit": {
+        "a11y": "--zbk-a11y-line-height-modifier"
+      }
+    }
+  },
+  "4": {
+    "$value": 1.8,
+    "$type": "number",
+    "$description": "Larger line height.",
+    "$extensions": {
+      "dev.zebkit": {
+        "a11y": "--zbk-a11y-line-height-modifier"
+      }
+    }
+  },
+  "5": {
+    "$value": 2,
+    "$type": "number",
+    "$description": "Largest line height.",
+    "$extensions": {
+      "dev.zebkit": {
+        "a11y": "--zbk-a11y-line-height-modifier"
+      }
+    }
+  }
+}

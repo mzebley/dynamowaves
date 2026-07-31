@@ -1,0 +1,100 @@
+{
+  "canvas": {
+    "$value": "{app.canvas}",
+    "$type": "color",
+    "$description": "Menu panel background."
+  },
+  "border-color": {
+    "$value": "{app.border}",
+    "$type": "color",
+    "$description": "Menu panel border color."
+  },
+  "border-width": {
+    "$value": "{border.width-sm}",
+    "$type": "dimension",
+    "$description": "Menu panel border width."
+  },
+  "border-style": {
+    "$value": "{border.style}",
+    "$type": "strokeStyle",
+    "$description": "Menu panel border style."
+  },
+  "border-radius": {
+    "$value": "{border.radius-md}",
+    "$type": "dimension",
+    "$description": "Menu panel corner radius."
+  },
+  "padding-inline": {
+    "$value": "{spacing.2xs}",
+    "$type": "dimension",
+    "$description": "Inline padding inside the command panel."
+  },
+  "padding-block": {
+    "$value": "{spacing.2xs}",
+    "$type": "dimension",
+    "$description": "Block padding inside the command panel."
+  },
+  "min-width": {
+    "$value": {
+      "value": 12,
+      "unit": "rem"
+    },
+    "$type": "dimension",
+    "$description": "Minimum command panel width."
+  },
+  "max-height": {
+    "$value": "40vh",
+    "$type": "cssDimension",
+    "$description": "Maximum command panel height before scrolling."
+  },
+  "offset": {
+    "$value": "{spacing.2xs}",
+    "$type": "dimension",
+    "$description": "Gap between the trigger and command panel."
+  },
+  "box-shadow": {
+    "$value": "{elevation.md}",
+    "$type": "shadow",
+    "$description": "Menu panel shadow."
+  },
+  "z-index": {
+    "$value": "{z-index.dropdown}",
+    "$type": "number",
+    "$description": "Stacking order when native top-layer promotion is unavailable."
+  },
+  "separator-color": {
+    "$value": "{app.border}",
+    "$type": "color",
+    "$description": "Separator rule color."
+  },
+  "separator-width": {
+    "$value": "{border.width-sm}",
+    "$type": "dimension",
+    "$description": "Separator rule width."
+  },
+  "separator-margin-block": {
+    "$value": "{spacing.2xs}",
+    "$type": "dimension",
+    "$description": "Block margin around separators."
+  },
+  "opacity": {
+    "$value": 1,
+    "$type": "number",
+    "$description": "Panel opacity — the property the transition below interpolates."
+  },
+  "transition-duration": {
+    "$value": "{transition.calm-fx-duration-default}",
+    "$type": "duration",
+    "$description": "Menu panel effect transition duration.",
+    "$extensions": {
+      "dev.zebkit": {
+        "a11y": true
+      }
+    }
+  },
+  "transition-timing-function": {
+    "$value": "{transition.calm-fx-function-default}",
+    "$type": "cubicBezier",
+    "$description": "Menu panel effect transition timing function."
+  }
+}

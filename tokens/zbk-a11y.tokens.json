@@ -1,0 +1,40 @@
+{
+  "spacing-modifier": {
+    "$value": 1,
+    "$type": "number",
+    "$description": "Amount to multiple spacing variables by."
+  },
+  "spacing-text-coupling": {
+    "$value": 0.5,
+    "$type": "number",
+    "$description": "How hard spacing follows body (md) font-size growth: 1 = 1:1, 0 = decoupled. Lets containers grow with text without a separate density bump."
+  },
+  "line-height-modifier": {
+    "$value": 1,
+    "$type": "number",
+    "$description": "Amount to multiple line height variables by."
+  },
+  "letter-spacing-modifier": {
+    "$value": 1,
+    "$type": "number",
+    "$description": "Amount to multiple letter spacing variables by."
+  },
+  "fallback-font-size-modifier": {
+    "$value": 1,
+    "$type": "number",
+    "$description": "Fallback amount to multiple font size variables by in the event their specific modifier isn't set."
+  },
+  "transition-duration-modifier": {
+    "$value": 1,
+    "$type": "number",
+    "$description": "Amount to multiply transition durations by. Set to 0 automatically under 'prefers-reduced-motion: reduce', which collapses every duration token that opts into this modifier — components do not need their own reduced-motion rules."
+  },
+  "min-interaction-size": {
+    "$value": {
+      "value": 28,
+      "unit": "px"
+    },
+    "$type": "dimension",
+    "$description": "Minimum height and width for interactive elements like links or buttons. WCAG AA is >= 24px, AAA is 44px"
+  }
+}

@@ -17,8 +17,11 @@
     "release:dry": "npm run build && npm pack --dry-run",
     "docs:manifest": "mark-down build www/snippets --output www/snippets/snippets-index.json",
     "docs:manifest:watch": "mark-down watch www/snippets --output www/snippets/snippets-index.json",
-    "docs:build": "npm run docs:manifest && mark-down compile-page www-src/index.html --manifest www/snippets/snippets-index.json --outDir www",
-    "docs:watch": "chokidar \"www-src/index.html\" \"www/snippets/**/*.md\" -c \"npm run docs:build\""
+    "docs:content": "npm run docs:manifest && mark-down compile-page www-src/index.html --manifest www/snippets/snippets-index.json --outDir www",
+    "docs:build": "zebkit build && sass www/main.scss:www/main.css && npm run docs:content && npm run docs:runtime",
+    "docs:runtime": "esbuild www/zebkit.entry.js --bundle --minify --format=esm --outfile=www/zebkit.js",
+    "docs:watch": "chokidar \"www-src/index.html\" \"www/snippets/**/*.md\" -c \"npm run docs:build\"",
+    "check:zebkit": "zebkit check --format=json"
   },
   "repository": {
     "type": "git",
@@ -43,10 +46,12 @@
     "@mzebley/mark-down-cli": "^1.2.2",
     "@rollup/plugin-terser": "^0.4.4",
     "chokidar-cli": "^3.0.0",
+    "esbuild": "0.28.1",
     "rollup": "^3.29.4",
-    "rollup-plugin-dts": "^6.1.1"
+    "rollup-plugin-dts": "^6.1.1",
+    "sass": "1.102.0"
   },
   "dependencies": {
-    "zebkit": "github:mzebley/zebkit"
+    "zebkit": "npm:@mzebley/zebkit@0.11.0"
   }
 }

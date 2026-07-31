@@ -1,0 +1,331 @@
+{
+  "json.schemas": [
+    {
+      "fileMatch": [
+        "/tokens/zbk-a11y.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-a11y.schema.json"
+    },
+    {
+      "fileMatch": [
+        "/tokens/zbk-breakpoint.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-breakpoint.schema.json"
+    },
+    {
+      "fileMatch": [
+        "/tokens/zbk-accent-primary.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-accent-primary.schema.json"
+    },
+    {
+      "fileMatch": [
+        "/tokens/zbk-accent-secondary.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-accent-secondary.schema.json"
+    },
+    {
+      "fileMatch": [
+        "/tokens/zbk-brand.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-brand.schema.json"
+    },
+    {
+      "fileMatch": [
+        "/tokens/zbk-neutral.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-neutral.schema.json"
+    },
+    {
+      "fileMatch": [
+        "/tokens/zbk-color.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-color.schema.json"
+    },
+    {
+      "fileMatch": [
+        "/tokens/zbk-container.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-container.schema.json"
+    },
+    {
+      "fileMatch": [
+        "/tokens/zbk-elevation.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-elevation.schema.json"
+    },
+    {
+      "fileMatch": [
+        "/tokens/zbk-focus.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-focus.schema.json"
+    },
+    {
+      "fileMatch": [
+        "/tokens/zbk-opacity.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-opacity.schema.json"
+    },
+    {
+      "fileMatch": [
+        "/tokens/zbk-h1.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-h1.schema.json"
+    },
+    {
+      "fileMatch": [
+        "/tokens/zbk-h2.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-h2.schema.json"
+    },
+    {
+      "fileMatch": [
+        "/tokens/zbk-h3.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-h3.schema.json"
+    },
+    {
+      "fileMatch": [
+        "/tokens/zbk-h4.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-h4.schema.json"
+    },
+    {
+      "fileMatch": [
+        "/tokens/zbk-h5.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-h5.schema.json"
+    },
+    {
+      "fileMatch": [
+        "/tokens/zbk-h6.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-h6.schema.json"
+    },
+    {
+      "fileMatch": [
+        "/tokens/zbk-lede.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-lede.schema.json"
+    },
+    {
+      "fileMatch": [
+        "/tokens/zbk-list.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-list.schema.json"
+    },
+    {
+      "fileMatch": [
+        "/tokens/zbk-p.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-p.schema.json"
+    },
+    {
+      "fileMatch": [
+        "/tokens/zbk-border.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-border.schema.json"
+    },
+    {
+      "fileMatch": [
+        "/tokens/zbk-action.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-action.schema.json"
+    },
+    {
+      "fileMatch": [
+        "/tokens/zbk-app.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-app.schema.json"
+    },
+    {
+      "fileMatch": [
+        "/tokens/zbk-caution.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-caution.schema.json"
+    },
+    {
+      "fileMatch": [
+        "/tokens/zbk-critical.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-critical.schema.json"
+    },
+    {
+      "fileMatch": [
+        "/tokens/zbk-disabled.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-disabled.schema.json"
+    },
+    {
+      "fileMatch": [
+        "/tokens/zbk-info.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-info.schema.json"
+    },
+    {
+      "fileMatch": [
+        "/tokens/zbk-positive.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-positive.schema.json"
+    },
+    {
+      "fileMatch": [
+        "/tokens/zbk-spacing.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-spacing.schema.json"
+    },
+    {
+      "fileMatch": [
+        "/tokens/zbk-transition.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-transition.schema.json"
+    },
+    {
+      "fileMatch": [
+        "/tokens/zbk-font-family.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-font-family.schema.json"
+    },
+    {
+      "fileMatch": [
+        "/tokens/zbk-font-weight.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-font-weight.schema.json"
+    },
+    {
+      "fileMatch": [
+        "/tokens/zbk-letter-spacing.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-letter-spacing.schema.json"
+    },
+    {
+      "fileMatch": [
+        "/tokens/zbk-line-height.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-line-height.schema.json"
+    },
+    {
+      "fileMatch": [
+        "/tokens/zbk-text-measure.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-text-measure.schema.json"
+    },
+    {
+      "fileMatch": [
+        "/tokens/zbk-font-size.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-font-size.schema.json"
+    },
+    {
+      "fileMatch": [
+        "/tokens/zbk-z-index.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-z-index.schema.json"
+    },
+    {
+      "fileMatch": [
+        "/tokens/zbk-breadcrumb.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-breadcrumb.schema.json"
+    },
+    {
+      "fileMatch": [
+        "/tokens/zbk-button.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-button.schema.json"
+    },
+    {
+      "fileMatch": [
+        "/tokens/zbk-card.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-card.schema.json"
+    },
+    {
+      "fileMatch": [
+        "/tokens/zbk-checkbox.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-checkbox.schema.json"
+    },
+    {
+      "fileMatch": [
+        "/tokens/zbk-dialog.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-dialog.schema.json"
+    },
+    {
+      "fileMatch": [
+        "/tokens/zbk-input.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-input.schema.json"
+    },
+    {
+      "fileMatch": [
+        "/tokens/zbk-link.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-link.schema.json"
+    },
+    {
+      "fileMatch": [
+        "/tokens/zbk-menu-item.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-menu-item.schema.json"
+    },
+    {
+      "fileMatch": [
+        "/tokens/zbk-menu.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-menu.schema.json"
+    },
+    {
+      "fileMatch": [
+        "/tokens/zbk-pagination.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-pagination.schema.json"
+    },
+    {
+      "fileMatch": [
+        "/tokens/zbk-panel.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-panel.schema.json"
+    },
+    {
+      "fileMatch": [
+        "/tokens/zbk-popover.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-popover.schema.json"
+    },
+    {
+      "fileMatch": [
+        "/tokens/zbk-radio.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-radio.schema.json"
+    },
+    {
+      "fileMatch": [
+        "/tokens/zbk-select.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-select.schema.json"
+    },
+    {
+      "fileMatch": [
+        "/tokens/zbk-textarea.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-textarea.schema.json"
+    },
+    {
+      "fileMatch": [
+        "/tokens/zbk-toggle.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-toggle.schema.json"
+    },
+    {
+      "fileMatch": [
+        "/tokens/zbk-tooltip.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-tooltip.schema.json"
+    }
+  ],
+  "css.customData": [
+    "./node_modules/zebkit/dist/editor/zebkit.css-data.json"
+  ]
+}

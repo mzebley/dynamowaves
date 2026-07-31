@@ -1,0 +1,158 @@
+{
+  "display": {
+    "$value": "flex",
+    "$type": "display",
+    "$description": "Display mode for the command. Block-level, so each item fills the menu panel's content width."
+  },
+  "canvas": {
+    "$value": "{color.global-transparent}",
+    "$type": "color",
+    "$description": "Default command background."
+  },
+  "canvas-hover": {
+    "$value": "{app.canvas-subtle}",
+    "$type": "color",
+    "$description": "Command background on hover."
+  },
+  "canvas-active": {
+    "$value": "{app.canvas-muted}",
+    "$type": "color",
+    "$description": "Command background while pressed."
+  },
+  "canvas-focus": {
+    "$value": "{app.canvas-subtle}",
+    "$type": "color",
+    "$description": "Command background while roving focus rests on it."
+  },
+  "canvas-disabled": {
+    "$value": "{color.global-transparent}",
+    "$type": "color",
+    "$description": "Unavailable command background."
+  },
+  "ink": {
+    "$value": "{app.ink}",
+    "$type": "color",
+    "$description": "Default command label color."
+  },
+  "ink-hover": {
+    "$value": "{app.ink-emphasis}",
+    "$type": "color",
+    "$description": "Command label color on hover."
+  },
+  "ink-disabled": {
+    "$value": "{disabled.ink}",
+    "$type": "color",
+    "$description": "Unavailable command label color."
+  },
+  "icon-size": {
+    "$value": "1em",
+    "$type": "cssDimension",
+    "$description": "Size of presentational icon content."
+  },
+  "icon-ink": {
+    "$value": "{app.ink-muted}",
+    "$type": "color",
+    "$description": "Color inherited by icon content."
+  },
+  "gap": {
+    "$value": "{spacing.sm}",
+    "$type": "dimension",
+    "$description": "Space between the icon and command label."
+  },
+  "padding-inline": {
+    "$value": "{spacing.sm}",
+    "$type": "dimension",
+    "$description": "Inline padding inside each command."
+  },
+  "padding-block": {
+    "$value": "{spacing.xs}",
+    "$type": "dimension",
+    "$description": "Block padding inside each command."
+  },
+  "border-radius": {
+    "$value": "{border.radius-sm}",
+    "$type": "dimension",
+    "$description": "Command corner radius."
+  },
+  "min-height": {
+    "$value": {
+      "value": 44,
+      "unit": "px"
+    },
+    "$type": "dimension",
+    "$description": "Minimum command height for a reliable pointer target."
+  },
+  "font-family": {
+    "$value": "{font-family.interface}",
+    "$type": "fontFamily",
+    "$description": "Command label font family."
+  },
+  "font-size": {
+    "$value": "{font-size.sm}",
+    "$type": "cssDimension",
+    "$description": "Command label font size."
+  },
+  "font-weight": {
+    "$value": "{font-weight.normal}",
+    "$type": "fontWeight",
+    "$description": "Command label font weight."
+  },
+  "line-height": {
+    "$value": "{line-height.2}",
+    "$type": "number",
+    "$description": "Command label line height."
+  },
+  "focus-color": {
+    "$value": "{focus.color}",
+    "$type": "color",
+    "$description": "High-contrast outline color for keyboard focus."
+  },
+  "focus-width": {
+    "$value": "{focus.width}",
+    "$type": "dimension",
+    "$description": "High-contrast outline width for keyboard focus."
+  },
+  "focus-offset": {
+    "$value": "{focus.offset}",
+    "$type": "dimension",
+    "$description": "High-contrast outline offset for keyboard focus."
+  },
+  "cursor": {
+    "$value": "pointer",
+    "$type": "cursor",
+    "$description": "Cursor over an available command."
+  },
+  "cursor-disabled": {
+    "$value": "not-allowed",
+    "$type": "cursor",
+    "$description": "Cursor over an unavailable command."
+  },
+  "transition-duration": {
+    "$value": "{transition.calm-fx-duration-default}",
+    "$type": "duration",
+    "$description": "Duration for command state transitions.",
+    "$extensions": {
+      "dev.zebkit": {
+        "a11y": true
+      }
+    }
+  },
+  "transition-timing-function": {
+    "$value": "{transition.calm-fx-function-default}",
+    "$type": "cubicBezier",
+    "$description": "Easing for command state transitions."
+  },
+  "transition-property": {
+    "$value": "background-color, color",
+    "$type": "transitionProperty",
+    "$description": "CSS properties that animate between command states."
+  },
+  "transition-delay": {
+    "$value": {
+      "value": 0,
+      "unit": "ms"
+    },
+    "$type": "duration",
+    "$description": "Delay before command state transitions run."
+  }
+}

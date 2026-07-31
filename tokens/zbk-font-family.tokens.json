@@ -1,0 +1,99 @@
+{
+  "primary": {
+    "$value": "Nunito",
+    "$description": "Primary font family for use in the system. Usually used for body content and interface items.",
+    "$type": "fontFamily",
+    "$extensions": {
+      "dev.zebkit": {
+        "font": {
+          "source": "google",
+          "fallback": "sans",
+          "weights": "200..800"
+        }
+      }
+    }
+  },
+  "alt": {
+    "$value": "Merriweather",
+    "$description": "Alternate font family for use in the system. Primarily used for headings.",
+    "$type": "fontFamily",
+    "$extensions": {
+      "dev.zebkit": {
+        "font": {
+          "source": "google",
+          "fallback": "serif",
+          "weights": "900"
+        }
+      }
+    }
+  },
+  "monospace": {
+    "$value": "Fira Code",
+    "$description": "Monospaced font family for use in the system. Primarily used for displaying code or for accessibility.",
+    "$type": "fontFamily",
+    "$extensions": {
+      "dev.zebkit": {
+        "font": {
+          "source": "google",
+          "fallback": "mono"
+        }
+      }
+    }
+  },
+  "system-sans": {
+    "$value": "ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\"",
+    "$description": "System sans-serif stack. Zero network cost; uses the platform UI font.",
+    "$type": "cssFontFamily",
+    "$extensions": {
+      "dev.zebkit": {
+        "font": {
+          "source": "system"
+        }
+      }
+    }
+  },
+  "system-serif": {
+    "$value": "ui-serif, Georgia, Cambria, \"Times New Roman\", Times, serif",
+    "$description": "System serif stack. Zero network cost.",
+    "$type": "cssFontFamily",
+    "$extensions": {
+      "dev.zebkit": {
+        "font": {
+          "source": "system"
+        }
+      }
+    }
+  },
+  "system-mono": {
+    "$value": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace",
+    "$description": "System monospace stack. Zero network cost.",
+    "$type": "cssFontFamily",
+    "$extensions": {
+      "dev.zebkit": {
+        "font": {
+          "source": "system"
+        }
+      }
+    }
+  },
+  "interface": {
+    "$value": "{font-family.primary}",
+    "$description": "Font family used for things like buttons or input fields.",
+    "$type": "fontFamily"
+  },
+  "heading": {
+    "$value": "{font-family.alt}",
+    "$description": "Font family used for heading elements.",
+    "$type": "fontFamily"
+  },
+  "body": {
+    "$value": "{font-family.primary}",
+    "$description": "Font family used for <p>, <li>, etc.",
+    "$type": "fontFamily"
+  },
+  "code": {
+    "$value": "{font-family.monospace}",
+    "$description": "Font family used within <code> blocks",
+    "$type": "fontFamily"
+  }
+}

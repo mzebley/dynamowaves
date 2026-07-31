@@ -1,0 +1,18 @@
+{
+  "dialog": {
+    "lg": {
+      "axis": "size",
+      "description": "A wider 44rem dialog for forms and denser content.",
+      "overrides": {
+        "width": "44rem"
+      }
+    },
+    "sm": {
+      "axis": "size",
+      "description": "A compact 24rem dialog for one short decision.",
+      "overrides": {
+        "width": "24rem"
+      }
+    }
+  }
+}

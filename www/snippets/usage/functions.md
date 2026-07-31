@@ -23,7 +23,7 @@ wave.generateNewWave(500);
 
 <dynamo-wave class="fill-theme" id="regen-example-wave"></dynamo-wave>
 
-<button style="margin:1rem 0 2rem" onclick="regenHeader('regen-example-wave', 500)"><i data-feather="refresh-cw"></i>New Wave</button>
+<zbk-button class="margin-block-start-1 margin-block-end-2" variant="wave-action wave-pop lg" onclick="regenHeader('regen-example-wave', 500)"><i slot="icon" data-position="start" data-feather="refresh-cw"></i>New Wave</zbk-button>
 
 <h4 id="play">.play()</h4>
 
@@ -48,5 +48,5 @@ function toggleWaveAnimation() {
 
 <dynamo-wave class="fill-theme" id="play-example-wave"></dynamo-wave>
 
-<button style="margin:1rem .5rem 0 0" onclick="play('play-example-wave', 5000)"><i data-feather="play"></i>Play Wave</button>
-<button style="margin-top:1rem" onclick="pause('play-example-wave')"><i data-feather="pause"></i>Pause  Wave</button>
+<zbk-button class="margin-block-start-1 margin-inline-end-05" variant="wave-action wave-pop lg" onclick="play('play-example-wave', 5000)"><i slot="icon" data-position="start" data-feather="play"></i>Play Wave</zbk-button>
+<zbk-button class="margin-block-start-1" variant="wave-action wave-pop lg" onclick="pause('play-example-wave')"><i slot="icon" data-position="start" data-feather="pause"></i>Pause Wave</zbk-button>

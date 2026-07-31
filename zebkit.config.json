@@ -1,9 +1,80 @@
 {
+  "$schema": "./node_modules/zebkit/dist/editor/schemas/zebkit.config.schema.json",
+  "configVersion": 1,
   "tokens": {
     "destinationPath": "./www",
     "assetFilePath": "/",
-    "theme": "dynamowaves",
-    "customThemeName": "dynamowaves",
-    "customTokenPath": "./tokens"
+    "basePreset": "dynamowaves",
+    "tokenPath": "./tokens",
+    "themeName": "dynamowaves",
+    "overlays": [
+      {
+        "themeName": "dark",
+        "tokenPath": "./themes/dark"
+      }
+    ],
+    "prune": {
+      "enabled": false,
+      "content": [
+        "./www-src/index.html",
+        "./www/index.html",
+        "./www/zebkit.entry.js"
+      ]
+    }
+  },
+  "context": {
+    "path": "./zebkit/context"
+  },
+  "check": {
+    "content": [
+      "./www-src/index.html",
+      "./www/index.html",
+      "./www/zebkit.entry.js"
+    ]
+  },
+  "runtime": {
+    "path": "./www/zebkit.runtime.js"
+  },
+  "accessibility": {
+    "delivery": "auto",
+    "verify": {
+      "routes": [
+        {
+          "id": "docs",
+          "path": "/"
+        }
+      ],
+      "viewports": [
+        {
+          "id": "mobile",
+          "width": 375,
+          "height": 812
+        },
+        {
+          "id": "desktop",
+          "width": 1440,
+          "height": 1000
+        },
+        {
+          "id": "reflow",
+          "width": 320,
+          "height": 800,
+          "reflow": true
+        }
+      ],
+      "themes": [
+        {
+          "id": "light",
+          "selector": "html",
+          "attribute": "data-zbk-theme"
+        },
+        {
+          "id": "dark",
+          "selector": "html",
+          "attribute": "data-zbk-theme",
+          "value": "dark"
+        }
+      ]
+    }
   }
 }

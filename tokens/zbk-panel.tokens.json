@@ -1,0 +1,71 @@
+{
+  "display": {
+    "$value": "block",
+    "$type": "display",
+    "$description": "Display mode for a visible panel."
+  },
+  "canvas": {
+    "$value": "{color.global-transparent}",
+    "$type": "color",
+    "$description": "Panel background."
+  },
+  "ink": {
+    "$value": "inherit",
+    "$type": "cssColor",
+    "$description": "Panel content color."
+  },
+  "border-color": {
+    "$value": "{app.border}",
+    "$type": "color",
+    "$description": "Panel border color, ready when border-width is enabled."
+  },
+  "border-width": {
+    "$value": {
+      "value": 0,
+      "unit": "px"
+    },
+    "$type": "dimension",
+    "$description": "Panel border width; zero keeps the default visually neutral."
+  },
+  "border-style": {
+    "$value": "{border.style}",
+    "$type": "strokeStyle",
+    "$description": "Panel border style."
+  },
+  "border-radius": {
+    "$value": "{border.radius-md}",
+    "$type": "dimension",
+    "$description": "Panel corner radius."
+  },
+  "padding-inline": {
+    "$value": {
+      "value": 0,
+      "unit": "px"
+    },
+    "$type": "dimension",
+    "$description": "Inline panel padding."
+  },
+  "padding-block": {
+    "$value": {
+      "value": 0,
+      "unit": "px"
+    },
+    "$type": "dimension",
+    "$description": "Block panel padding."
+  },
+  "font-family": {
+    "$value": "inherit",
+    "$type": "cssFontFamily",
+    "$description": "Panel content font family."
+  },
+  "font-size": {
+    "$value": "inherit",
+    "$type": "cssDimension",
+    "$description": "Panel content font size."
+  },
+  "line-height": {
+    "$value": "inherit",
+    "$type": "cssNumber",
+    "$description": "Panel content line height."
+  }
+}

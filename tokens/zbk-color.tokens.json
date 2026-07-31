@@ -1,0 +1,3064 @@
+{
+  "red-50": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        0,
+        80,
+        98
+      ]
+    },
+    "$description": "Primitive red ramp, step 50 (98% lightness)."
+  },
+  "red-100": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        0,
+        80,
+        93
+      ]
+    },
+    "$description": "Primitive red ramp, step 100 (93% lightness)."
+  },
+  "red-200": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        0,
+        80,
+        87
+      ]
+    },
+    "$description": "Primitive red ramp, step 200 (87% lightness)."
+  },
+  "red-300": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        0,
+        80,
+        78
+      ]
+    },
+    "$description": "Primitive red ramp, step 300 (78% lightness)."
+  },
+  "red-400": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        0,
+        80,
+        69
+      ]
+    },
+    "$description": "Primitive red ramp, step 400 (69% lightness)."
+  },
+  "red-500": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        0,
+        80,
+        58
+      ]
+    },
+    "$description": "Primitive red ramp, step 500 (58% lightness)."
+  },
+  "red-600": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        0,
+        80,
+        48
+      ]
+    },
+    "$description": "Primitive red ramp, step 600 (48% lightness)."
+  },
+  "red-700": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        0,
+        80,
+        36
+      ]
+    },
+    "$description": "Primitive red ramp, step 700 (36% lightness)."
+  },
+  "red-800": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        0,
+        80,
+        26
+      ]
+    },
+    "$description": "Primitive red ramp, step 800 (26% lightness)."
+  },
+  "red-900": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        0,
+        80,
+        18
+      ]
+    },
+    "$description": "Primitive red ramp, step 900 (18% lightness)."
+  },
+  "red-950": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        0,
+        80,
+        10
+      ]
+    },
+    "$description": "Primitive red ramp, step 950 (10% lightness)."
+  },
+  "pink-50": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        340,
+        75,
+        98
+      ]
+    },
+    "$description": "Primitive pink ramp, step 50 (98% lightness)."
+  },
+  "pink-100": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        340,
+        75,
+        93
+      ]
+    },
+    "$description": "Primitive pink ramp, step 100 (93% lightness)."
+  },
+  "pink-200": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        340,
+        75,
+        87
+      ]
+    },
+    "$description": "Primitive pink ramp, step 200 (87% lightness)."
+  },
+  "pink-300": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        340,
+        75,
+        78
+      ]
+    },
+    "$description": "Primitive pink ramp, step 300 (78% lightness)."
+  },
+  "pink-400": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        340,
+        75,
+        69
+      ]
+    },
+    "$description": "Primitive pink ramp, step 400 (69% lightness)."
+  },
+  "pink-500": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        340,
+        75,
+        58
+      ]
+    },
+    "$description": "Primitive pink ramp, step 500 (58% lightness)."
+  },
+  "pink-600": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        340,
+        75,
+        48
+      ]
+    },
+    "$description": "Primitive pink ramp, step 600 (48% lightness)."
+  },
+  "pink-700": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        340,
+        75,
+        36
+      ]
+    },
+    "$description": "Primitive pink ramp, step 700 (36% lightness)."
+  },
+  "pink-800": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        340,
+        75,
+        26
+      ]
+    },
+    "$description": "Primitive pink ramp, step 800 (26% lightness)."
+  },
+  "pink-900": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        340,
+        75,
+        18
+      ]
+    },
+    "$description": "Primitive pink ramp, step 900 (18% lightness)."
+  },
+  "pink-950": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        340,
+        75,
+        10
+      ]
+    },
+    "$description": "Primitive pink ramp, step 950 (10% lightness)."
+  },
+  "orange-50": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        28,
+        88,
+        98
+      ]
+    },
+    "$description": "Primitive orange ramp, step 50 (98% lightness)."
+  },
+  "orange-100": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        28,
+        88,
+        93
+      ]
+    },
+    "$description": "Primitive orange ramp, step 100 (93% lightness)."
+  },
+  "orange-200": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        28,
+        88,
+        87
+      ]
+    },
+    "$description": "Primitive orange ramp, step 200 (87% lightness)."
+  },
+  "orange-300": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        28,
+        88,
+        78
+      ]
+    },
+    "$description": "Primitive orange ramp, step 300 (78% lightness)."
+  },
+  "orange-400": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        28,
+        88,
+        69
+      ]
+    },
+    "$description": "Primitive orange ramp, step 400 (69% lightness)."
+  },
+  "orange-500": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        28,
+        88,
+        58
+      ]
+    },
+    "$description": "Primitive orange ramp, step 500 (58% lightness)."
+  },
+  "orange-600": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        28,
+        88,
+        48
+      ]
+    },
+    "$description": "Primitive orange ramp, step 600 (48% lightness)."
+  },
+  "orange-700": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        28,
+        88,
+        36
+      ]
+    },
+    "$description": "Primitive orange ramp, step 700 (36% lightness)."
+  },
+  "orange-800": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        28,
+        88,
+        26
+      ]
+    },
+    "$description": "Primitive orange ramp, step 800 (26% lightness)."
+  },
+  "orange-900": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        28,
+        88,
+        18
+      ]
+    },
+    "$description": "Primitive orange ramp, step 900 (18% lightness)."
+  },
+  "orange-950": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        28,
+        88,
+        10
+      ]
+    },
+    "$description": "Primitive orange ramp, step 950 (10% lightness)."
+  },
+  "gold-50": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        40,
+        85,
+        98
+      ]
+    },
+    "$description": "Primitive gold ramp, step 50 (98% lightness)."
+  },
+  "gold-100": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        40,
+        85,
+        93
+      ]
+    },
+    "$description": "Primitive gold ramp, step 100 (93% lightness)."
+  },
+  "gold-200": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        40,
+        85,
+        87
+      ]
+    },
+    "$description": "Primitive gold ramp, step 200 (87% lightness)."
+  },
+  "gold-300": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        40,
+        85,
+        78
+      ]
+    },
+    "$description": "Primitive gold ramp, step 300 (78% lightness)."
+  },
+  "gold-400": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        40,
+        85,
+        69
+      ]
+    },
+    "$description": "Primitive gold ramp, step 400 (69% lightness)."
+  },
+  "gold-500": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        40,
+        85,
+        58
+      ]
+    },
+    "$description": "Primitive gold ramp, step 500 (58% lightness)."
+  },
+  "gold-600": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        40,
+        85,
+        48
+      ]
+    },
+    "$description": "Primitive gold ramp, step 600 (48% lightness)."
+  },
+  "gold-700": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        40,
+        85,
+        36
+      ]
+    },
+    "$description": "Primitive gold ramp, step 700 (36% lightness)."
+  },
+  "gold-800": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        40,
+        85,
+        26
+      ]
+    },
+    "$description": "Primitive gold ramp, step 800 (26% lightness)."
+  },
+  "gold-900": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        40,
+        85,
+        18
+      ]
+    },
+    "$description": "Primitive gold ramp, step 900 (18% lightness)."
+  },
+  "gold-950": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        40,
+        85,
+        10
+      ]
+    },
+    "$description": "Primitive gold ramp, step 950 (10% lightness)."
+  },
+  "yellow-50": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        56,
+        85,
+        98
+      ]
+    },
+    "$description": "Primitive yellow ramp, step 50 (98% lightness)."
+  },
+  "yellow-100": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        56,
+        85,
+        93
+      ]
+    },
+    "$description": "Primitive yellow ramp, step 100 (93% lightness)."
+  },
+  "yellow-200": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        56,
+        85,
+        87
+      ]
+    },
+    "$description": "Primitive yellow ramp, step 200 (87% lightness)."
+  },
+  "yellow-300": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        56,
+        85,
+        78
+      ]
+    },
+    "$description": "Primitive yellow ramp, step 300 (78% lightness)."
+  },
+  "yellow-400": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        56,
+        85,
+        69
+      ]
+    },
+    "$description": "Primitive yellow ramp, step 400 (69% lightness)."
+  },
+  "yellow-500": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        56,
+        85,
+        58
+      ]
+    },
+    "$description": "Primitive yellow ramp, step 500 (58% lightness)."
+  },
+  "yellow-600": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        56,
+        85,
+        48
+      ]
+    },
+    "$description": "Primitive yellow ramp, step 600 (48% lightness)."
+  },
+  "yellow-700": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        56,
+        85,
+        36
+      ]
+    },
+    "$description": "Primitive yellow ramp, step 700 (36% lightness)."
+  },
+  "yellow-800": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        56,
+        85,
+        26
+      ]
+    },
+    "$description": "Primitive yellow ramp, step 800 (26% lightness)."
+  },
+  "yellow-900": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        56,
+        85,
+        18
+      ]
+    },
+    "$description": "Primitive yellow ramp, step 900 (18% lightness)."
+  },
+  "yellow-950": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        56,
+        85,
+        10
+      ]
+    },
+    "$description": "Primitive yellow ramp, step 950 (10% lightness)."
+  },
+  "lime-50": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        96,
+        65,
+        98
+      ]
+    },
+    "$description": "Primitive lime ramp, step 50 (98% lightness)."
+  },
+  "lime-100": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        96,
+        65,
+        93
+      ]
+    },
+    "$description": "Primitive lime ramp, step 100 (93% lightness)."
+  },
+  "lime-200": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        96,
+        65,
+        87
+      ]
+    },
+    "$description": "Primitive lime ramp, step 200 (87% lightness)."
+  },
+  "lime-300": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        96,
+        65,
+        78
+      ]
+    },
+    "$description": "Primitive lime ramp, step 300 (78% lightness)."
+  },
+  "lime-400": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        96,
+        65,
+        69
+      ]
+    },
+    "$description": "Primitive lime ramp, step 400 (69% lightness)."
+  },
+  "lime-500": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        96,
+        65,
+        58
+      ]
+    },
+    "$description": "Primitive lime ramp, step 500 (58% lightness)."
+  },
+  "lime-600": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        96,
+        65,
+        48
+      ]
+    },
+    "$description": "Primitive lime ramp, step 600 (48% lightness)."
+  },
+  "lime-700": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        96,
+        65,
+        36
+      ]
+    },
+    "$description": "Primitive lime ramp, step 700 (36% lightness)."
+  },
+  "lime-800": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        96,
+        65,
+        26
+      ]
+    },
+    "$description": "Primitive lime ramp, step 800 (26% lightness)."
+  },
+  "lime-900": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        96,
+        65,
+        18
+      ]
+    },
+    "$description": "Primitive lime ramp, step 900 (18% lightness)."
+  },
+  "lime-950": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        96,
+        65,
+        10
+      ]
+    },
+    "$description": "Primitive lime ramp, step 950 (10% lightness)."
+  },
+  "green-50": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        140,
+        70,
+        98
+      ]
+    },
+    "$description": "Primitive green ramp, step 50 (98% lightness)."
+  },
+  "green-100": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        140,
+        70,
+        93
+      ]
+    },
+    "$description": "Primitive green ramp, step 100 (93% lightness)."
+  },
+  "green-200": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        140,
+        70,
+        87
+      ]
+    },
+    "$description": "Primitive green ramp, step 200 (87% lightness)."
+  },
+  "green-300": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        140,
+        70,
+        78
+      ]
+    },
+    "$description": "Primitive green ramp, step 300 (78% lightness)."
+  },
+  "green-400": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        140,
+        70,
+        69
+      ]
+    },
+    "$description": "Primitive green ramp, step 400 (69% lightness)."
+  },
+  "green-500": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        140,
+        70,
+        58
+      ]
+    },
+    "$description": "Primitive green ramp, step 500 (58% lightness)."
+  },
+  "green-600": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        140,
+        70,
+        48
+      ]
+    },
+    "$description": "Primitive green ramp, step 600 (48% lightness)."
+  },
+  "green-700": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        140,
+        70,
+        36
+      ]
+    },
+    "$description": "Primitive green ramp, step 700 (36% lightness)."
+  },
+  "green-800": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        140,
+        70,
+        26
+      ]
+    },
+    "$description": "Primitive green ramp, step 800 (26% lightness)."
+  },
+  "green-900": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        140,
+        70,
+        18
+      ]
+    },
+    "$description": "Primitive green ramp, step 900 (18% lightness)."
+  },
+  "green-950": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        140,
+        70,
+        10
+      ]
+    },
+    "$description": "Primitive green ramp, step 950 (10% lightness)."
+  },
+  "teal-50": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        170,
+        68,
+        98
+      ]
+    },
+    "$description": "Primitive teal ramp, step 50 (98% lightness)."
+  },
+  "teal-100": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        170,
+        68,
+        93
+      ]
+    },
+    "$description": "Primitive teal ramp, step 100 (93% lightness)."
+  },
+  "teal-200": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        170,
+        68,
+        87
+      ]
+    },
+    "$description": "Primitive teal ramp, step 200 (87% lightness)."
+  },
+  "teal-300": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        170,
+        68,
+        78
+      ]
+    },
+    "$description": "Primitive teal ramp, step 300 (78% lightness)."
+  },
+  "teal-400": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        170,
+        68,
+        69
+      ]
+    },
+    "$description": "Primitive teal ramp, step 400 (69% lightness)."
+  },
+  "teal-500": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        170,
+        68,
+        58
+      ]
+    },
+    "$description": "Primitive teal ramp, step 500 (58% lightness)."
+  },
+  "teal-600": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        170,
+        68,
+        48
+      ]
+    },
+    "$description": "Primitive teal ramp, step 600 (48% lightness)."
+  },
+  "teal-700": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        170,
+        68,
+        36
+      ]
+    },
+    "$description": "Primitive teal ramp, step 700 (36% lightness)."
+  },
+  "teal-800": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        170,
+        68,
+        26
+      ]
+    },
+    "$description": "Primitive teal ramp, step 800 (26% lightness)."
+  },
+  "teal-900": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        170,
+        68,
+        18
+      ]
+    },
+    "$description": "Primitive teal ramp, step 900 (18% lightness)."
+  },
+  "teal-950": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        170,
+        68,
+        10
+      ]
+    },
+    "$description": "Primitive teal ramp, step 950 (10% lightness)."
+  },
+  "cyan-50": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        190,
+        72,
+        98
+      ]
+    },
+    "$description": "Primitive cyan ramp, step 50 (98% lightness)."
+  },
+  "cyan-100": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        190,
+        72,
+        93
+      ]
+    },
+    "$description": "Primitive cyan ramp, step 100 (93% lightness)."
+  },
+  "cyan-200": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        190,
+        72,
+        87
+      ]
+    },
+    "$description": "Primitive cyan ramp, step 200 (87% lightness)."
+  },
+  "cyan-300": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        190,
+        72,
+        78
+      ]
+    },
+    "$description": "Primitive cyan ramp, step 300 (78% lightness)."
+  },
+  "cyan-400": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        190,
+        72,
+        69
+      ]
+    },
+    "$description": "Primitive cyan ramp, step 400 (69% lightness)."
+  },
+  "cyan-500": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        190,
+        72,
+        58
+      ]
+    },
+    "$description": "Primitive cyan ramp, step 500 (58% lightness)."
+  },
+  "cyan-600": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        190,
+        72,
+        48
+      ]
+    },
+    "$description": "Primitive cyan ramp, step 600 (48% lightness)."
+  },
+  "cyan-700": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        190,
+        72,
+        36
+      ]
+    },
+    "$description": "Primitive cyan ramp, step 700 (36% lightness)."
+  },
+  "cyan-800": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        190,
+        72,
+        26
+      ]
+    },
+    "$description": "Primitive cyan ramp, step 800 (26% lightness)."
+  },
+  "cyan-900": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        190,
+        72,
+        18
+      ]
+    },
+    "$description": "Primitive cyan ramp, step 900 (18% lightness)."
+  },
+  "cyan-950": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        190,
+        72,
+        10
+      ]
+    },
+    "$description": "Primitive cyan ramp, step 950 (10% lightness)."
+  },
+  "blue-50": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        210,
+        78,
+        98
+      ]
+    },
+    "$description": "Primitive blue ramp, step 50 (98% lightness)."
+  },
+  "blue-100": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        210,
+        78,
+        93
+      ]
+    },
+    "$description": "Primitive blue ramp, step 100 (93% lightness)."
+  },
+  "blue-200": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        210,
+        78,
+        87
+      ]
+    },
+    "$description": "Primitive blue ramp, step 200 (87% lightness)."
+  },
+  "blue-300": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        210,
+        78,
+        78
+      ]
+    },
+    "$description": "Primitive blue ramp, step 300 (78% lightness)."
+  },
+  "blue-400": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        210,
+        78,
+        69
+      ]
+    },
+    "$description": "Primitive blue ramp, step 400 (69% lightness)."
+  },
+  "blue-500": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        210,
+        78,
+        58
+      ]
+    },
+    "$description": "Primitive blue ramp, step 500 (58% lightness)."
+  },
+  "blue-600": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        210,
+        78,
+        48
+      ]
+    },
+    "$description": "Primitive blue ramp, step 600 (48% lightness)."
+  },
+  "blue-700": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        210,
+        78,
+        36
+      ]
+    },
+    "$description": "Primitive blue ramp, step 700 (36% lightness)."
+  },
+  "blue-800": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        210,
+        78,
+        26
+      ]
+    },
+    "$description": "Primitive blue ramp, step 800 (26% lightness)."
+  },
+  "blue-900": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        210,
+        78,
+        18
+      ]
+    },
+    "$description": "Primitive blue ramp, step 900 (18% lightness)."
+  },
+  "blue-950": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        210,
+        78,
+        10
+      ]
+    },
+    "$description": "Primitive blue ramp, step 950 (10% lightness)."
+  },
+  "indigo-50": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        243,
+        72,
+        98
+      ]
+    },
+    "$description": "Primitive indigo ramp, step 50 (98% lightness)."
+  },
+  "indigo-100": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        243,
+        72,
+        93
+      ]
+    },
+    "$description": "Primitive indigo ramp, step 100 (93% lightness)."
+  },
+  "indigo-200": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        243,
+        72,
+        87
+      ]
+    },
+    "$description": "Primitive indigo ramp, step 200 (87% lightness)."
+  },
+  "indigo-300": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        243,
+        72,
+        78
+      ]
+    },
+    "$description": "Primitive indigo ramp, step 300 (78% lightness)."
+  },
+  "indigo-400": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        243,
+        72,
+        69
+      ]
+    },
+    "$description": "Primitive indigo ramp, step 400 (69% lightness)."
+  },
+  "indigo-500": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        243,
+        72,
+        58
+      ]
+    },
+    "$description": "Primitive indigo ramp, step 500 (58% lightness)."
+  },
+  "indigo-600": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        243,
+        72,
+        48
+      ]
+    },
+    "$description": "Primitive indigo ramp, step 600 (48% lightness)."
+  },
+  "indigo-700": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        243,
+        72,
+        36
+      ]
+    },
+    "$description": "Primitive indigo ramp, step 700 (36% lightness)."
+  },
+  "indigo-800": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        243,
+        72,
+        26
+      ]
+    },
+    "$description": "Primitive indigo ramp, step 800 (26% lightness)."
+  },
+  "indigo-900": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        243,
+        72,
+        18
+      ]
+    },
+    "$description": "Primitive indigo ramp, step 900 (18% lightness)."
+  },
+  "indigo-950": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        243,
+        72,
+        10
+      ]
+    },
+    "$description": "Primitive indigo ramp, step 950 (10% lightness)."
+  },
+  "violet-50": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        268,
+        76,
+        98
+      ]
+    },
+    "$description": "Primitive violet ramp, step 50 (98% lightness)."
+  },
+  "violet-100": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        268,
+        76,
+        93
+      ]
+    },
+    "$description": "Primitive violet ramp, step 100 (93% lightness)."
+  },
+  "violet-200": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        268,
+        76,
+        87
+      ]
+    },
+    "$description": "Primitive violet ramp, step 200 (87% lightness)."
+  },
+  "violet-300": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        268,
+        76,
+        78
+      ]
+    },
+    "$description": "Primitive violet ramp, step 300 (78% lightness)."
+  },
+  "violet-400": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        268,
+        76,
+        69
+      ]
+    },
+    "$description": "Primitive violet ramp, step 400 (69% lightness)."
+  },
+  "violet-500": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        268,
+        76,
+        58
+      ]
+    },
+    "$description": "Primitive violet ramp, step 500 (58% lightness)."
+  },
+  "violet-600": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        268,
+        76,
+        48
+      ]
+    },
+    "$description": "Primitive violet ramp, step 600 (48% lightness)."
+  },
+  "violet-700": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        268,
+        76,
+        36
+      ]
+    },
+    "$description": "Primitive violet ramp, step 700 (36% lightness)."
+  },
+  "violet-800": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        268,
+        76,
+        26
+      ]
+    },
+    "$description": "Primitive violet ramp, step 800 (26% lightness)."
+  },
+  "violet-900": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        268,
+        76,
+        18
+      ]
+    },
+    "$description": "Primitive violet ramp, step 900 (18% lightness)."
+  },
+  "violet-950": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        268,
+        76,
+        10
+      ]
+    },
+    "$description": "Primitive violet ramp, step 950 (10% lightness)."
+  },
+  "merlot-50": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        320,
+        62,
+        98
+      ]
+    },
+    "$description": "Primitive merlot ramp, step 50 (98% lightness)."
+  },
+  "merlot-100": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        320,
+        62,
+        93
+      ]
+    },
+    "$description": "Primitive merlot ramp, step 100 (93% lightness)."
+  },
+  "merlot-200": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        320,
+        62,
+        87
+      ]
+    },
+    "$description": "Primitive merlot ramp, step 200 (87% lightness)."
+  },
+  "merlot-300": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        320,
+        62,
+        78
+      ]
+    },
+    "$description": "Primitive merlot ramp, step 300 (78% lightness)."
+  },
+  "merlot-400": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        320,
+        62,
+        69
+      ]
+    },
+    "$description": "Primitive merlot ramp, step 400 (69% lightness)."
+  },
+  "merlot-500": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        320,
+        62,
+        58
+      ]
+    },
+    "$description": "Primitive merlot ramp, step 500 (58% lightness)."
+  },
+  "merlot-600": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        320,
+        62,
+        48
+      ]
+    },
+    "$description": "Primitive merlot ramp, step 600 (48% lightness)."
+  },
+  "merlot-700": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        320,
+        62,
+        36
+      ]
+    },
+    "$description": "Primitive merlot ramp, step 700 (36% lightness)."
+  },
+  "merlot-800": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        320,
+        62,
+        26
+      ]
+    },
+    "$description": "Primitive merlot ramp, step 800 (26% lightness)."
+  },
+  "merlot-900": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        320,
+        62,
+        18
+      ]
+    },
+    "$description": "Primitive merlot ramp, step 900 (18% lightness)."
+  },
+  "merlot-950": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        320,
+        62,
+        10
+      ]
+    },
+    "$description": "Primitive merlot ramp, step 950 (10% lightness)."
+  },
+  "butterfield-50": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        48,
+        72,
+        98
+      ]
+    },
+    "$description": "Primitive butterfield ramp, step 50 (98% lightness)."
+  },
+  "butterfield-100": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        48,
+        72,
+        93
+      ]
+    },
+    "$description": "Primitive butterfield ramp, step 100 (93% lightness)."
+  },
+  "butterfield-200": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        48,
+        72,
+        87
+      ]
+    },
+    "$description": "Primitive butterfield ramp, step 200 (87% lightness)."
+  },
+  "butterfield-300": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        48,
+        72,
+        78
+      ]
+    },
+    "$description": "Primitive butterfield ramp, step 300 (78% lightness)."
+  },
+  "butterfield-400": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        48,
+        72,
+        69
+      ]
+    },
+    "$description": "Primitive butterfield ramp, step 400 (69% lightness)."
+  },
+  "butterfield-500": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        48,
+        72,
+        58
+      ]
+    },
+    "$description": "Primitive butterfield ramp, step 500 (58% lightness)."
+  },
+  "butterfield-600": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        48,
+        72,
+        48
+      ]
+    },
+    "$description": "Primitive butterfield ramp, step 600 (48% lightness)."
+  },
+  "butterfield-700": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        48,
+        72,
+        36
+      ]
+    },
+    "$description": "Primitive butterfield ramp, step 700 (36% lightness)."
+  },
+  "butterfield-800": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        48,
+        72,
+        26
+      ]
+    },
+    "$description": "Primitive butterfield ramp, step 800 (26% lightness)."
+  },
+  "butterfield-900": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        48,
+        72,
+        18
+      ]
+    },
+    "$description": "Primitive butterfield ramp, step 900 (18% lightness)."
+  },
+  "butterfield-950": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        48,
+        72,
+        10
+      ]
+    },
+    "$description": "Primitive butterfield ramp, step 950 (10% lightness)."
+  },
+  "mint-50": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        158,
+        42,
+        98
+      ]
+    },
+    "$description": "Primitive mint ramp, step 50 (98% lightness)."
+  },
+  "mint-100": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        158,
+        42,
+        93
+      ]
+    },
+    "$description": "Primitive mint ramp, step 100 (93% lightness)."
+  },
+  "mint-200": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        158,
+        42,
+        87
+      ]
+    },
+    "$description": "Primitive mint ramp, step 200 (87% lightness)."
+  },
+  "mint-300": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        158,
+        42,
+        78
+      ]
+    },
+    "$description": "Primitive mint ramp, step 300 (78% lightness)."
+  },
+  "mint-400": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        158,
+        42,
+        69
+      ]
+    },
+    "$description": "Primitive mint ramp, step 400 (69% lightness)."
+  },
+  "mint-500": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        158,
+        42,
+        58
+      ]
+    },
+    "$description": "Primitive mint ramp, step 500 (58% lightness)."
+  },
+  "mint-600": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        158,
+        42,
+        48
+      ]
+    },
+    "$description": "Primitive mint ramp, step 600 (48% lightness)."
+  },
+  "mint-700": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        158,
+        42,
+        36
+      ]
+    },
+    "$description": "Primitive mint ramp, step 700 (36% lightness)."
+  },
+  "mint-800": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        158,
+        42,
+        26
+      ]
+    },
+    "$description": "Primitive mint ramp, step 800 (26% lightness)."
+  },
+  "mint-900": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        158,
+        42,
+        18
+      ]
+    },
+    "$description": "Primitive mint ramp, step 900 (18% lightness)."
+  },
+  "mint-950": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        158,
+        42,
+        10
+      ]
+    },
+    "$description": "Primitive mint ramp, step 950 (10% lightness)."
+  },
+  "sea-50": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        196,
+        36,
+        98
+      ]
+    },
+    "$description": "Primitive sea ramp, step 50 (98% lightness)."
+  },
+  "sea-100": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        196,
+        36,
+        93
+      ]
+    },
+    "$description": "Primitive sea ramp, step 100 (93% lightness)."
+  },
+  "sea-200": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        196,
+        36,
+        87
+      ]
+    },
+    "$description": "Primitive sea ramp, step 200 (87% lightness)."
+  },
+  "sea-300": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        196,
+        36,
+        78
+      ]
+    },
+    "$description": "Primitive sea ramp, step 300 (78% lightness)."
+  },
+  "sea-400": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        196,
+        36,
+        69
+      ]
+    },
+    "$description": "Primitive sea ramp, step 400 (69% lightness)."
+  },
+  "sea-500": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        196,
+        36,
+        58
+      ]
+    },
+    "$description": "Primitive sea ramp, step 500 (58% lightness)."
+  },
+  "sea-600": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        196,
+        36,
+        48
+      ]
+    },
+    "$description": "Primitive sea ramp, step 600 (48% lightness)."
+  },
+  "sea-700": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        196,
+        36,
+        36
+      ]
+    },
+    "$description": "Primitive sea ramp, step 700 (36% lightness)."
+  },
+  "sea-800": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        196,
+        36,
+        26
+      ]
+    },
+    "$description": "Primitive sea ramp, step 800 (26% lightness)."
+  },
+  "sea-900": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        196,
+        36,
+        18
+      ]
+    },
+    "$description": "Primitive sea ramp, step 900 (18% lightness)."
+  },
+  "sea-950": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        196,
+        36,
+        10
+      ]
+    },
+    "$description": "Primitive sea ramp, step 950 (10% lightness)."
+  },
+  "dusk-50": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        220,
+        22,
+        98
+      ]
+    },
+    "$description": "Primitive dusk ramp, step 50 (98% lightness)."
+  },
+  "dusk-100": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        220,
+        22,
+        93
+      ]
+    },
+    "$description": "Primitive dusk ramp, step 100 (93% lightness)."
+  },
+  "dusk-200": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        220,
+        22,
+        87
+      ]
+    },
+    "$description": "Primitive dusk ramp, step 200 (87% lightness)."
+  },
+  "dusk-300": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        220,
+        22,
+        78
+      ]
+    },
+    "$description": "Primitive dusk ramp, step 300 (78% lightness)."
+  },
+  "dusk-400": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        220,
+        22,
+        69
+      ]
+    },
+    "$description": "Primitive dusk ramp, step 400 (69% lightness)."
+  },
+  "dusk-500": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        220,
+        22,
+        58
+      ]
+    },
+    "$description": "Primitive dusk ramp, step 500 (58% lightness)."
+  },
+  "dusk-600": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        220,
+        22,
+        48
+      ]
+    },
+    "$description": "Primitive dusk ramp, step 600 (48% lightness)."
+  },
+  "dusk-700": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        220,
+        22,
+        36
+      ]
+    },
+    "$description": "Primitive dusk ramp, step 700 (36% lightness)."
+  },
+  "dusk-800": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        220,
+        22,
+        26
+      ]
+    },
+    "$description": "Primitive dusk ramp, step 800 (26% lightness)."
+  },
+  "dusk-900": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        220,
+        22,
+        18
+      ]
+    },
+    "$description": "Primitive dusk ramp, step 900 (18% lightness)."
+  },
+  "dusk-950": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        220,
+        22,
+        10
+      ]
+    },
+    "$description": "Primitive dusk ramp, step 950 (10% lightness)."
+  },
+  "stone-50": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        40,
+        18,
+        98
+      ]
+    },
+    "$description": "Primitive stone ramp, step 50 (98% lightness)."
+  },
+  "stone-100": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        40,
+        18,
+        93
+      ]
+    },
+    "$description": "Primitive stone ramp, step 100 (93% lightness)."
+  },
+  "stone-200": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        40,
+        18,
+        87
+      ]
+    },
+    "$description": "Primitive stone ramp, step 200 (87% lightness)."
+  },
+  "stone-300": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        40,
+        18,
+        78
+      ]
+    },
+    "$description": "Primitive stone ramp, step 300 (78% lightness)."
+  },
+  "stone-400": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        40,
+        18,
+        69
+      ]
+    },
+    "$description": "Primitive stone ramp, step 400 (69% lightness)."
+  },
+  "stone-500": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        40,
+        18,
+        58
+      ]
+    },
+    "$description": "Primitive stone ramp, step 500 (58% lightness)."
+  },
+  "stone-600": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        40,
+        18,
+        48
+      ]
+    },
+    "$description": "Primitive stone ramp, step 600 (48% lightness)."
+  },
+  "stone-700": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        40,
+        18,
+        36
+      ]
+    },
+    "$description": "Primitive stone ramp, step 700 (36% lightness)."
+  },
+  "stone-800": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        40,
+        18,
+        26
+      ]
+    },
+    "$description": "Primitive stone ramp, step 800 (26% lightness)."
+  },
+  "stone-900": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        40,
+        18,
+        18
+      ]
+    },
+    "$description": "Primitive stone ramp, step 900 (18% lightness)."
+  },
+  "stone-950": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        40,
+        18,
+        10
+      ]
+    },
+    "$description": "Primitive stone ramp, step 950 (10% lightness)."
+  },
+  "charcoal-50": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        210,
+        12,
+        98
+      ]
+    },
+    "$description": "Primitive charcoal ramp, step 50 (98% lightness)."
+  },
+  "charcoal-100": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        210,
+        12,
+        93
+      ]
+    },
+    "$description": "Primitive charcoal ramp, step 100 (93% lightness)."
+  },
+  "charcoal-200": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        210,
+        12,
+        87
+      ]
+    },
+    "$description": "Primitive charcoal ramp, step 200 (87% lightness)."
+  },
+  "charcoal-300": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        210,
+        12,
+        78
+      ]
+    },
+    "$description": "Primitive charcoal ramp, step 300 (78% lightness)."
+  },
+  "charcoal-400": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        210,
+        12,
+        69
+      ]
+    },
+    "$description": "Primitive charcoal ramp, step 400 (69% lightness)."
+  },
+  "charcoal-500": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        210,
+        12,
+        58
+      ]
+    },
+    "$description": "Primitive charcoal ramp, step 500 (58% lightness)."
+  },
+  "charcoal-600": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        210,
+        12,
+        48
+      ]
+    },
+    "$description": "Primitive charcoal ramp, step 600 (48% lightness)."
+  },
+  "charcoal-700": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        210,
+        12,
+        36
+      ]
+    },
+    "$description": "Primitive charcoal ramp, step 700 (36% lightness)."
+  },
+  "charcoal-800": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        210,
+        12,
+        26
+      ]
+    },
+    "$description": "Primitive charcoal ramp, step 800 (26% lightness)."
+  },
+  "charcoal-900": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        210,
+        12,
+        18
+      ]
+    },
+    "$description": "Primitive charcoal ramp, step 900 (18% lightness)."
+  },
+  "charcoal-950": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        210,
+        12,
+        10
+      ]
+    },
+    "$description": "Primitive charcoal ramp, step 950 (10% lightness)."
+  },
+  "lavenderfield-50": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        258,
+        42,
+        98
+      ]
+    },
+    "$description": "Primitive lavenderfield ramp, step 50 (98% lightness)."
+  },
+  "lavenderfield-100": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        258,
+        42,
+        93
+      ]
+    },
+    "$description": "Primitive lavenderfield ramp, step 100 (93% lightness)."
+  },
+  "lavenderfield-200": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        258,
+        42,
+        87
+      ]
+    },
+    "$description": "Primitive lavenderfield ramp, step 200 (87% lightness)."
+  },
+  "lavenderfield-300": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        258,
+        42,
+        78
+      ]
+    },
+    "$description": "Primitive lavenderfield ramp, step 300 (78% lightness)."
+  },
+  "lavenderfield-400": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        258,
+        42,
+        69
+      ]
+    },
+    "$description": "Primitive lavenderfield ramp, step 400 (69% lightness)."
+  },
+  "lavenderfield-500": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        258,
+        42,
+        58
+      ]
+    },
+    "$description": "Primitive lavenderfield ramp, step 500 (58% lightness)."
+  },
+  "lavenderfield-600": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        258,
+        42,
+        48
+      ]
+    },
+    "$description": "Primitive lavenderfield ramp, step 600 (48% lightness)."
+  },
+  "lavenderfield-700": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        258,
+        42,
+        36
+      ]
+    },
+    "$description": "Primitive lavenderfield ramp, step 700 (36% lightness)."
+  },
+  "lavenderfield-800": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        258,
+        42,
+        26
+      ]
+    },
+    "$description": "Primitive lavenderfield ramp, step 800 (26% lightness)."
+  },
+  "lavenderfield-900": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        258,
+        42,
+        18
+      ]
+    },
+    "$description": "Primitive lavenderfield ramp, step 900 (18% lightness)."
+  },
+  "lavenderfield-950": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        258,
+        42,
+        10
+      ]
+    },
+    "$description": "Primitive lavenderfield ramp, step 950 (10% lightness)."
+  },
+  "rosewater-50": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        352,
+        40,
+        98
+      ]
+    },
+    "$description": "Primitive rosewater ramp, step 50 (98% lightness)."
+  },
+  "rosewater-100": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        352,
+        40,
+        93
+      ]
+    },
+    "$description": "Primitive rosewater ramp, step 100 (93% lightness)."
+  },
+  "rosewater-200": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        352,
+        40,
+        87
+      ]
+    },
+    "$description": "Primitive rosewater ramp, step 200 (87% lightness)."
+  },
+  "rosewater-300": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        352,
+        40,
+        78
+      ]
+    },
+    "$description": "Primitive rosewater ramp, step 300 (78% lightness)."
+  },
+  "rosewater-400": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        352,
+        40,
+        69
+      ]
+    },
+    "$description": "Primitive rosewater ramp, step 400 (69% lightness)."
+  },
+  "rosewater-500": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        352,
+        40,
+        58
+      ]
+    },
+    "$description": "Primitive rosewater ramp, step 500 (58% lightness)."
+  },
+  "rosewater-600": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        352,
+        40,
+        48
+      ]
+    },
+    "$description": "Primitive rosewater ramp, step 600 (48% lightness)."
+  },
+  "rosewater-700": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        352,
+        40,
+        36
+      ]
+    },
+    "$description": "Primitive rosewater ramp, step 700 (36% lightness)."
+  },
+  "rosewater-800": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        352,
+        40,
+        26
+      ]
+    },
+    "$description": "Primitive rosewater ramp, step 800 (26% lightness)."
+  },
+  "rosewater-900": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        352,
+        40,
+        18
+      ]
+    },
+    "$description": "Primitive rosewater ramp, step 900 (18% lightness)."
+  },
+  "rosewater-950": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        352,
+        40,
+        10
+      ]
+    },
+    "$description": "Primitive rosewater ramp, step 950 (10% lightness)."
+  },
+  "ember-50": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        16,
+        78,
+        98
+      ]
+    },
+    "$description": "Primitive ember ramp, step 50 (98% lightness)."
+  },
+  "ember-100": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        16,
+        78,
+        93
+      ]
+    },
+    "$description": "Primitive ember ramp, step 100 (93% lightness)."
+  },
+  "ember-200": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        16,
+        78,
+        87
+      ]
+    },
+    "$description": "Primitive ember ramp, step 200 (87% lightness)."
+  },
+  "ember-300": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        16,
+        78,
+        78
+      ]
+    },
+    "$description": "Primitive ember ramp, step 300 (78% lightness)."
+  },
+  "ember-400": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        16,
+        78,
+        69
+      ]
+    },
+    "$description": "Primitive ember ramp, step 400 (69% lightness)."
+  },
+  "ember-500": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        16,
+        78,
+        58
+      ]
+    },
+    "$description": "Primitive ember ramp, step 500 (58% lightness)."
+  },
+  "ember-600": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        16,
+        78,
+        48
+      ]
+    },
+    "$description": "Primitive ember ramp, step 600 (48% lightness)."
+  },
+  "ember-700": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        16,
+        78,
+        36
+      ]
+    },
+    "$description": "Primitive ember ramp, step 700 (36% lightness)."
+  },
+  "ember-800": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        16,
+        78,
+        26
+      ]
+    },
+    "$description": "Primitive ember ramp, step 800 (26% lightness)."
+  },
+  "ember-900": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        16,
+        78,
+        18
+      ]
+    },
+    "$description": "Primitive ember ramp, step 900 (18% lightness)."
+  },
+  "ember-950": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        16,
+        78,
+        10
+      ]
+    },
+    "$description": "Primitive ember ramp, step 950 (10% lightness)."
+  },
+  "deepcurrent-50": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        224,
+        85,
+        98
+      ]
+    },
+    "$description": "Primitive deepcurrent ramp, step 50 (98% lightness)."
+  },
+  "deepcurrent-100": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        224,
+        85,
+        93
+      ]
+    },
+    "$description": "Primitive deepcurrent ramp, step 100 (93% lightness)."
+  },
+  "deepcurrent-200": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        224,
+        85,
+        87
+      ]
+    },
+    "$description": "Primitive deepcurrent ramp, step 200 (87% lightness)."
+  },
+  "deepcurrent-300": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        224,
+        85,
+        78
+      ]
+    },
+    "$description": "Primitive deepcurrent ramp, step 300 (78% lightness)."
+  },
+  "deepcurrent-400": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        224,
+        85,
+        69
+      ]
+    },
+    "$description": "Primitive deepcurrent ramp, step 400 (69% lightness)."
+  },
+  "deepcurrent-500": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        224,
+        85,
+        58
+      ]
+    },
+    "$description": "Primitive deepcurrent ramp, step 500 (58% lightness)."
+  },
+  "deepcurrent-600": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        224,
+        85,
+        48
+      ]
+    },
+    "$description": "Primitive deepcurrent ramp, step 600 (48% lightness)."
+  },
+  "deepcurrent-700": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        224,
+        85,
+        36
+      ]
+    },
+    "$description": "Primitive deepcurrent ramp, step 700 (36% lightness)."
+  },
+  "deepcurrent-800": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        224,
+        85,
+        26
+      ]
+    },
+    "$description": "Primitive deepcurrent ramp, step 800 (26% lightness)."
+  },
+  "deepcurrent-900": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        224,
+        85,
+        18
+      ]
+    },
+    "$description": "Primitive deepcurrent ramp, step 900 (18% lightness)."
+  },
+  "deepcurrent-950": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        224,
+        85,
+        10
+      ]
+    },
+    "$description": "Primitive deepcurrent ramp, step 950 (10% lightness)."
+  },
+  "foxglove-50": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        298,
+        62,
+        98
+      ]
+    },
+    "$description": "Primitive foxglove ramp, step 50 (98% lightness)."
+  },
+  "foxglove-100": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        298,
+        62,
+        93
+      ]
+    },
+    "$description": "Primitive foxglove ramp, step 100 (93% lightness)."
+  },
+  "foxglove-200": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        298,
+        62,
+        87
+      ]
+    },
+    "$description": "Primitive foxglove ramp, step 200 (87% lightness)."
+  },
+  "foxglove-300": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        298,
+        62,
+        78
+      ]
+    },
+    "$description": "Primitive foxglove ramp, step 300 (78% lightness)."
+  },
+  "foxglove-400": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        298,
+        62,
+        69
+      ]
+    },
+    "$description": "Primitive foxglove ramp, step 400 (69% lightness)."
+  },
+  "foxglove-500": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        298,
+        62,
+        58
+      ]
+    },
+    "$description": "Primitive foxglove ramp, step 500 (58% lightness)."
+  },
+  "foxglove-600": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        298,
+        62,
+        48
+      ]
+    },
+    "$description": "Primitive foxglove ramp, step 600 (48% lightness)."
+  },
+  "foxglove-700": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        298,
+        62,
+        36
+      ]
+    },
+    "$description": "Primitive foxglove ramp, step 700 (36% lightness)."
+  },
+  "foxglove-800": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        298,
+        62,
+        26
+      ]
+    },
+    "$description": "Primitive foxglove ramp, step 800 (26% lightness)."
+  },
+  "foxglove-900": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        298,
+        62,
+        18
+      ]
+    },
+    "$description": "Primitive foxglove ramp, step 900 (18% lightness)."
+  },
+  "foxglove-950": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        298,
+        62,
+        10
+      ]
+    },
+    "$description": "Primitive foxglove ramp, step 950 (10% lightness)."
+  },
+  "chestnut-50": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        26,
+        42,
+        98
+      ]
+    },
+    "$description": "Primitive chestnut ramp, step 50 (98% lightness)."
+  },
+  "chestnut-100": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        26,
+        42,
+        93
+      ]
+    },
+    "$description": "Primitive chestnut ramp, step 100 (93% lightness)."
+  },
+  "chestnut-200": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        26,
+        42,
+        87
+      ]
+    },
+    "$description": "Primitive chestnut ramp, step 200 (87% lightness)."
+  },
+  "chestnut-300": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        26,
+        42,
+        78
+      ]
+    },
+    "$description": "Primitive chestnut ramp, step 300 (78% lightness)."
+  },
+  "chestnut-400": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        26,
+        42,
+        69
+      ]
+    },
+    "$description": "Primitive chestnut ramp, step 400 (69% lightness)."
+  },
+  "chestnut-500": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        26,
+        42,
+        58
+      ]
+    },
+    "$description": "Primitive chestnut ramp, step 500 (58% lightness)."
+  },
+  "chestnut-600": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        26,
+        42,
+        48
+      ]
+    },
+    "$description": "Primitive chestnut ramp, step 600 (48% lightness)."
+  },
+  "chestnut-700": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        26,
+        42,
+        36
+      ]
+    },
+    "$description": "Primitive chestnut ramp, step 700 (36% lightness)."
+  },
+  "chestnut-800": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        26,
+        42,
+        26
+      ]
+    },
+    "$description": "Primitive chestnut ramp, step 800 (26% lightness)."
+  },
+  "chestnut-900": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        26,
+        42,
+        18
+      ]
+    },
+    "$description": "Primitive chestnut ramp, step 900 (18% lightness)."
+  },
+  "chestnut-950": {
+    "$value": {
+      "colorSpace": "hsl",
+      "components": [
+        26,
+        42,
+        10
+      ]
+    },
+    "$description": "Primitive chestnut ramp, step 950 (10% lightness)."
+  },
+  "global-black": {
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [
+        0.07450980392156863,
+        0.07450980392156863,
+        0.07450980392156863
+      ],
+      "hex": "#131313"
+    },
+    "$description": "Global near-black for maximum-contrast ink on any canvas."
+  },
+  "global-white": {
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [
+        0.996078431372549,
+        0.996078431372549,
+        0.996078431372549
+      ],
+      "hex": "#fefefe"
+    },
+    "$description": "Global near-white for maximum-contrast canvas surfaces."
+  },
+  "global-transparent": {
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [
+        0,
+        0,
+        0
+      ],
+      "alpha": 0
+    },
+    "$description": "Fully transparent color for surfaces that must not paint."
+  },
+  "$type": "color"
+}

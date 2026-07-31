@@ -31,7 +31,7 @@ A **dynamo-wave** will inherit any **<code>class</code>**, **<code>id</code>**, 
 ```html
 <style>
     .fill-theme {
-        fill: var(--theme);
+        fill: var(--zbk-brand-canvas);
     }
 </style>
 
