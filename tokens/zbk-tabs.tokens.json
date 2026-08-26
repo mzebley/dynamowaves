@@ -1,0 +1,1035 @@
+{
+  "display": {
+    "$value": "flex",
+    "$type": "display",
+    "$description": "Tabs root display mode."
+  },
+  "flex-direction-block-start": {
+    "$value": "column",
+    "$type": "flex",
+    "$description": "Root direction with the tablist at block-start."
+  },
+  "flex-direction-block-end": {
+    "$value": "column-reverse",
+    "$type": "flex",
+    "$description": "Root direction with the tablist at block-end."
+  },
+  "flex-direction-inline-start": {
+    "$value": "row",
+    "$type": "flex",
+    "$description": "Root direction with the tablist at inline-start."
+  },
+  "flex-direction-inline-end": {
+    "$value": "row-reverse",
+    "$type": "flex",
+    "$description": "Root direction with the tablist at inline-end."
+  },
+  "gap": {
+    "$value": "{spacing.none}",
+    "$type": "dimension",
+    "$description": "Space between the tablist and panel region."
+  },
+  "inline-size": {
+    "$value": "100%",
+    "$type": "cssDimension",
+    "$description": "Tabs root inline size."
+  },
+  "max-inline-size": {
+    "$value": "none",
+    "$type": "cssDimension",
+    "$description": "Tabs root maximum inline size."
+  },
+  "canvas": {
+    "$value": "{color.global-transparent}",
+    "$type": "color",
+    "$description": "Tabs root background."
+  },
+  "ink": {
+    "$value": "{app.ink}",
+    "$type": "color",
+    "$description": "Tabs root inherited text color."
+  },
+  "tablist-display": {
+    "$value": "flex",
+    "$type": "display",
+    "$description": "Tablist display mode."
+  },
+  "tablist-flex-direction-block": {
+    "$value": "row",
+    "$type": "flex",
+    "$description": "Tab direction for block-edge placement."
+  },
+  "tablist-flex-direction-inline": {
+    "$value": "column",
+    "$type": "flex",
+    "$description": "Tab direction for inline-edge placement."
+  },
+  "tablist-flex-wrap": {
+    "$value": "nowrap",
+    "$type": "flex",
+    "$description": "Whether tab labels wrap."
+  },
+  "tablist-align-items": {
+    "$value": "stretch",
+    "$type": "flex",
+    "$description": "Tablist cross-axis alignment."
+  },
+  "tablist-justify-content": {
+    "$value": "flex-start",
+    "$type": "flex",
+    "$description": "Tablist main-axis distribution."
+  },
+  "tablist-gap": {
+    "$value": "{spacing.none}",
+    "$type": "dimension",
+    "$description": "Space between adjacent tabs."
+  },
+  "tablist-inline-size": {
+    "$value": "auto",
+    "$type": "cssDimension",
+    "$description": "Tablist inline size."
+  },
+  "tablist-block-size": {
+    "$value": "auto",
+    "$type": "cssDimension",
+    "$description": "Tablist block size."
+  },
+  "tablist-padding-inline": {
+    "$value": "{spacing.none}",
+    "$type": "dimension",
+    "$description": "Tablist inline padding."
+  },
+  "tablist-padding-block": {
+    "$value": "{spacing.none}",
+    "$type": "dimension",
+    "$description": "Tablist block padding."
+  },
+  "tablist-margin-inline": {
+    "$value": "{spacing.none}",
+    "$type": "dimension",
+    "$description": "Tablist inline margin."
+  },
+  "tablist-margin-block": {
+    "$value": "{spacing.none}",
+    "$type": "dimension",
+    "$description": "Tablist block margin."
+  },
+  "tablist-canvas": {
+    "$value": "{color.global-transparent}",
+    "$type": "color",
+    "$description": "Tablist background."
+  },
+  "tablist-border-color": {
+    "$value": "{app.border}",
+    "$type": "color",
+    "$description": "Tablist border color."
+  },
+  "tablist-border-width": {
+    "$value": "{border.width-0}",
+    "$type": "dimension",
+    "$description": "Tablist border width."
+  },
+  "tablist-border-block-start-width": {
+    "$value": "{tabs.tablist-border-width}",
+    "$type": "dimension",
+    "$description": "Tablist block-start border width."
+  },
+  "tablist-border-block-end-width": {
+    "$value": "{tabs.tablist-border-width}",
+    "$type": "dimension",
+    "$description": "Tablist block-end border width."
+  },
+  "tablist-border-inline-start-width": {
+    "$value": "{tabs.tablist-border-width}",
+    "$type": "dimension",
+    "$description": "Tablist inline-start border width."
+  },
+  "tablist-border-inline-end-width": {
+    "$value": "{tabs.tablist-border-width}",
+    "$type": "dimension",
+    "$description": "Tablist inline-end border width."
+  },
+  "tablist-border-style": {
+    "$value": "{border.style}",
+    "$type": "strokeStyle",
+    "$description": "Tablist border style."
+  },
+  "tablist-border-radius": {
+    "$value": "{border.radius-0}",
+    "$type": "dimension",
+    "$description": "Tablist corner radius."
+  },
+  "tablist-box-shadow": {
+    "$value": [],
+    "$type": "shadow",
+    "$description": "Tablist box shadow."
+  },
+  "tablist-overflow-x": {
+    "$value": "auto",
+    "$type": "overflow",
+    "$description": "Horizontal overflow behavior."
+  },
+  "tablist-overflow-y": {
+    "$value": "hidden",
+    "$type": "overflow",
+    "$description": "Vertical overflow behavior."
+  },
+  "tablist-overscroll-behavior": {
+    "$value": "contain",
+    "$type": "content",
+    "$description": "Tablist scroll chaining behavior."
+  },
+  "tablist-scrollbar-gutter": {
+    "$value": "auto",
+    "$type": "content",
+    "$description": "Tablist scrollbar gutter policy."
+  },
+  "tablist-scroll-padding": {
+    "$value": "{spacing.sm}",
+    "$type": "dimension",
+    "$description": "Scroll padding retaining focus visibility at list edges."
+  },
+  "tab-display": {
+    "$value": "inline-flex",
+    "$type": "display",
+    "$description": "Individual tab display mode."
+  },
+  "tab-position": {
+    "$value": "relative",
+    "$type": "content",
+    "$description": "Individual tab positioning scheme."
+  },
+  "tab-flex": {
+    "$value": "0 0 auto",
+    "$type": "flex",
+    "$description": "Individual tab flex sizing."
+  },
+  "tab-flex-direction": {
+    "$value": "row",
+    "$type": "flex",
+    "$description": "Label content direction."
+  },
+  "tab-align-items": {
+    "$value": "center",
+    "$type": "flex",
+    "$description": "Tab content cross-axis alignment."
+  },
+  "tab-justify-content": {
+    "$value": "center",
+    "$type": "flex",
+    "$description": "Tab content main-axis alignment."
+  },
+  "tab-gap": {
+    "$value": "{spacing.sm}",
+    "$type": "dimension",
+    "$description": "Space inside compound tab labels."
+  },
+  "tab-inline-size": {
+    "$value": "auto",
+    "$type": "cssDimension",
+    "$description": "Individual tab inline size."
+  },
+  "tab-min-inline-size": {
+    "$value": "{a11y.min-interaction-size}",
+    "$type": "dimension",
+    "$description": "Minimum tab inline target size."
+  },
+  "tab-block-size": {
+    "$value": "auto",
+    "$type": "cssDimension",
+    "$description": "Individual tab block size."
+  },
+  "tab-min-block-size": {
+    "$value": "{a11y.min-interaction-size}",
+    "$type": "dimension",
+    "$description": "Minimum tab block target size."
+  },
+  "tab-padding-inline": {
+    "$value": "{spacing.md}",
+    "$type": "dimension",
+    "$description": "Tab inline padding."
+  },
+  "tab-padding-block": {
+    "$value": "{spacing.sm}",
+    "$type": "dimension",
+    "$description": "Tab block padding."
+  },
+  "tab-margin-inline": {
+    "$value": "{spacing.none}",
+    "$type": "dimension",
+    "$description": "Tab inline margin."
+  },
+  "tab-margin-block": {
+    "$value": "{spacing.none}",
+    "$type": "dimension",
+    "$description": "Tab block margin."
+  },
+  "tab-font-family": {
+    "$value": "{font-family.interface}",
+    "$type": "fontFamily",
+    "$description": "Tab label font family."
+  },
+  "tab-font-size": {
+    "$value": "{font-size.sm}",
+    "$type": "cssDimension",
+    "$description": "Tab label font size."
+  },
+  "tab-font-weight": {
+    "$value": "{font-weight.medium}",
+    "$type": "fontWeight",
+    "$description": "Tab label font weight."
+  },
+  "tab-line-height": {
+    "$value": "{line-height.2}",
+    "$type": "number",
+    "$description": "Tab label line height."
+  },
+  "tab-letter-spacing": {
+    "$value": "{letter-spacing.normal}",
+    "$type": "cssDimension",
+    "$description": "Tab label letter spacing."
+  },
+  "tab-text-transform": {
+    "$value": "none",
+    "$type": "textTransform",
+    "$description": "Tab label text transform."
+  },
+  "tab-text-decoration": {
+    "$value": "none",
+    "$type": "textDecoration",
+    "$description": "Tab label text decoration."
+  },
+  "tab-text-align": {
+    "$value": "center",
+    "$type": "textAlignment",
+    "$description": "Tab label text alignment."
+  },
+  "tab-white-space": {
+    "$value": "nowrap",
+    "$type": "content",
+    "$description": "Tab label white-space handling."
+  },
+  "tab-ink": {
+    "$value": "{app.ink-subtle}",
+    "$type": "color",
+    "$description": "Default tab label color."
+  },
+  "tab-ink-hover": {
+    "$value": "{action.ink}",
+    "$type": "color",
+    "$description": "Tab label color on hover."
+  },
+  "tab-ink-active": {
+    "$value": "{action.ink-emphasis}",
+    "$type": "color",
+    "$description": "Tab label color while pressed."
+  },
+  "tab-ink-focus": {
+    "$value": "{action.ink}",
+    "$type": "color",
+    "$description": "Tab label color with keyboard focus."
+  },
+  "tab-ink-disabled": {
+    "$value": "{disabled.ink}",
+    "$type": "color",
+    "$description": "Unavailable tab label color."
+  },
+  "tab-ink-selected": {
+    "$value": "{action.ink-emphasis}",
+    "$type": "color",
+    "$description": "Selected tab label color."
+  },
+  "tab-ink-selected-hover": {
+    "$value": "{tabs.tab-ink-selected}",
+    "$type": "color",
+    "$description": "Selected tab label color on hover."
+  },
+  "tab-ink-selected-active": {
+    "$value": "{tabs.tab-ink-selected}",
+    "$type": "color",
+    "$description": "Selected tab label color while pressed."
+  },
+  "tab-ink-selected-focus": {
+    "$value": "{tabs.tab-ink-selected}",
+    "$type": "color",
+    "$description": "Selected tab label color with keyboard focus."
+  },
+  "tab-canvas": {
+    "$value": "{color.global-transparent}",
+    "$type": "color",
+    "$description": "Default tab background."
+  },
+  "tab-canvas-hover": {
+    "$value": "{action.canvas-subtle}",
+    "$type": "color",
+    "$description": "Tab background on hover."
+  },
+  "tab-canvas-active": {
+    "$value": "{action.canvas-muted}",
+    "$type": "color",
+    "$description": "Tab background while pressed."
+  },
+  "tab-canvas-focus": {
+    "$value": "{tabs.tab-canvas}",
+    "$type": "color",
+    "$description": "Tab background with keyboard focus."
+  },
+  "tab-canvas-disabled": {
+    "$value": "{disabled.canvas}",
+    "$type": "color",
+    "$description": "Unavailable tab background."
+  },
+  "tab-canvas-selected": {
+    "$value": "{color.global-transparent}",
+    "$type": "color",
+    "$description": "Selected tab background."
+  },
+  "tab-canvas-selected-hover": {
+    "$value": "{tabs.tab-canvas-selected}",
+    "$type": "color",
+    "$description": "Selected tab background on hover."
+  },
+  "tab-canvas-selected-active": {
+    "$value": "{tabs.tab-canvas-selected}",
+    "$type": "color",
+    "$description": "Selected tab background while pressed."
+  },
+  "tab-canvas-selected-focus": {
+    "$value": "{tabs.tab-canvas-selected}",
+    "$type": "color",
+    "$description": "Selected tab background with keyboard focus."
+  },
+  "tab-border-color": {
+    "$value": "{color.global-transparent}",
+    "$type": "color",
+    "$description": "Default tab border color."
+  },
+  "tab-border-color-hover": {
+    "$value": "{tabs.tab-border-color}",
+    "$type": "color",
+    "$description": "Tab border color on hover."
+  },
+  "tab-border-color-active": {
+    "$value": "{tabs.tab-border-color}",
+    "$type": "color",
+    "$description": "Tab border color while pressed."
+  },
+  "tab-border-color-focus": {
+    "$value": "{tabs.tab-border-color}",
+    "$type": "color",
+    "$description": "Tab border color with keyboard focus."
+  },
+  "tab-border-color-disabled": {
+    "$value": "{disabled.border}",
+    "$type": "color",
+    "$description": "Unavailable tab border color."
+  },
+  "tab-border-color-selected": {
+    "$value": "{tabs.tab-border-color}",
+    "$type": "color",
+    "$description": "Selected tab border color."
+  },
+  "tab-border-color-selected-hover": {
+    "$value": "{tabs.tab-border-color-selected}",
+    "$type": "color",
+    "$description": "Selected tab border color on hover."
+  },
+  "tab-border-color-selected-active": {
+    "$value": "{tabs.tab-border-color-selected}",
+    "$type": "color",
+    "$description": "Selected tab border color while pressed."
+  },
+  "tab-border-color-selected-focus": {
+    "$value": "{tabs.tab-border-color-selected}",
+    "$type": "color",
+    "$description": "Selected tab border color with keyboard focus."
+  },
+  "tab-border-width": {
+    "$value": "{border.width-sm}",
+    "$type": "dimension",
+    "$description": "Tab border width."
+  },
+  "tab-border-style": {
+    "$value": "{border.style}",
+    "$type": "strokeStyle",
+    "$description": "Tab border style."
+  },
+  "tab-border-radius": {
+    "$value": "{border.radius-0}",
+    "$type": "dimension",
+    "$description": "Tab corner radius."
+  },
+  "tab-box-shadow": {
+    "$value": [],
+    "$type": "shadow",
+    "$description": "Default tab box shadow."
+  },
+  "tab-box-shadow-hover": {
+    "$value": [],
+    "$type": "shadow",
+    "$description": "Tab box shadow on hover."
+  },
+  "tab-box-shadow-active": {
+    "$value": [],
+    "$type": "shadow",
+    "$description": "Tab box shadow while pressed."
+  },
+  "tab-box-shadow-focus": {
+    "$value": [],
+    "$type": "shadow",
+    "$description": "Tab box shadow with keyboard focus."
+  },
+  "tab-box-shadow-disabled": {
+    "$value": [],
+    "$type": "shadow",
+    "$description": "Unavailable tab box shadow."
+  },
+  "tab-box-shadow-selected": {
+    "$value": [],
+    "$type": "shadow",
+    "$description": "Selected tab box shadow."
+  },
+  "tab-box-shadow-selected-hover": {
+    "$value": "{tabs.tab-box-shadow-selected}",
+    "$type": "shadow",
+    "$description": "Selected tab shadow on hover."
+  },
+  "tab-box-shadow-selected-active": {
+    "$value": "{tabs.tab-box-shadow-selected}",
+    "$type": "shadow",
+    "$description": "Selected tab shadow while pressed."
+  },
+  "tab-box-shadow-selected-focus": {
+    "$value": "{tabs.tab-box-shadow-selected}",
+    "$type": "shadow",
+    "$description": "Selected tab shadow with keyboard focus."
+  },
+  "tab-opacity": {
+    "$value": "{opacity.100}",
+    "$type": "number",
+    "$description": "Default tab opacity."
+  },
+  "tab-opacity-disabled": {
+    "$value": "{opacity.60}",
+    "$type": "number",
+    "$description": "Unavailable tab opacity."
+  },
+  "tab-opacity-selected": {
+    "$value": "{tabs.tab-opacity}",
+    "$type": "number",
+    "$description": "Selected tab opacity."
+  },
+  "tab-transform": {
+    "$value": "none",
+    "$type": "transform",
+    "$description": "Default tab transform."
+  },
+  "tab-transform-hover": {
+    "$value": "none",
+    "$type": "transform",
+    "$description": "Tab transform on hover."
+  },
+  "tab-transform-active": {
+    "$value": "none",
+    "$type": "transform",
+    "$description": "Tab transform while pressed."
+  },
+  "tab-transform-focus": {
+    "$value": "none",
+    "$type": "transform",
+    "$description": "Tab transform with keyboard focus."
+  },
+  "tab-transform-disabled": {
+    "$value": "none",
+    "$type": "transform",
+    "$description": "Unavailable tab transform."
+  },
+  "tab-transform-selected": {
+    "$value": "{tabs.tab-transform}",
+    "$type": "transform",
+    "$description": "Selected tab transform."
+  },
+  "tab-transform-selected-hover": {
+    "$value": "{tabs.tab-transform-selected}",
+    "$type": "transform",
+    "$description": "Selected tab transform on hover."
+  },
+  "tab-transform-selected-active": {
+    "$value": "{tabs.tab-transform-selected}",
+    "$type": "transform",
+    "$description": "Selected tab transform while pressed."
+  },
+  "tab-transform-selected-focus": {
+    "$value": "{tabs.tab-transform-selected}",
+    "$type": "transform",
+    "$description": "Selected tab transform with keyboard focus."
+  },
+  "tab-cursor": {
+    "$value": "pointer",
+    "$type": "cursor",
+    "$description": "Available tab cursor."
+  },
+  "tab-cursor-disabled": {
+    "$value": "not-allowed",
+    "$type": "cursor",
+    "$description": "Unavailable tab cursor."
+  },
+  "tab-focus-color": {
+    "$value": "{focus.color}",
+    "$type": "color",
+    "$description": "Tab focus outline color."
+  },
+  "tab-focus-width": {
+    "$value": "{focus.width}",
+    "$type": "dimension",
+    "$description": "Tab focus outline width."
+  },
+  "tab-focus-offset": {
+    "$value": "{focus.offset}",
+    "$type": "dimension",
+    "$description": "Tab focus outline offset."
+  },
+  "tab-transition-property": {
+    "$value": "background-color, color, border-color, box-shadow, transform, opacity",
+    "$type": "transitionProperty",
+    "$description": "Animated tab properties."
+  },
+  "tab-transition-duration": {
+    "$value": {
+      "value": 150,
+      "unit": "ms"
+    },
+    "$type": "duration",
+    "$description": "Tab state transition duration.",
+    "$extensions": {
+      "dev.zebkit": {
+        "a11y": true
+      }
+    }
+  },
+  "tab-transition-timing-function": {
+    "$value": "ease-out",
+    "$type": "cssEasingFunction",
+    "$description": "Tab state transition easing."
+  },
+  "label-display": {
+    "$value": "inline-flex",
+    "$type": "display",
+    "$description": "Tab label content display mode."
+  },
+  "label-flex-direction": {
+    "$value": "row",
+    "$type": "flex",
+    "$description": "Direction of icon, text, counter, and status label parts."
+  },
+  "label-align-items": {
+    "$value": "center",
+    "$type": "flex",
+    "$description": "Tab label content cross-axis alignment."
+  },
+  "label-justify-content": {
+    "$value": "center",
+    "$type": "flex",
+    "$description": "Tab label content main-axis alignment."
+  },
+  "label-gap": {
+    "$value": "{spacing.sm}",
+    "$type": "dimension",
+    "$description": "Space between rich label parts."
+  },
+  "label-icon-size": {
+    "$value": "{tabs.tab-font-size}",
+    "$type": "cssDimension",
+    "$description": "Size of SVG and image content in tab labels."
+  },
+  "label-icon-ink": {
+    "$value": "currentColor",
+    "$type": "cssColor",
+    "$description": "Color inherited by tab-label icons."
+  },
+  "label-meta-display": {
+    "$value": "inline-flex",
+    "$type": "display",
+    "$description": "Display mode for small or data-tab-meta label content."
+  },
+  "label-meta-min-inline-size": {
+    "$value": "0",
+    "$type": "cssDimension",
+    "$description": "Minimum inline size for label counters and status text."
+  },
+  "label-meta-padding-inline": {
+    "$value": "{spacing.xs}",
+    "$type": "dimension",
+    "$description": "Inline padding for label counters and status text."
+  },
+  "label-meta-padding-block": {
+    "$value": "{spacing.none}",
+    "$type": "dimension",
+    "$description": "Block padding for label counters and status text."
+  },
+  "label-meta-font-size": {
+    "$value": "0.75em",
+    "$type": "cssDimension",
+    "$description": "Font size for label counters and status text."
+  },
+  "label-meta-font-weight": {
+    "$value": "{font-weight.semibold}",
+    "$type": "fontWeight",
+    "$description": "Font weight for label counters and status text."
+  },
+  "label-meta-line-height": {
+    "$value": 1.5,
+    "$type": "number",
+    "$description": "Line height for label counters and status text."
+  },
+  "label-meta-ink": {
+    "$value": "{app.ink-subtle}",
+    "$type": "color",
+    "$description": "Default label counter or status color."
+  },
+  "label-meta-ink-selected": {
+    "$value": "{tabs.tab-ink-selected}",
+    "$type": "color",
+    "$description": "Selected label counter or status color."
+  },
+  "label-meta-ink-disabled": {
+    "$value": "{disabled.ink}",
+    "$type": "color",
+    "$description": "Unavailable label counter or status color."
+  },
+  "label-meta-canvas": {
+    "$value": "{app.canvas-muted}",
+    "$type": "color",
+    "$description": "Default label counter or status background."
+  },
+  "label-meta-canvas-selected": {
+    "$value": "{color.global-transparent}",
+    "$type": "color",
+    "$description": "Selected label counter or status background."
+  },
+  "label-meta-canvas-disabled": {
+    "$value": "{disabled.canvas}",
+    "$type": "color",
+    "$description": "Unavailable label counter or status background."
+  },
+  "label-meta-border-color": {
+    "$value": "{color.global-transparent}",
+    "$type": "color",
+    "$description": "Label counter or status border color."
+  },
+  "label-meta-border-width": {
+    "$value": "{border.width-0}",
+    "$type": "dimension",
+    "$description": "Label counter or status border width."
+  },
+  "label-meta-border-style": {
+    "$value": "{border.style}",
+    "$type": "strokeStyle",
+    "$description": "Label counter or status border style."
+  },
+  "label-meta-border-radius": {
+    "$value": "{border.radius-xl}",
+    "$type": "dimension",
+    "$description": "Label counter or status corner radius."
+  },
+  "indicator-position": {
+    "$value": "absolute",
+    "$type": "content",
+    "$description": "Selected-indicator positioning scheme."
+  },
+  "indicator-inset-block-start": {
+    "$value": "auto",
+    "$type": "cssDimension",
+    "$description": "Indicator block-start inset."
+  },
+  "indicator-inset-block-end": {
+    "$value": "0",
+    "$type": "cssDimension",
+    "$description": "Indicator block-end inset."
+  },
+  "indicator-inset-inline-start": {
+    "$value": "0",
+    "$type": "cssDimension",
+    "$description": "Indicator inline-start inset."
+  },
+  "indicator-inset-inline-end": {
+    "$value": "0",
+    "$type": "cssDimension",
+    "$description": "Indicator inline-end inset."
+  },
+  "indicator-inline-size": {
+    "$value": "auto",
+    "$type": "cssDimension",
+    "$description": "Indicator inline size."
+  },
+  "indicator-block-size": {
+    "$value": "{border.width-lg}",
+    "$type": "dimension",
+    "$description": "Indicator block size."
+  },
+  "indicator-canvas": {
+    "$value": "{color.global-transparent}",
+    "$type": "color",
+    "$description": "Default indicator color."
+  },
+  "indicator-canvas-hover": {
+    "$value": "{action.border-muted}",
+    "$type": "color",
+    "$description": "Indicator color on tab hover."
+  },
+  "indicator-canvas-active": {
+    "$value": "{action.border}",
+    "$type": "color",
+    "$description": "Indicator color while a tab is pressed."
+  },
+  "indicator-canvas-focus": {
+    "$value": "{tabs.indicator-canvas}",
+    "$type": "color",
+    "$description": "Indicator color with tab focus."
+  },
+  "indicator-canvas-disabled": {
+    "$value": "{disabled.border}",
+    "$type": "color",
+    "$description": "Unavailable tab indicator color."
+  },
+  "indicator-canvas-selected": {
+    "$value": "{action.border-emphasis}",
+    "$type": "color",
+    "$description": "Selected indicator color."
+  },
+  "indicator-canvas-selected-hover": {
+    "$value": "{tabs.indicator-canvas-selected}",
+    "$type": "color",
+    "$description": "Selected indicator color on hover."
+  },
+  "indicator-canvas-selected-active": {
+    "$value": "{tabs.indicator-canvas-selected}",
+    "$type": "color",
+    "$description": "Selected indicator color while pressed."
+  },
+  "indicator-canvas-selected-focus": {
+    "$value": "{tabs.indicator-canvas-selected}",
+    "$type": "color",
+    "$description": "Selected indicator color with keyboard focus."
+  },
+  "indicator-border-radius": {
+    "$value": "{border.radius-sm}",
+    "$type": "dimension",
+    "$description": "Indicator corner radius."
+  },
+  "indicator-opacity": {
+    "$value": "{opacity.0}",
+    "$type": "number",
+    "$description": "Default indicator opacity."
+  },
+  "indicator-opacity-hover": {
+    "$value": "{opacity.100}",
+    "$type": "number",
+    "$description": "Indicator opacity on tab hover."
+  },
+  "indicator-opacity-active": {
+    "$value": "{opacity.100}",
+    "$type": "number",
+    "$description": "Indicator opacity while a tab is pressed."
+  },
+  "indicator-opacity-focus": {
+    "$value": "{tabs.indicator-opacity}",
+    "$type": "number",
+    "$description": "Indicator opacity with tab focus."
+  },
+  "indicator-opacity-disabled": {
+    "$value": "{opacity.0}",
+    "$type": "number",
+    "$description": "Unavailable tab indicator opacity."
+  },
+  "indicator-opacity-selected": {
+    "$value": "{opacity.100}",
+    "$type": "number",
+    "$description": "Selected indicator opacity."
+  },
+  "indicator-opacity-selected-hover": {
+    "$value": "{tabs.indicator-opacity-selected}",
+    "$type": "number",
+    "$description": "Selected indicator opacity on hover."
+  },
+  "indicator-opacity-selected-active": {
+    "$value": "{tabs.indicator-opacity-selected}",
+    "$type": "number",
+    "$description": "Selected indicator opacity while pressed."
+  },
+  "indicator-opacity-selected-focus": {
+    "$value": "{tabs.indicator-opacity-selected}",
+    "$type": "number",
+    "$description": "Selected indicator opacity with focus."
+  },
+  "indicator-transform": {
+    "$value": "none",
+    "$type": "transform",
+    "$description": "Default indicator transform."
+  },
+  "indicator-transform-hover": {
+    "$value": "none",
+    "$type": "transform",
+    "$description": "Indicator transform on tab hover."
+  },
+  "indicator-transform-active": {
+    "$value": "none",
+    "$type": "transform",
+    "$description": "Indicator transform while a tab is pressed."
+  },
+  "indicator-transform-focus": {
+    "$value": "none",
+    "$type": "transform",
+    "$description": "Indicator transform with tab focus."
+  },
+  "indicator-transform-disabled": {
+    "$value": "none",
+    "$type": "transform",
+    "$description": "Unavailable tab indicator transform."
+  },
+  "indicator-transform-selected": {
+    "$value": "none",
+    "$type": "transform",
+    "$description": "Selected indicator transform."
+  },
+  "indicator-transform-selected-hover": {
+    "$value": "{tabs.indicator-transform-selected}",
+    "$type": "transform",
+    "$description": "Selected indicator transform on hover."
+  },
+  "indicator-transform-selected-active": {
+    "$value": "{tabs.indicator-transform-selected}",
+    "$type": "transform",
+    "$description": "Selected indicator transform while pressed."
+  },
+  "indicator-transform-selected-focus": {
+    "$value": "{tabs.indicator-transform-selected}",
+    "$type": "transform",
+    "$description": "Selected indicator transform with focus."
+  },
+  "panels-display": {
+    "$value": "block",
+    "$type": "display",
+    "$description": "Panel-region display mode."
+  },
+  "panels-inline-size": {
+    "$value": "100%",
+    "$type": "cssDimension",
+    "$description": "Panel-region inline size."
+  },
+  "panels-min-inline-size": {
+    "$value": "0",
+    "$type": "cssDimension",
+    "$description": "Panel-region minimum inline size."
+  },
+  "panel-canvas": {
+    "$value": "{app.canvas}",
+    "$type": "color",
+    "$description": "Panel background."
+  },
+  "panel-ink": {
+    "$value": "{app.ink}",
+    "$type": "color",
+    "$description": "Panel text color."
+  },
+  "panel-border-color": {
+    "$value": "{color.global-transparent}",
+    "$type": "color",
+    "$description": "Panel border color."
+  },
+  "panel-border-width": {
+    "$value": "{border.width-0}",
+    "$type": "dimension",
+    "$description": "Panel border width."
+  },
+  "panel-border-style": {
+    "$value": "{border.style}",
+    "$type": "strokeStyle",
+    "$description": "Panel border style."
+  },
+  "panel-border-radius": {
+    "$value": "{border.radius-0}",
+    "$type": "dimension",
+    "$description": "Panel corner radius."
+  },
+  "panel-box-shadow": {
+    "$value": [],
+    "$type": "shadow",
+    "$description": "Panel box shadow."
+  },
+  "panel-padding-inline": {
+    "$value": "{spacing.md}",
+    "$type": "dimension",
+    "$description": "Panel inline padding."
+  },
+  "panel-padding-block": {
+    "$value": "{spacing.md}",
+    "$type": "dimension",
+    "$description": "Panel block padding."
+  },
+  "panel-margin-inline": {
+    "$value": "{spacing.none}",
+    "$type": "dimension",
+    "$description": "Panel inline margin."
+  },
+  "panel-margin-block": {
+    "$value": "{spacing.none}",
+    "$type": "dimension",
+    "$description": "Panel block margin."
+  },
+  "panel-min-block-size": {
+    "$value": "0",
+    "$type": "cssDimension",
+    "$description": "Panel minimum block size."
+  },
+  "panel-overflow": {
+    "$value": "visible",
+    "$type": "overflow",
+    "$description": "Panel overflow behavior."
+  },
+  "panel-font-family": {
+    "$value": "inherit",
+    "$type": "fontFamily",
+    "$description": "Panel font family."
+  },
+  "panel-font-size": {
+    "$value": "inherit",
+    "$type": "cssDimension",
+    "$description": "Panel font size."
+  },
+  "panel-font-weight": {
+    "$value": "inherit",
+    "$type": "cssFontWeight",
+    "$description": "Panel font weight."
+  },
+  "panel-line-height": {
+    "$value": "inherit",
+    "$type": "cssNumber",
+    "$description": "Panel line height."
+  },
+  "panel-letter-spacing": {
+    "$value": "inherit",
+    "$type": "cssDimension",
+    "$description": "Panel letter spacing."
+  },
+  "panel-text-align": {
+    "$value": "start",
+    "$type": "textAlignment",
+    "$description": "Panel text alignment."
+  },
+  "panel-focus-color": {
+    "$value": "{focus.color}",
+    "$type": "color",
+    "$description": "Panel focus outline color."
+  },
+  "panel-focus-width": {
+    "$value": "{focus.width}",
+    "$type": "dimension",
+    "$description": "Panel focus outline width."
+  },
+  "panel-focus-offset": {
+    "$value": "{focus.offset}",
+    "$type": "dimension",
+    "$description": "Panel focus outline offset."
+  }
+}

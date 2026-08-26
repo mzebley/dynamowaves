@@ -1,0 +1,127 @@
+{
+  "font-family": {
+    "$value": "{font-family.body}",
+    "$type": "fontFamily",
+    "$description": "Font family for quoted prose."
+  },
+  "font-size": {
+    "$value": "{font-size.md}",
+    "$type": "cssDimension",
+    "$description": "Font size for quoted prose."
+  },
+  "font-weight": {
+    "$value": "{font-weight.normal}",
+    "$type": "fontWeight",
+    "$description": "Font weight for quoted prose."
+  },
+  "line-height": {
+    "$value": "{line-height.3}",
+    "$type": "number",
+    "$description": "Line height for quoted prose."
+  },
+  "letter-spacing": {
+    "$value": "{letter-spacing.normal}",
+    "$type": "dimension",
+    "$description": "Letter spacing for quoted prose."
+  },
+  "measure": {
+    "$value": "{text-measure.4}",
+    "$type": "cssDimension",
+    "$description": "Maximum inline measure for a prose blockquote."
+  },
+  "spacing-before": {
+    "$value": "{spacing.105}",
+    "$type": "dimension",
+    "$description": "Incoming spacing request when a blockquote follows another direct child in a .prose flow. The resolved gap is the larger of this spacing-before and the previous treatment's spacing-after, so structural hierarchy wins without relying on source order."
+  },
+  "spacing-after": {
+    "$value": "{spacing.105}",
+    "$type": "dimension",
+    "$description": "Outgoing spacing request contributed by a blockquote to the next direct child in a .prose flow. The resolved gap is the larger of this spacing-after and the next treatment's spacing-before; documented compound pairs may intentionally use the tighter outgoing gap."
+  },
+  "color": {
+    "$value": "{app.ink-muted}",
+    "$type": "color",
+    "$description": "Text color for quoted prose."
+  },
+  "font-style": {
+    "$value": "italic",
+    "$type": "fontStyle",
+    "$description": "Font style for quoted prose."
+  },
+  "text-align": {
+    "$value": "start",
+    "$type": "textAlignment",
+    "$description": "Text alignment for quoted prose."
+  },
+  "padding-inline-start": {
+    "$value": "{spacing.105}",
+    "$type": "dimension",
+    "$description": "Inline-start inset between the quote rule and its content."
+  },
+  "border-color": {
+    "$value": "{brand.border}",
+    "$type": "color",
+    "$description": "Color of the blockquote's inline-start rule."
+  },
+  "border-width": {
+    "$value": "{border.width-md}",
+    "$type": "dimension",
+    "$description": "Width of the blockquote's inline-start rule."
+  },
+  "border-style": {
+    "$value": "{border.style}",
+    "$type": "strokeStyle",
+    "$description": "Style of the blockquote's inline-start rule."
+  },
+  "paragraph-spacing": {
+    "$value": "{spacing.05}",
+    "$type": "dimension",
+    "$description": "Block spacing between consecutive paragraphs inside a blockquote."
+  },
+  "cite-spacing-before": {
+    "$value": "{spacing.05}",
+    "$type": "dimension",
+    "$description": "Block spacing before a blockquote citation."
+  },
+  "cite-font-family": {
+    "$value": "{font-family.body}",
+    "$type": "fontFamily",
+    "$description": "Font family for a blockquote citation."
+  },
+  "cite-font-size": {
+    "$value": "{font-size.xs}",
+    "$type": "cssDimension",
+    "$description": "Font size for a blockquote citation."
+  },
+  "cite-font-weight": {
+    "$value": "{font-weight.semibold}",
+    "$type": "fontWeight",
+    "$description": "Font weight for a blockquote citation."
+  },
+  "cite-line-height": {
+    "$value": "{line-height.2}",
+    "$type": "number",
+    "$description": "Line height for a blockquote citation."
+  },
+  "cite-letter-spacing": {
+    "$value": "{letter-spacing.normal}",
+    "$type": "dimension",
+    "$description": "Letter spacing for a blockquote citation."
+  },
+  "cite-color": {
+    "$value": "{app.ink}",
+    "$type": "color",
+    "$description": "Text color for a blockquote citation."
+  },
+  "cite-font-style": {
+    "$value": "normal",
+    "$type": "fontStyle",
+    "$description": "Font style for a blockquote citation."
+  },
+  "cite-text-transform": {
+    "$value": "none",
+    "$type": "textTransform",
+    "$description": "Text transform for a blockquote citation."
+  }
+}

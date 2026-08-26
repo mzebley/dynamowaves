@@ -10,6 +10,13 @@
         "decoration-line-hover": "underline",
         "decoration-color-hover": "{action.ink}"
       }
+    },
+    "sm": {
+      "axis": "size",
+      "description": "Compact type, padding, and icon sizing.",
+      "overrides": {
+        "font-size": "{font-size.sm}"
+      }
     }
   }
 }

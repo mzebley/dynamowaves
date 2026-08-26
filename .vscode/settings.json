@@ -68,6 +68,36 @@
     },
     {
       "fileMatch": [
+        "/tokens/zbk-blockquote.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-blockquote.schema.json"
+    },
+    {
+      "fileMatch": [
+        "/tokens/zbk-prose-code.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-prose-code.schema.json"
+    },
+    {
+      "fileMatch": [
+        "/tokens/zbk-definition-list.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-definition-list.schema.json"
+    },
+    {
+      "fileMatch": [
+        "/tokens/zbk-eyebrow.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-eyebrow.schema.json"
+    },
+    {
+      "fileMatch": [
+        "/tokens/zbk-figure.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-figure.schema.json"
+    },
+    {
+      "fileMatch": [
         "/tokens/zbk-h1.tokens.json"
       ],
       "url": "./node_modules/zebkit/dist/editor/schemas/zbk-h1.schema.json"
@@ -101,6 +131,18 @@
         "/tokens/zbk-h6.tokens.json"
       ],
       "url": "./node_modules/zebkit/dist/editor/schemas/zbk-h6.schema.json"
+    },
+    {
+      "fileMatch": [
+        "/tokens/zbk-prose-rule.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-prose-rule.schema.json"
+    },
+    {
+      "fileMatch": [
+        "/tokens/zbk-prose-inline.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-prose-inline.schema.json"
     },
     {
       "fileMatch": [
@@ -170,9 +212,21 @@
     },
     {
       "fileMatch": [
+        "/tokens/zbk-shape.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-shape.schema.json"
+    },
+    {
+      "fileMatch": [
         "/tokens/zbk-spacing.tokens.json"
       ],
       "url": "./node_modules/zebkit/dist/editor/schemas/zbk-spacing.schema.json"
+    },
+    {
+      "fileMatch": [
+        "/tokens/zbk-transform.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-transform.schema.json"
     },
     {
       "fileMatch": [
@@ -224,6 +278,18 @@
     },
     {
       "fileMatch": [
+        "/tokens/zbk-accordion.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-accordion.schema.json"
+    },
+    {
+      "fileMatch": [
+        "/tokens/zbk-badge.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-badge.schema.json"
+    },
+    {
+      "fileMatch": [
         "/tokens/zbk-breadcrumb.tokens.json"
       ],
       "url": "./node_modules/zebkit/dist/editor/schemas/zbk-breadcrumb.schema.json"
@@ -248,9 +314,21 @@
     },
     {
       "fileMatch": [
+        "/tokens/zbk-code-block.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-code-block.schema.json"
+    },
+    {
+      "fileMatch": [
         "/tokens/zbk-dialog.tokens.json"
       ],
       "url": "./node_modules/zebkit/dist/editor/schemas/zbk-dialog.schema.json"
+    },
+    {
+      "fileMatch": [
+        "/tokens/zbk-disclosure.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-disclosure.schema.json"
     },
     {
       "fileMatch": [
@@ -308,9 +386,33 @@
     },
     {
       "fileMatch": [
+        "/tokens/zbk-tabs.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-tabs.schema.json"
+    },
+    {
+      "fileMatch": [
+        "/tokens/zbk-tag.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-tag.schema.json"
+    },
+    {
+      "fileMatch": [
         "/tokens/zbk-textarea.tokens.json"
       ],
       "url": "./node_modules/zebkit/dist/editor/schemas/zbk-textarea.schema.json"
+    },
+    {
+      "fileMatch": [
+        "/tokens/zbk-toast-region.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-toast-region.schema.json"
+    },
+    {
+      "fileMatch": [
+        "/tokens/zbk-toast.tokens.json"
+      ],
+      "url": "./node_modules/zebkit/dist/editor/schemas/zbk-toast.schema.json"
     },
     {
       "fileMatch": [

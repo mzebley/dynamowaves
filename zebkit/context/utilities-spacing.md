@@ -3,9 +3,11 @@
 # Spacing utilities
 
 Utilities are token-bound class grammar, not hard-coded values. They live in `@layer utilities`, so unlayered consumer CSS overrides them without `!important`.
+Zebkit orders its layers as `theme, base, components, variants, utilities`: utilities override variants, and variants override their component defaults.
 
 - Pattern families use `base[-edge]-{value}`. Edges are logical (`block`, `inline`, `block-start`, `inline-end`) unless a family says otherwise.
 - When a family lists responsive support, prefix its class with `tablet:`, `tablet-lg:`, `desktop:`, `desktop-lg:`, or `widescreen:`.
+- When a family lists interaction-state support, prefix its class with `focus:`, `hover:`, or `active:`. Interaction-state and breakpoint prefixes are independent and do not combine.
 - Negative values use `neg-{value}` only where the family offers them.
 - Values resolve through design tokens; use the documented grammar instead of writing raw CSS values.
 
@@ -112,7 +114,7 @@ Dictates spacing outside of the defined border of an element, separating it from
 
 Sets the empty space around an element.
 
-Grammar: `margin[-edge]-{value}` — edges: block, inline, block-start, block-end, inline-start, inline-end · values: 2xs, xs, sm, md, lg, xl, 2xl, 3xl, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20, 25, 30, 40, 50, 60, 70, 80, 90, 100, 105, 205, 1px, 2px, 025, 05, auto, unset (spacing tokens: dimension) · negatives: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 105, 205, 1px, 2px, 025, 05 · responsive: prefix with `tablet:` `tablet-lg:` `desktop:` `desktop-lg:` `widescreen:`
+Grammar: `margin[-edge]-{value}` — edges: block, inline, block-start, block-end, inline-start, inline-end · values: none, 2xs, xs, sm, md, lg, xl, 2xl, 3xl, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20, 25, 30, 40, 50, 60, 70, 80, 90, 100, 105, 205, 1px, 2px, 025, 05, auto, unset (spacing tokens: dimension) · negatives: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 105, 205, 1px, 2px, 025, 05 · responsive: prefix with `tablet:` `tablet-lg:` `desktop:` `desktop-lg:` `widescreen:`
 
 - 'block' margin values have no effect on elements with 'inline' display, they must be set to something like 'inline-block'
 - Zebkit uses logical margin operators (inline/block) for improved international accessibility. 'block' is vertical, 'inline' is horizontal.
@@ -125,6 +127,6 @@ Dictates spacing inside of the defined border of an element, separating content 
 
 Sets the empty space inside an element.
 
-Grammar: `padding[-edge]-{value}` — edges: block, inline, block-start, block-end, inline-start, inline-end · values: 2xs, xs, sm, md, lg, xl, 2xl, 3xl, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20, 25, 30, 40, 50, 60, 70, 80, 90, 100, 105, 205, 1px, 2px, 025, 05, unset (spacing tokens: dimension) · responsive: prefix with `tablet:` `tablet-lg:` `desktop:` `desktop-lg:` `widescreen:`
+Grammar: `padding[-edge]-{value}` — edges: block, inline, block-start, block-end, inline-start, inline-end · values: none, 2xs, xs, sm, md, lg, xl, 2xl, 3xl, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20, 25, 30, 40, 50, 60, 70, 80, 90, 100, 105, 205, 1px, 2px, 025, 05, unset (spacing tokens: dimension) · responsive: prefix with `tablet:` `tablet-lg:` `desktop:` `desktop-lg:` `widescreen:`
 
 - Zebkit uses logical padding operators (inline/block) for improved international accessibility. 'block' is vertical, 'inline' is horizontal.

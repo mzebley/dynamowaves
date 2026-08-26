@@ -1,11 +1,16 @@
 {
   "canvas": {
-    "$value": "{brand.400}",
+    "$value": "{brand.600}",
+    "$type": "color",
+    "$description": "Dark-mode branded wave and icon surface."
+  },
+    "canvas-inverse-emphasis": {
+    "$value": "{brand.900}",
     "$type": "color",
     "$description": "Dark-mode branded wave and icon surface."
   },
   "canvas-muted": {
-    "$value": "{brand.800}",
+    "$value": "{brand.900}",
     "$type": "color",
     "$description": "Dark-mode header, footer, and light-wave surface."
   },

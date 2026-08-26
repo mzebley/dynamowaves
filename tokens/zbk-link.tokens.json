@@ -130,7 +130,7 @@
     "$description": "Font size for link text. Inherits so an inline link matches the prose around it."
   },
   "font-weight": {
-    "$value": "inherit",
+    "$value": "{font-weight.medium}",
     "$type": "cssFontWeight",
     "$description": "Font weight for link text."
   },
@@ -271,5 +271,105 @@
     },
     "$type": "duration",
     "$description": "Delay before link hover transitions run."
+  },
+  "decoration-line-current": {
+    "$value": "{link.decoration-line}",
+    "$type": "textDecoration",
+    "$description": "Underline treatment when the link points at the current page."
+  },
+  "decoration-line-current-hover": {
+    "$value": "{link.decoration-line-current}",
+    "$type": "textDecoration",
+    "$description": "Underline treatment of a current-destination link when hovered."
+  },
+  "decoration-line-current-active": {
+    "$value": "{link.decoration-line-current}",
+    "$type": "textDecoration",
+    "$description": "Underline treatment of a current-destination link while being activated."
+  },
+  "decoration-line-current-focus": {
+    "$value": "{link.decoration-line-current}",
+    "$type": "textDecoration",
+    "$description": "Underline treatment of a current-destination link with keyboard focus."
+  },
+  "decoration-style-current": {
+    "$value": "{link.decoration-style}",
+    "$type": "textDecoration",
+    "$description": "Underline style when the link points at the current page."
+  },
+  "decoration-style-current-hover": {
+    "$value": "{link.decoration-style-current}",
+    "$type": "textDecoration",
+    "$description": "Underline style of a current-destination link when hovered."
+  },
+  "decoration-style-current-active": {
+    "$value": "{link.decoration-style-current}",
+    "$type": "textDecoration",
+    "$description": "Underline style of a current-destination link while being activated."
+  },
+  "decoration-style-current-focus": {
+    "$value": "{link.decoration-style-current}",
+    "$type": "textDecoration",
+    "$description": "Underline style of a current-destination link with keyboard focus."
+  },
+  "decoration-color-current": {
+    "$value": "{link.decoration-color}",
+    "$type": "color",
+    "$description": "Underline color when the link points at the current page."
+  },
+  "decoration-color-current-hover": {
+    "$value": "{link.decoration-color-current}",
+    "$type": "color",
+    "$description": "Underline color of a current-destination link when hovered."
+  },
+  "decoration-color-current-active": {
+    "$value": "{link.decoration-color-current}",
+    "$type": "color",
+    "$description": "Underline color of a current-destination link while being activated."
+  },
+  "decoration-color-current-focus": {
+    "$value": "{link.decoration-color-current}",
+    "$type": "color",
+    "$description": "Underline color of a current-destination link with keyboard focus."
+  },
+  "decoration-thickness-current": {
+    "$value": "{link.decoration-thickness}",
+    "$type": "dimension",
+    "$description": "Underline thickness when the link points at the current page."
+  },
+  "decoration-thickness-current-hover": {
+    "$value": "{link.decoration-thickness-current}",
+    "$type": "dimension",
+    "$description": "Underline thickness of a current-destination link when hovered."
+  },
+  "decoration-thickness-current-active": {
+    "$value": "{link.decoration-thickness-current}",
+    "$type": "dimension",
+    "$description": "Underline thickness of a current-destination link while being activated."
+  },
+  "decoration-thickness-current-focus": {
+    "$value": "{link.decoration-thickness-current}",
+    "$type": "dimension",
+    "$description": "Underline thickness of a current-destination link with keyboard focus."
+  },
+  "underline-offset-current": {
+    "$value": "{link.underline-offset}",
+    "$type": "dimension",
+    "$description": "Underline offset when the link points at the current page."
+  },
+  "underline-offset-current-hover": {
+    "$value": "{link.underline-offset-current}",
+    "$type": "dimension",
+    "$description": "Underline offset of a current-destination link when hovered."
+  },
+  "underline-offset-current-active": {
+    "$value": "{link.underline-offset-current}",
+    "$type": "dimension",
+    "$description": "Underline offset of a current-destination link while being activated."
+  },
+  "underline-offset-current-focus": {
+    "$value": "{link.underline-offset-current}",
+    "$type": "dimension",
+    "$description": "Underline offset of a current-destination link with keyboard focus."
   }
 }

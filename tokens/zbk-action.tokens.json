@@ -1,217 +1,99 @@
 {
   "canvas": {
-    "$value": "{color.dusk-50}",
-    "$type": "color",
+    "$value": "{color.lavenderfield-600}",
     "$description": "Base action canvas color for primary surfaces."
   },
   "canvas-subtle": {
-    "$value": "",
-    "$type": "color",
-    "$description": "Soft action canvas color for lightly tinted surfaces.",
-    "$extensions": {
-      "dev.zebkit": {
-        "emptyColorPlaceholder": true
-      }
-    }
+    "$value": "{color.lavenderfield-50}",
+    "$description": "Subtle action canvas color for the least-prominent, lightly tinted surfaces."
   },
   "canvas-muted": {
-    "$value": "",
-    "$type": "color",
-    "$description": "Muted action canvas color for low-emphasis surfaces.",
-    "$extensions": {
-      "dev.zebkit": {
-        "emptyColorPlaceholder": true
-      }
-    }
+    "$value": "{color.lavenderfield-100}",
+    "$description": "Muted action canvas color for low-emphasis, recessed surfaces."
   },
   "canvas-emphasis": {
-    "$value": "",
-    "$type": "color",
-    "$description": "Strong action canvas color for high-emphasis surfaces.",
-    "$extensions": {
-      "dev.zebkit": {
-        "emptyColorPlaceholder": true
-      }
-    }
+    "$value": "{color.lavenderfield-800}",
+    "$description": "Emphasis action canvas color for high-prominence surfaces."
   },
   "canvas-inverse": {
-    "$value": "",
-    "$type": "color",
-    "$description": "Base inverse action canvas color for surfaces on dark or inverted contexts.",
-    "$extensions": {
-      "dev.zebkit": {
-        "emptyColorPlaceholder": true
-      }
-    }
+    "$value": "{color.lavenderfield-400}",
+    "$description": "Base inverse action canvas color for surfaces on dark or inverted contexts."
   },
   "canvas-inverse-subtle": {
-    "$value": "",
-    "$type": "color",
-    "$description": "Soft inverse action canvas color for lightly tinted surfaces in inverse contexts.",
-    "$extensions": {
-      "dev.zebkit": {
-        "emptyColorPlaceholder": true
-      }
-    }
+    "$value": "{color.lavenderfield-900}",
+    "$description": "Subtle inverse action canvas color for the least-prominent surfaces in inverse contexts."
   },
   "canvas-inverse-muted": {
-    "$value": "",
-    "$type": "color",
-    "$description": "Muted inverse action canvas color for low-emphasis surfaces in inverse contexts.",
-    "$extensions": {
-      "dev.zebkit": {
-        "emptyColorPlaceholder": true
-      }
-    }
+    "$value": "{color.lavenderfield-800}",
+    "$description": "Muted inverse action canvas color for low-emphasis surfaces in inverse contexts."
   },
   "canvas-inverse-emphasis": {
-    "$value": "",
-    "$type": "color",
-    "$description": "Strong inverse action canvas color for high-emphasis surfaces in inverse contexts.",
-    "$extensions": {
-      "dev.zebkit": {
-        "emptyColorPlaceholder": true
-      }
-    }
+    "$value": "{color.lavenderfield-300}",
+    "$description": "Emphasis inverse action canvas color for high-prominence surfaces in inverse contexts."
   },
   "ink": {
-    "$value": "hsl(225, 73%, 57%)",
-    "$type": "color",
-    "$description": "Base action ink color for text and icons on neutral or light canvases."
+    "$value": "{color.lavenderfield-700}",
+    "$description": "Base action ink color for body text and icons on neutral or light canvases."
   },
   "ink-subtle": {
-    "$value": "",
-    "$type": "color",
-    "$description": "Soft action ink color for lower-emphasis text and icons.",
-    "$extensions": {
-      "dev.zebkit": {
-        "emptyColorPlaceholder": true
-      }
-    }
+    "$value": "{color.lavenderfield-400}",
+    "$description": "Subtle action ink color for the least-prominent, tertiary text and icons."
   },
   "ink-muted": {
-    "$value": "hsl(225, 73%, 67%)",
-    "$type": "color",
-    "$description": "Muted action ink color for subtle or secondary text and icons."
+    "$value": "{color.lavenderfield-500}",
+    "$description": "Muted action ink color for secondary text and icons."
   },
   "ink-emphasis": {
-    "$value": "{color.blue-800}",
-    "$type": "color",
+    "$value": "{color.lavenderfield-900}",
     "$description": "Emphasis action ink color for high-prominence text and icons."
   },
   "ink-inverse": {
-    "$value": "",
-    "$type": "color",
-    "$description": "Base inverse action ink color for text and icons on inverse or dark canvases.",
-    "$extensions": {
-      "dev.zebkit": {
-        "emptyColorPlaceholder": true
-      }
-    }
+    "$value": "{color.lavenderfield-300}",
+    "$description": "Base inverse action ink color for body text and icons on inverse or dark canvases."
   },
   "ink-inverse-subtle": {
-    "$value": "",
-    "$type": "color",
-    "$description": "Soft inverse action ink color for lower-emphasis text and icons on inverse canvases.",
-    "$extensions": {
-      "dev.zebkit": {
-        "emptyColorPlaceholder": true
-      }
-    }
+    "$value": "{color.lavenderfield-500}",
+    "$description": "Subtle inverse action ink color for the least-prominent text and icons on inverse canvases."
   },
   "ink-inverse-muted": {
-    "$value": "",
-    "$type": "color",
-    "$description": "Muted inverse action ink color for subtle text and icons on inverse canvases.",
-    "$extensions": {
-      "dev.zebkit": {
-        "emptyColorPlaceholder": true
-      }
-    }
+    "$value": "{color.lavenderfield-400}",
+    "$description": "Muted inverse action ink color for secondary text and icons on inverse canvases."
   },
   "ink-inverse-emphasis": {
-    "$value": "{color.blue-200}",
-    "$type": "color",
+    "$value": "{color.lavenderfield-50}",
     "$description": "Emphasis inverse action ink color for high-prominence text on inverse canvases."
   },
   "border": {
-    "$value": "",
-    "$type": "color",
-    "$description": "Base action border color for outlines, strokes, and dividers.",
-    "$extensions": {
-      "dev.zebkit": {
-        "emptyColorPlaceholder": true
-      }
-    }
+    "$value": "{color.lavenderfield-600}",
+    "$description": "Base action border color for outlines, strokes, and dividers."
   },
   "border-subtle": {
-    "$value": "",
-    "$type": "color",
-    "$description": "Soft action border color for low-emphasis outlines and dividers.",
-    "$extensions": {
-      "dev.zebkit": {
-        "emptyColorPlaceholder": true
-      }
-    }
+    "$value": "{color.lavenderfield-100}",
+    "$description": "Subtle action border color for the least-prominent outlines and dividers."
   },
   "border-muted": {
-    "$value": "",
-    "$type": "color",
-    "$description": "Muted action border color for subtle outlines and dividers.",
-    "$extensions": {
-      "dev.zebkit": {
-        "emptyColorPlaceholder": true
-      }
-    }
+    "$value": "{color.lavenderfield-300}",
+    "$description": "Muted action border color for low-emphasis outlines and dividers."
   },
   "border-emphasis": {
-    "$value": "",
-    "$type": "color",
-    "$description": "Strong action border color for high-emphasis outlines and dividers.",
-    "$extensions": {
-      "dev.zebkit": {
-        "emptyColorPlaceholder": true
-      }
-    }
+    "$value": "{color.lavenderfield-800}",
+    "$description": "Emphasis action border color for high-prominence outlines and dividers."
   },
   "border-inverse": {
-    "$value": "",
-    "$type": "color",
-    "$description": "Base inverse action border color for outlines and dividers on inverse canvases.",
-    "$extensions": {
-      "dev.zebkit": {
-        "emptyColorPlaceholder": true
-      }
-    }
+    "$value": "{color.lavenderfield-500}",
+    "$description": "Base inverse action border color for outlines and dividers on inverse canvases."
   },
   "border-inverse-subtle": {
-    "$value": "",
-    "$type": "color",
-    "$description": "Soft inverse action border color for low-emphasis outlines on inverse canvases.",
-    "$extensions": {
-      "dev.zebkit": {
-        "emptyColorPlaceholder": true
-      }
-    }
+    "$value": "{color.lavenderfield-800}",
+    "$description": "Subtle inverse action border color for the least-prominent outlines on inverse canvases."
   },
   "border-inverse-muted": {
-    "$value": "",
-    "$type": "color",
-    "$description": "Muted inverse action border color for subtle outlines on inverse canvases.",
-    "$extensions": {
-      "dev.zebkit": {
-        "emptyColorPlaceholder": true
-      }
-    }
+    "$value": "{color.lavenderfield-700}",
+    "$description": "Muted inverse action border color for low-emphasis outlines on inverse canvases."
   },
   "border-inverse-emphasis": {
-    "$value": "",
-    "$type": "color",
-    "$description": "Strong inverse action border color for high-emphasis outlines on inverse canvases.",
-    "$extensions": {
-      "dev.zebkit": {
-        "emptyColorPlaceholder": true
-      }
-    }
-  }
+    "$value": "{color.lavenderfield-400}",
+    "$description": "Emphasis inverse action border color for high-prominence outlines on inverse canvases."
+  },
+  "$type": "color"
 }

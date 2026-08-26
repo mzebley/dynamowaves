@@ -32,7 +32,7 @@ Base class: `.zbk-toggle`. Variant classes: `.zbk-toggle--{variant}`. Tokens: `-
 | `required` | `boolean` | `false` | Forwarded for native constraint validation. |
 | `name` | `string \| undefined` | — | Forwarded to the internal input for native form participation. |
 | `value` | `string` | `'on'` | The submitted value; defaults to the platform's "on". |
-| `variant` | `string` | `""` | Space-separated registered variant names, e.g. "ghost lg". Unknown names warn with the registered vocabulary. |
+| `variant` | `string \| undefined` | — | Space-separated registered variant names, e.g. "ghost lg". Unknown names warn with the registered vocabulary. |
 
 ## Slots
 
@@ -72,17 +72,17 @@ Values are alias references (`{family.name}` compiles to `var(--zbk-family-name)
 
 | Token | Default | Type | Condition | Description |
 |---|---|---|---|---|
-| `--zbk-toggle-track-width` | `{spacing.105}` | dimension | — | Width of the toggle track. |
-| `--zbk-toggle-track-height` | `{spacing.05}` | dimension | — | Height of the toggle track; the thumb and pill radius derive from it. |
-| `--zbk-toggle-canvas` | `{app.canvas-muted}` | color | — | Track background when the toggle is off. |
-| `--zbk-toggle-canvas-hover` | `{toggle.canvas}` | color | — | Track background when hovered. |
-| `--zbk-toggle-canvas-active` | `{toggle.canvas}` | color | — | Track background while pressed. |
-| `--zbk-toggle-canvas-checked` | `{action.ink}` | color | — | Track background when the toggle is on. |
-| `--zbk-toggle-canvas-checked-hover` | `{toggle.canvas-checked}` | color | — | Track background when on and hovered. |
-| `--zbk-toggle-canvas-checked-active` | `{toggle.canvas-checked}` | color | — | Track background when on and pressed. |
+| `--zbk-toggle-track-width` | `{spacing.205}` | dimension | — | Width of the toggle track. |
+| `--zbk-toggle-track-height` | `{a11y.min-interaction-size}` | dimension | — | Height of the toggle track; the thumb and pill radius derive from it. |
+| `--zbk-toggle-canvas` | `{app.border}` | color | — | Unchecked toggle track with a visible boundary on the dark docs canvas. |
+| `--zbk-toggle-canvas-hover` | `{app.border-emphasis}` | color | — | Unchecked toggle track while hovered. |
+| `--zbk-toggle-canvas-active` | `{app.border-muted}` | color | — | Unchecked toggle track while pressed. |
+| `--zbk-toggle-canvas-checked` | `{action.ink}` | color | — | Checked toggle track. |
+| `--zbk-toggle-canvas-checked-hover` | `{action.ink-emphasis}` | color | — | Checked toggle track while hovered. |
+| `--zbk-toggle-canvas-checked-active` | `{action.ink}` | color | — | Checked toggle track while pressed. |
 | `--zbk-toggle-canvas-checked-disabled` | `{toggle.canvas-disabled}` | color | — | Track background when on and disabled. |
 | `--zbk-toggle-canvas-disabled` | `{disabled.canvas}` | color | — | Track background when disabled. |
-| `--zbk-toggle-border-color` | `{app.canvas-muted}` | color | — | Track border color when the toggle is off. |
+| `--zbk-toggle-border-color` | `{app.ink-subtle}` | color | — | Track border color when the toggle is off. |
 | `--zbk-toggle-border-color-hover` | `{toggle.canvas-checked}` | color | — | Track border color when hovered. |
 | `--zbk-toggle-border-color-active` | `{toggle.canvas-active}` | color | — | Track border color while pressed. |
 | `--zbk-toggle-border-color-checked` | `{toggle.canvas-checked}` | color | — | Track border color when the toggle is on. |
@@ -102,13 +102,13 @@ Values are alias references (`{family.name}` compiles to `var(--zbk-family-name)
 | `--zbk-toggle-box-shadow-checked-disabled` | `none` | shadow | — | Track shadow when on and disabled. |
 | `--zbk-toggle-box-shadow-focus` | `none` | shadow | — | Track shadow in the focus state (in addition to the outline). |
 | `--zbk-toggle-box-shadow-disabled` | `none` | shadow | — | Track shadow when disabled. |
-| `--zbk-toggle-thumb-size` | `{spacing.1}` | dimension | — | Diameter of the thumb. |
-| `--zbk-toggle-thumb-inset` | `{spacing.neg-2px}` | dimension | — | Thumb offset from the track's start edge; negative overlaps the border. |
-| `--zbk-toggle-thumb-canvas` | `{app.canvas-subtle}` | color | — | Thumb background when the toggle is off. |
-| `--zbk-toggle-thumb-canvas-hover` | `{toggle.thumb-canvas}` | color | — | Thumb background when hovered. |
-| `--zbk-toggle-thumb-canvas-checked` | `{toggle.thumb-canvas}` | color | — | Thumb background when the toggle is on. |
-| `--zbk-toggle-thumb-canvas-checked-hover` | `{toggle.thumb-canvas-checked}` | color | — | Thumb background when on and hovered. |
-| `--zbk-toggle-thumb-canvas-checked-active` | `{toggle.thumb-canvas-checked}` | color | — | Thumb background when on and pressed. |
+| `--zbk-toggle-thumb-size` | `{toggle.track-height}` | dimension | — | Maximum diameter of the thumb; rendered geometry also honors the track inset. |
+| `--zbk-toggle-thumb-inset` | `{spacing.2px}` | dimension | — | Thumb inset from every track edge. |
+| `--zbk-toggle-thumb-canvas` | `{app.canvas-muted}` | color | — | Unchecked toggle thumb. |
+| `--zbk-toggle-thumb-canvas-hover` | `{app.canvas-muted}` | color | — | Unchecked toggle thumb while hovered. |
+| `--zbk-toggle-thumb-canvas-checked` | `{app.canvas-muted}` | color | — | Checked toggle thumb. |
+| `--zbk-toggle-thumb-canvas-checked-hover` | `{app.canvas-muted}` | color | — | Checked toggle thumb while hovered. |
+| `--zbk-toggle-thumb-canvas-checked-active` | `{app.canvas-muted}` | color | — | Checked toggle thumb while pressed. |
 | `--zbk-toggle-thumb-canvas-checked-disabled` | `{toggle.thumb-canvas-disabled}` | color | — | Thumb background when on and disabled. |
 | `--zbk-toggle-thumb-canvas-disabled` | `{toggle.thumb-canvas}` | color | — | Thumb background when disabled. |
 | `--zbk-toggle-thumb-border-color` | `{app.canvas-muted}` | color | — | Thumb border color when the toggle is off. |
@@ -134,7 +134,7 @@ Values are alias references (`{family.name}` compiles to `var(--zbk-family-name)
 | `--zbk-toggle-thumb-transform-checked-hover` | `{toggle.thumb-transform-checked}` | transform | — | Thumb transform when on and hovered. |
 | `--zbk-toggle-thumb-transform-checked-active` | `{toggle.thumb-transform-checked}` | transform | — | Thumb transform when on and pressed. |
 | `--zbk-toggle-thumb-transform-checked-disabled` | `{toggle.thumb-transform-checked}` | transform | — | Thumb transform when on and disabled. |
-| `--zbk-toggle-ink` | `{app.ink}` | color | — | Label text color. |
+| `--zbk-toggle-ink` | `{app.ink}` | color | — | Toggle label ink. |
 | `--zbk-toggle-ink-disabled` | `{disabled.ink}` | color | — | Label text color when disabled. |
 | `--zbk-toggle-font-family` | `{font-family.interface}` | fontFamily | — | Font family for the toggle label. |
 | `--zbk-toggle-font-size` | `{p.font-size}` | cssDimension | — | Font size for the toggle label. |
@@ -171,6 +171,7 @@ A variant is a named, partial remapping of the token surface compiled to a class
 
 | Variant | Axis | Class | Description | Overrides |
 |---|---|---|---|---|
+| `aaa` | accessibility | `zbk-toggle--aaa` | AAA target geometry, label contrast, track and thumb boundaries, and state contrast. | track-width: {spacing.4}; track-height: {spacing.xl}; canvas: {app.canvas-subtle}; canvas-hover: {app.canvas-subtle}; canvas-active: {app.canvas-subtle}; canvas-checked: {app.canvas-inverse}; canvas-checked-hover: {app.canvas-inverse}; canvas-checked-active: {app.canvas-inverse}; border-color: {app.ink-emphasis}; border-color-hover: {app.ink-emphasis}; border-color-active: {app.ink-emphasis}; border-color-checked: {app.ink-inverse-emphasis}; border-color-checked-hover: {app.ink-inverse-emphasis}; border-color-checked-active: {app.ink-inverse-emphasis}; border-width: {border.width-md}; thumb-size: {spacing.2}; thumb-inset: {spacing.xs}; thumb-canvas: {app.canvas-inverse}; thumb-canvas-hover: {app.canvas-inverse}; thumb-canvas-checked: {app.ink-inverse-emphasis}; thumb-canvas-checked-hover: {app.ink-inverse-emphasis}; thumb-canvas-checked-active: {app.ink-inverse-emphasis}; thumb-border-color: {app.ink-emphasis}; thumb-border-color-checked: {app.ink-emphasis}; thumb-border-color-checked-hover: {app.ink-emphasis}; thumb-border-color-checked-active: {app.ink-emphasis}; ink: {app.ink-emphasis}; font-size: {font-size.md}; gap: {spacing.sm}; focus-color: {info.ink}; focus-width: {border.width-md} |
 | `lg` | size | `zbk-toggle--lg` | Larger track and label type; thumb follows the track. | track-width: {spacing.xl}; track-height: {spacing.lg}; font-size: {font-size.lg} |
 | `sm` | size | `zbk-toggle--sm` | Smaller track and label type; thumb follows the track. | track-width: {spacing.lg}; track-height: {spacing.md}; font-size: {font-size.sm} |
 

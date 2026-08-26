@@ -61,14 +61,15 @@ if (!state.configPath) {
   process.exit(2);
 } else {
   const tokens = state.config?.tokens ?? {};
+  const theme = state.config?.theme ?? {};
   const components = loadComponents(state.packageDir);
   const { excluded, included } = componentFilter(state.config, components);
   const breakpoints = tokens.extendedTokens?.breakpoints ?? true;
   lines.push(`Config: ${rel(state.configPath)}`);
   lines.push(
-    `Theme: ${tokens.themeName ?? tokens.basePreset ?? "zebkit"} from ${
-      tokens.basePreset ?? "default"
-    } · tokens ${tokens.tokenPath ?? "(package defaults only)"} · destination ${
+    `Theme: ${theme.name ?? theme.preset ?? "zebkit"} from ${
+      theme.preset ?? "default"
+    } · tokens ${theme.tokenPath ?? "(package defaults only)"} · destination ${
       tokens.destinationPath ?? "./dist"
     }`
   );
@@ -89,11 +90,14 @@ if (state.cssPath) {
       index.properties.size
     } --zbk-* properties. This is final authority for the project build.`
   );
-  const evidencePath = path.join(path.dirname(state.cssPath), "zebkit-a11y-input.json");
+  const configuredEvidencePath = state.config?.accessibility?.inputPath;
+  const evidencePath = configuredEvidencePath
+    ? path.resolve(state.projectDir, configuredEvidencePath)
+    : path.join(path.dirname(state.cssPath), "zebkit-a11y-input.json");
   lines.push(
     fs.existsSync(evidencePath)
       ? `Static evidence: ${rel(evidencePath)}`
-      : "Static evidence: not found beside CSS; rebuild before treating `zebkit check` as current."
+      : `Static evidence: not found at ${rel(evidencePath)}; rebuild before treating \`zebkit check\` as current.`
   );
 } else {
   const css = state.cssResolution;
@@ -113,8 +117,8 @@ if (state.cssPath) {
 lines.push(
   state.runtimePath
     ? `Runtime config: ${rel(state.runtimePath)} — apply it before defining components.`
-    : state.config?.runtime === false
-      ? "Runtime config: explicitly disabled; the consumer owns option and custom-variant registration."
+    : state.config?.runtime?.delivery === "manual"
+      ? "Runtime config: manual delivery; the consumer owns option and custom-variant registration."
       : "Runtime config: not found; run `npx zebkit pull` or `npx zebkit init`."
 );
 lines.push(

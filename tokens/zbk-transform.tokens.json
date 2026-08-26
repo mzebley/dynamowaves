@@ -1,0 +1,32 @@
+{
+  "reveal-indicator-collapsed": {
+    "$value": "{transform.identity}",
+    "$type": "transform",
+    "$description": "Transform applied to a reveal indicator while its content is collapsed."
+  },
+  "reveal-indicator-expanded": {
+    "$value": "{transform.quarter-turn-clockwise}",
+    "$type": "transform",
+    "$description": "Transform applied to a reveal indicator while its content is expanded."
+  },
+  "reveal-indicator-origin": {
+    "$value": "{transform.origin-center}",
+    "$type": "transformOrigin",
+    "$description": "Transform origin used by reveal indicators as they change state."
+  },
+  "identity": {
+    "$value": "none",
+    "$type": "transform",
+    "$description": "Identity transform with no visual translation, rotation, or scaling."
+  },
+  "quarter-turn-clockwise": {
+    "$value": "rotate(90deg)",
+    "$type": "transform",
+    "$description": "One clockwise quarter-turn around the configured transform origin."
+  },
+  "origin-center": {
+    "$value": "center",
+    "$type": "transformOrigin",
+    "$description": "Transform origin at the visual center of an element."
+  }
+}

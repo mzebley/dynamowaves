@@ -1,0 +1,102 @@
+{
+  "kbd-font-family": {
+    "$value": "{prose-code.font-family}",
+    "$type": "fontFamily",
+    "$description": "Font family for keyboard input rendered in prose."
+  },
+  "kbd-font-size": {
+    "$value": "{prose-code.font-size}",
+    "$type": "cssDimension",
+    "$description": "Font size for keyboard input rendered in prose."
+  },
+  "kbd-font-weight": {
+    "$value": "{font-weight.semibold}",
+    "$type": "fontWeight",
+    "$description": "Font weight for keyboard input rendered in prose."
+  },
+  "kbd-line-height": {
+    "$value": "{prose-code.line-height}",
+    "$type": "number",
+    "$description": "Line height for keyboard input rendered in prose."
+  },
+  "kbd-ink": {
+    "$value": "{prose-code.ink}",
+    "$type": "color",
+    "$description": "Text color for keyboard input rendered in prose."
+  },
+  "kbd-canvas": {
+    "$value": "{prose-code.canvas}",
+    "$type": "color",
+    "$description": "Background color for keyboard input rendered in prose."
+  },
+  "kbd-border-color": {
+    "$value": "{prose-code.block-border-color}",
+    "$type": "color",
+    "$description": "Border color for keyboard input rendered in prose."
+  },
+  "kbd-border-width": {
+    "$value": "{prose-code.block-border-width}",
+    "$type": "dimension",
+    "$description": "Border width for keyboard input rendered in prose."
+  },
+  "kbd-border-style": {
+    "$value": "{prose-code.block-border-style}",
+    "$type": "strokeStyle",
+    "$description": "Border style for keyboard input rendered in prose."
+  },
+  "kbd-border-radius": {
+    "$value": "{border.radius-sm}",
+    "$type": "dimension",
+    "$description": "Corner radius for keyboard input rendered in prose."
+  },
+  "kbd-padding-inline": {
+    "$value": "{spacing.025}",
+    "$type": "dimension",
+    "$description": "Inline inset for keyboard input rendered in prose."
+  },
+  "kbd-padding-block": {
+    "$value": "{spacing.0}",
+    "$type": "dimension",
+    "$description": "Block inset for keyboard input rendered in prose."
+  },
+  "mark-ink": {
+    "$value": "{accent-secondary.ink-emphasis}",
+    "$type": "color",
+    "$description": "Text color for highlighted prose."
+  },
+  "mark-canvas": {
+    "$value": "{accent-secondary.canvas-subtle}",
+    "$type": "color",
+    "$description": "Background color for highlighted prose."
+  },
+  "mark-padding-inline": {
+    "$value": "{spacing.1px}",
+    "$type": "dimension",
+    "$description": "Inline inset around highlighted prose."
+  },
+  "small-font-size": {
+    "$value": "{font-size.xs}",
+    "$type": "cssDimension",
+    "$description": "Font size for supplementary small prose."
+  },
+  "sup-sub-font-size": {
+    "$value": "{font-size.2xs}",
+    "$type": "cssDimension",
+    "$description": "Font size for superscript and subscript prose."
+  },
+  "abbr-decoration-color": {
+    "$value": "{app.border}",
+    "$type": "color",
+    "$description": "Underline color for abbreviations that provide an expansion."
+  },
+  "abbr-decoration-style": {
+    "$value": "dotted",
+    "$type": "textDecoration",
+    "$description": "Underline style for abbreviations that provide an expansion."
+  },
+  "abbr-underline-offset": {
+    "$value": "{spacing.2px}",
+    "$type": "dimension",
+    "$description": "Underline offset for abbreviations that provide an expansion."
+  }
+}

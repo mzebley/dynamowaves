@@ -2,7 +2,7 @@
   "font-family": {
     "$value": "{font-family.heading}",
     "$type": "fontFamily",
-    "$description": "Font size for H4 elements with .prose applied directly or that are a child of a .prose container."
+    "$description": "Font family for H4 elements with .prose applied directly or that are a child of a .prose container."
   },
   "font-size": {
     "$value": "{font-size.md}",
@@ -10,7 +10,7 @@
     "$description": "Font size for H4 elements with .prose applied directly or that are a child of a .prose container."
   },
   "font-weight": {
-    "$value": "{font-weight.semibold}",
+    "$value": "{font-weight.medium}",
     "$type": "fontWeight",
     "$description": "Font weight for H4 elements with .prose applied directly or that are a child of a .prose container."
   },
@@ -20,27 +20,27 @@
     "$description": "Line height for H4 elements with .prose applied directly or that are a child of a .prose container."
   },
   "letter-spacing": {
-    "$value": "{letter-spacing.normal}",
+    "$value": "{letter-spacing.tight}",
     "$type": "dimension",
     "$description": "Tracking for H4 elements with .prose applied directly or that are a child of a .prose container."
   },
   "measure": {
     "$value": "{text-measure.3}",
     "$type": "cssDimension",
-    "$description": "Maximum width for H4 elements with .prose applied directly or that are a child of a .prose container."
+    "$description": "Maximum inline measure for H4 elements with .prose applied directly or that are a child of a .prose container."
   },
   "spacing-before": {
-    "$value": "{spacing.3}",
+    "$value": "{spacing.1}",
     "$type": "dimension",
-    "$description": "Amount of margin inline start for H4 elements with .prose applied directly or that are a child of a .prose container."
+    "$description": "Incoming spacing request when an H4 follows another direct child in a .prose flow. The resolved gap is the larger of this spacing-before and the previous treatment's spacing-after, so structural hierarchy wins without relying on source order."
   },
   "spacing-after": {
-    "$value": "{spacing.105}",
+    "$value": "{spacing.05}",
     "$type": "dimension",
-    "$description": "Amount of margin inline end for H4 elements with .prose applied directly or that are a child of a .prose container."
+    "$description": "Outgoing spacing request contributed by an H4 to the next direct child in a .prose flow. The resolved gap is the larger of this spacing-after and the next treatment's spacing-before; an eyebrow immediately followed by a heading intentionally uses the eyebrow's tighter outgoing gap."
   },
   "color": {
-    "$value": "{app.ink}",
+    "$value": "{accent-primary.ink}",
     "$type": "color",
     "$description": "Color of H4 elements with .prose applied directly or that are a child of a .prose container."
   },

@@ -11,6 +11,7 @@ Base class: `.zbk-heading`. Variant classes: `.zbk-heading--{variant}`. Tokens: 
 | `level` | `number` | `1` |  |
 | `anchor` | `boolean` | `false` |  |
 | `copy-link` | `boolean` | `false` |  |
+| `variant` | `string` | `""` | Accessibility variant composed from the existing global token language. |
 
 ## Events
 

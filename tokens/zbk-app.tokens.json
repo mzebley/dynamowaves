@@ -10,7 +10,7 @@
     "$description": "Soft app canvas color for lightly tinted surfaces."
   },
   "canvas-muted": {
-    "$value": "{neutral.200}",
+    "$value": "{accent-primary.100}",
     "$type": "color",
     "$description": "Muted app canvas color for low-emphasis surfaces."
   },
@@ -80,40 +80,19 @@
     "$description": "Emphasis inverse app ink color for high-prominence text on inverse canvases."
   },
   "border": {
-    "$value": "{neutral.200}",
+    "$value": "{neutral.300}",
     "$type": "color",
     "$description": "Base app border color for outlines, strokes, and dividers.",
     "$extensions": {}
   },
   "border-subtle": {
-    "$value": "",
-    "$type": "color",
-    "$description": "Soft app border color for low-emphasis outlines and dividers.",
-    "$extensions": {
-      "dev.zebkit": {
-        "emptyColorPlaceholder": true
-      }
-    }
+    "$value": "{neutral.100}"
   },
   "border-muted": {
-    "$value": "",
-    "$type": "color",
-    "$description": "Muted app border color for subtle outlines and dividers.",
-    "$extensions": {
-      "dev.zebkit": {
-        "emptyColorPlaceholder": true
-      }
-    }
+    "$value": "{neutral.200}"
   },
   "border-emphasis": {
-    "$value": "",
-    "$type": "color",
-    "$description": "Strong app border color for high-emphasis outlines and dividers.",
-    "$extensions": {
-      "dev.zebkit": {
-        "emptyColorPlaceholder": true
-      }
-    }
+    "$value": "{neutral.700}"
   },
   "border-inverse": {
     "$value": "",

@@ -3,15 +3,17 @@
 # Color utilities
 
 Utilities are token-bound class grammar, not hard-coded values. They live in `@layer utilities`, so unlayered consumer CSS overrides them without `!important`.
+Zebkit orders its layers as `theme, base, components, variants, utilities`: utilities override variants, and variants override their component defaults.
 
 - Pattern families use `base[-edge]-{value}`. Edges are logical (`block`, `inline`, `block-start`, `inline-end`) unless a family says otherwise.
 - When a family lists responsive support, prefix its class with `tablet:`, `tablet-lg:`, `desktop:`, `desktop-lg:`, or `widescreen:`.
+- When a family lists interaction-state support, prefix its class with `focus:`, `hover:`, or `active:`. Interaction-state and breakpoint prefixes are independent and do not combine.
 - Negative values use `neg-{value}` only where the family offers them.
 - Values resolve through design tokens; use the documented grammar instead of writing raw CSS values.
 
 ## Color utilities
 
-Color utilities project primitive, semi-semantic, and semantic token values onto text, background, border, SVG fill, and SVG stroke properties. All surfaces emit base classes and interaction-state prefixed forms (hover:, focus:, active:, disabled:).
+Color utilities project primitive, semi-semantic, and semantic token values onto text, solid and gradient backgrounds, borders, SVG fills, and SVG strokes. Solid color surfaces emit base classes and interaction-state prefixed forms (hover:, focus:, active:, disabled:); gradient canvases are base-only recipes.
 
 ### color-palette
 
@@ -34,3 +36,13 @@ Semantic color utilities select a canvas, ink, or border token from each family,
 Projection: `{target}-{family}{-intensity}{-variant}` -> `--zbk-{family}-{target}{-variant}{-intensity}` — targets: canvas -> background-color + background, ink -> color, border -> border-color · family: accent-primary, accent-secondary, action, app, brand, caution, critical, disabled, info, positive · intensity: optional, subtle, muted, emphasis · variant: optional, inverse
 Projection: `{target}-{family}-{role}{-intensity}{-variant}` -> `--zbk-{family}-{role}{-variant}{-intensity}` — targets: fill -> fill, stroke -> stroke · family: accent-primary, accent-secondary, action, app, brand, caution, critical, disabled, info, positive · intensity: optional, subtle, muted, emphasis · variant: optional, inverse · role: canvas, ink, border
 State prefixes: `focus:` `hover:` `active:` `disabled:`.
+
+### canvas-gradient
+
+Token-bound diagonal gradient canvases. Theme recipes combine brand and accent ramps; primitive recipes span the light-to-dark range of one palette family.
+
+Classes: `canvas-gradient-brand`, `canvas-gradient-accent-primary`, `canvas-gradient-accent-secondary`, `canvas-gradient-brand-accent-primary`, `canvas-gradient-brand-accent-secondary`, `canvas-gradient-accent-primary-accent-secondary`, `canvas-gradient-blue`, `canvas-gradient-butterfield`, `canvas-gradient-charcoal`, `canvas-gradient-chestnut`, `canvas-gradient-cyan`, `canvas-gradient-deepcurrent`, `canvas-gradient-dusk`, `canvas-gradient-ember`, `canvas-gradient-foxglove`, `canvas-gradient-gold`, `canvas-gradient-green`, `canvas-gradient-indigo`, `canvas-gradient-lavenderfield`, `canvas-gradient-lime`, `canvas-gradient-merlot`, `canvas-gradient-mint`, `canvas-gradient-orange`, `canvas-gradient-pink`, `canvas-gradient-red`, `canvas-gradient-rosewater`, `canvas-gradient-sea`, `canvas-gradient-stone`, `canvas-gradient-teal`, `canvas-gradient-violet`, `canvas-gradient-yellow`.
+Sets: `canvas-gradient-brand`: background-color, background; `canvas-gradient-accent-primary`: background-color, background; `canvas-gradient-accent-secondary`: background-color, background; `canvas-gradient-brand-accent-primary`: background-color, background; `canvas-gradient-brand-accent-secondary`: background-color, background; `canvas-gradient-accent-primary-accent-secondary`: background-color, background; `canvas-gradient-blue`: background-color, background; `canvas-gradient-butterfield`: background-color, background; `canvas-gradient-charcoal`: background-color, background; `canvas-gradient-chestnut`: background-color, background; `canvas-gradient-cyan`: background-color, background; `canvas-gradient-deepcurrent`: background-color, background; `canvas-gradient-dusk`: background-color, background; `canvas-gradient-ember`: background-color, background; `canvas-gradient-foxglove`: background-color, background; `canvas-gradient-gold`: background-color, background; `canvas-gradient-green`: background-color, background; `canvas-gradient-indigo`: background-color, background; `canvas-gradient-lavenderfield`: background-color, background; `canvas-gradient-lime`: background-color, background; `canvas-gradient-merlot`: background-color, background; `canvas-gradient-mint`: background-color, background; `canvas-gradient-orange`: background-color, background; `canvas-gradient-pink`: background-color, background; `canvas-gradient-red`: background-color, background; `canvas-gradient-rosewater`: background-color, background; `canvas-gradient-sea`: background-color, background; `canvas-gradient-stone`: background-color, background; `canvas-gradient-teal`: background-color, background; `canvas-gradient-violet`: background-color, background; `canvas-gradient-yellow`: background-color, background.
+
+- Treat gradients as decorative surfaces by default. Before placing text or interactive controls directly on one, verify contrast at every stop and across the blended area.
+- Use the semantic brand/accent recipes when the surface should follow theme remapping. Use a named primitive family only when that hue is itself part of the design intent.

@@ -1,0 +1,35 @@
+{
+  "code-block": {
+    "aaa": {
+      "axis": "accessibility",
+      "description": "AAA code and chrome contrast, larger reading type, and full-size action targets.",
+      "overrides": {
+        "ink": "{app.ink-emphasis}",
+        "border-color": "{app.ink-emphasis}",
+        "bar-ink": "{app.ink-emphasis}",
+        "bar-border-color": "{app.ink-emphasis}",
+        "bar-font-size": "{font-size.sm}",
+        "bar-padding-inline": "{spacing.md}",
+        "bar-padding-block": "{spacing.sm}",
+        "bar-gap": "{spacing.md}",
+        "actions-gap": "{spacing.sm}",
+        "view-gap": "{spacing.sm}",
+        "code-ink": "{app.ink-emphasis}",
+        "code-font-size": "{font-size.md}",
+        "code-padding-inline": "{spacing.lg}",
+        "code-padding-block": "{spacing.lg}",
+        "preview-ink": "{app.ink-emphasis}",
+        "preview-padding-inline": "{spacing.lg}",
+        "preview-padding-block": "{spacing.lg}",
+        "split-divider-ink": "{app.ink-emphasis}",
+        "split-divider-ink-hover": "{app.ink-emphasis}",
+        "split-divider-ink-active": "{info.ink}",
+        "split-divider-target-size": "{spacing.xl}",
+        "split-grip-canvas": "{app.canvas}",
+        "split-grip-ink": "{app.ink-emphasis}",
+        "split-grip-border-color": "{app.ink-emphasis}",
+        "focus-color": "{info.ink}"
+      }
+    }
+  }
+}

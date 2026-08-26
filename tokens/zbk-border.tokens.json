@@ -53,5 +53,15 @@
     "$value": "{spacing.205}",
     "$type": "dimension",
     "$description": "Largest semantic corner radius."
+  },
+  "width-0": {
+    "$value": "{spacing.0}",
+    "$type": "dimension",
+    "$description": "No visible border width."
+  },
+  "radius-0": {
+    "$value": "{spacing.0}",
+    "$type": "dimension",
+    "$description": "Square corners with no radius."
   }
 }

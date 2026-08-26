@@ -37,7 +37,7 @@ Base class: `.zbk-link`. Variant classes: `.zbk-link--{variant}`. Tokens: `--zbk
 | `hreflang` | `string \| undefined` | — | Native: language of the destination. |
 | `type` | `string \| undefined` | — | Native: MIME type hint for the destination. |
 | `appearance` | `ZbkLinkAppearance` | `"link"` | Which component's compiled style contract the anchor wears. `"button"` paints the link as a button and switches `variant` to button's vocabulary; semantics stay a link's either way. |
-| `variant` | `string` | `""` | Space-separated registered variant names, e.g. "ghost lg". Unknown names warn with the registered vocabulary. |
+| `variant` | `string \| undefined` | — | Space-separated registered variant names, e.g. "ghost lg". Unknown names warn with the registered vocabulary. |
 
 ## Slots
 
@@ -152,10 +152,30 @@ Values are alias references (`{family.name}` compiles to `var(--zbk-family-name)
 | `--zbk-link-decoration-color-hover` | `{action.ink}` | color | — | Underline color on hover. Strengthening the rule is the cheapest possible hover signal — no layout moves. |
 | `--zbk-link-decoration-color-visited` | `{link.decoration-color}` | color | — | Underline color for visited links. One of only two properties browsers allow :visited to change (the other is color). |
 | `--zbk-link-decoration-color-visited-hover` | `{link.decoration-color-visited}` | color | — | Underline color of a visited link when hovered. Kept separate because browsers permit visited styling only for color properties. |
+| `--zbk-link-decoration-line-current` | `{link.decoration-line}` | textDecoration | — | Underline treatment when the link points at the current page. |
+| `--zbk-link-decoration-line-current-hover` | `{link.decoration-line-current}` | textDecoration | — | Underline treatment of a current-destination link when hovered. |
+| `--zbk-link-decoration-line-current-active` | `{link.decoration-line-current}` | textDecoration | — | Underline treatment of a current-destination link while being activated. |
+| `--zbk-link-decoration-line-current-focus` | `{link.decoration-line-current}` | textDecoration | — | Underline treatment of a current-destination link with keyboard focus. |
+| `--zbk-link-decoration-style-current` | `{link.decoration-style}` | textDecoration | — | Underline style when the link points at the current page. |
+| `--zbk-link-decoration-style-current-hover` | `{link.decoration-style-current}` | textDecoration | — | Underline style of a current-destination link when hovered. |
+| `--zbk-link-decoration-style-current-active` | `{link.decoration-style-current}` | textDecoration | — | Underline style of a current-destination link while being activated. |
+| `--zbk-link-decoration-style-current-focus` | `{link.decoration-style-current}` | textDecoration | — | Underline style of a current-destination link with keyboard focus. |
+| `--zbk-link-decoration-color-current` | `{link.decoration-color}` | color | — | Underline color when the link points at the current page. |
+| `--zbk-link-decoration-color-current-hover` | `{link.decoration-color-current}` | color | — | Underline color of a current-destination link when hovered. |
+| `--zbk-link-decoration-color-current-active` | `{link.decoration-color-current}` | color | — | Underline color of a current-destination link while being activated. |
+| `--zbk-link-decoration-color-current-focus` | `{link.decoration-color-current}` | color | — | Underline color of a current-destination link with keyboard focus. |
 | `--zbk-link-decoration-thickness` | `{spacing.2xs}` | dimension | — | Underline thickness at rest. |
 | `--zbk-link-decoration-thickness-hover` | `{link.decoration-thickness}` | dimension | — | Underline thickness on hover. |
+| `--zbk-link-decoration-thickness-current` | `{link.decoration-thickness}` | dimension | — | Underline thickness when the link points at the current page. |
+| `--zbk-link-decoration-thickness-current-hover` | `{link.decoration-thickness-current}` | dimension | — | Underline thickness of a current-destination link when hovered. |
+| `--zbk-link-decoration-thickness-current-active` | `{link.decoration-thickness-current}` | dimension | — | Underline thickness of a current-destination link while being activated. |
+| `--zbk-link-decoration-thickness-current-focus` | `{link.decoration-thickness-current}` | dimension | — | Underline thickness of a current-destination link with keyboard focus. |
 | `--zbk-link-underline-offset` | `{spacing.xs}` | dimension | — | Distance from the text baseline to the underline. Offsetting keeps the rule clear of descenders, which is what makes an underlined link legible. |
 | `--zbk-link-underline-offset-hover` | `{spacing.sm}` | dimension | — | Underline offset on hover. Growing the offset drops the rule away from the word — motion the reader feels without anything reflowing. |
+| `--zbk-link-underline-offset-current` | `{link.underline-offset}` | dimension | — | Underline offset when the link points at the current page. |
+| `--zbk-link-underline-offset-current-hover` | `{link.underline-offset-current}` | dimension | — | Underline offset of a current-destination link when hovered. |
+| `--zbk-link-underline-offset-current-active` | `{link.underline-offset-current}` | dimension | — | Underline offset of a current-destination link while being activated. |
+| `--zbk-link-underline-offset-current-focus` | `{link.underline-offset-current}` | dimension | — | Underline offset of a current-destination link with keyboard focus. |
 | `--zbk-link-font-family` | `inherit` | cssFontFamily | — | Font family for link text. Inherits so an inline link matches the prose around it. |
 | `--zbk-link-font-size` | `inherit` | cssDimension | — | Font size for link text. Inherits so an inline link matches the prose around it. |
 | `--zbk-link-font-weight` | `inherit` | cssFontWeight | — | Font weight for link text. |
@@ -192,6 +212,7 @@ A variant is a named, partial remapping of the token surface compiled to a class
 
 | Variant | Axis | Class | Description | Overrides |
 |---|---|---|---|---|
+| `aaa` | accessibility | `zbk-link--aaa` | AAA target sizing, high-contrast text and decoration, and strong focus visibility. | ink: {app.ink-emphasis}; ink-hover: {app.ink-emphasis}; ink-active: {app.ink-emphasis}; ink-focus: {app.ink-emphasis}; ink-visited: {app.ink-emphasis}; ink-visited-hover: {app.ink-emphasis}; ink-visited-active: {app.ink-emphasis}; ink-visited-focus: {app.ink-emphasis}; ink-current: {app.ink-emphasis}; ink-current-hover: {app.ink-emphasis}; ink-current-active: {app.ink-emphasis}; ink-current-focus: {app.ink-emphasis}; decoration-color: {app.ink-emphasis}; decoration-color-hover: {app.ink-emphasis}; decoration-color-visited: {app.ink-emphasis}; decoration-color-visited-hover: {app.ink-emphasis}; font-size: {font-size.md}; min-inline-size: {spacing.xl}; min-block-size: {spacing.xl}; padding-inline: {spacing.xs}; padding-block: {spacing.xs}; focus-color: {info.ink}; focus-width: {border.width-md} |
 | `subtle` | style | `zbk-link--subtle` | No underline at rest; underline returns on hover so the affordance is never lost for keyboard and low-vision users. | ink: {app.ink}; ink-hover: {action.ink}; decoration-line: none; decoration-line-hover: underline; decoration-color-hover: {action.ink} |
 
 Custom variants: add a `zbk-link.variants.json` file to the base theme's token folder (component-keyed map of `{ "link": { "{name}": { "overrides": { ... } } } }`; token keys must exist in the table above, values are alias references or structural literals). A shipped variant name patches that variant's CSS — usable immediately. A new name compiles a new `.zbk-link--{name}` class and additionally needs `ZebkitElement.registerVariants(json)` before elements upgrade so `variant="{name}"` validates and applies it.

@@ -3,9 +3,11 @@
 # Grid utilities
 
 Utilities are token-bound class grammar, not hard-coded values. They live in `@layer utilities`, so unlayered consumer CSS overrides them without `!important`.
+Zebkit orders its layers as `theme, base, components, variants, utilities`: utilities override variants, and variants override their component defaults.
 
 - Pattern families use `base[-edge]-{value}`. Edges are logical (`block`, `inline`, `block-start`, `inline-end`) unless a family says otherwise.
 - When a family lists responsive support, prefix its class with `tablet:`, `tablet-lg:`, `desktop:`, `desktop-lg:`, or `widescreen:`.
+- When a family lists interaction-state support, prefix its class with `focus:`, `hover:`, or `active:`. Interaction-state and breakpoint prefixes are independent and do not combine.
 - Negative values use `neg-{value}` only where the family offers them.
 - Values resolve through design tokens; use the documented grammar instead of writing raw CSS values.
 

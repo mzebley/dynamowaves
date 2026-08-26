@@ -1,0 +1,27 @@
+{
+  "spacing-before": {
+    "$value": "{spacing.1}",
+    "$type": "dimension",
+    "$description": "Incoming spacing request when a thematic break follows another direct child in a .prose flow. The resolved gap is the larger of this spacing-before and the previous treatment's spacing-after, so structural hierarchy wins without relying on source order."
+  },
+  "spacing-after": {
+    "$value": "{spacing.1}",
+    "$type": "dimension",
+    "$description": "Outgoing spacing request contributed by a thematic break to the next direct child in a .prose flow. The resolved gap is the larger of this spacing-after and the next treatment's spacing-before; documented compound pairs may intentionally use the tighter outgoing gap."
+  },
+  "color": {
+    "$value": "{accent-primary.ink}",
+    "$type": "color",
+    "$description": "Color of a prose thematic break."
+  },
+  "width": {
+    "$value": "{border.width-sm}",
+    "$type": "dimension",
+    "$description": "Block-axis thickness of a prose thematic break."
+  },
+  "style": {
+    "$value": "{border.style}",
+    "$type": "strokeStyle",
+    "$description": "Line style of a prose thematic break."
+  }
+}

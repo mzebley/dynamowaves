@@ -3,9 +3,11 @@
 # Effects utilities
 
 Utilities are token-bound class grammar, not hard-coded values. They live in `@layer utilities`, so unlayered consumer CSS overrides them without `!important`.
+Zebkit orders its layers as `theme, base, components, variants, utilities`: utilities override variants, and variants override their component defaults.
 
 - Pattern families use `base[-edge]-{value}`. Edges are logical (`block`, `inline`, `block-start`, `inline-end`) unless a family says otherwise.
 - When a family lists responsive support, prefix its class with `tablet:`, `tablet-lg:`, `desktop:`, `desktop-lg:`, or `widescreen:`.
+- When a family lists interaction-state support, prefix its class with `focus:`, `hover:`, or `active:`. Interaction-state and breakpoint prefixes are independent and do not combine.
 - Negative values use `neg-{value}` only where the family offers them.
 - Values resolve through design tokens; use the documented grammar instead of writing raw CSS values.
 
@@ -17,7 +19,7 @@ Box-shadow utilities that lift an element off the surface (or press it in). Valu
 
 Applies a box-shadow from the elevation scale, including inner shadows.
 
-Grammar: `shadow-{value}` · values: none, xs, sm, md, lg, xl, 2xl, inner, inner-sm, inner-lg (elevation tokens) · responsive: prefix with `tablet:` `tablet-lg:` `desktop:` `desktop-lg:` `widescreen:`
+Grammar: `shadow-{value}` · values: none, xs, sm, md, lg, xl, 2xl, inner, inner-sm, inner-lg (elevation tokens) · responsive: prefix with `tablet:` `tablet-lg:` `desktop:` `desktop-lg:` `widescreen:` · states: prefix with `focus:` `hover:` `active:`
 
 - Accessibility: Elevation is a visual affordance only; never rely on shadow alone to convey state — pair it with a non-visual cue.
 - Use elevation to signal layering (raised cards, popovers), not decoration; keep the scale consistent so higher elements read as closer.

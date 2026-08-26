@@ -1,6 +1,4 @@
-// dynamoves.d.ts
-
-// Interface for wave generation options
+/** Options accepted by the low-level `generateWave` helper. */
 interface WaveGenerationOptions {
   width: number;
   height: number;
@@ -11,7 +9,7 @@ interface WaveGenerationOptions {
   startEndZero?: boolean;
 }
 
-// Interface for wave point structure
+/** One quadratic control point and its segment endpoint. */
 interface WavePoint {
   cpX: number;
   cpY: number;
@@ -19,14 +17,22 @@ interface WavePoint {
   y: number;
 }
 
-// Type for the wave direction
 type WaveDirection = 'top' | 'bottom' | 'left' | 'right';
+type WaveOrientation = 'horizontal' | 'vertical';
 
-// Interface for intersection observer options
 interface WaveObserverOptions {
   root: Element | null;
   rootMargin: string;
   threshold: number;
+}
+
+interface DynamoWaveCompleteDetail {
+  duration: number;
+  direction: WaveOrientation;
+}
+
+interface DynamoWaveEventMap {
+  'dynamo-wave-complete': CustomEvent<DynamoWaveCompleteDetail>;
 }
 
 declare class DynamoWave extends HTMLElement {
@@ -52,6 +58,8 @@ declare class DynamoWave extends HTMLElement {
   private random: () => number;
   private startEndZero: boolean;
   private resumeOnConnect: boolean;
+  private motionQuery: MediaQueryList | null;
+  private resumeAfterReducedMotion: boolean;
   private reflectingSeed: boolean;
 
   static readonly observedAttributes: string[];
@@ -75,20 +83,25 @@ declare class DynamoWave extends HTMLElement {
   // Private methods
   private reinitialize(): void;
   private updateSeedAttribute(pathString: string): void;
+  private setupMotionPreferenceListener(): void;
+  private handleMotionPreferenceChange(event: MediaQueryListEvent): void;
   private setupIntersectionObserver(observeConfig: string): void;
   private animateWave(duration: number, onComplete?: (() => void) | null): void;
 }
+
+declare function generateWave(options: WaveGenerationOptions): string;
+declare function parsePath(pathString: string): WavePoint[];
+declare function interpolateWave(
+  currentPoints: WavePoint[],
+  targetPoints: WavePoint[],
+  progress: number,
+  vertical: boolean,
+  height: number,
+  width: number
+): string;
 declare function encodeWaveSeed(pathString: string): string;
 declare function decodeWaveSeed(seed: string): string | null;
 
-// Global declaration for custom element
-declare global {
-  interface HTMLElementTagNameMap {
-    'dynamo-wave': DynamoWave;
-  }
-}
-
-// Component attributes interface
 interface DynamoWaveAttributes {
   'data-wave-face'?: WaveDirection;
   'data-wave-points'?: string;
@@ -101,11 +114,12 @@ interface DynamoWaveAttributes {
   'data-start-end-zero'?: string;
 }
 
-// Extend HTMLElement interface to include our attributes
 declare global {
   interface HTMLElementTagNameMap {
     'dynamo-wave': DynamoWave;
   }
+
+  interface HTMLElementEventMap extends DynamoWaveEventMap {}
   
   namespace JSX {
     interface IntrinsicElements {
@@ -114,4 +128,4 @@ declare global {
   }
 }
 
-export { DynamoWave, type DynamoWaveAttributes, type WaveDirection, type WaveGenerationOptions, type WaveObserverOptions, type WavePoint, decodeWaveSeed, encodeWaveSeed };
+export { DynamoWave, type DynamoWaveAttributes, type DynamoWaveCompleteDetail, type DynamoWaveEventMap, type WaveDirection, type WaveGenerationOptions, type WaveObserverOptions, type WaveOrientation, type WavePoint, decodeWaveSeed, encodeWaveSeed, generateWave, interpolateWave, parsePath };

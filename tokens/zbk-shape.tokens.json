@@ -1,0 +1,15 @@
+{
+  "reveal-indicator-collapsed": {
+    "$value": "{shape.triangle-right}",
+    "$description": "Clipping shape used by a reveal indicator while its content is collapsed."
+  },
+  "reveal-indicator-expanded": {
+    "$value": "{shape.reveal-indicator-collapsed}",
+    "$description": "Clipping shape used by a reveal indicator while its content is expanded."
+  },
+  "triangle-right": {
+    "$value": "polygon(0 0, 100% 50%, 0 100%, 25% 50%)",
+    "$description": "Compact right-pointing triangular indicator shape."
+  },
+  "$type": "clipPath"
+}

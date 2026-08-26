@@ -1,0 +1,330 @@
+{
+  "display": {
+    "$value": "block",
+    "$type": "display",
+    "$description": "Display mode for the framed code listing."
+  },
+  "container-type": {
+    "$value": "inline-size",
+    "$type": "containerType",
+    "$description": "Container-query participation for the responsive split panes."
+  },
+  "margin-block-start": {
+    "$value": "{spacing.md}",
+    "$type": "dimension",
+    "$description": "Space before the code block in document flow."
+  },
+  "margin-block-end": {
+    "$value": "{spacing.md}",
+    "$type": "dimension",
+    "$description": "Space after the code block in document flow."
+  },
+  "canvas": {
+    "$value": "{neutral.100}",
+    "$type": "color",
+    "$description": "Frame background visible around the caption and listing."
+  },
+  "ink": {
+    "$value": "{app.ink}",
+    "$type": "color",
+    "$description": "Default foreground inherited by the code block."
+  },
+  "border-color": {
+    "$value": "{app.border}",
+    "$type": "color",
+    "$description": "Outer frame border color."
+  },
+  "border-width": {
+    "$value": "{border.width-sm}",
+    "$type": "dimension",
+    "$description": "Outer frame border width."
+  },
+  "border-style": {
+    "$value": "{border.style}",
+    "$type": "strokeStyle",
+    "$description": "Outer frame border style."
+  },
+  "border-radius": {
+    "$value": "{border.radius-md}",
+    "$type": "dimension",
+    "$description": "Outer frame corner radius."
+  },
+  "bar-canvas": {
+    "$value": "{app.canvas-subtle}",
+    "$type": "color",
+    "$description": "Top action bar background."
+  },
+  "bar-ink": {
+    "$value": "{app.ink}",
+    "$type": "color",
+    "$description": "Visible code-block label color."
+  },
+  "bar-border-color": {
+    "$value": "{app.border}",
+    "$type": "color",
+    "$description": "Divider color between the top bar and code listing."
+  },
+  "bar-border-width": {
+    "$value": "{border.width-sm}",
+    "$type": "dimension",
+    "$description": "Divider width between the top bar and code listing."
+  },
+  "bar-border-style": {
+    "$value": "{border.style}",
+    "$type": "strokeStyle",
+    "$description": "Divider style between the top bar and code listing."
+  },
+  "bar-min-height": {
+    "$value": "{a11y.min-interaction-size}",
+    "$type": "dimension",
+    "$description": "Minimum top-bar height, aligned with accessible action targets."
+  },
+  "bar-padding-inline": {
+    "$value": "{spacing.sm}",
+    "$type": "dimension",
+    "$description": "Inline padding inside the top bar."
+  },
+  "bar-padding-block": {
+    "$value": "{spacing.025}",
+    "$type": "dimension",
+    "$description": "Block padding inside the top bar."
+  },
+  "bar-gap": {
+    "$value": "{spacing.lg}",
+    "$type": "dimension",
+    "$description": "Space between the label and action region."
+  },
+  "bar-flex-wrap": {
+    "$value": "wrap",
+    "$type": "flex",
+    "$description": "Wrapping behavior for the label, view selector, and actions."
+  },
+  "bar-font-family": {
+    "$value": "{font-family.interface}",
+    "$type": "fontFamily",
+    "$description": "Font family for Code Block-owned top-bar labels."
+  },
+  "bar-font-size": {
+    "$value": "{font-size.xs}",
+    "$type": "cssDimension",
+    "$description": "Font size for Code Block-owned top-bar labels."
+  },
+  "bar-font-weight": {
+    "$value": "{font-weight.medium}",
+    "$type": "fontWeight",
+    "$description": "Font weight for Code Block-owned top-bar labels."
+  },
+  "bar-line-height": {
+    "$value": "{line-height.2}",
+    "$type": "number",
+    "$description": "Line height for Code Block-owned top-bar labels."
+  },
+  "bar-letter-spacing": {
+    "$value": "{letter-spacing.tight}",
+    "$type": "dimension",
+    "$description": "Letter spacing for the visible code-block label."
+  },
+  "bar-text-transform": {
+    "$value": "none",
+    "$type": "textTransform",
+    "$description": "Text transformation for the visible code-block label."
+  },
+  "actions-gap": {
+    "$value": "{spacing.2xs}",
+    "$type": "dimension",
+    "$description": "Space between repeated slotted actions and the copy action."
+  },
+  "view-gap": {
+    "$value": "{spacing.025}",
+    "$type": "dimension",
+    "$description": "Space between the tablist and the Split preference control."
+  },
+  "code-canvas": {
+    "$value": "{code-block.canvas}",
+    "$type": "color",
+    "$description": "Code listing background."
+  },
+  "code-ink": {
+    "$value": "{app.ink}",
+    "$type": "color",
+    "$description": "Unhighlighted code text color."
+  },
+  "code-padding-inline": {
+    "$value": "{spacing.md}",
+    "$type": "dimension",
+    "$description": "Inline padding around the code listing."
+  },
+  "code-padding-block": {
+    "$value": "{spacing.md}",
+    "$type": "dimension",
+    "$description": "Block padding around the code listing."
+  },
+  "code-font-family": {
+    "$value": "{font-family.code}",
+    "$type": "fontFamily",
+    "$description": "Font family for code content."
+  },
+  "code-font-size": {
+    "$value": "{font-size.sm}",
+    "$type": "cssDimension",
+    "$description": "Font size for code content."
+  },
+  "code-font-weight": {
+    "$value": "{font-weight.normal}",
+    "$type": "fontWeight",
+    "$description": "Font weight for code content."
+  },
+  "code-line-height": {
+    "$value": "{line-height.3}",
+    "$type": "number",
+    "$description": "Line height for code content."
+  },
+  "code-tab-size": {
+    "$value": 2,
+    "$type": "number",
+    "$description": "Number of spaces represented by a tab in code content."
+  },
+  "preview-canvas": {
+    "$value": "{app.canvas}",
+    "$type": "color",
+    "$description": "Rendered preview background."
+  },
+  "preview-ink": {
+    "$value": "{app.ink}",
+    "$type": "color",
+    "$description": "Default foreground inherited by rendered preview content."
+  },
+  "preview-font-size": {
+    "$value": "{font-size.md}",
+    "$type": "cssDimension",
+    "$description": "Default font size inherited by rendered preview content."
+  },
+  "preview-font-weight": {
+    "$value": "{font-weight.normal}",
+    "$type": "fontWeight",
+    "$description": "Default font weight inherited by rendered preview content."
+  },
+  "preview-padding-inline": {
+    "$value": "{spacing.md}",
+    "$type": "dimension",
+    "$description": "Inline padding around rendered preview content."
+  },
+  "preview-padding-block": {
+    "$value": "{spacing.md}",
+    "$type": "dimension",
+    "$description": "Block padding around rendered preview content."
+  },
+  "preview-min-block-size": {
+    "$value": "{spacing.3xl}",
+    "$type": "dimension",
+    "$description": "Minimum block size of the preview pane."
+  },
+  "preview-overflow": {
+    "$value": "auto",
+    "$type": "overflow",
+    "$description": "Overflow behavior for rendered preview content."
+  },
+  "preview-border-block-start-width-wide": {
+    "$value": {
+      "value": 0,
+      "unit": "px"
+    },
+    "$type": "dimension",
+    "$description": "Stacking divider width removed when Split view reaches the wide container condition."
+  },
+  "split-divider-ink": {
+    "$value": "{app.border}",
+    "$type": "color",
+    "$description": "Visible split divider color."
+  },
+  "split-divider-ink-hover": {
+    "$value": "{app.border-emphasis}",
+    "$type": "color",
+    "$description": "Visible split divider color on pointer hover."
+  },
+  "split-divider-ink-active": {
+    "$value": "{focus.color}",
+    "$type": "color",
+    "$description": "Visible split divider color while pressed or keyboard-focused."
+  },
+  "split-divider-width": {
+    "$value": "{border.width-sm}",
+    "$type": "dimension",
+    "$description": "Width of the visible split divider line."
+  },
+  "split-divider-style": {
+    "$value": "{border.style}",
+    "$type": "strokeStyle",
+    "$description": "Style of the divider between stacked compact panes."
+  },
+  "split-divider-target-size": {
+    "$value": "{a11y.min-interaction-size}",
+    "$type": "dimension",
+    "$description": "Inline hit area centered over the visible split divider."
+  },
+  "split-divider-cursor": {
+    "$value": "col-resize",
+    "$type": "cursor",
+    "$description": "Cursor displayed over the draggable split divider."
+  },
+  "split-grip-canvas": {
+    "$value": "{app.canvas}",
+    "$type": "color",
+    "$description": "Background of the compact visual grip centered on the divider."
+  },
+  "split-grip-ink": {
+    "$value": "{app.ink-muted}",
+    "$type": "color",
+    "$description": "Color of the six-dot drag indicator inside the divider grip."
+  },
+  "split-grip-border-color": {
+    "$value": "{app.border}",
+    "$type": "color",
+    "$description": "Border color of the compact divider grip."
+  },
+  "split-grip-border-width": {
+    "$value": "{border.width-xs}",
+    "$type": "dimension",
+    "$description": "Border width of the compact divider grip."
+  },
+  "split-grip-border-radius": {
+    "$value": "{border.radius-lg}",
+    "$type": "dimension",
+    "$description": "Corner radius of the compact divider grip."
+  },
+  "split-grip-inline-size": {
+    "$value": "{spacing.1}",
+    "$type": "dimension",
+    "$description": "Visible inline size of the divider grip; the pointer target remains larger."
+  },
+  "split-grip-block-size": {
+    "$value": "{spacing.105}",
+    "$type": "dimension",
+    "$description": "Visible block size of the divider grip."
+  },
+  "split-grip-icon-inline-size": {
+    "$value": "{spacing.05}",
+    "$type": "dimension",
+    "$description": "Inline size of the six-dot indicator inside the grip."
+  },
+  "split-grip-icon-block-size": {
+    "$value": "{spacing.1}",
+    "$type": "dimension",
+    "$description": "Block size of the six-dot indicator inside the grip."
+  },
+  "focus-color": {
+    "$value": "{focus.color}",
+    "$type": "color",
+    "$description": "Keyboard focus outline color for code-block controls."
+  },
+  "focus-width": {
+    "$value": "{focus.width}",
+    "$type": "dimension",
+    "$description": "Keyboard focus outline width for code-block controls."
+  },
+  "focus-offset": {
+    "$value": "{spacing.0}",
+    "$type": "dimension",
+    "$description": "Keyboard focus outline offset kept inside the clipped component frame."
+  }
+}
