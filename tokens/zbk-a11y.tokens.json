@@ -31,10 +31,10 @@
   },
   "min-interaction-size": {
     "$value": {
-      "value": 28,
+      "value": 24,
       "unit": "px"
     },
     "$type": "dimension",
-    "$description": "Minimum height and width for interactive elements like links or buttons. WCAG AA is >= 24px, AAA is 44px"
+    "$description": "Minimum height and width for interactive elements like links or buttons at the WCAG 2.2 AA target-size floor."
   }
 }

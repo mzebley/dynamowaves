@@ -1,16 +1,16 @@
 {
   "track-width": {
-    "$value": "{spacing.105}",
+    "$value": "{spacing.205}",
     "$type": "dimension",
     "$description": "Width of the toggle track."
   },
   "track-height": {
-    "$value": "{spacing.05}",
+    "$value": "{a11y.min-interaction-size}",
     "$type": "dimension",
     "$description": "Height of the toggle track; the thumb and pill radius derive from it."
   },
   "canvas": {
-    "$value": "{app.canvas-muted}",
+    "$value": "{brand.canvas-emphasis}",
     "$type": "color",
     "$description": "Track background when the toggle is off."
   },
@@ -50,7 +50,7 @@
     "$description": "Track background when disabled."
   },
   "border-color": {
-    "$value": "{app.canvas-muted}",
+    "$value": "{toggle.canvas}",
     "$type": "color",
     "$description": "Track border color when the toggle is off."
   },
@@ -153,14 +153,14 @@
     "$description": "Track shadow when disabled."
   },
   "thumb-size": {
-    "$value": "{spacing.1}",
+    "$value": "{toggle.track-height}",
     "$type": "dimension",
-    "$description": "Diameter of the thumb."
+    "$description": "Maximum diameter of the thumb; rendered geometry also honors the track inset."
   },
   "thumb-inset": {
-    "$value": "{spacing.neg-2px}",
+    "$value": "{spacing.2px}",
     "$type": "dimension",
-    "$description": "Thumb offset from the track's start edge; negative overlaps the border."
+    "$description": "Thumb inset from every track edge."
   },
   "thumb-canvas": {
     "$value": "{app.canvas-subtle}",
@@ -173,7 +173,7 @@
     "$description": "Thumb background when hovered."
   },
   "thumb-canvas-checked": {
-    "$value": "{toggle.thumb-canvas}",
+    "$value": "{app.canvas-subtle}",
     "$type": "color",
     "$description": "Thumb background when the toggle is on."
   },
@@ -198,7 +198,7 @@
     "$description": "Thumb background when disabled."
   },
   "thumb-border-color": {
-    "$value": "{app.canvas-muted}",
+    "$value": "{toggle.thumb-canvas}",
     "$type": "color",
     "$description": "Thumb border color when the toggle is off."
   },

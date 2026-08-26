@@ -13,24 +13,12 @@ variant that is not registered, a token the build excluded. Every finding names 
 
 ## Components
 
-- [zbk-breadcrumb](zbk-breadcrumb.md): A trail of ancestor-page links ending at the current page, rendered as a named navigation landmark containing an ordered list.
 - [zbk-button](zbk-button.md): A light-DOM element wrapping a real <button>: renders the token-driven skeleton, forwards native semantics, adds opt-in loading, and governs retained content through visibility composites.
-- [zbk-card](zbk-card.md): A composed content surface that arranges media, title, body content, supplementary metadata, and a footer. Adding href makes the whole surface one native navigational target.
-- [zbk-checkbox](zbk-checkbox.md): A binary (or mixed-state) choice: a light-DOM element wrapping a real <input type="checkbox"> inside its own label, with an aria-hidden control span visualizing its state.
-- [zbk-dialog](zbk-dialog.md): A modal interruption built on native <dialog> and showModal(). It adopts authored title, body, and footer content, places focus inside, and contains focus without scroll-locking the page body.
+- [zbk-code-block](zbk-code-block.md): A labelled source listing that preserves authored code, supplies copying, and can expose a trusted rendered preview through two-way tabs and an independently controlled resizable Split layout.
 - [zbk-heading](zbk-heading.md): The zbk-heading component.
-- [zbk-input](zbk-input.md): Single-line text entry: a light-DOM element wrapping a real <input> inside its own label, with optional format-as-you-type masking.
 - [zbk-link](zbk-link.md): A light-DOM element wrapping a real <a>: forwards native anchor semantics, adopts authored content into a token-driven skeleton, and can borrow button's style contract via appearance="button" without ever becoming a button.
-- [zbk-menu](zbk-menu.md): An anchored action menu whose button trigger opens a roving list of commands. It supplies menu-button keyboard semantics, native popover promotion, anchored positioning, and light dismissal.
-- [zbk-menu-item](zbk-menu-item.md): A native command button used inside zbk-menu. It stays in roving focus when unavailable and bubbles its native click as the action signal.
-- [zbk-pagination](zbk-pagination.md): Page navigation for a partitioned collection: a nav of page items with previous/next controls, the current page marked aria-current="page", and a windowed page display with ellipses.
-- [zbk-panel](zbk-panel.md): An in-flow retained region controlled by a separate toggles/shows/hides trigger. The host itself is the visibility target and styling root; all state changes belong to the shared visibility service.
-- [zbk-popover](zbk-popover.md): An anchored, non-modal overlay for interactive content. It owns one button trigger, positions a native manual popover beside it, and provides consistent light dismissal with a hidden fallback.
-- [zbk-radio](zbk-radio.md): One option in a mutually exclusive group: a light-DOM element wrapping a real <input type="radio"> inside its own label. Radios sharing a name form a native group — mutual exclusion, arrow-key navigation, and form submission come from the platform.
-- [zbk-select](zbk-select.md): Pick from a fixed set of options: a light-DOM element wrapping a real <select> inside its own label. Authored option content is adopted into the select; remaining default children are the visible label.
-- [zbk-textarea](zbk-textarea.md): Multi-line free-form text entry: a light-DOM element wrapping a real <textarea> inside its own label. No affixes, no masking.
+- [zbk-tabs](zbk-tabs.md): A labelled set of mutually exclusive retained panels with native tab buttons, roving focus, automatic or manual activation, logical placement, and overflow-safe keyboard navigation.
 - [zbk-toggle](zbk-toggle.md): An on/off switch that takes effect immediately: a light-DOM element wrapping a real <input type="checkbox" role="switch"> inside its own label — the APG switch pattern on a fully native input, drawn as a track with a traveling thumb.
-- [zbk-tooltip](zbk-tooltip.md): Supplementary text beside a control: a light-DOM element that adopts its child as the trigger and renders a positioned bubble. mode="hint" (default) describes the trigger on hover/focus per WCAG 1.4.13; mode="toggle" is a click-triggered toggletip announced through the shared live region.
 
 ## Composite attributes
 

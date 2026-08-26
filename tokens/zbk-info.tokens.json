@@ -1,227 +1,99 @@
 {
   "canvas": {
-    "$value": "{color.dusk-50}",
-    "$type": "color",
+    "$value": "{color.gold-300}",
     "$description": "Base info canvas color for primary surfaces."
   },
   "canvas-subtle": {
-    "$value": "",
-    "$type": "color",
-    "$description": "Soft info canvas color for lightly tinted surfaces.",
-    "$extensions": {
-      "dev.zebkit": {
-        "emptyColorPlaceholder": true
-      }
-    }
+    "$value": "{color.gold-100}",
+    "$description": "Subtle info canvas color for the least-prominent, lightly tinted surfaces."
   },
   "canvas-muted": {
-    "$value": "",
-    "$type": "color",
-    "$description": "Muted info canvas color for low-emphasis surfaces.",
-    "$extensions": {
-      "dev.zebkit": {
-        "emptyColorPlaceholder": true
-      }
-    }
+    "$value": "{color.gold-200}",
+    "$description": "Muted info canvas color for low-emphasis, recessed surfaces."
   },
   "canvas-emphasis": {
-    "$value": "",
-    "$type": "color",
-    "$description": "Strong info canvas color for high-emphasis surfaces.",
-    "$extensions": {
-      "dev.zebkit": {
-        "emptyColorPlaceholder": true
-      }
-    }
+    "$value": "{color.gold-600}",
+    "$description": "Emphasis info canvas color for high-prominence surfaces."
   },
   "canvas-inverse": {
-    "$value": "",
-    "$type": "color",
-    "$description": "Base inverse info canvas color for surfaces on dark or inverted contexts.",
-    "$extensions": {
-      "dev.zebkit": {
-        "emptyColorPlaceholder": true
-      }
-    }
+    "$value": "{color.gold-400}",
+    "$description": "Base inverse info canvas color for surfaces on dark or inverted contexts."
   },
   "canvas-inverse-subtle": {
-    "$value": "",
-    "$type": "color",
-    "$description": "Soft inverse info canvas color for lightly tinted surfaces in inverse contexts.",
-    "$extensions": {
-      "dev.zebkit": {
-        "emptyColorPlaceholder": true
-      }
-    }
+    "$value": "{color.gold-900}",
+    "$description": "Subtle inverse info canvas color for the least-prominent surfaces in inverse contexts."
   },
   "canvas-inverse-muted": {
-    "$value": "",
-    "$type": "color",
-    "$description": "Muted inverse info canvas color for low-emphasis surfaces in inverse contexts.",
-    "$extensions": {
-      "dev.zebkit": {
-        "emptyColorPlaceholder": true
-      }
-    }
+    "$value": "{color.gold-800}",
+    "$description": "Muted inverse info canvas color for low-emphasis surfaces in inverse contexts."
   },
   "canvas-inverse-emphasis": {
-    "$value": "",
-    "$type": "color",
-    "$description": "Strong inverse info canvas color for high-emphasis surfaces in inverse contexts.",
-    "$extensions": {
-      "dev.zebkit": {
-        "emptyColorPlaceholder": true
-      }
-    }
+    "$value": "{color.gold-300}",
+    "$description": "Emphasis inverse info canvas color for high-prominence surfaces in inverse contexts."
   },
   "ink": {
-    "$value": "",
-    "$type": "color",
-    "$description": "Base info ink color for text and icons on neutral or light canvases.",
-    "$extensions": {
-      "dev.zebkit": {
-        "emptyColorPlaceholder": true
-      }
-    }
+    "$value": "{color.gold-900}",
+    "$description": "Base info ink color for body text and icons on neutral or light canvases."
   },
   "ink-subtle": {
-    "$value": "",
-    "$type": "color",
-    "$description": "Soft info ink color for lower-emphasis text and icons.",
-    "$extensions": {
-      "dev.zebkit": {
-        "emptyColorPlaceholder": true
-      }
-    }
+    "$value": "{color.gold-600}",
+    "$description": "Subtle info ink color for the least-prominent, tertiary text and icons."
   },
   "ink-muted": {
-    "$value": "",
-    "$type": "color",
-    "$description": "Muted info ink color for subtle or secondary text and icons.",
-    "$extensions": {
-      "dev.zebkit": {
-        "emptyColorPlaceholder": true
-      }
-    }
+    "$value": "{color.gold-700}",
+    "$description": "Muted info ink color for secondary text and icons."
   },
   "ink-emphasis": {
-    "$value": "{color.cyan-800}",
-    "$type": "color",
+    "$value": "{color.gold-950}",
     "$description": "Emphasis info ink color for high-prominence text and icons."
   },
   "ink-inverse": {
-    "$value": "",
-    "$type": "color",
-    "$description": "Base inverse info ink color for text and icons on inverse or dark canvases.",
-    "$extensions": {
-      "dev.zebkit": {
-        "emptyColorPlaceholder": true
-      }
-    }
+    "$value": "{color.gold-300}",
+    "$description": "Base inverse info ink color for body text and icons on inverse or dark canvases."
   },
   "ink-inverse-subtle": {
-    "$value": "",
-    "$type": "color",
-    "$description": "Soft inverse info ink color for lower-emphasis text and icons on inverse canvases.",
-    "$extensions": {
-      "dev.zebkit": {
-        "emptyColorPlaceholder": true
-      }
-    }
+    "$value": "{color.gold-500}",
+    "$description": "Subtle inverse info ink color for the least-prominent text and icons on inverse canvases."
   },
   "ink-inverse-muted": {
-    "$value": "",
-    "$type": "color",
-    "$description": "Muted inverse info ink color for subtle text and icons on inverse canvases.",
-    "$extensions": {
-      "dev.zebkit": {
-        "emptyColorPlaceholder": true
-      }
-    }
+    "$value": "{color.gold-400}",
+    "$description": "Muted inverse info ink color for secondary text and icons on inverse canvases."
   },
   "ink-inverse-emphasis": {
-    "$value": "{color.cyan-200}",
-    "$type": "color",
+    "$value": "{color.gold-200}",
     "$description": "Emphasis inverse info ink color for high-prominence text on inverse canvases."
   },
   "border": {
-    "$value": "",
-    "$type": "color",
-    "$description": "Base info border color for outlines, strokes, and dividers.",
-    "$extensions": {
-      "dev.zebkit": {
-        "emptyColorPlaceholder": true
-      }
-    }
+    "$value": "{color.gold-500}",
+    "$description": "Base info border color for outlines, strokes, and dividers."
   },
   "border-subtle": {
-    "$value": "",
-    "$type": "color",
-    "$description": "Soft info border color for low-emphasis outlines and dividers.",
-    "$extensions": {
-      "dev.zebkit": {
-        "emptyColorPlaceholder": true
-      }
-    }
+    "$value": "{color.gold-200}",
+    "$description": "Subtle info border color for the least-prominent outlines and dividers."
   },
   "border-muted": {
-    "$value": "",
-    "$type": "color",
-    "$description": "Muted info border color for subtle outlines and dividers.",
-    "$extensions": {
-      "dev.zebkit": {
-        "emptyColorPlaceholder": true
-      }
-    }
+    "$value": "{color.gold-300}",
+    "$description": "Muted info border color for low-emphasis outlines and dividers."
   },
   "border-emphasis": {
-    "$value": "",
-    "$type": "color",
-    "$description": "Strong info border color for high-emphasis outlines and dividers.",
-    "$extensions": {
-      "dev.zebkit": {
-        "emptyColorPlaceholder": true
-      }
-    }
+    "$value": "{color.gold-600}",
+    "$description": "Emphasis info border color for high-prominence outlines and dividers."
   },
   "border-inverse": {
-    "$value": "",
-    "$type": "color",
-    "$description": "Base inverse info border color for outlines and dividers on inverse canvases.",
-    "$extensions": {
-      "dev.zebkit": {
-        "emptyColorPlaceholder": true
-      }
-    }
+    "$value": "{color.gold-500}",
+    "$description": "Base inverse info border color for outlines and dividers on inverse canvases."
   },
   "border-inverse-subtle": {
-    "$value": "",
-    "$type": "color",
-    "$description": "Soft inverse info border color for low-emphasis outlines on inverse canvases.",
-    "$extensions": {
-      "dev.zebkit": {
-        "emptyColorPlaceholder": true
-      }
-    }
+    "$value": "{color.gold-800}",
+    "$description": "Subtle inverse info border color for the least-prominent outlines on inverse canvases."
   },
   "border-inverse-muted": {
-    "$value": "",
-    "$type": "color",
-    "$description": "Muted inverse info border color for subtle outlines on inverse canvases.",
-    "$extensions": {
-      "dev.zebkit": {
-        "emptyColorPlaceholder": true
-      }
-    }
+    "$value": "{color.gold-700}",
+    "$description": "Muted inverse info border color for low-emphasis outlines on inverse canvases."
   },
   "border-inverse-emphasis": {
-    "$value": "",
-    "$type": "color",
-    "$description": "Strong inverse info border color for high-emphasis outlines on inverse canvases.",
-    "$extensions": {
-      "dev.zebkit": {
-        "emptyColorPlaceholder": true
-      }
-    }
-  }
+    "$value": "{color.gold-400}",
+    "$description": "Emphasis inverse info border color for high-prominence outlines on inverse canvases."
+  },
+  "$type": "color"
 }

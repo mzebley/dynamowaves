@@ -10,6 +10,32 @@ release tags.
 
 ## [Unreleased]
 
+## [2.2.0] - 2026-08-25
+
+### Added
+
+- Added explicit ESM and CommonJS package entry points. Both module systems, and
+  the existing direct-script global, expose `DynamoWave`, `generateWave`,
+  `parsePath`, `interpolateWave`, `encodeWaveSeed`, and `decodeWaveSeed`.
+- Added a complete documentation reference for attributes, methods, events,
+  helper exports, styling, seed modes, SSR behavior, reduced motion, observers,
+  and disconnect/reconnect lifecycle behavior.
+
+### Changed
+
+- Prepared the package as version 2.2.0 so the explicit ESM/CommonJS entry
+  points and expanded declarations ship as one coherent contract.
+- Expanded the standalone documentation site with a version scope, framework
+  integration guidance, complete helper signatures, TypeScript exports,
+  troubleshooting, and copy-pasteable practical recipes.
+
+### Fixed
+
+- Corrected the documented `IntersectionObserver` root-margin direction,
+  numeric attribute behavior, seed encoding format, and inherited fill model.
+- Synchronized the TypeScript declarations with the runtime helper exports and
+  typed the `dynamo-wave-complete` event payload.
+
 ## [2.1.5] - 2026-07-02
 
 ### Fixed
@@ -152,7 +178,9 @@ release tags.
   speed, and animation.
 - `data-wave-observe` attribute to regenerate waves via `IntersectionObserver`.
 
-[Unreleased]: https://github.com/mzebley/dynamowaves/compare/v2.1.3...HEAD
+[Unreleased]: https://github.com/mzebley/dynamowaves/compare/eda4a50...HEAD
+[2.1.5]: https://github.com/mzebley/dynamowaves/compare/v2.1.4...eda4a50
+[2.1.4]: https://github.com/mzebley/dynamowaves/compare/v2.1.3...v2.1.4
 [2.1.3]: https://github.com/mzebley/dynamowaves/compare/v2.1.2...v2.1.3
 [2.1.2]: https://github.com/mzebley/dynamowaves/compare/v2.1.1...v2.1.2
 [2.1.1]: https://github.com/mzebley/dynamowaves/compare/v2.1.0...v2.1.1

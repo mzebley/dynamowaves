@@ -1,0 +1,62 @@
+{
+  "font-family": {
+    "$value": "{font-family.code}",
+    "$type": "fontFamily",
+    "$description": "Font family for short eyebrow labels with .eyebrow applied directly or as a child of a .prose container."
+  },
+  "font-size": {
+    "$value": "{font-size.xs}",
+    "$type": "cssDimension",
+    "$description": "Font size for short eyebrow labels with .eyebrow applied directly or as a child of a .prose container."
+  },
+  "font-weight": {
+    "$value": "{font-weight.semibold}",
+    "$type": "fontWeight",
+    "$description": "Font weight for short eyebrow labels with .eyebrow applied directly or as a child of a .prose container."
+  },
+  "line-height": {
+    "$value": "{line-height.1}",
+    "$type": "number",
+    "$description": "Line height for short eyebrow labels with .eyebrow applied directly or as a child of a .prose container."
+  },
+  "letter-spacing": {
+    "$value": "{letter-spacing.wide}",
+    "$type": "dimension",
+    "$description": "Tracking for short eyebrow labels with .eyebrow applied directly or as a child of a .prose container."
+  },
+  "measure": {
+    "$value": "{text-measure.3}",
+    "$type": "cssDimension",
+    "$description": "Maximum inline measure for short eyebrow labels with .eyebrow applied directly or as a child of a .prose container."
+  },
+  "spacing-before": {
+    "$value": "{spacing.0}",
+    "$type": "dimension",
+    "$description": "Incoming spacing request when an eyebrow follows another direct child in a .prose flow. The resolved gap is the larger of this spacing-before and the previous treatment's spacing-after, so structural hierarchy wins without relying on source order."
+  },
+  "spacing-after": {
+    "$value": "{spacing.05}",
+    "$type": "dimension",
+    "$description": "Outgoing spacing request contributed by an eyebrow to the next direct child in a .prose flow. The resolved gap normally uses the larger of this spacing-after and the next treatment's spacing-before; eyebrow + heading is an intentional compound exception that keeps this tighter outgoing gap."
+  },
+  "color": {
+    "$value": "{brand.ink}",
+    "$type": "color",
+    "$description": "Text color for short eyebrow labels with .eyebrow applied directly or as a child of a .prose container."
+  },
+  "font-style": {
+    "$value": "normal",
+    "$type": "fontStyle",
+    "$description": "Font style for short eyebrow labels with .eyebrow applied directly or as a child of a .prose container."
+  },
+  "text-transform": {
+    "$value": "uppercase",
+    "$type": "textTransform",
+    "$description": "Text transform for short eyebrow labels with .eyebrow applied directly or as a child of a .prose container."
+  },
+  "text-align": {
+    "$value": "start",
+    "$type": "textAlignment",
+    "$description": "Text alignment for short eyebrow labels with .eyebrow applied directly or as a child of a .prose container."
+  }
+}

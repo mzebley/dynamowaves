@@ -1,0 +1,92 @@
+{
+  "ink": {
+    "$value": "{app.ink}",
+    "$type": "color",
+    "$description": "Text color shared by native prose code and the code-block listing by default."
+  },
+  "canvas": {
+    "$value": "{brand.canvas-subtle}",
+    "$type": "color",
+    "$description": "Background shared by native prose code and the code-block listing by default."
+  },
+  "font-family": {
+    "$value": "{code-block.code-font-family}",
+    "$type": "fontFamily",
+    "$description": "Font family shared by native prose code and the code-block listing by default."
+  },
+  "font-size": {
+    "$value": "{code-block.code-font-size}",
+    "$type": "cssDimension",
+    "$description": "Font size shared by native prose code and the code-block listing by default."
+  },
+  "font-weight": {
+    "$value": "{code-block.code-font-weight}",
+    "$type": "fontWeight",
+    "$description": "Font weight shared by native prose code and the code-block listing by default."
+  },
+  "line-height": {
+    "$value": "{code-block.code-line-height}",
+    "$type": "number",
+    "$description": "Line height shared by native prose code and the code-block listing by default."
+  },
+  "tab-size": {
+    "$value": "{code-block.code-tab-size}",
+    "$type": "number",
+    "$description": "Tab width shared by native prose code and the code-block listing by default."
+  },
+  "inline-padding-inline": {
+    "$value": "{spacing.025}",
+    "$type": "dimension",
+    "$description": "Inline inset around code embedded in a prose sentence."
+  },
+  "inline-padding-block": {
+    "$value": "{spacing.2px}",
+    "$type": "dimension",
+    "$description": "Block inset around code embedded in a prose sentence."
+  },
+  "inline-border-radius": {
+    "$value": "{border.radius-md}",
+    "$type": "dimension",
+    "$description": "Corner radius around code embedded in a prose sentence."
+  },
+  "block-padding-inline": {
+    "$value": "{code-block.code-padding-inline}",
+    "$type": "dimension",
+    "$description": "Inline inset shared by native prose code listings and the code-block listing by default."
+  },
+  "block-padding-block": {
+    "$value": "{code-block.code-padding-block}",
+    "$type": "dimension",
+    "$description": "Block inset shared by native prose code listings and the code-block listing by default."
+  },
+  "block-border-color": {
+    "$value": "{code-block.border-color}",
+    "$type": "color",
+    "$description": "Border color shared by native prose code listings and the code-block frame by default."
+  },
+  "block-border-width": {
+    "$value": "{code-block.border-width}",
+    "$type": "dimension",
+    "$description": "Border width shared by native prose code listings and the code-block frame by default."
+  },
+  "block-border-style": {
+    "$value": "{code-block.border-style}",
+    "$type": "strokeStyle",
+    "$description": "Border style shared by native prose code listings and the code-block frame by default."
+  },
+  "block-border-radius": {
+    "$value": "{border.radius-md}",
+    "$type": "dimension",
+    "$description": "Corner radius shared by native prose code listings and the code-block frame by default."
+  },
+  "spacing-before": {
+    "$value": "{code-block.margin-block-start}",
+    "$type": "dimension",
+    "$description": "Incoming spacing request when a native code listing follows another direct child in a .prose flow. The resolved gap is the larger of this spacing-before and the previous treatment's spacing-after, so structural hierarchy wins without relying on source order."
+  },
+  "spacing-after": {
+    "$value": "{code-block.margin-block-end}",
+    "$type": "dimension",
+    "$description": "Outgoing spacing request contributed by a native code listing to the next direct child in a .prose flow. The resolved gap is the larger of this spacing-after and the next treatment's spacing-before; documented compound pairs may intentionally use the tighter outgoing gap."
+  }
+}

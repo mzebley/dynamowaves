@@ -2,7 +2,7 @@
   "font-family": {
     "$value": "{font-family.heading}",
     "$type": "fontFamily",
-    "$description": "Font size for H5 elements with .prose applied directly or that are a child of a .prose container."
+    "$description": "Font family for H5 elements with .prose applied directly or that are a child of a .prose container."
   },
   "font-size": {
     "$value": "{font-size.sm}",
@@ -27,17 +27,17 @@
   "measure": {
     "$value": "{text-measure.3}",
     "$type": "cssDimension",
-    "$description": "Maximum width for H5 elements with .prose applied directly or that are a child of a .prose container."
+    "$description": "Maximum inline measure for H5 elements with .prose applied directly or that are a child of a .prose container."
   },
   "spacing-before": {
     "$value": "{spacing.2}",
     "$type": "dimension",
-    "$description": "Amount of margin inline start for H5 elements with .prose applied directly or that are a child of a .prose container."
+    "$description": "Incoming spacing request when an H5 follows another direct child in a .prose flow. The resolved gap is the larger of this spacing-before and the previous treatment's spacing-after, so structural hierarchy wins without relying on source order."
   },
   "spacing-after": {
     "$value": "{spacing.1}",
     "$type": "dimension",
-    "$description": "Amount of margin inline end for H5 elements with .prose applied directly or that are a child of a .prose container."
+    "$description": "Outgoing spacing request contributed by an H5 to the next direct child in a .prose flow. The resolved gap is the larger of this spacing-after and the next treatment's spacing-before; an eyebrow immediately followed by a heading intentionally uses the eyebrow's tighter outgoing gap."
   },
   "color": {
     "$value": "{app.ink}",

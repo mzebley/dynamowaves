@@ -1,58 +1,58 @@
 {
   "50": {
-    "$value": "hsl(359, 14%, 97%)",
+    "$value": "{color.rosewater-50}",
     "$type": "color",
-    "$description": "For primary accent surfaces."
+    "$description": "For primary branded surfaces."
   },
   "100": {
-    "$value": "hsl(359, 14%, 91%)",
+    "$value": "{color.rosewater-100}",
     "$type": "color",
-    "$description": "For primary accent surfaces."
+    "$description": "For primary branded surfaces."
   },
   "200": {
-    "$value": "hsl(359, 14%, 78%)",
+    "$value": "{color.rosewater-200}",
     "$type": "color",
-    "$description": "For primary accent surfaces."
+    "$description": "For primary branded surfaces."
   },
   "300": {
-    "$value": "hsl(359, 14%, 67%)",
+    "$value": "{color.rosewater-300}",
     "$type": "color",
-    "$description": "For primary accent surfaces."
+    "$description": "For primary branded surfaces."
   },
   "400": {
-    "$value": "hsl(359, 14%, 56%)",
+    "$value": "{color.rosewater-400}",
     "$type": "color",
-    "$description": "For primary accent surfaces."
+    "$description": "For primary branded surfaces."
   },
   "500": {
-    "$value": "hsl(359, 14%, 49%)",
+    "$value": "{color.rosewater-500}",
     "$type": "color",
-    "$description": "For primary accent surfaces."
+    "$description": "For primary branded surfaces."
   },
   "600": {
-    "$value": "hsl(359, 14%, 39%)",
+    "$value": "{color.rosewater-600}",
     "$type": "color",
-    "$description": "For primary accent surfaces."
+    "$description": "For primary branded surfaces."
   },
   "700": {
-    "$value": "hsl(359, 14%, 29%)",
+    "$value": "{color.rosewater-700}",
     "$type": "color",
-    "$description": "For primary accent surfaces."
+    "$description": "For primary branded surfaces."
   },
   "800": {
-    "$value": "hsl(359, 14%, 20%)",
+    "$value": "{color.rosewater-800}",
     "$type": "color",
-    "$description": "For primary accent surfaces."
+    "$description": "For primary branded surfaces."
   },
   "900": {
-    "$value": "hsl(359, 14%, 11%)",
+    "$value": "{color.rosewater-900}",
     "$type": "color",
-    "$description": "For primary accent surfaces."
+    "$description": "For primary branded surfaces."
   },
   "950": {
-    "$value": "hsl(359, 14%, 4%)",
+    "$value": "{color.rosewater-950}",
     "$type": "color",
-    "$description": "For primary accent surfaces."
+    "$description": "For primary branded surfaces."
   },
   "canvas": {
     "$value": "{accent-primary.500}",
@@ -70,7 +70,7 @@
     "$description": "Muted primary-accent canvas color for low-emphasis, recessed surfaces."
   },
   "canvas-emphasis": {
-    "$value": "{brand.700}",
+    "$value": "{accent-primary.700}",
     "$type": "color",
     "$description": "Emphasis primary-accent canvas color for high-prominence surfaces."
   },
@@ -130,7 +130,7 @@
     "$description": "Muted inverse primary-accent ink color for secondary text and icons on inverse canvases."
   },
   "ink-inverse-emphasis": {
-    "$value": "{brand.100}",
+    "$value": "{accent-primary.100}",
     "$type": "color",
     "$description": "Emphasis inverse primary-accent ink color for high-prominence text on inverse canvases."
   },

@@ -1,56 +1,56 @@
 {
   "50": {
-    "$value": "hsl(179, 19%, 98%)",
+    "$value": "{color.mint-50}",
     "$type": "color",
     "$description": "For primary branded surfaces."
   },
   "100": {
-    "$value": "hsl(179, 19%, 90%)",
+    "$value": "{color.mint-100}",
     "$type": "color",
     "$description": "For primary branded surfaces."
   },
   "200": {
-    "$value": "hsl(179, 19%, 81%)",
+    "$value": "{color.mint-200}",
     "$type": "color",
     "$description": "For primary branded surfaces."
   },
   "300": {
-    "$value": "hsl(179, 19%, 68%)",
+    "$value": "{color.mint-300}",
     "$type": "color",
     "$description": "For primary branded surfaces."
   },
   "400": {
-    "$value": "hsl(179, 19%, 56%)",
+    "$value": "{color.mint-400}",
     "$type": "color",
     "$description": "For primary branded surfaces."
   },
   "500": {
-    "$value": "hsl(179, 19%, 44%)",
+    "$value": "{color.mint-500}",
     "$type": "color",
     "$description": "For primary branded surfaces."
   },
   "600": {
-    "$value": "hsl(179, 19%, 36%)",
+    "$value": "{color.mint-600}",
     "$type": "color",
     "$description": "For primary branded surfaces."
   },
   "700": {
-    "$value": "hsl(179, 19%, 28%)",
+    "$value": "{color.mint-700}",
     "$type": "color",
     "$description": "For primary branded surfaces."
   },
   "800": {
-    "$value": "hsl(179, 19%, 21%)",
+    "$value": "{color.mint-800}",
     "$type": "color",
     "$description": "For primary branded surfaces."
   },
   "900": {
-    "$value": "hsl(179, 19%, 12%)",
+    "$value": "{color.mint-900}",
     "$type": "color",
     "$description": "For primary branded surfaces."
   },
   "950": {
-    "$value": "hsl(179, 19%, 4%)",
+    "$value": "{color.mint-950}",
     "$type": "color",
     "$description": "For primary branded surfaces."
   },
@@ -60,7 +60,7 @@
     "$description": "Base brand canvas color for primary branded surfaces."
   },
   "canvas-subtle": {
-    "$value": "{brand.50}",
+    "$value": "{brand.100}",
     "$type": "color",
     "$description": "Subtle brand canvas color for the least-prominent, lightly tinted surfaces."
   },
@@ -70,7 +70,7 @@
     "$description": "Muted brand canvas color for low-emphasis, recessed surfaces."
   },
   "canvas-emphasis": {
-    "$value": "{brand.600}",
+    "$value": "{brand.800}",
     "$type": "color",
     "$description": "Emphasis brand canvas color for high-prominence surfaces."
   },
@@ -115,7 +115,7 @@
     "$description": "Emphasis brand ink color for high-prominence text and icons."
   },
   "ink-inverse": {
-    "$value": "{brand.300}",
+    "$value": "{brand.200}",
     "$type": "color",
     "$description": "Base inverse brand ink color for body text and icons on inverse or dark canvases."
   },
@@ -125,12 +125,12 @@
     "$description": "Subtle inverse brand ink color for the least-prominent text and icons on inverse canvases."
   },
   "ink-inverse-muted": {
-    "$value": "{brand.400}",
+    "$value": "{brand.300}",
     "$type": "color",
     "$description": "Muted inverse brand ink color for secondary text and icons on inverse canvases."
   },
   "ink-inverse-emphasis": {
-    "$value": "{brand.200}",
+    "$value": "{brand.50}",
     "$type": "color",
     "$description": "Emphasis inverse brand ink color for high-prominence text on inverse canvases."
   },

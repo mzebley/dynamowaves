@@ -1,0 +1,62 @@
+{
+  "measure": {
+    "$value": "{text-measure.5}",
+    "$type": "cssDimension",
+    "$description": "Maximum inline measure for a prose figure."
+  },
+  "spacing-before": {
+    "$value": "{spacing.105}",
+    "$type": "dimension",
+    "$description": "Incoming spacing request when a figure follows another direct child in a .prose flow. The resolved gap is the larger of this spacing-before and the previous treatment's spacing-after, so structural hierarchy wins without relying on source order."
+  },
+  "spacing-after": {
+    "$value": "{spacing.105}",
+    "$type": "dimension",
+    "$description": "Outgoing spacing request contributed by a figure to the next direct child in a .prose flow. The resolved gap is the larger of this spacing-after and the next treatment's spacing-before; documented compound pairs may intentionally use the tighter outgoing gap."
+  },
+  "caption-spacing-before": {
+    "$value": "{spacing.05}",
+    "$type": "dimension",
+    "$description": "Block spacing between figure media and its caption."
+  },
+  "caption-font-family": {
+    "$value": "{font-family.body}",
+    "$type": "fontFamily",
+    "$description": "Font family for prose figure captions."
+  },
+  "caption-font-size": {
+    "$value": "{font-size.xs}",
+    "$type": "cssDimension",
+    "$description": "Font size for prose figure captions."
+  },
+  "caption-font-weight": {
+    "$value": "{font-weight.normal}",
+    "$type": "fontWeight",
+    "$description": "Font weight for prose figure captions."
+  },
+  "caption-line-height": {
+    "$value": "{line-height.2}",
+    "$type": "number",
+    "$description": "Line height for prose figure captions."
+  },
+  "caption-letter-spacing": {
+    "$value": "{letter-spacing.normal}",
+    "$type": "dimension",
+    "$description": "Letter spacing for prose figure captions."
+  },
+  "caption-color": {
+    "$value": "{app.ink-muted}",
+    "$type": "color",
+    "$description": "Text color for prose figure captions."
+  },
+  "caption-font-style": {
+    "$value": "normal",
+    "$type": "fontStyle",
+    "$description": "Font style for prose figure captions."
+  },
+  "caption-text-align": {
+    "$value": "start",
+    "$type": "textAlignment",
+    "$description": "Text alignment for prose figure captions."
+  }
+}

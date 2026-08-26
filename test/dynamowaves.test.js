@@ -327,6 +327,59 @@ describe('lifecycle state handling', () => {
     assert.equal(wave.elapsedTime, 0);
     assert.equal(wave.animationFrameId, null);
   });
+
+  it('stops and resumes an authored loop when reduced motion changes live', () => {
+    const wave = new DynamoWave();
+    wave.isConnected = true;
+    wave.isAnimating = true;
+    wave.animationFrameId = 7;
+    wave.getAttribute = (name) => (name === 'data-wave-animate' ? 'true' : null);
+
+    const originalRAF = globalThis.requestAnimationFrame;
+    const originalCAF = globalThis.cancelAnimationFrame;
+    globalThis.requestAnimationFrame = () => 42;
+    globalThis.cancelAnimationFrame = () => {};
+
+    try {
+      wave.handleMotionPreferenceChange({ matches: true });
+      assert.equal(wave.isAnimating, false);
+      assert.equal(wave.resumeAfterReducedMotion, true);
+
+      wave.handleMotionPreferenceChange({ matches: false });
+      assert.equal(wave.isAnimating, true);
+      assert.equal(wave.resumeAfterReducedMotion, false);
+    } finally {
+      globalThis.requestAnimationFrame = originalRAF;
+      globalThis.cancelAnimationFrame = originalCAF;
+    }
+  });
+
+  it('does not resume after animation is explicitly disabled during reduced motion', () => {
+    const attributes = { 'data-wave-animate': 'true' };
+    const wave = new DynamoWave();
+    wave.svg = {};
+    wave.isConnected = true;
+    wave.isAnimating = true;
+    wave.animationFrameId = 7;
+    wave.getAttribute = (name) => attributes[name] ?? null;
+
+    const originalCAF = globalThis.cancelAnimationFrame;
+    globalThis.cancelAnimationFrame = () => {};
+
+    try {
+      wave.handleMotionPreferenceChange({ matches: true });
+      assert.equal(wave.resumeAfterReducedMotion, true);
+
+      attributes['data-wave-animate'] = 'false';
+      wave.attributeChangedCallback('data-wave-animate', 'true', 'false');
+      assert.equal(wave.resumeAfterReducedMotion, false);
+
+      wave.handleMotionPreferenceChange({ matches: false });
+      assert.equal(wave.isAnimating, false);
+    } finally {
+      globalThis.cancelAnimationFrame = originalCAF;
+    }
+  });
 });
 
 describe('attribute reactivity', () => {

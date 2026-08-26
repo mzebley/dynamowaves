@@ -1,27 +1,41 @@
 {
   "name": "dynamowaves",
-  "version": "2.1.5",
+  "version": "2.2.0",
   "type": "module",
   "description": "Lightweight, dependency-free SVG wave templates that dynamically generate themselves on render.",
-  "main": "dist/dynamowaves.js",
-  "module": "dist/dynamowaves.js",
-  "types": "dist/dynamowaves.d.ts",
+  "main": "./dist/dynamowaves.cjs",
+  "module": "./dist/dynamowaves.esm.js",
+  "types": "./dist/dynamowaves.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/dynamowaves.d.ts",
+      "import": "./dist/dynamowaves.esm.js",
+      "require": "./dist/dynamowaves.cjs",
+      "default": "./dist/dynamowaves.esm.js"
+    },
+    "./dist/dynamowaves.js": "./dist/dynamowaves.js",
+    "./dist/dynamowaves.min.js": "./dist/dynamowaves.min.js"
+  },
   "files": [
     "dist"
   ],
   "scripts": {
     "test": "node --test",
     "build": "rollup -c",
+    "dev:docs": "vite dev",
+    "build:docs": "npm run build && npx zebkit build && vite build",
+    "check:docs": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json && npx zebkit check --format=json",
+    "preview:docs": "vite preview",
+    "verify:docs": "zebkit verify --url http://localhost:4173",
+    "docs:build": "npm run build:docs",
+    "docs:watch": "npm run dev:docs",
+    "check:zebkit": "zebkit check --format=json",
     "prepublishOnly": "npm run build",
     "release": "npm publish",
-    "release:dry": "npm run build && npm pack --dry-run",
-    "docs:manifest": "mark-down build www/snippets --output www/snippets/snippets-index.json",
-    "docs:manifest:watch": "mark-down watch www/snippets --output www/snippets/snippets-index.json",
-    "docs:content": "npm run docs:manifest && mark-down compile-page www-src/index.html --manifest www/snippets/snippets-index.json --outDir www",
-    "docs:build": "zebkit build && sass www/main.scss:www/main.css && npm run docs:content && npm run docs:runtime",
-    "docs:runtime": "esbuild www/zebkit.entry.js --bundle --minify --format=esm --outfile=www/zebkit.js",
-    "docs:watch": "chokidar \"www-src/index.html\" \"www/snippets/**/*.md\" -c \"npm run docs:build\"",
-    "check:zebkit": "zebkit check --format=json"
+    "release:dry": "npm run build && npm pack --dry-run"
+  },
+  "engines": {
+    "node": ">=22.12.0"
   },
   "repository": {
     "type": "git",
@@ -43,15 +57,26 @@
   },
   "homepage": "https://dynamowaves.markzebley.com/",
   "devDependencies": {
-    "@mzebley/mark-down-cli": "^1.2.2",
-    "@rollup/plugin-terser": "^0.4.4",
-    "chokidar-cli": "^3.0.0",
-    "esbuild": "0.28.1",
-    "rollup": "^3.29.4",
+    "@mzebley/zebkit": "0.16.1",
+    "@rollup/plugin-terser": "^1.0.0",
+    "@sveltejs/adapter-static": "^3.0.10",
+    "@sveltejs/kit": "^2.70.2",
+    "@sveltejs/vite-plugin-svelte": "^7.2.0",
+    "@types/node": "^26.1.0",
+    "lit": "^3.3.1",
+    "mdsvex": "^0.12.8",
+    "playwright": "^1.62.1",
+    "rollup": "^4.62.4",
     "rollup-plugin-dts": "^6.1.1",
-    "sass": "1.102.0"
+    "shiki": "^4.4.1",
+    "svelte": "^5.56.8",
+    "svelte-check": "^4.7.4",
+    "typescript": "^5.9.3",
+    "vite": "^8.2.1",
+    "zebkit": "npm:@mzebley/zebkit@0.16.1"
   },
-  "dependencies": {
-    "zebkit": "npm:@mzebley/zebkit@0.11.0"
+  "overrides": {
+    "immutable": "^5.1.9",
+    "yaml": "^2.9.0"
   }
 }

@@ -92,8 +92,9 @@ export function resolveCss(cwd, config, explicit) {
   if (!config) return discoverCss(cwd);
 
   const tokens = config.tokens ?? {};
+  const themeConfig = config.theme ?? {};
   const destination = tokens.destinationPath ?? "./dist";
-  const theme = tokens.themeName ?? tokens.basePreset ?? "zebkit";
+  const theme = themeConfig.name ?? themeConfig.preset ?? "zebkit";
   const minifySuffix = tokens.minify === false ? "" : ".min";
   const candidate = path.resolve(
     cwd,
@@ -186,7 +187,7 @@ export function resolveContext(cwd, packageDir, config) {
 }
 
 export function resolveRuntimePath(cwd, config) {
-  if (config?.runtime === false) return null;
+  if (config?.runtime?.delivery === "manual") return null;
   const configured =
     typeof config?.runtime?.path === "string" && config.runtime.path.trim()
       ? config.runtime.path.trim()

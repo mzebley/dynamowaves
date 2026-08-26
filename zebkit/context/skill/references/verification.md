@@ -43,6 +43,17 @@ It can detect anchored source such as:
 JSON findings include mechanical replacements when the correction is
 unambiguous.
 
+Static component evidence defaults to literal tags in scanned source, borrowed
+appearance contracts, and the `check.components` safelist. Dynamic component
+names must be added there. Use `--all-components` for an
+intentional library or theme audit; do not remediate unused-component findings
+from a full-surface or stale report as if the application used them.
+
+Project-local custom properties that intentionally use the `--zbk-` prefix can
+be listed in `check.tokens` as exact names or narrow `*` globs, such as
+`--zbk-app-canvas-*-trans`. This suppresses only matching `unknown-token`
+findings; unrelated token typos and every other rule still run normally.
+
 ## What `check` does not prove
 
 It does not render or execute the application. Dynamic expressions are counted
@@ -69,6 +80,35 @@ npx zebkit check \
 
 Keep JSON as the machine-readable source of truth. Markdown and HTML are
 renderings for review, not independent evidence models.
+
+`zebkit verify` writes its generated review files outside the compiled CSS
+destination by default:
+
+```text
+.zebkit/reports/zebkit-a11y-report.json
+.zebkit/reports/zebkit-a11y-report.html
+```
+
+Change that directory with `accessibility.verify.reportDirectory`, or override
+one run with `--report` and `--html`. The build-generated
+`zebkit-a11y-input.json` is different: commit it because `zebkit check` uses it
+as evidence. It defaults beside the compiled CSS; when that directory is
+published, move the evidence file to a tracked non-public path:
+
+```json
+{
+  "accessibility": {
+    "inputPath": ".zebkit/evidence/zebkit-a11y-input.json"
+  }
+}
+```
+
+The verify JSON/HTML reports are regenerated review output and can normally be
+ignored with:
+
+```gitignore
+.zebkit/reports/
+```
 
 ## Rendered verification
 

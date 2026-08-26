@@ -2,6 +2,7 @@
 logs
 *.log
 npm-debug.log*
+.DS_Store
 
 # Runtime data
 pids
@@ -17,6 +18,8 @@ coverage
 
 # Generated Zebkit accessibility reports
 reports
+.zebkit/reports
+src/lib/styles/*.prune-report.json
 
 # nyc test coverage
 .nyc_output
@@ -33,6 +36,16 @@ build/Release
 # Dependency directories
 node_modules
 jspm_packages
+
+# SvelteKit and Vercel build output
+.svelte-kit
+.vercel
+/build
+
+# Local environment files
+.env
+.env.*
+!.env.example
 
 # Optional npm cache directory
 .npm

@@ -1,6 +1,6 @@
 {
   "canvas": {
-    "$value": "{accent-primary.900}",
+    "$value": "{accent-primary.950}",
     "$type": "color",
     "$description": "Dark-mode documentation canvas."
   },
@@ -25,7 +25,7 @@
     "$description": "Dark-mode body text."
   },
   "ink-muted": {
-    "$value": "{brand.300}",
+    "$value": "{accent-primary.300}",
     "$type": "color",
     "$description": "Dark-mode secondary icons and theme control."
   },

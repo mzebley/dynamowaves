@@ -340,7 +340,7 @@
     "$description": "Preferred width-to-height ratio of the button box. `1` squares an icon-only button without pinning either dimension."
   },
   "icon-size": {
-    "$value": "1.125rem",
+    "$value": "{spacing.205}",
     "$type": "cssDimension",
     "$description": "Default icon size within buttons."
   },

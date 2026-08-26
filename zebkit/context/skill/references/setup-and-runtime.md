@@ -14,9 +14,20 @@ npx zebkit init
 npx zebkit build
 ```
 
-`lit` is a peer dependency. `init` writes `zebkit.config.json`, can copy
-authorable token and variant files, generates the runtime config module, configures
-editor support, and installs project-filtered agent context.
+`lit` is the only runtime peer dependency. Playwright is an optional peer used
+only by `zebkit verify`; projects that run rendered verification should install
+it as a dev dependency and install Chromium:
+
+```bash
+npm install --save-dev playwright
+npx playwright install chromium
+```
+
+`init` writes `zebkit.config.json`, can copy authorable token and variant files,
+generates the runtime config module, configures editor support, and installs
+project-filtered agent context. Each later `zebkit build` refreshes the generated
+runtime module with the current component filters, options, and consumer-variant
+vocabulary.
 
 After upgrading:
 
@@ -30,7 +41,7 @@ without overwriting project customizations.
 
 ## Load the CSS
 
-Read `tokens.destinationPath`, `tokens.themeName`, and `tokens.minify` from the
+Read `tokens.destinationPath`, `theme.name`, and `tokens.minify` from the
 config. The normal output is:
 
 ```html
@@ -105,6 +116,11 @@ At upgrade:
   `display: contents`;
 - native events bubble through light DOM;
 - `focus()` and `blur()` forward.
+
+The `class`/`style` copy is a framework compatibility guarantee. Scoped-class
+markers written by Svelte, Vue, Angular, and similar compilers remain on the host
+and are also copied to the painted style root, so scoped consumer CSS continues
+to match after the custom element upgrades.
 
 When an integration truly needs the native element:
 

@@ -43,20 +43,20 @@
 
     /**
      * Constructs a new instance of the class.
-     * 
+     *
      * @constructor
-     * 
+     *
      * @property {boolean} isAnimating - Indicates whether the animation is currently running.
      * @property {number|null} animationFrameId - The ID of the current animation frame request.
      * @property {number} elapsedTime - The elapsed time since the animation started.
      * @property {number|null} startTime - The start time of the animation.
-     * 
+     *
      * @property {boolean} isGeneratingWave - Indicates whether a wave is currently being generated.
-     * 
+     *
      * @property {Path2D|null} currentPath - The current wave path.
      * @property {Path2D|null} targetPath - The target wave path.
      * @property {Path2D|null} pendingTargetPath - The next wave path to be generated.
-     * 
+     *
      * @property {IntersectionObserver|null} intersectionObserver - The Intersection Observer instance.
      * @property {Object|null} observerOptions - The options for the Intersection Observer.
      */
@@ -86,6 +86,11 @@
       // restart the loop if the element is re-attached.
       this.resumeOnConnect = false;
 
+      // Track the live preference so a running loop stops immediately when the
+      // user enables reduced motion and can resume if they turn it back off.
+      this.motionQuery = null;
+      this.resumeAfterReducedMotion = false;
+
       // True while the component writes data-wave-seed itself, so
       // attributeChangedCallback can tell self-reflection from user changes.
       this.reflectingSeed = false;
@@ -93,17 +98,20 @@
       this.play = this.play.bind(this);
       this.pause = this.pause.bind(this);
       this.generateNewWave = this.generateNewWave.bind(this);
+      this.handleMotionPreferenceChange = this.handleMotionPreferenceChange.bind(this);
     }
 
     /**
      * Called when the custom element is appended to the DOM.
      * Initializes the wave properties, constructs the SVG element,
      * and sets up animation and observation if specified.
-     * 
+     *
      * @method connectedCallback
      * @returns {void}
      */
     connectedCallback() {
+      this.setupMotionPreferenceListener();
+
       // Suffix the host id so the inner SVG never duplicates it in the document.
       const hostId = this.id || `dynamo-wave-${Math.random().toString(36).slice(2, 9)}`;
       const svgId = `${hostId}-svg`;
@@ -215,6 +223,35 @@
       }
     }
 
+    setupMotionPreferenceListener() {
+      if (
+        this.motionQuery ||
+        typeof window === "undefined" ||
+        typeof window.matchMedia !== "function"
+      ) {
+        return;
+      }
+
+      this.motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+      this.motionQuery.addEventListener?.("change", this.handleMotionPreferenceChange);
+    }
+
+    handleMotionPreferenceChange(event) {
+      if (event.matches) {
+        this.resumeAfterReducedMotion = this.isAnimating;
+        this.pause();
+        return;
+      }
+
+      const shouldResume =
+        this.resumeAfterReducedMotion || this.getAttribute?.("data-wave-animate") === "true";
+      this.resumeAfterReducedMotion = false;
+
+      if (this.isConnected && shouldResume) {
+        this.play();
+      }
+    }
+
     /**
      * Reacts to observed attribute changes after the initial render.
      * Cheap changes (speed, animate, observe) are applied in place; geometry
@@ -250,6 +287,9 @@
           if (newValue === "true") {
             if (!prefersReducedMotion()) this.play();
           } else {
+            // An explicit opt-out wins over a pending resume captured when the
+            // user enabled reduced motion.
+            this.resumeAfterReducedMotion = false;
             this.pause();
           }
           break;
@@ -324,7 +364,12 @@
       // A morph from generateNewWave shares the animation state (startTime,
       // elapsedTime, animationFrameId); starting the loop mid-morph would run
       // two competing frame loops. Callers can retry on dynamo-wave-complete.
-      if (this.isAnimating || this.isGeneratingWave || this.animationFrameId) return;
+      if (
+        prefersReducedMotion() ||
+        this.isAnimating ||
+        this.isGeneratingWave ||
+        this.animationFrameId
+      ) return;
       this.isAnimating = true;
 
       // Use custom duration if provided, otherwise use the instance duration
@@ -430,20 +475,23 @@
         this.intersectionObserver.disconnect();
         this.intersectionObserver = null;
       }
+
+      this.motionQuery?.removeEventListener?.("change", this.handleMotionPreferenceChange);
+      this.motionQuery = null;
     }
 
     /**
      * Sets up an IntersectionObserver to monitor the visibility of the element.
-     * 
-     * @param {string} observeConfig - Configuration string for observation. 
-     *                                 Format: "mode:rootMargin". 
+     *
+     * @param {string} observeConfig - Configuration string for observation.
+     *                                 Format: "mode:rootMargin".
      *                                 "mode" can be "once" for one-time observation.
      *                                 "rootMargin" is an optional margin around the root.
-     * 
+     *
      * @example
      * // Observe with default root margin and trigger only once
      * setupIntersectionObserver('once:0px');
-     * 
+     *
      * @example
      * // Observe with custom root margin and continuous triggering
      * setupIntersectionObserver('continuous:10px');
@@ -451,7 +499,7 @@
     setupIntersectionObserver(observeConfig) {
       // Parse observation configuration
       const [mode, rootMargin = '0px'] = observeConfig.split(':');
-      
+
       // Determine observation mode
       const isOneTime = mode === 'once';
 
@@ -496,7 +544,7 @@
     /**
      * Generates a new wave animation with the specified duration.
      * Prevents multiple simultaneous wave generations by setting a flag.
-     * 
+     *
      * @param {number} [duration=800] - The duration of the wave animation in milliseconds. Minimum value is 1.
      */
     generateNewWave(duration = 800) {
@@ -505,7 +553,7 @@
         return;
       }
 
-      if (duration < 1) duration = 1;
+      if (duration < 1 || prefersReducedMotion()) duration = 1;
 
       // Set flag to prevent concurrent wave generations
       this.isGeneratingWave = true;

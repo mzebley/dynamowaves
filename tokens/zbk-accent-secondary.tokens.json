@@ -1,56 +1,56 @@
 {
   "50": {
-    "$value": "{color.teal-50}",
+    "$value": "{color.sea-50}",
     "$type": "color",
     "$description": "For secondary accent surfaces."
   },
   "100": {
-    "$value": "{color.teal-100}",
+    "$value": "{color.sea-100}",
     "$type": "color",
     "$description": "For secondary accent surfaces."
   },
   "200": {
-    "$value": "{color.teal-200}",
+    "$value": "{color.sea-200}",
     "$type": "color",
     "$description": "For secondary accent surfaces."
   },
   "300": {
-    "$value": "{color.teal-300}",
+    "$value": "{color.sea-300}",
     "$type": "color",
     "$description": "For secondary accent surfaces."
   },
   "400": {
-    "$value": "{color.teal-400}",
+    "$value": "{color.sea-400}",
     "$type": "color",
     "$description": "For secondary accent surfaces."
   },
   "500": {
-    "$value": "{color.teal-500}",
+    "$value": "{color.sea-500}",
     "$type": "color",
     "$description": "For secondary accent surfaces."
   },
   "600": {
-    "$value": "{color.teal-600}",
+    "$value": "{color.sea-600}",
     "$type": "color",
     "$description": "For secondary accent surfaces."
   },
   "700": {
-    "$value": "{color.teal-700}",
+    "$value": "{color.sea-700}",
     "$type": "color",
     "$description": "For secondary accent surfaces."
   },
   "800": {
-    "$value": "{color.teal-800}",
+    "$value": "{color.sea-800}",
     "$type": "color",
     "$description": "For secondary accent surfaces."
   },
   "900": {
-    "$value": "{color.teal-900}",
+    "$value": "{color.sea-900}",
     "$type": "color",
     "$description": "For secondary accent surfaces."
   },
   "950": {
-    "$value": "{color.teal-950}",
+    "$value": "{color.sea-950}",
     "$type": "color",
     "$description": "For secondary accent surfaces."
   },
@@ -60,7 +60,7 @@
     "$description": "Base secondary-accent canvas color for secondary accent surfaces."
   },
   "canvas-subtle": {
-    "$value": "{color.lavenderfield-200}",
+    "$value": "{accent-secondary.200}",
     "$type": "color",
     "$description": "Subtle secondary-accent canvas color for the least-prominent, lightly tinted surfaces."
   },
@@ -110,7 +110,7 @@
     "$description": "Muted secondary-accent ink color for secondary text and icons."
   },
   "ink-emphasis": {
-    "$value": "{color.mint-900}",
+    "$value": "{accent-secondary.900}",
     "$type": "color",
     "$description": "Emphasis secondary-accent ink color for high-prominence text and icons."
   },

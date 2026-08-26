@@ -1,0 +1,87 @@
+{
+  "measure": {
+    "$value": "{text-measure.4}",
+    "$type": "cssDimension",
+    "$description": "Maximum inline measure for a prose definition list."
+  },
+  "spacing-before": {
+    "$value": "{spacing.0}",
+    "$type": "dimension",
+    "$description": "Incoming spacing request when a definition list follows another direct child in a .prose flow. The resolved gap is the larger of this spacing-before and the previous treatment's spacing-after, so structural hierarchy wins without relying on source order."
+  },
+  "spacing-after": {
+    "$value": "{spacing.05}",
+    "$type": "dimension",
+    "$description": "Outgoing spacing request contributed by a definition list to the next direct child in a .prose flow. The resolved gap is the larger of this spacing-after and the next treatment's spacing-before; documented compound pairs may intentionally use the tighter outgoing gap."
+  },
+  "item-spacing": {
+    "$value": "{spacing.1}",
+    "$type": "dimension",
+    "$description": "Block spacing between definition-list entries."
+  },
+  "term-description-spacing": {
+    "$value": "{spacing.025}",
+    "$type": "dimension",
+    "$description": "Block spacing between a term and its first description."
+  },
+  "description-spacing": {
+    "$value": "{spacing.025}",
+    "$type": "dimension",
+    "$description": "Block spacing between consecutive descriptions for one term."
+  },
+  "description-padding-inline-start": {
+    "$value": "{spacing.1}",
+    "$type": "dimension",
+    "$description": "Inline-start inset for definition descriptions."
+  },
+  "term-font-family": {
+    "$value": "{font-family.body}",
+    "$type": "fontFamily",
+    "$description": "Font family for definition terms."
+  },
+  "term-font-size": {
+    "$value": "{font-size.sm}",
+    "$type": "cssDimension",
+    "$description": "Font size for definition terms."
+  },
+  "term-font-weight": {
+    "$value": "{font-weight.bold}",
+    "$type": "fontWeight",
+    "$description": "Font weight for definition terms."
+  },
+  "term-line-height": {
+    "$value": "{line-height.3}",
+    "$type": "number",
+    "$description": "Line height for definition terms."
+  },
+  "term-color": {
+    "$value": "{app.ink}",
+    "$type": "color",
+    "$description": "Text color for definition terms."
+  },
+  "description-font-family": {
+    "$value": "{font-family.body}",
+    "$type": "fontFamily",
+    "$description": "Font family for definition descriptions."
+  },
+  "description-font-size": {
+    "$value": "{font-size.sm}",
+    "$type": "cssDimension",
+    "$description": "Font size for definition descriptions."
+  },
+  "description-font-weight": {
+    "$value": "{font-weight.normal}",
+    "$type": "fontWeight",
+    "$description": "Font weight for definition descriptions."
+  },
+  "description-line-height": {
+    "$value": "{line-height.3}",
+    "$type": "number",
+    "$description": "Line height for definition descriptions."
+  },
+  "description-color": {
+    "$value": "{app.ink-muted}",
+    "$type": "color",
+    "$description": "Text color for definition descriptions."
+  }
+}

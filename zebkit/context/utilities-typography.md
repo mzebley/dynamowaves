@@ -3,84 +3,205 @@
 # Typography utilities
 
 Utilities are token-bound class grammar, not hard-coded values. They live in `@layer utilities`, so unlayered consumer CSS overrides them without `!important`.
+Zebkit orders its layers as `theme, base, components, variants, utilities`: utilities override variants, and variants override their component defaults.
 
 - Pattern families use `base[-edge]-{value}`. Edges are logical (`block`, `inline`, `block-start`, `inline-end`) unless a family says otherwise.
 - When a family lists responsive support, prefix its class with `tablet:`, `tablet-lg:`, `desktop:`, `desktop-lg:`, or `widescreen:`.
+- When a family lists interaction-state support, prefix its class with `focus:`, `hover:`, or `active:`. Interaction-state and breakpoint prefixes are independent and do not combine.
 - Negative values use `neg-{value}` only where the family offers them.
 - Values resolve through design tokens; use the documented grammar instead of writing raw CSS values.
 
+## List marker utilities
+
+Straight utility classes for intentionally overriding a list's native marker system or marker position. Prose themes supply defaults through --zbk-list-* tokens; these classes are the per-instance authoring vocabulary.
+
+### list-marker-type
+
+Selects a native marker or numbering system without replacing semantic ul/ol markup.
+
+Classes: `list-disc`, `list-circle`, `list-square`, `list-none`, `list-decimal`, `list-lower-alpha`, `list-upper-alpha`, `list-lower-roman`, `list-upper-roman`.
+Sets: `list-disc`: list-style-type; `list-circle`: list-style-type; `list-square`: list-style-type; `list-none`: list-style-type; `list-decimal`: list-style-type; `list-lower-alpha`: list-style-type; `list-upper-alpha`: list-style-type; `list-lower-roman`: list-style-type; `list-upper-roman`: list-style-type.
+
+- Use a marker that matches the list's meaning; do not put ordered information in ul merely to get a preferred glyph.
+- Native ol start, reversed, and li[value] behavior remains available with every ordered marker utility.
+
+### list-marker-position
+
+Places native list markers inside or outside the list item's content box.
+
+Classes: `list-inside`, `list-outside`.
+Sets: `list-inside`: list-style-position; `list-outside`: list-style-position.
+
+- Prefer list-outside for long-form prose. list-inside can make wrapped lines harder to scan and is best reserved for constrained layouts.
+
 ## Prose utilities
 
-Opt-in long-form typographic context. Descendants of .prose (or elements that also carry .prose) get token-driven heading/paragraph styling and vertical rhythm. Element styles, emitted in @layer base so authored/component styles can still override.
+Opt-in long-form typography for semantic HTML. A .prose container owns relationships between direct children: the gap between siblings resolves to the larger of the previous treatment's spacing-after and the incoming treatment's spacing-before, independent of stylesheet order and layout mode. Tables are intentionally deferred until Zebkit has a lightweight table component whose tokens prose can inherit.
 
 ### prose-h1
 
-Heading level 1 styling and sibling spacing inside a .prose context.
+Heading level 1 typography and relationship spacing inside a .prose context.
 
 Defines: `prose`.
 The prose context styles matching descendant elements; use it for long-form content rather than as an element-by-element utility.
+
+- spacing-before is the incoming structural request; spacing-after is the outgoing request. The prose flow resolver uses the larger request for each sibling relationship, except the intentional tight eyebrow + heading compound.
 
 ### prose-h2
 
-Heading level 2 styling and sibling spacing inside a .prose context.
+Heading level 2 typography and relationship spacing inside a .prose context.
 
 Defines: `prose`.
 The prose context styles matching descendant elements; use it for long-form content rather than as an element-by-element utility.
+
+- spacing-before is the incoming structural request; spacing-after is the outgoing request. The prose flow resolver uses the larger request for each sibling relationship, except the intentional tight eyebrow + heading compound.
 
 ### prose-h3
 
-Heading level 3 styling and sibling spacing inside a .prose context.
+Heading level 3 typography and relationship spacing inside a .prose context.
 
 Defines: `prose`.
 The prose context styles matching descendant elements; use it for long-form content rather than as an element-by-element utility.
+
+- spacing-before is the incoming structural request; spacing-after is the outgoing request. The prose flow resolver uses the larger request for each sibling relationship, except the intentional tight eyebrow + heading compound.
 
 ### prose-h4
 
-Heading level 4 styling and sibling spacing inside a .prose context.
+Heading level 4 typography and relationship spacing inside a .prose context.
 
 Defines: `prose`.
 The prose context styles matching descendant elements; use it for long-form content rather than as an element-by-element utility.
+
+- spacing-before is the incoming structural request; spacing-after is the outgoing request. The prose flow resolver uses the larger request for each sibling relationship, except the intentional tight eyebrow + heading compound.
 
 ### prose-h5
 
-Heading level 5 styling and sibling spacing inside a .prose context.
+Heading level 5 typography and relationship spacing inside a .prose context.
 
 Defines: `prose`.
 The prose context styles matching descendant elements; use it for long-form content rather than as an element-by-element utility.
+
+- spacing-before is the incoming structural request; spacing-after is the outgoing request. The prose flow resolver uses the larger request for each sibling relationship, except the intentional tight eyebrow + heading compound.
 
 ### prose-h6
 
-Heading level 6 styling and sibling spacing inside a .prose context.
+Heading level 6 typography and relationship spacing inside a .prose context.
 
 Defines: `prose`.
 The prose context styles matching descendant elements; use it for long-form content rather than as an element-by-element utility.
+
+- spacing-before is the incoming structural request; spacing-after is the outgoing request. The prose flow resolver uses the larger request for each sibling relationship, except the intentional tight eyebrow + heading compound.
 
 ### prose-p
 
-Paragraph styling and sibling spacing inside a .prose context.
+Paragraph typography and relationship spacing inside a .prose context.
 
 Defines: `prose`.
 The prose context styles matching descendant elements; use it for long-form content rather than as an element-by-element utility.
 
-- Prose paragraphs are max-width constrained (measure) for readability; wrap long-form copy in a .prose container rather than styling paragraphs ad hoc.
+- Use semantic paragraphs for running copy. Paragraph spacing is only one request in a sibling relationship, so an incoming heading's stronger spacing-before can establish section hierarchy.
+
+### prose-eyebrow
+
+Short eyebrow-label typography and relationship spacing inside a .prose context.
+
+Defines: `prose`, `eyebrow`.
+The prose context styles matching descendant elements; use it for long-form content rather than as an element-by-element utility.
+
+- Use .eyebrow for a short category or context label. eyebrow + heading is an intentional compound: it uses the eyebrow's tighter spacing-after instead of the heading's larger spacing-before.
 
 ### prose-lede
 
-Introductory lede styling and sibling spacing inside a .prose context.
+Introductory lede typography and relationship spacing inside a .prose context.
 
 Defines: `prose`, `lede`.
 The prose context styles matching descendant elements; use it for long-form content rather than as an element-by-element utility.
 
-- Use .lede for the short introductory paragraph that summarizes or frames a page, article, or section.
+- Use .lede for a short introduction. Its before and after values participate in the same larger-request sibling resolver as every other prose treatment.
 
 ### prose-list
 
-Ordered and unordered list typography and spacing inside a .prose context.
+Ordered and unordered list typography, native markers, indentation, item rhythm, nesting, and relationship spacing.
 
 Defines: `prose`.
 The prose context styles matching descendant elements; use it for long-form content rather than as an element-by-element utility.
 
-- Use semantic ul/ol markup; list tokens keep typography and rhythm aligned with the surrounding prose.
+- Use semantic ul/ol markup. Theme defaults come from --zbk-list-* tokens; use list marker utility classes for an intentional instance-level marker or position override. Native start, reversed, and li[value] numbering behavior remains intact.
+
+### prose-blockquote
+
+Blockquote typography, inline-start rule, nested paragraph rhythm, citation treatment, and relationship spacing.
+
+Defines: `prose`.
+The prose context styles matching descendant elements; use it for long-form content rather than as an element-by-element utility.
+
+- Use blockquote for quoted content and cite for its source. No decorative quote glyph is synthesized; authored quotation marks and semantic content remain under author control.
+
+### prose-code
+
+Minimal native inline-code and pre > code fallback for Markdown and unenhanced HTML. Its prose override tokens reference the code-block component's code and frame tokens by default, keeping both surfaces synchronized until deliberately remapped.
+
+Defines: `prose`.
+The prose context styles matching descendant elements; use it for long-form content rather than as an element-by-element utility.
+
+- Use zbk-code-block for labels, copy actions, and enhanced listing chrome. Native prose code is the progressive fallback and has its own --zbk-prose-code-* override surface; changing --zbk-code-block-code-* still updates it by default.
+
+### prose-link
+
+Bare native links in prose consume the shared link component tokens instead of creating a duplicate prose-link token surface.
+
+Defines: `prose`, `zbk-link`.
+The prose context styles matching descendant elements; use it for long-form content rather than as an element-by-element utility.
+
+- Use zbk-link when enhanced external-link behavior or icons are needed. Markdown's bare anchors remain accessible and visually synchronized through the same --zbk-link-* tokens.
+
+### prose-link-hover
+
+Hover-capable pointer treatment for bare native prose links, gated so touch interaction does not leave a sticky hover state.
+
+Classes: `prose`.
+Sets: color, text-decoration-line, text-decoration-style, text-decoration-color, text-decoration-thickness, text-underline-offset.
+
+### prose-figure
+
+Figure measure, caption typography, and relationship spacing for semantic media with a figcaption.
+
+Defines: `prose`.
+The prose context styles matching descendant elements; use it for long-form content rather than as an element-by-element utility.
+
+- Keep meaningful media alternatives in native alt text or equivalent markup. figcaption remains visible supporting content and is never substituted for an accessible name.
+
+### prose-rule
+
+Token-driven thematic break and relationship spacing for hr.
+
+Defines: `prose`.
+The prose context styles matching descendant elements; use it for long-form content rather than as an element-by-element utility.
+
+### prose-definition-list
+
+Definition-list measure, term/description hierarchy, grouping rhythm, and relationship spacing.
+
+Defines: `prose`.
+The prose context styles matching descendant elements; use it for long-form content rather than as an element-by-element utility.
+
+- Use dt for each term and dd for its description. Optional div wrappers may group each term with one or more descriptions without changing the treatment.
+
+### prose-inline-semantics
+
+Compact token-driven treatments for kbd, mark, small, sup/sub, and title-bearing abbreviations in prose.
+
+Defines: `prose`.
+The prose context styles matching descendant elements; use it for long-form content rather than as an element-by-element utility.
+
+### prose-flow
+
+Deterministic relationship resolver for direct .prose children. Each incoming element receives separate typed before and after requests, then one logical start margin takes the larger request so block, flex, and grid layouts agree.
+
+Classes: `prose`.
+Sets: margin-block-start, --zbk-prose-flow-before, --zbk-prose-flow-after.
+
+- Do not rely on margin collapse or manifest order. spacing-before belongs to the incoming treatment, spacing-after belongs to the previous treatment, and max() gives structural hierarchy the stronger request. Standalone element.prose treatments style only that element and never change a following sibling.
 
 ## Text utilities
 
@@ -156,6 +277,7 @@ Sets the horizontal alignment of inline content.
 
 Classes: `text-left`, `text-right`, `text-center`, `text-justify`.
 Sets: `text-left`: text-align; `text-right`: text-align; `text-center`: text-align; `text-justify`: text-align.
+Responsive: prefix with `tablet:` `tablet-lg:` `desktop:` `desktop-lg:` `widescreen:`.
 
 ### text-truncate
 
@@ -201,7 +323,7 @@ Sets: `text-underline`: text-decoration-line; `text-overline`: text-decoration-l
 
 Sets the font family from the named font tokens.
 
-Grammar: `font-{value}` · values: primary, alt, monospace, interface, heading, body, code (font-family tokens)
+Grammar: `font-{value}` · values: primary, alt, monospace, interface, heading, body, code (font-family tokens) · responsive: prefix with `tablet:` `tablet-lg:` `desktop:` `desktop-lg:` `widescreen:`
 
 ### font-size
 
@@ -231,7 +353,7 @@ Grammar: `font-weight-{value}` · values: thin, extralight, light, normal, mediu
 
 Sets letter-spacing (tracking) from the tracking tokens. tracking-<value> is an alias of letter-spacing-<value>.
 
-Grammar: `letter-spacing-{value}` · values: tighter, tight, normal, wide, wider (letter-spacing tokens)
+Grammar: `letter-spacing-{value}` · values: tighter, tight, normal, wide, wider (letter-spacing tokens) · responsive: prefix with `tablet:` `tablet-lg:` `desktop:` `desktop-lg:` `widescreen:`
 
 - Aliases: `tracking-tighter` → `letter-spacing-tighter`, `tracking-tight` → `letter-spacing-tight`, `tracking-normal` → `letter-spacing-normal`, `tracking-wide` → `letter-spacing-wide`, `tracking-wider` → `letter-spacing-wider`.
 

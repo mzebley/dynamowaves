@@ -1,0 +1,8 @@
+{
+
+  "color": {
+    "$value": "{brand.ink}",
+    "$type": "color",
+    "$description": "Color of H2 elements with .prose applied directly or that are a child of a .prose container."
+  }
+}

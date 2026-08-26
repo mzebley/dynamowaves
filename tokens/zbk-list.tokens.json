@@ -1,72 +1,122 @@
 {
   "font-family": {
-    "$value": "{font-family.heading}",
+    "$value": "{p.font-family}",
     "$type": "fontFamily",
-    "$description": "Font size for H6 elements with .prose applied directly or that are a child of a .prose container."
+    "$description": "Font family for ordered and unordered lists in prose."
   },
   "font-size": {
-    "$value": "{font-size.sm}",
+    "$value": "{p.font-size}",
     "$type": "cssDimension",
-    "$description": "Font size for H6 elements with .prose applied directly or that are a child of a .prose container."
+    "$description": "Font size for ordered and unordered lists in prose."
   },
   "font-weight": {
-    "$value": "{font-weight.semibold}",
+    "$value": "{p.font-weight}",
     "$type": "fontWeight",
-    "$description": "Font weight for H6 elements with .prose applied directly or that are a child of a .prose container."
+    "$description": "Font weight for ordered and unordered lists in prose."
   },
   "line-height": {
-    "$value": "{line-height.3}",
+    "$value": "{p.line-height}",
     "$type": "number",
-    "$description": "Line height for H6 elements with .prose applied directly or that are a child of a .prose container."
+    "$description": "Line height for ordered and unordered lists in prose."
   },
   "letter-spacing": {
-    "$value": "{letter-spacing.normal}",
+    "$value": "{p.letter-spacing}",
     "$type": "dimension",
-    "$description": "Tracking for H6 elements with .prose applied directly or that are a child of a .prose container."
+    "$description": "Tracking for ordered and unordered lists in prose."
   },
   "measure": {
-    "$value": "{text-measure.3}",
+    "$value": "{p.measure}",
     "$type": "cssDimension",
-    "$description": "Maximum width for H6 elements with .prose applied directly or that are a child of a .prose container."
+    "$description": "Maximum inline measure for ordered and unordered lists in prose."
   },
   "spacing-before": {
-    "$value": "{spacing.2}",
-    "$type": "dimension",
-    "$description": "Amount of margin inline start for H6 elements with .prose applied directly or that are a child of a .prose container."
-  },
-  "spacing-after": {
-    "$value": "{spacing.1}",
-    "$type": "dimension",
-    "$description": "Amount of margin inline end for H6 elements with .prose applied directly or that are a child of a .prose container."
-  },
-  "padding-block-start": {
-    "$value": "{spacing.105}",
-    "$type": "dimension",
-    "$description": "Amount of spacing before list items."
-  },
-  "padding-block-end": {
     "$value": "{spacing.0}",
     "$type": "dimension",
-    "$description": "Amount of spacing after list items."
+    "$description": "Incoming spacing request when a list follows another direct child in a .prose flow. The resolved gap is the larger of this spacing-before and the previous treatment's spacing-after, so structural hierarchy wins without relying on source order."
+  },
+  "spacing-after": {
+    "$value": "{spacing.05}",
+    "$type": "dimension",
+    "$description": "Outgoing spacing request contributed by a list to the next direct child in a .prose flow. The resolved gap is the larger of this spacing-after and the next treatment's spacing-before; documented compound pairs may intentionally use the tighter outgoing gap."
   },
   "color": {
     "$value": "{app.ink}",
     "$type": "color",
-    "$description": "Color of H6 elements with .prose applied directly or that are a child of a .prose container."
+    "$description": "Text color for ordered and unordered lists in prose."
   },
   "font-style": {
     "$value": "normal",
     "$type": "fontStyle",
-    "$description": "Font style for H6 elements with .prose applied directly or that are a child of a .prose container."
+    "$description": "Font style for ordered and unordered lists in prose."
   },
   "text-transform": {
-    "$value": "uppercase",
+    "$value": "none",
     "$type": "textTransform",
-    "$description": "Text transform for H6 elements with .prose applied directly or that are a child of a .prose container."
+    "$description": "Text transform for ordered and unordered lists in prose."
   },
   "text-align": {
     "$value": "start",
     "$type": "textAlignment",
-    "$description": "Text alignment for ordered and unordered lists with .prose applied directly or that are children of a .prose container."
+    "$description": "Text alignment for ordered and unordered lists in prose."
+  },
+  "padding-inline-start": {
+    "$value": "{spacing.0}",
+    "$type": "dimension",
+    "$description": "Inline-start indentation for top-level prose lists."
+  },
+  "nested-padding-inline-start": {
+    "$value": "{spacing.0}",
+    "$type": "dimension",
+    "$description": "Additional inline-start indentation for each nested prose list."
+  },
+  "item-spacing": {
+    "$value": "{spacing.05}",
+    "$type": "dimension",
+    "$description": "Block spacing between sibling list items."
+  },
+  "nested-spacing-before": {
+    "$value": "{spacing.0}",
+    "$type": "dimension",
+    "$description": "Block spacing before a list nested inside a list item."
+  },
+  "nested-spacing-after": {
+    "$value": "{spacing.0}",
+    "$type": "dimension",
+    "$description": "Block spacing after a list nested inside a list item."
+  },
+  "loose-item-spacing": {
+    "$value": "{spacing.05}",
+    "$type": "dimension",
+    "$description": "Block spacing between consecutive paragraphs inside a loose list item."
+  },
+  "unordered-marker-type": {
+    "$value": "none",
+    "$type": "listStyleType",
+    "$description": "Default marker shape for top-level unordered prose lists."
+  },
+  "ordered-marker-type": {
+    "$value": "auto",
+    "$type": "listStyleType",
+    "$description": "Default marker system for top-level ordered prose lists."
+  },
+  "nested-unordered-marker-type": {
+    "$value": "circle",
+    "$type": "listStyleType",
+    "$description": "Default marker shape for nested unordered prose lists."
+  },
+  "nested-ordered-marker-type": {
+    "$value": "lower-alpha",
+    "$type": "listStyleType",
+    "$description": "Default marker system for nested ordered prose lists."
+  },
+  "marker-position": {
+    "$value": "inside",
+    "$type": "listStylePosition",
+    "$description": "Whether prose list markers sit inside or outside the content box."
+  },
+  "marker-color": {
+    "$value": "{accent-primary.ink}",
+    "$type": "color",
+    "$description": "Marker color for ordered and unordered prose lists."
   }
 }

@@ -560,5 +560,10 @@
         "max-scale": 1.25
       }
     }
+  },
+  "none": {
+    "$value": "{spacing.0}",
+    "$type": "dimension",
+    "$description": "No semantic spacing."
   }
 }

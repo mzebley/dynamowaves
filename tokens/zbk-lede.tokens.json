@@ -27,17 +27,17 @@
   "measure": {
     "$value": "{text-measure.3}",
     "$type": "cssDimension",
-    "$description": "Maximum width for introductory lede text with .lede applied directly or as a child of a .prose container."
+    "$description": "Maximum inline measure for introductory lede text with .lede applied directly or as a child of a .prose container."
   },
   "spacing-before": {
     "$value": "{spacing.0}",
     "$type": "dimension",
-    "$description": "Block spacing before introductory lede text when it appears in a .prose flow."
+    "$description": "Incoming spacing request when a lede follows another direct child in a .prose flow. The resolved gap is the larger of this spacing-before and the previous treatment's spacing-after, so structural hierarchy wins without relying on source order."
   },
   "spacing-after": {
     "$value": "{spacing.105}",
     "$type": "dimension",
-    "$description": "Block spacing after introductory lede text when it appears in a .prose flow."
+    "$description": "Outgoing spacing request contributed by a lede to the next direct child in a .prose flow. The resolved gap is the larger of this spacing-after and the next treatment's spacing-before; documented compound pairs may intentionally use the tighter outgoing gap."
   },
   "color": {
     "$value": "{app.ink-muted}",

@@ -79,6 +79,27 @@ token strata, authorable files, overlays, and variant delivery. Read
 [references/setup-and-runtime.md](references/setup-and-runtime.md) when setup,
 registration, imports, framework rendering, or upgrade behavior is involved.
 
+When creating, revising, or auditing a complete theme, read
+[references/theme-authoring.md](references/theme-authoring.md). Use
+[references/theme-philosophies.md](references/theme-philosophies.md) to choose
+pressure and refusals before choosing values. A named philosophy is a constraint
+set, not a palette recipe; never default to a personal house style unless the
+user explicitly requests it.
+
+When translating an external component gallery, screenshot, or design-system
+example into Zebkit, read
+[references/reference-translation.md](references/reference-translation.md) and
+open a live capability workspace:
+
+```bash
+node ./zebkit/context/skill/scripts/zebkit-reference-translator.mjs disclosure \
+  --with accordion --reference https://component.gallery/components/accordion/
+```
+
+The command inventories the configured component, variant, slot, and token
+surface. Visual interpretation remains a review task; a plausible automatic
+match is not evidence.
+
 ## 3. Preserve the grammar
 
 - Use custom elements as the authoring API. Rendered classes are compilation
@@ -93,8 +114,10 @@ registration, imports, framework rendering, or upgrade behavior is involved.
   to borrow another component's complete style contract.
 - Use `toggles`, `shows`, and `hides` with bare target ids. Same-name radio
   panels require `toggles`; one-way verbs make panels accumulate.
-- Keep raw visual values in primitive tokens only. Component tokens reference
-  aliases; aliases reference primitives.
+- Put reusable design values such as colors, spacing, type scales, radii, and
+  motion in primitives and aliases. Closed, typed CSS choices such as `center`,
+  `flex-start`, or `none` may live directly on the component token that owns the
+  property; do not manufacture primitive vocabularies for CSS grammar.
 - Keep accessibility automatic. Fixed text containers, clipped overflow,
   untracked CSS, and bespoke interaction code can escape runtime scaling or
   rendered evidence even when they look correct at one viewport.
@@ -114,9 +137,10 @@ no-op:
   generated SCSS.
 - **Runtime config must apply before components are defined.** Otherwise project
   options and custom variant vocabulary arrive after upgrade.
-- **A new variant has two deliveries.** The build emits its CSS; the runtime must
-  register its name. The generated runtime module handles both when used as
-  instructed.
+- **A new or renamed variant has two deliveries.** The build emits its CSS; the
+  runtime must register its current name. `npx zebkit build` refreshes both;
+  apply the generated runtime module before elements
+  upgrade.
 - **An unregistered component can look like missing content.** Zebkit hides
   custom elements until definition to prevent a flash of unstyled authored
   children. Confirm the definition import ran.
@@ -137,13 +161,31 @@ After token, variant, component-filter, option, or config changes:
 npx zebkit build
 ```
 
+That same build refreshes the generated runtime vocabulary after adding,
+removing, or renaming a consumer variant. Use `zebkit pull` for package/default
+or context synchronization, not as a required second variant command.
+
+Treat component and shipped-variant filtering as a migration audit, not a size
+toggle. Read the generated context and compiled CSS, then check authored tags,
+`defineZbk*` imports, runtime registration, static variant use, and dynamic
+paths before declaring an exclusion or allowlist complete. See
+[references/tokens-and-variants.md](references/tokens-and-variants.md).
+
 After markup, component, utility, token-use, or style changes:
 
 ```bash
 npx zebkit check --format=json
 ```
 
-Fix every error and review warnings plus dynamic/unvisited counts. Before release,
+Fix every source error and review warnings plus dynamic/unvisited counts. The
+default static component report is source-relevant: literal tags, borrowed
+appearance contracts, and the `check.components` dynamic-name safelist. Do not
+edit tokens for an unused component merely because it appears in a full-surface
+or older report; use `--all-components` only when the task is a
+library/theme-wide audit. Dynamic component names must be safelisted in
+`check.components`.
+
+Before release,
 or whenever behavior, focus, reflow, themes, states, or runtime accessibility is
 material, run the application and use:
 

@@ -5,6 +5,11 @@
     "$description": "Dark-mode filled demo action surface."
   },
   "ink": {
+    "$value": "{accent-primary.200}",
+    "$type": "color",
+    "$description": "Dark-mode headings."
+  },
+    "ink-emphasis": {
     "$value": "{accent-primary.300}",
     "$type": "color",
     "$description": "Dark-mode headings."

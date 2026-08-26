@@ -1,6 +1,6 @@
 {
   "primary": {
-    "$value": "Nunito",
+    "$value": "Manrope",
     "$description": "Primary font family for use in the system. Usually used for body content and interface items.",
     "$type": "fontFamily",
     "$extensions": {
@@ -14,7 +14,7 @@
     }
   },
   "alt": {
-    "$value": "Merriweather",
+    "$value": "Fraunces",
     "$description": "Alternate font family for use in the system. Primarily used for headings.",
     "$type": "fontFamily",
     "$extensions": {
@@ -22,20 +22,21 @@
         "font": {
           "source": "google",
           "fallback": "serif",
-          "weights": "900"
+          "weights": "700"
         }
       }
     }
   },
   "monospace": {
-    "$value": "Fira Code",
+    "$value": "Google Sans Code",
     "$description": "Monospaced font family for use in the system. Primarily used for displaying code or for accessibility.",
     "$type": "fontFamily",
     "$extensions": {
       "dev.zebkit": {
         "font": {
           "source": "google",
-          "fallback": "mono"
+          "fallback": "mono",
+          "weights": "300..800"
         }
       }
     }

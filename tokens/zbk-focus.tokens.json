@@ -13,5 +13,10 @@
     "$value": "{spacing.025}",
     "$type": "dimension",
     "$description": "Offset distance of focus outline"
+  },
+  "inset-offset": {
+    "$value": "{spacing.neg-025}",
+    "$type": "dimension",
+    "$description": "Inset offset for focus outlines that must remain inside a clipping container."
   }
 }

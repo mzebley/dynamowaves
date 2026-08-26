@@ -2,10 +2,10 @@
   "font-family": {
     "$value": "{font-family.body}",
     "$type": "fontFamily",
-    "$description": "Font size for P elements with .prose applied directly or that are a child of a .prose container."
+    "$description": "Font family for P elements with .prose applied directly or that are a child of a .prose container."
   },
   "font-size": {
-    "$value": "{font-size.sm}",
+    "$value": "{font-size.md}",
     "$type": "cssDimension",
     "$description": "Font size for P elements with .prose applied directly or that are a child of a .prose container."
   },
@@ -15,7 +15,7 @@
     "$description": "Font weight for P elements with .prose applied directly or that are a child of a .prose container."
   },
   "line-height": {
-    "$value": "{line-height.3}",
+    "$value": "{line-height.4}",
     "$type": "number",
     "$description": "Line height for P elements with .prose applied directly or that are a child of a .prose container."
   },
@@ -27,17 +27,17 @@
   "measure": {
     "$value": "{text-measure.4}",
     "$type": "cssDimension",
-    "$description": "Maximum width for P elements with .prose applied directly or that are a child of a .prose container."
+    "$description": "Maximum inline measure for P elements with .prose applied directly or that are a child of a .prose container."
   },
   "spacing-before": {
     "$value": "{spacing.0}",
     "$type": "dimension",
-    "$description": "Amount of margin inline start for P elements with .prose applied directly or that are a child of a .prose container."
+    "$description": "Incoming spacing request when a paragraph follows another direct child in a .prose flow. The resolved gap is the larger of this spacing-before and the previous treatment's spacing-after, so structural hierarchy wins without relying on source order."
   },
   "spacing-after": {
     "$value": "{spacing.05}",
     "$type": "dimension",
-    "$description": "Amount of margin inline end for P elements with .prose applied directly or that are a child of a .prose container."
+    "$description": "Outgoing spacing request contributed by a paragraph to the next direct child in a .prose flow. The resolved gap is the larger of this spacing-after and the next treatment's spacing-before; documented compound pairs may intentionally use the tighter outgoing gap."
   },
   "color": {
     "$value": "{app.ink}",

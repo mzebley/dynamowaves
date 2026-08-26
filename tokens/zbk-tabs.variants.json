@@ -1,0 +1,49 @@
+{
+  "tabs": {
+    "code-block": {
+      "axis": "context",
+      "description": "Code and Preview tabs inside the Code Block toolbar.",
+      "overrides": {
+        "tablist-gap": "{spacing.0}",
+        "tab-ink": "{action.ink}",
+        "tab-ink-hover": "{action.ink}",
+        "tab-ink-active": "{action.ink-inverse-emphasis}",
+        "tab-ink-focus": "{action.ink}",
+        "tab-ink-selected": "{action.ink-inverse-emphasis}",
+        "tab-ink-selected-hover": "{action.ink-inverse-emphasis}",
+        "tab-ink-selected-active": "{action.ink-inverse-emphasis}",
+        "tab-ink-selected-focus": "{action.ink-inverse-emphasis}",
+        "tab-canvas": "{code-block.bar-canvas}",
+        "tab-canvas-hover": "{code-block.bar-canvas}",
+        "tab-canvas-active": "{action.canvas-emphasis}",
+        "tab-canvas-focus": "{code-block.bar-canvas}",
+        "tab-canvas-selected": "{action.canvas-emphasis}",
+        "tab-canvas-selected-hover": "{action.canvas-emphasis}",
+        "tab-canvas-selected-active": "{action.canvas-emphasis}",
+        "tab-canvas-selected-focus": "{action.canvas-emphasis}",
+        "tab-min-inline-size": "{a11y.min-interaction-size}",
+        "tab-min-block-size": "{a11y.min-interaction-size}",
+        "tab-padding-inline": "{spacing.md}",
+        "tab-padding-block": "{spacing.2xs}",
+        "tab-border-radius": "{border.radius-sm}",
+        "tab-font-family": "{font-family.interface}",
+        "tab-font-size": "{font-size.sm}",
+        "tab-font-weight": "{font-weight.medium}",
+        "tab-line-height": "{line-height.2}",
+        "tab-letter-spacing": "{letter-spacing.normal}",
+        "tab-text-transform": "none",
+        "indicator-canvas": "{code-block.bar-canvas}",
+        "indicator-canvas-hover": "{app.border-muted}",
+        "indicator-canvas-active": "{app.border-emphasis}",
+        "indicator-canvas-focus": "{focus.color}",
+        "indicator-canvas-selected": "{action.border-emphasis}",
+        "indicator-canvas-selected-hover": "{action.border-emphasis}",
+        "indicator-canvas-selected-active": "{action.border-emphasis}",
+        "indicator-canvas-selected-focus": "{focus.color}",
+        "indicator-block-size": "0px",
+        "indicator-border-radius": "{border.radius-sm}",
+        "tab-cursor": "pointer"
+      }
+    }
+  }
+}

@@ -1,43 +1,102 @@
 {
   "$schema": "./node_modules/zebkit/dist/editor/schemas/zebkit.config.schema.json",
-  "configVersion": 1,
+  "configVersion": 3,
   "tokens": {
-    "destinationPath": "./www",
+    "destinationPath": "./src/lib/styles",
     "assetFilePath": "/",
-    "basePreset": "dynamowaves",
-    "tokenPath": "./tokens",
-    "themeName": "dynamowaves",
-    "overlays": [
-      {
-        "themeName": "dark",
-        "tokenPath": "./themes/dark"
-      }
-    ],
+    "extendedTokens": {
+      "colors": "all",
+      "breakpoints": true
+    },
     "prune": {
       "enabled": false,
       "content": [
-        "./www-src/index.html",
-        "./www/index.html",
-        "./www/zebkit.entry.js"
-      ]
+        "./src/**/*.{html,js,md,svelte,ts}"
+      ],
+      "safelist": [
+        "/^zbk-code-block/"
+      ],
+      "output": {
+        "mode": "replace"
+      },
+      "tokens": true,
+      "report": true
     }
+  },
+  "theme": {
+    "name": "dynamowaves",
+    "preset": "dynamowaves",
+    "tokenPath": "./tokens",
+    "overlays": [
+      {
+        "name": "dark",
+        "tokenPath": "./themes/dark"
+      }
+    ]
+  },
+  "components": {
+    "accordion": false,
+    "badge": false,
+    "breadcrumb": false,
+    "button": {
+      "variants": [
+        "ghost",
+        "lg",
+        "sm"
+      ]
+    },
+    "card": false,
+    "checkbox": false,
+    "code-block": {
+      "options": {
+        "tabsVariant": "code-block",
+        "buttonVariant": "code-block-copy code-block-copy-size code-block-copy-motion"
+      }
+    },
+    "dialog": false,
+    "disclosure": false,
+    "input": false,
+    "link": {
+      "variants": [
+        "subtle"
+      ]
+    },
+    "menu": false,
+    "menu-item": false,
+    "pagination": false,
+    "panel": false,
+    "popover": false,
+    "radio": false,
+    "select": false,
+    "tag": false,
+    "tabs": {
+      "variants": []
+    },
+    "textarea": false,
+    "toast": false,
+    "toast-region": false,
+    "toggle": {
+      "variants": []
+    },
+    "tooltip": false
   },
   "context": {
     "path": "./zebkit/context"
   },
   "check": {
     "content": [
-      "./www-src/index.html",
-      "./www/index.html",
-      "./www/zebkit.entry.js"
+      "./src/**/*.{html,js,md,svelte,ts}"
     ]
   },
   "runtime": {
-    "path": "./www/zebkit.runtime.js"
+    "delivery": "generated",
+    "path": "./zebkit/zebkit.runtime.js"
   },
   "accessibility": {
+    "inputPath": "./src/lib/styles/zebkit-a11y-input.json",
     "delivery": "auto",
     "verify": {
+      "reportDirectory": ".zebkit/reports",
       "routes": [
         {
           "id": "docs",
@@ -73,6 +132,28 @@
           "selector": "html",
           "attribute": "data-zbk-theme",
           "value": "dark"
+        }
+      ],
+      "scenarios": [
+        {
+          "id": "wave-regenerated",
+          "route": "docs",
+          "actions": [
+            {
+              "action": "click",
+              "selector": "[data-wave-regenerate]"
+            }
+          ]
+        },
+        {
+          "id": "transition-advanced",
+          "route": "docs",
+          "actions": [
+            {
+              "action": "click",
+              "selector": "[data-transition-next]"
+            }
+          ]
         }
       ]
     }
