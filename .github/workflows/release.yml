@@ -130,7 +130,7 @@ jobs:
             sed 's/^/::error::/' "${error_log}" >&2
             exit 1
           fi
-          npm publish "${{ needs.package.outputs.tarball }}" --ignore-scripts --registry=https://registry.npmjs.org --tag latest --provenance
+          npm publish "./${{ needs.package.outputs.tarball }}" --ignore-scripts --registry=https://registry.npmjs.org --tag latest --provenance
 
   finalize:
     name: Tag and create GitHub release
