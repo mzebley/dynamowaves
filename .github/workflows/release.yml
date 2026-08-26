@@ -1,0 +1,181 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_version:
+        description: Exact stable version already prepared on main, for example 2.2.0
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-${{ inputs.release_version }}
+  cancel-in-progress: false
+
+jobs:
+  package:
+    name: Build inspected package
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    permissions:
+      contents: read
+      packages: read
+    outputs:
+      version: ${{ steps.pack.outputs.version }}
+      tarball: ${{ steps.pack.outputs.tarball }}
+      integrity: ${{ steps.pack.outputs.integrity }}
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Validate release source
+        env:
+          RELEASE_VERSION: ${{ inputs.release_version }}
+        run: |
+          if [ "$GITHUB_REF" != "refs/heads/main" ]; then
+            echo "::error::Stable releases must run from main; received $GITHUB_REF."
+            exit 1
+          fi
+          package_version="$(node -p "require('./package.json').version")"
+          if [ "$RELEASE_VERSION" != "$package_version" ]; then
+            echo "::error::Requested $RELEASE_VERSION, but package.json contains $package_version."
+            exit 1
+          fi
+
+      - name: Setup Node and private dependency registry
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24.x
+          cache: npm
+          cache-dependency-path: package-lock.json
+          registry-url: https://npm.pkg.github.com
+          scope: "@mzebley"
+
+      - name: Install dependencies
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npm ci --ignore-scripts
+
+      - name: Test the public runtime
+        run: npm test
+
+      - name: Build the package and documentation
+        run: npm run build:docs
+
+      - name: Check documentation source
+        run: npm run check:docs
+
+      - name: Reject generated drift
+        run: git diff --exit-code -- dist src/lib/styles zebkit .zebkit/pull-state.json
+
+      - name: Pack and inspect the canonical package
+        id: pack
+        env:
+          RELEASE_VERSION: ${{ inputs.release_version }}
+        run: node scripts/release/pack-release.mjs release-artifacts
+
+      - name: Upload immutable release candidate
+        uses: actions/upload-artifact@v7
+        with:
+          name: dynamowaves-${{ steps.pack.outputs.version }}
+          path: release-artifacts/
+          if-no-files-found: error
+          retention-days: 90
+
+  publish:
+    name: Publish npm package
+    needs: package
+    runs-on: ubuntu-latest
+    environment: npm
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - name: Download inspected package
+        uses: actions/download-artifact@v8
+        with:
+          name: dynamowaves-${{ needs.package.outputs.version }}
+          path: release-artifacts
+
+      - name: Configure npmjs.org
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24.x
+          registry-url: https://registry.npmjs.org
+
+      - name: Install an OIDC-capable npm CLI
+        run: npm install --global "npm@>=11.5.1 <13"
+
+      - name: Publish the inspected tarball
+        env:
+          EXPECTED_INTEGRITY: ${{ needs.package.outputs.integrity }}
+          RELEASE_VERSION: ${{ needs.package.outputs.version }}
+        run: |
+          package="dynamowaves@${RELEASE_VERSION}"
+          error_log="${RUNNER_TEMP}/npm-package-view-error.log"
+          if published_integrity="$(npm view "${package}" dist.integrity --registry=https://registry.npmjs.org 2>"${error_log}")"; then
+            if [ "${published_integrity}" != "${EXPECTED_INTEGRITY}" ]; then
+              echo "::error::${package} already exists with different contents."
+              exit 1
+            fi
+            echo "${package} already exists with matching integrity; skipping publish."
+            exit 0
+          fi
+          if ! grep -q 'E404' "${error_log}"; then
+            sed 's/^/::error::/' "${error_log}" >&2
+            exit 1
+          fi
+          npm publish "${{ needs.package.outputs.tarball }}" --ignore-scripts --registry=https://registry.npmjs.org --tag latest --provenance
+
+  finalize:
+    name: Tag and create GitHub release
+    needs: [package, publish]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout release commit
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Download inspected package
+        uses: actions/download-artifact@v8
+        with:
+          name: dynamowaves-${{ needs.package.outputs.version }}
+          path: release-artifacts
+
+      - name: Create immutable release tag
+        env:
+          GIT_COMMITTER_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
+          GIT_COMMITTER_NAME: github-actions[bot]
+          RELEASE_VERSION: ${{ needs.package.outputs.version }}
+        run: |
+          tag="v${RELEASE_VERSION}"
+          if git ls-remote --exit-code --tags origin "refs/tags/${tag}" >/dev/null; then
+            git fetch --no-tags origin "refs/tags/${tag}:refs/tags/${tag}"
+            if [ "$(git rev-list -n 1 "${tag}")" != "$GITHUB_SHA" ]; then
+              echo "::error::${tag} already points to a different commit."
+              exit 1
+            fi
+          else
+            git tag -a "${tag}" -m "Release ${tag}"
+            git push origin "refs/tags/${tag}"
+          fi
+
+      - name: Create GitHub release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RELEASE_VERSION: ${{ needs.package.outputs.version }}
+        run: |
+          tag="v${RELEASE_VERSION}"
+          if gh release view "${tag}" >/dev/null 2>&1; then
+            gh release upload "${tag}" release-artifacts/*.tgz release-artifacts/pack.json --clobber
+            exit 0
+          fi
+          gh release create "${tag}" --verify-tag --generate-notes --title "${tag}" release-artifacts/*.tgz release-artifacts/pack.json
