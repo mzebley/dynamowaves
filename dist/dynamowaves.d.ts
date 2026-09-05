@@ -57,9 +57,10 @@ declare class DynamoWave extends HTMLElement {
   private path: SVGPathElement;
   private random: () => number;
   private startEndZero: boolean;
-  private resumeOnConnect: boolean;
+  private desiredPlaying: boolean | null;
+  private loopDuration: number | null;
   private motionQuery: MediaQueryList | null;
-  private resumeAfterReducedMotion: boolean;
+  private finishAnimation: (() => void) | null;
   private reflectingSeed: boolean;
 
   static readonly observedAttributes: string[];
@@ -81,6 +82,9 @@ declare class DynamoWave extends HTMLElement {
   generateNewWave(duration?: number): void;
 
   // Private methods
+  private renderWave(): void;
+  private createWavePath(): string;
+  private stopAnimation(reset?: boolean): void;
   private reinitialize(): void;
   private updateSeedAttribute(pathString: string): void;
   private setupMotionPreferenceListener(): void;
@@ -114,6 +118,27 @@ interface DynamoWaveAttributes {
   'data-start-end-zero'?: string;
 }
 
+/** Framework-neutral host props for runtimes that use the global JSX namespace. */
+interface DynamoWaveJSXAttributes extends DynamoWaveAttributes {
+  id?: string;
+  class?: string;
+  className?: string;
+  style?: string | Record<string, string | number | undefined>;
+  title?: string;
+  role?: string;
+  slot?: string;
+  lang?: string;
+  dir?: 'ltr' | 'rtl' | 'auto';
+  hidden?: boolean | 'hidden' | 'until-found';
+  inert?: boolean;
+  tabindex?: number;
+  tabIndex?: number;
+  children?: unknown;
+  ref?: ((element: DynamoWave | null) => void) | { current: DynamoWave | null };
+  [attribute: `aria-${string}`]: string | number | boolean | undefined;
+  [attribute: `data-${string}`]: string | undefined;
+}
+
 declare global {
   interface HTMLElementTagNameMap {
     'dynamo-wave': DynamoWave;
@@ -123,9 +148,9 @@ declare global {
   
   namespace JSX {
     interface IntrinsicElements {
-      'dynamo-wave': Partial<DynamoWaveAttributes>;
+      'dynamo-wave': DynamoWaveJSXAttributes;
     }
   }
 }
 
-export { DynamoWave, type DynamoWaveAttributes, type DynamoWaveCompleteDetail, type DynamoWaveEventMap, type WaveDirection, type WaveGenerationOptions, type WaveObserverOptions, type WaveOrientation, type WavePoint, decodeWaveSeed, encodeWaveSeed, generateWave, interpolateWave, parsePath };
+export { DynamoWave, type DynamoWaveAttributes, type DynamoWaveCompleteDetail, type DynamoWaveEventMap, type DynamoWaveJSXAttributes, type WaveDirection, type WaveGenerationOptions, type WaveObserverOptions, type WaveOrientation, type WavePoint, decodeWaveSeed, encodeWaveSeed, generateWave, interpolateWave, parsePath };

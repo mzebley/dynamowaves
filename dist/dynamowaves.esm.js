@@ -14,11 +14,22 @@ function prefersReducedMotion() {
 // a <dynamo-wave> already present in the DOM is upgraded synchronously on
 // define(), which can call connectedCallback -> parsePath before a
 // const declared later in the file would be initialized (TDZ).
+const MAX_POINTS = 1000;
+const MAX_VARIANCE = 100;
+
+function finiteDuration(value, fallback) {
+  return Number.isFinite(value) ? Math.max(1, value) : fallback;
+}
+
 const WAVE_NUMBER_PATTERN = "[+-]?\\d+(?:\\.\\d+)?(?:[eE][+-]?\\d+)?";
 const QUAD_SEGMENT_REGEX = new RegExp(
   `Q\\s(${WAVE_NUMBER_PATTERN})\\s(${WAVE_NUMBER_PATTERN}),\\s(${WAVE_NUMBER_PATTERN})\\s(${WAVE_NUMBER_PATTERN})`,
   "g"
 );
+
+const WAVE_PAIR_PATTERN = `${WAVE_NUMBER_PATTERN} ${WAVE_NUMBER_PATTERN}`;
+const WAVE_PATH_REGEX = new RegExp(`^M ${WAVE_PAIR_PATTERN} L ${WAVE_PAIR_PATTERN}(?: Q ${WAVE_PAIR_PATTERN}, ${WAVE_PAIR_PATTERN}){2,${MAX_POINTS}}(?: L ${WAVE_PAIR_PATTERN}){1,2} Z$`);
+const WAVE_COORDINATE_REGEX = new RegExp(WAVE_NUMBER_PATTERN, "g");
 
 class DynamoWave extends BaseElement {
   static get observedAttributes() {
@@ -35,26 +46,6 @@ class DynamoWave extends BaseElement {
     ];
   }
 
-  /**
-   * Constructs a new instance of the class.
-   *
-   * @constructor
-   *
-   * @property {boolean} isAnimating - Indicates whether the animation is currently running.
-   * @property {number|null} animationFrameId - The ID of the current animation frame request.
-   * @property {number} elapsedTime - The elapsed time since the animation started.
-   * @property {number|null} startTime - The start time of the animation.
-   *
-   * @property {boolean} isGeneratingWave - Indicates whether a wave is currently being generated.
-   *
-   * @property {Path2D|null} currentPath - The current wave path.
-   * @property {Path2D|null} targetPath - The target wave path.
-   * @property {Path2D|null} pendingTargetPath - The next wave path to be generated.
-   *
-   * @property {IntersectionObserver|null} intersectionObserver - The Intersection Observer instance.
-   * @property {Object|null} observerOptions - The options for the Intersection Observer.
-   */
-
   constructor() {
     super();
     this.isAnimating = false;
@@ -67,7 +58,7 @@ class DynamoWave extends BaseElement {
     // Track current and target wave paths
     this.currentPath = null;
     this.targetPath = null;
-    this.pendingTargetPath = null; // New property to track the next wave
+    this.pendingTargetPath = null;
 
     // Intersection Observer properties
     this.intersectionObserver = null;
@@ -76,14 +67,11 @@ class DynamoWave extends BaseElement {
     this.random = Math.random;
     this.startEndZero = false;
 
-    // Set when an animating element is detached so connectedCallback can
-    // restart the loop if the element is re-attached.
-    this.resumeOnConnect = false;
-
-    // Track the live preference so a running loop stops immediately when the
-    // user enables reduced motion and can resume if they turn it back off.
+    // User intent survives temporary motion/connection suspension.
+    this.desiredPlaying = null;
+    this.loopDuration = null;
     this.motionQuery = null;
-    this.resumeAfterReducedMotion = false;
+    this.finishAnimation = null;
 
     // True while the component writes data-wave-seed itself, so
     // attributeChangedCallback can tell self-reflection from user changes.
@@ -105,6 +93,10 @@ class DynamoWave extends BaseElement {
    */
   connectedCallback() {
     this.setupMotionPreferenceListener();
+    this.renderWave();
+  }
+
+  renderWave() {
 
     // Suffix the host id so the inner SVG never duplicates it in the document.
     const hostId = this.id || `dynamo-wave-${Math.random().toString(36).slice(2, 9)}`;
@@ -112,12 +104,12 @@ class DynamoWave extends BaseElement {
 
     const waveDirection = this.getAttribute("data-wave-face") || "top";
     const pointsAttr = parseInt(this.getAttribute("data-wave-points"), 10);
-    this.points = Number.isFinite(pointsAttr) ? Math.max(2, pointsAttr) : 6;
+    this.points = Number.isFinite(pointsAttr) ? Math.min(MAX_POINTS, Math.max(2, pointsAttr)) : 6;
 
     const varianceAttr = this.getAttribute("data-wave-variance");
     const legacyVarianceAttr = this.getAttribute("data-variance");
     const parsedVariance = parseFloat(varianceAttr ?? legacyVarianceAttr ?? "");
-    this.variance = Number.isFinite(parsedVariance) ? parsedVariance : 3;
+    this.variance = Number.isFinite(parsedVariance) ? Math.min(MAX_VARIANCE, Math.max(-MAX_VARIANCE, parsedVariance)) : 3;
     const speedAttr = parseFloat(this.getAttribute("data-wave-speed"));
     this.duration = Number.isFinite(speedAttr) && speedAttr > 0 ? speedAttr : 7500;
 
@@ -142,27 +134,11 @@ class DynamoWave extends BaseElement {
     this.height = this.vertical ? 1440 : 160;
 
     // Initialize current and target paths
-    this.currentPath = decodedSeedPath || generateWave({
-      width: this.width,
-      height: this.height,
-      points: this.points,
-      variance: this.variance,
-      vertical: this.vertical,
-      random: this.random,
-      startEndZero: this.startEndZero,
-    });
+    this.currentPath = decodedSeedPath || this.createWavePath();
 
     this.updateSeedAttribute(this.currentPath);
 
-    this.targetPath = generateWave({
-      width: this.width,
-      height: this.height,
-      points: this.points,
-      variance: this.variance,
-      vertical: this.vertical,
-      random: this.random,
-      startEndZero: this.startEndZero,
-    });
+    this.targetPath = this.createWavePath();
 
     const transforms = [];
 
@@ -182,23 +158,20 @@ class DynamoWave extends BaseElement {
       this.style.display = "block";
     }
 
-    // Construct the SVG
-    this.innerHTML = `
-      <svg
-        viewBox="${this.vertical ? "0 0 160 1440" : "0 0 1440 160"}"
-        preserveAspectRatio="none"
-        style="${transformStyle}${svgBaseStyle}"
-        id="${svgId}"
-        aria-hidden="true"
-        role="presentation"
-      >
-        <path d="${this.currentPath}" style="stroke:inherit; fill: inherit"></path>
-      </svg>
-    `;
-
-    // Save SVG references
-    this.svg = this.querySelector("svg");
-    this.path = this.querySelector("path");
+    // Attribute values are data, never HTML (including host IDs and seeds).
+    const namespace = "http://www.w3.org/2000/svg";
+    this.svg = this.ownerDocument.createElementNS(namespace, "svg");
+    this.svg.setAttribute("viewBox", `0 0 ${this.width} ${this.height}`);
+    this.svg.setAttribute("preserveAspectRatio", "none");
+    this.svg.setAttribute("style", `${transformStyle}${svgBaseStyle}`);
+    this.svg.setAttribute("id", svgId);
+    this.svg.setAttribute("aria-hidden", "true");
+    this.svg.setAttribute("role", "presentation");
+    this.path = this.ownerDocument.createElementNS(namespace, "path");
+    this.path.setAttribute("d", this.currentPath);
+    this.path.setAttribute("style", "stroke:inherit; fill:inherit");
+    this.svg.append(this.path);
+    this.replaceChildren(this.svg);
 
     // Check for wave observation attribute
     const observeAttr = this.getAttribute("data-wave-observe");
@@ -206,15 +179,14 @@ class DynamoWave extends BaseElement {
       this.setupIntersectionObserver(observeAttr);
     }
 
-    // Automatically start animation if enabled, or resume a loop that was
-    // running when the element was detached (e.g. moved within the DOM).
-    const shouldAnimate =
-      this.getAttribute("data-wave-animate") === "true" || this.resumeOnConnect;
-    this.resumeOnConnect = false;
-
-    if (shouldAnimate && !prefersReducedMotion()) {
-      this.play();
+    if (this.desiredPlaying === null) {
+      this.desiredPlaying = this.getAttribute("data-wave-animate") === "true";
     }
+    if (this.desiredPlaying) this.play(this.loopDuration);
+  }
+
+  createWavePath() {
+    return generateWave(this);
   }
 
   setupMotionPreferenceListener() {
@@ -232,17 +204,13 @@ class DynamoWave extends BaseElement {
 
   handleMotionPreferenceChange(event) {
     if (event.matches) {
-      this.resumeAfterReducedMotion = this.isAnimating;
-      this.pause();
-      return;
-    }
-
-    const shouldResume =
-      this.resumeAfterReducedMotion || this.getAttribute?.("data-wave-animate") === "true";
-    this.resumeAfterReducedMotion = false;
-
-    if (this.isConnected && shouldResume) {
-      this.play();
+      if (this.isGeneratingWave) {
+        this.finishAnimation?.();
+      } else {
+        this.stopAnimation();
+      }
+    } else if (this.desiredPlaying) {
+      this.play(this.loopDuration);
     }
   }
 
@@ -252,9 +220,12 @@ class DynamoWave extends BaseElement {
    * changes (points, variance, face, start-end-zero, seed) re-render the wave.
    */
   attributeChangedCallback(name, oldValue, newValue) {
-    // Ignore changes before the first render (fires ahead of
-    // connectedCallback for initial attributes) and while detached.
-    if (!this.svg || !this.isConnected) return;
+    if (!this.svg) {
+      if (name === "data-wave-animate" && this.desiredPlaying !== null) {
+        this.desiredPlaying = newValue === "true";
+      }
+      return;
+    }
     if (oldValue === newValue) return;
     if (this.reflectingSeed) return;
 
@@ -262,6 +233,7 @@ class DynamoWave extends BaseElement {
       case "data-wave-speed": {
         const parsed = parseFloat(newValue);
         this.duration = Number.isFinite(parsed) && parsed > 0 ? parsed : 7500;
+        this.loopDuration = this.duration;
 
         if (this.isAnimating) {
           // Restart so the loop picks up the new duration, tweening onward
@@ -278,14 +250,8 @@ class DynamoWave extends BaseElement {
       }
 
       case "data-wave-animate": {
-        if (newValue === "true") {
-          if (!prefersReducedMotion()) this.play();
-        } else {
-          // An explicit opt-out wins over a pending resume captured when the
-          // user enabled reduced motion.
-          this.resumeAfterReducedMotion = false;
-          this.pause();
-        }
+        if (newValue === "true") this.play();
+        else this.pause();
         break;
       }
 
@@ -294,7 +260,7 @@ class DynamoWave extends BaseElement {
           this.intersectionObserver.disconnect();
           this.intersectionObserver = null;
         }
-        if (newValue) {
+        if (newValue && this.isConnected) {
           this.setupIntersectionObserver(newValue);
         }
         break;
@@ -325,68 +291,38 @@ class DynamoWave extends BaseElement {
    * A loop that was running resumes against the new configuration.
    */
   reinitialize() {
-    this.resumeOnConnect = this.isAnimating;
-
-    if (this.animationFrameId != null) {
-      cancelAnimationFrame(this.animationFrameId);
-      this.animationFrameId = null;
-    }
-
-    this.isAnimating = false;
-    this.isGeneratingWave = false;
-    this.elapsedTime = 0;
-    this.startTime = null;
-    this.pendingTargetPath = null;
-
+    this.stopAnimation(true);
     if (this.intersectionObserver) {
       this.intersectionObserver.disconnect();
       this.intersectionObserver = null;
     }
-
-    this.connectedCallback();
+    if (this.isConnected) this.renderWave();
   }
 
   // Public method to play the animation
   /**
    * Starts the wave animation. If a custom duration is provided, it will be used for the animation;
-   * otherwise, the instance's default duration will be used. The animation will continue looping
-   * until `stop` is called.
+   * otherwise, the last loop duration or instance default will be used. The animation will continue looping
+   * until `pause()` is called.
    *
    * @param {number|null} [customDuration=null] - Optional custom duration for the animation in milliseconds.
    */
   play(customDuration = null) {
-    // A morph from generateNewWave shares the animation state (startTime,
-    // elapsedTime, animationFrameId); starting the loop mid-morph would run
-    // two competing frame loops. Callers can retry on dynamo-wave-complete.
-    if (
-      prefersReducedMotion() ||
-      this.isAnimating ||
-      this.isGeneratingWave ||
-      this.animationFrameId
-    ) return;
+    if (this.isAnimating || this.isGeneratingWave || this.animationFrameId != null) return;
+    this.desiredPlaying = true;
+    this.loopDuration = Number.isFinite(customDuration) && customDuration > 0
+      ? customDuration : this.loopDuration ?? this.duration;
+    if (!this.isConnected || !this.path || prefersReducedMotion()) return;
     this.isAnimating = true;
-
-    // Use custom duration if provided, otherwise use the instance duration
-    const animationDuration =
-      Number.isFinite(customDuration) && customDuration > 0
-        ? customDuration
-        : this.duration;
+    const animationDuration = this.loopDuration;
 
     const continueAnimation = () => {
       // If there's no pending target path, generate a new one
       if (!this.pendingTargetPath) {
-        this.pendingTargetPath = generateWave({
-          width: this.width,
-          height: this.height,
-          points: this.points,
-          variance: this.variance,
-          vertical: this.vertical,
-          random: this.random,
-          startEndZero: this.startEndZero,
-        });
+        this.pendingTargetPath = this.createWavePath();
       }
 
-      // Animate to the pending target path
+      // Animate to the current target path
       this.animateWave(animationDuration, () => {
         // Update current path to the target path
         this.currentPath = this.targetPath;
@@ -397,15 +333,7 @@ class DynamoWave extends BaseElement {
         this.targetPath = this.pendingTargetPath;
 
         // Clear the pending path and generate a new one for the next iteration
-        this.pendingTargetPath = generateWave({
-          width: this.width,
-          height: this.height,
-          points: this.points,
-          variance: this.variance,
-          vertical: this.vertical,
-          random: this.random,
-          startEndZero: this.startEndZero,
-        });
+        this.pendingTargetPath = this.createWavePath();
 
         // Continue the animation loop if still playing
         if (this.isAnimating) {
@@ -425,51 +353,33 @@ class DynamoWave extends BaseElement {
    * and saves the current elapsed time.
    */
   pause() {
-    if (!this.isAnimating && this.animationFrameId == null) return;
-    this.isAnimating = false;
+    this.desiredPlaying = false;
+    this.stopAnimation();
+  }
 
-    if (this.animationFrameId != null) {
-      cancelAnimationFrame(this.animationFrameId);
-      this.animationFrameId = null;
-    }
-
-    if (this.isGeneratingWave) {
-      // A cancelled morph is not resumable; clear its timeline so the next
-      // play()/generateNewWave() starts fresh from the displayed shape.
-      this.isGeneratingWave = false;
+  stopAnimation(reset = false) {
+    if (this.animationFrameId != null) cancelAnimationFrame(this.animationFrameId);
+    this.animationFrameId = null;
+    this.finishAnimation = null;
+    if (reset || this.isGeneratingWave) {
+      this.currentPath = this.path?.getAttribute("d") || this.currentPath;
       this.elapsedTime = 0;
-    } else {
-      // Save the current elapsed time so play() can resume mid-tween
-      this.elapsedTime += performance.now() - (this.startTime || performance.now());
+      this.pendingTargetPath = null;
+    } else if (this.startTime !== null) {
+      this.elapsedTime = Math.max(0, performance.now() - this.startTime);
     }
+    this.isAnimating = false;
+    this.isGeneratingWave = false;
     this.startTime = null;
   }
 
-  /**
-   * Called when the element is disconnected from the document's DOM.
-   * Cleans up the intersection observer if it exists.
-   */
   disconnectedCallback() {
-    // Stop any running loop or morph so detached elements don't keep
-    // animating; connectedCallback restarts the loop if re-attached.
-    this.resumeOnConnect = this.isAnimating;
-
-    if (this.animationFrameId != null) {
-      cancelAnimationFrame(this.animationFrameId);
-      this.animationFrameId = null;
-    }
-
-    this.isAnimating = false;
-    this.isGeneratingWave = false;
-    this.elapsedTime = 0;
-    this.startTime = null;
-
-    // Clean up intersection observer when element is removed
+    this.stopAnimation(true);
+    if (this.currentPath) this.updateSeedAttribute(this.currentPath);
     if (this.intersectionObserver) {
       this.intersectionObserver.disconnect();
       this.intersectionObserver = null;
     }
-
     this.motionQuery?.removeEventListener?.("change", this.handleMotionPreferenceChange);
     this.motionQuery = null;
   }
@@ -488,7 +398,7 @@ class DynamoWave extends BaseElement {
    *
    * @example
    * // Observe with custom root margin and continuous triggering
-   * setupIntersectionObserver('continuous:10px');
+   * setupIntersectionObserver('repeat:10px');
    */
   setupIntersectionObserver(observeConfig) {
     // Parse observation configuration
@@ -523,7 +433,7 @@ class DynamoWave extends BaseElement {
 
           // If one-time mode, disconnect observer
           if (isOneTime) {
-            this.intersectionObserver.disconnect();
+            this.intersectionObserver?.disconnect();
             this.intersectionObserver = null;
           }
         }
@@ -543,11 +453,11 @@ class DynamoWave extends BaseElement {
    */
   generateNewWave(duration = 800) {
     // Prevent multiple simultaneous wave generations
-    if (this.isGeneratingWave || this.animationFrameId) {
+    if (!this.isConnected || !this.path || this.isGeneratingWave || this.animationFrameId != null) {
       return;
     }
 
-    if (duration < 1 || prefersReducedMotion()) duration = 1;
+    duration = prefersReducedMotion() ? 1 : finiteDuration(duration, 800);
 
     // Set flag to prevent concurrent wave generations
     this.isGeneratingWave = true;
@@ -567,15 +477,7 @@ class DynamoWave extends BaseElement {
     }
 
     // Set the pending target path to a new wave
-    this.pendingTargetPath = generateWave({
-      width: this.width,
-      height: this.height,
-      points: this.points,
-      variance: this.variance,
-      vertical: this.vertical,
-      random: this.random,
-      startEndZero: this.startEndZero,
-    });
+    this.pendingTargetPath = this.createWavePath();
 
     // Animate from current path to new target
     this.animateWave(duration, () => {
@@ -618,32 +520,20 @@ class DynamoWave extends BaseElement {
     let startPoints = parsePath(this.currentPath);
     let endPoints = parsePath(this.targetPath);
 
-    if (startPoints.length !== endPoints.length) {
+    if (startPoints.length !== endPoints.length || startPoints.some((point, index) =>
+      this.vertical
+        ? point.cpY !== endPoints[index].cpY || point.y !== endPoints[index].y
+        : point.cpX !== endPoints[index].cpX || point.x !== endPoints[index].x
+    )) {
       // Paths with different point counts (e.g. a seed recorded with another
       // data-wave-points value) can't be tweened point-for-point. Rebuild
       // both and carry on animating — bailing out here would strand
       // isAnimating/isGeneratingWave and permanently dead-lock the element.
       console.warn("Point mismatch! Regenerating waves to ensure consistency.");
 
-      this.currentPath = generateWave({
-        width: this.width,
-        height: this.height,
-        points: this.points,
-        variance: this.variance,
-        vertical: this.vertical,
-        random: this.random,
-        startEndZero: this.startEndZero,
-      });
+      this.currentPath = this.createWavePath();
 
-      this.targetPath = generateWave({
-        width: this.width,
-        height: this.height,
-        points: this.points,
-        variance: this.variance,
-        vertical: this.vertical,
-        random: this.random,
-        startEndZero: this.startEndZero,
-      });
+      this.targetPath = this.createWavePath();
 
       if (this.path) {
         this.path.setAttribute("d", this.currentPath);
@@ -653,39 +543,36 @@ class DynamoWave extends BaseElement {
       endPoints = parsePath(this.targetPath);
     }
 
-    const animate = (timestamp) => {
-      if (!this.startTime) this.startTime = timestamp - this.elapsedTime;
-      const elapsed = timestamp - this.startTime;
-      const progress = Math.min(elapsed / duration, 1);
-
-      const interpolatedPath = interpolateWave(
-        startPoints,
-        endPoints,
-        progress,
-        this.vertical,
-        this.height,
-        this.width
-      );
-
-      this.path.setAttribute("d", interpolatedPath);
-
-      if (progress < 1) {
-        this.animationFrameId = requestAnimationFrame(animate);
-      } else {
-        // Animation completed
-        this.elapsedTime = 0;
-        this.startTime = null;
-
-        // Call completion callback if provided
-        if (onComplete) onComplete();
-        if (typeof CustomEvent === "function") {
-          this.dispatchEvent(
-            new CustomEvent("dynamo-wave-complete", {
-              detail: { duration, direction: this.vertical ? "vertical" : "horizontal" }
-            })
-          );
-        }
+    const finish = () => {
+      if (this.finishAnimation !== finish) return;
+      if (this.animationFrameId != null) cancelAnimationFrame(this.animationFrameId);
+      this.animationFrameId = null;
+      this.finishAnimation = null;
+      this.path.setAttribute("d", this.targetPath);
+      this.elapsedTime = 0;
+      this.startTime = null;
+      if (onComplete) onComplete();
+      if (typeof CustomEvent === "function") {
+        this.dispatchEvent(new CustomEvent("dynamo-wave-complete", {
+          detail: { duration, direction: this.vertical ? "vertical" : "horizontal" }
+        }));
       }
+    };
+    this.finishAnimation = finish;
+    const animate = (timestamp) => {
+      if (this.finishAnimation !== finish) return;
+      this.animationFrameId = null;
+      if (!this.isConnected || !this.path) {
+        this.stopAnimation(true);
+        return;
+      }
+      if (this.startTime === null) this.startTime = timestamp - this.elapsedTime;
+      const progress = Math.min(Math.max(0, timestamp - this.startTime) / duration, 1);
+      this.path.setAttribute("d", interpolateWave(
+        startPoints, endPoints, progress, this.vertical, this.height, this.width
+      ));
+      if (progress < 1) this.animationFrameId = requestAnimationFrame(animate);
+      else finish();
     };
 
     this.animationFrameId = requestAnimationFrame(animate);
@@ -717,7 +604,7 @@ if (
 // Round path coordinates to 2 decimals: visually identical, but roughly
 // halves the size of every d-attribute write and encoded seed.
 function round2(value) {
-  return Math.round(value * 100) / 100;
+  return Math.abs(value) > Number.MAX_VALUE / 100 ? value : Math.round(value * 100) / 100;
 }
 
 function generateWave({
@@ -729,7 +616,10 @@ function generateWave({
   random = Math.random,
   startEndZero = false,
 }) {
-  const safePoints = Math.max(2, Number.isFinite(points) ? Math.floor(points) : 2);
+  const safePoints = Math.min(MAX_POINTS, Math.max(2, Number.isFinite(points) ? Math.floor(points) : 2));
+  width = Number.isFinite(width) && width > 0 && width <= Number.MAX_VALUE / 10000 ? width : 1440;
+  height = Number.isFinite(height) && height > 0 && height <= Number.MAX_VALUE / 10000 ? height : 160;
+  variance = Number.isFinite(variance) ? Math.min(MAX_VARIANCE, Math.max(-MAX_VARIANCE, variance)) : 3;
   const anchors = [];
   const step = vertical ? height / (safePoints - 1) : width / (safePoints - 1);
 
@@ -737,9 +627,11 @@ function generateWave({
     const x = round2(vertical
       ? height - step * i
       : step * i);
+    const sample = typeof random === "function" ? random() : 0.5;
+    const unitRandom = Number.isFinite(sample) ? Math.min(1, Math.max(0, sample)) : 0.5;
     const y = round2(vertical
-      ? width - width * 0.1 - random() * (variance * width * 0.25)
-      : height - height * 0.1 - random() * (variance * height * 0.25));
+      ? width - width * 0.1 - unitRandom * (variance * width * 0.25)
+      : height - height * 0.1 - unitRandom * (variance * height * 0.25));
     anchors.push(vertical ? { x: y, y: x } : { x, y });
   }
 
@@ -819,11 +711,15 @@ function encodeWaveSeed(pathString) {
 // "successfully" into garbage. Only accept decodes that look like the wave
 // paths encodeWaveSeed produces; everything else is treated as a PRNG seed.
 function looksLikeWavePath(value) {
-  return typeof value === "string" && value.startsWith("M ") && value.includes("Q ");
+  if (typeof value !== "string" || value.length > 250000) return false;
+  return WAVE_PATH_REGEX.test(value) &&
+    value.match(WAVE_COORDINATE_REGEX).every((coordinate) =>
+      Number.isFinite(Number(coordinate)) && Math.abs(Number(coordinate)) <= Number.MAX_VALUE / 100);
+
 }
 
 function decodeWaveSeed(seed) {
-  if (typeof seed !== "string" || seed.trim() === "") return null;
+  if (typeof seed !== "string" || seed.length > 350000 || seed.trim() === "") return null;
 
   const paddedSeed = seed.padEnd(Math.ceil(seed.length / 4) * 4, "=");
 

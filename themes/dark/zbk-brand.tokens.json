@@ -4,7 +4,7 @@
     "$type": "color",
     "$description": "Dark-mode branded wave and icon surface."
   },
-    "canvas-inverse-emphasis": {
+  "canvas-inverse-emphasis": {
     "$value": "{brand.900}",
     "$type": "color",
     "$description": "Dark-mode branded wave and icon surface."
@@ -23,5 +23,10 @@
     "$value": "{brand.300}",
     "$type": "color",
     "$description": "Dark-mode branded high-emphasis text."
+  },
+  "canvas-subtle": {
+    "$value": "{brand.900}",
+    "$type": "color",
+    "$description": "Dark-mode subtle brand canvas paired with the light branded ink ramp."
   }
 }

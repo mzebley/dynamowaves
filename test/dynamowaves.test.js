@@ -165,6 +165,7 @@ describe('generateNewWave', () => {
     const progressOneFrame = interpolateWave(start, end, 1, false, height, width);
 
     const wave = new DynamoWave();
+    wave.isConnected = true;
     Object.assign(wave, {
       width,
       height,
@@ -220,6 +221,7 @@ describe('lifecycle state handling', () => {
     const height = 50;
 
     const wave = new DynamoWave();
+    wave.isConnected = true;
     Object.assign(wave, {
       width,
       height,
@@ -274,6 +276,7 @@ describe('lifecycle state handling', () => {
 
   it('refuses to start the play loop while a morph is in flight', () => {
     const wave = new DynamoWave();
+    wave.isConnected = true;
     wave.isGeneratingWave = true;
 
     wave.play();
@@ -283,7 +286,9 @@ describe('lifecycle state handling', () => {
 
   it('cancels the animation loop on disconnect and flags it to resume', () => {
     const wave = new DynamoWave();
+    wave.isConnected = true;
     wave.isAnimating = true;
+    wave.desiredPlaying = true;
     wave.animationFrameId = 7;
 
     const original = globalThis.cancelAnimationFrame;
@@ -301,11 +306,12 @@ describe('lifecycle state handling', () => {
     assert.equal(cancelled, 7);
     assert.equal(wave.isAnimating, false);
     assert.equal(wave.animationFrameId, null);
-    assert.equal(wave.resumeOnConnect, true);
+    assert.equal(wave.desiredPlaying, true);
   });
 
   it('pause() cancels an in-flight morph and resets its timeline', () => {
     const wave = new DynamoWave();
+    wave.isConnected = true;
     wave.isGeneratingWave = true;
     wave.animationFrameId = 3;
     wave.elapsedTime = 400;
@@ -331,9 +337,13 @@ describe('lifecycle state handling', () => {
   it('stops and resumes an authored loop when reduced motion changes live', () => {
     const wave = new DynamoWave();
     wave.isConnected = true;
+    wave.isConnected = true;
     wave.isAnimating = true;
+    wave.desiredPlaying = true;
     wave.animationFrameId = 7;
     wave.getAttribute = (name) => (name === 'data-wave-animate' ? 'true' : null);
+    wave.path = { getAttribute: () => null };
+    wave.currentPath = wave.targetPath = generateWave({width: 100, height: 50, points: 3, variance: 2});
 
     const originalRAF = globalThis.requestAnimationFrame;
     const originalCAF = globalThis.cancelAnimationFrame;
@@ -343,11 +353,11 @@ describe('lifecycle state handling', () => {
     try {
       wave.handleMotionPreferenceChange({ matches: true });
       assert.equal(wave.isAnimating, false);
-      assert.equal(wave.resumeAfterReducedMotion, true);
+      assert.equal(wave.desiredPlaying, true);
 
       wave.handleMotionPreferenceChange({ matches: false });
       assert.equal(wave.isAnimating, true);
-      assert.equal(wave.resumeAfterReducedMotion, false);
+      assert.equal(wave.desiredPlaying, true);
     } finally {
       globalThis.requestAnimationFrame = originalRAF;
       globalThis.cancelAnimationFrame = originalCAF;
@@ -357,9 +367,11 @@ describe('lifecycle state handling', () => {
   it('does not resume after animation is explicitly disabled during reduced motion', () => {
     const attributes = { 'data-wave-animate': 'true' };
     const wave = new DynamoWave();
+    wave.isConnected = true;
     wave.svg = {};
     wave.isConnected = true;
     wave.isAnimating = true;
+    wave.desiredPlaying = true;
     wave.animationFrameId = 7;
     wave.getAttribute = (name) => attributes[name] ?? null;
 
@@ -368,11 +380,11 @@ describe('lifecycle state handling', () => {
 
     try {
       wave.handleMotionPreferenceChange({ matches: true });
-      assert.equal(wave.resumeAfterReducedMotion, true);
+      assert.equal(wave.desiredPlaying, true);
 
       attributes['data-wave-animate'] = 'false';
       wave.attributeChangedCallback('data-wave-animate', 'true', 'false');
-      assert.equal(wave.resumeAfterReducedMotion, false);
+      assert.equal(wave.desiredPlaying, false);
 
       wave.handleMotionPreferenceChange({ matches: false });
       assert.equal(wave.isAnimating, false);
@@ -383,11 +395,11 @@ describe('lifecycle state handling', () => {
 });
 
 describe('attribute reactivity', () => {
-  // Minimal element stub that mirrors the DOM contract the component relies
-  // on: attribute storage that invokes attributeChangedCallback, innerHTML
-  // capture, and querySelector for the svg/path references.
+  // Attribute callbacks and SVG node construction mirror the DOM contract;
+  // native lifecycle and rendering transitions live in the browser suite.
   function createStubWave(initialAttrs = {}) {
     const wave = new DynamoWave();
+    wave.isConnected = true;
     const attributes = { ...initialAttrs };
 
     wave.style = {};
@@ -407,28 +419,17 @@ describe('attribute reactivity', () => {
       wave.attributeChangedCallback(name, old, null);
     };
 
-    let html = '';
-    Object.defineProperty(wave, 'innerHTML', {
-      set(value) {
-        html = value;
-      },
-      get() {
-        return html;
-      },
-    });
-
-    let rendered = null;
-    const pathStub = {
-      setAttribute(name, value) {
-        if (name === 'd') rendered = value;
-      },
-      getAttribute(name) {
-        return name === 'd' ? rendered : null;
-      },
+    wave.ownerDocument = {
+      createElementNS(namespace, tag) {
+        const attrs = {};
+        return { tag, children: [], setAttribute: (name, value) => { attrs[name] = String(value); },
+          getAttribute: (name) => attrs[name] ?? null,
+          append(child) { this.children.push(child); } };
+      }
     };
-    wave.querySelector = (sel) => (sel === 'path' ? pathStub : { id: 'stub-svg' });
+    wave.replaceChildren = () => {};
 
-    return { wave, attributes, getHtml: () => html };
+    return { wave, attributes, getHtml: () => wave.svg.getAttribute("viewBox") };
   }
 
   it('ignores attribute changes before the first render', () => {
@@ -532,11 +533,11 @@ describe('attribute reactivity', () => {
 
 describe('wave seed encoding', () => {
   it('round-trips seeds even with non-breaking spaces removed', () => {
-    const basePath = 'M 0 80 L 0 40   Q 5 15, 25 40';
+    const basePath = 'M 0 80 L 0 40   Q 5 15, 25 40 Q 30 40, 100 40 L 100 80 Z';
     const encoded = encodeWaveSeed(basePath);
     const decoded = decodeWaveSeed(encoded);
 
-    assert.equal(decoded, 'M 0 80 L 0 40 Q 5 15, 25 40');
+    assert.equal(decoded, 'M 0 80 L 0 40 Q 5 15, 25 40 Q 30 40, 100 40 L 100 80 Z');
   });
 
   it('returns null for invalid input', () => {
@@ -548,5 +549,28 @@ describe('wave seed encoding', () => {
     // "test" is decodable base64, but the result is not a wave path.
     assert.equal(decodeWaveSeed('test'), null);
     assert.equal(decodeWaveSeed(btoa('not a wave path')), null);
+  });
+});
+
+
+describe('input limits', () => {
+  it('rejects injected, incomplete, nonfinite and oversized recorded paths', () => {
+    const valid = generateWave({ width: 100, height: 50, points: 3, variance: 2 });
+    assert.equal(decodeWaveSeed(encodeWaveSeed(valid)), valid);
+    for (const invalid of [valid + '\" onclick=\"alert(1)', valid.replace(/ Z$/, ''), valid.replace('50', '1e999'), 'M 0 50 Q 0 0, 1 1']) {
+      assert.equal(decodeWaveSeed(encodeWaveSeed(invalid)), null);
+    }
+    assert.equal(decodeWaveSeed('a'.repeat(350001)), null);
+  });
+
+  it('bounds geometry work and keeps extreme inputs finite while supporting negative variance', () => {
+    const options = { width: 100, height: 50, points: 1e20, variance: 1e308, random: () => 0.5 };
+    const path = generateWave(options);
+    assert.equal(parsePath(path).length, 1000);
+    assert.ok(!/NaN|Infinity/.test(path));
+    const negative = generateWave({ ...options, points: 3, variance: -2 });
+    assert.equal(parsePath(negative)[0].cpY, 57.5);
+    const extreme = generateWave({ ...options, width: 1e308, height: Infinity, random: () => NaN });
+    assert.ok(!/NaN|Infinity/.test(extreme));
   });
 });

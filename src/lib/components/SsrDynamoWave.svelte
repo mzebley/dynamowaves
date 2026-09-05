@@ -9,6 +9,8 @@
 
 	type SsrDynamoWaveProps = {
 		element?: WaveElement;
+		ready?: boolean;
+		regenerateOnMount?: boolean;
 		id?: string;
 		class?: string;
 		style?: string;
@@ -51,6 +53,8 @@
 
 	let {
 		element = $bindable(),
+		ready = $bindable(false),
+		regenerateOnMount = true,
 		id,
 		class: className,
 		style,
@@ -81,6 +85,8 @@
 
 		void customElements.whenDefined('dynamo-wave').then(() => {
 			if (cancelled) return;
+			ready = true;
+			if (!regenerateOnMount) return;
 
 			// Keep the server snapshot for first paint, then demonstrate that each
 			// instance is generative once Svelte and the custom element are ready.

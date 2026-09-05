@@ -1,0 +1,12 @@
+{
+  "canvas-subtle": {
+    "$value": "{color.gold-950}",
+    "$type": "color",
+    "$description": "Dark informational surface paired with the dark theme's light text and link inks."
+  },
+  "border-subtle": {
+    "$value": "{color.gold-800}",
+    "$type": "color",
+    "$description": "Warm dark-mode border around informational navigation surfaces."
+  }
+}

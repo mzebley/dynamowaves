@@ -35,7 +35,7 @@
         that generate and morph on demand.
       </p>
       <p class="prose font-md text-center ink-brand margin-block-1">
-        <em>Version 2.2.0 · 12.0 KB minified · 3.6 KB gzip.</em>
+        <em>Version 2.2.1 · 12.0 KB minified · 3.6 KB gzip.</em>
       </p>
     </div>
   </div>
@@ -46,51 +46,5 @@
 <style>
   .header-actions {
     align-items: center;
-  }
-
-  .signature-mark {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  /* The header keeps its light brand canvas in both app themes. Keep the
-     signature and the link's generated new-tab affordance on the matching
-     fixed-light ink ramp instead of inheriting dark-surface semantic inks. */
-  :global(html[data-zbk-theme="dark"] .signature-link) {
-    --zbk-link-ink: var(--zbk-color-deepcurrent-500);
-    --zbk-link-ink-hover: var(--zbk-color-blue-800);
-    --zbk-link-ink-active: var(--zbk-color-blue-800);
-    --zbk-link-ink-focus: var(--zbk-color-deepcurrent-500);
-    --zbk-link-focus-color: var(--zbk-color-blue-800);
-    --zbk-focus-color: var(--zbk-color-blue-800);
-  }
-
-  :global(html[data-zbk-theme="dark"]) .signature-mark {
-    --sig-ink: var(--zbk-brand-700);
-    --sig-ink-action: var(--zbk-color-deepcurrent-500);
-    --sig-ink-action-active: var(--zbk-color-blue-800);
-  }
-
-  .signature-mark :global(svg) {
-    inline-size: var(--zbk-spacing-2);
-    block-size: var(--zbk-spacing-2);
-    transition: transform var(--zbk-transition-playful-motion-duration-fast)
-      var(--zbk-transition-playful-motion-function-fast);
-  }
-
-  :global(a:hover) .signature-mark :global(svg),
-  :global(a:focus-visible) .signature-mark :global(svg) {
-    transform: scale(1.08);
-  }
-
-  :global(a:active) .signature-mark :global(svg) {
-    transform: scale(1);
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .signature-mark :global(svg) {
-      transition: none;
-    }
   }
 </style>

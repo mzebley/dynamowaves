@@ -10,6 +10,20 @@ release tags.
 
 ## [Unreleased]
 
+## [2.2.1] - 2026-09-04
+
+### Fixed
+
+- Build SVG nodes without parsing seed or host ID values as HTML, and validate
+  recorded wave paths before restoring them.
+- Keep playback intent separate from temporary suspension, preserve pause/resume
+  timing, and prevent detached elements from scheduling animation frames.
+- Finish an active one-off morph when reduced motion is enabled, and apply
+  geometry changes made while detached when the element reconnects.
+- Bound geometry work and handle non-finite morph durations consistently.
+- Accept ordinary host attributes in the global JSX declaration.
+- Cancel documentation waits on unmount and correct dark-theme and code contrast.
+
 ## [2.2.0] - 2026-08-25
 
 ### Added
@@ -178,7 +192,9 @@ release tags.
   speed, and animation.
 - `data-wave-observe` attribute to regenerate waves via `IntersectionObserver`.
 
-[Unreleased]: https://github.com/mzebley/dynamowaves/compare/eda4a50...HEAD
+[Unreleased]: https://github.com/mzebley/dynamowaves/compare/v2.2.1...HEAD
+[2.2.1]: https://github.com/mzebley/dynamowaves/compare/v2.2.0...v2.2.1
+[2.2.0]: https://github.com/mzebley/dynamowaves/compare/eda4a50...v2.2.0
 [2.1.5]: https://github.com/mzebley/dynamowaves/compare/v2.1.4...eda4a50
 [2.1.4]: https://github.com/mzebley/dynamowaves/compare/v2.1.3...v2.1.4
 [2.1.3]: https://github.com/mzebley/dynamowaves/compare/v2.1.2...v2.1.3
