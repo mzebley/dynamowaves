@@ -12,7 +12,7 @@
 
 <svelte:head>
 	<title>Dynamowaves documentation — SVG wave custom element</title>
-	<meta name="description" content="Complete Dynamowaves 2.2.0 documentation: installation, attributes, methods, events, TypeScript exports, accessibility, and live SVG wave examples." />
+	<meta name="description" content="Complete Dynamowaves 2.2.1 documentation: installation, attributes, methods, events, TypeScript exports, accessibility, and live SVG wave examples." />
 	<link rel="canonical" href="https://dynamowaves.markzebley.com/" />
 	<link rel="icon" href="/favicon.svg" />
 	<link rel="manifest" href="/site.webmanifest" />

@@ -20,7 +20,7 @@
     "$description": "Space after the code block in document flow."
   },
   "canvas": {
-    "$value": "{neutral.100}",
+    "$value": "{app.canvas-emphasis}",
     "$type": "color",
     "$description": "Frame background visible around the caption and listing."
   },

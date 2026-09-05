@@ -1,5 +1,5 @@
 import { escapeSvelte } from 'mdsvex';
-import { createHighlighter } from 'shiki';
+import { bundledThemes, createHighlighter } from 'shiki';
 
 /** @type {Record<string, import('shiki').BundledLanguage>} */
 const languages = {
@@ -68,13 +68,42 @@ function getCodeBlockAttributes(metastring = '') {
 	return attributes.length ? ` ${attributes.join(' ')}` : '';
 }
 
+// Keep Gruvbox's hue relationships, with darker light-theme inks and lighter
+// dark-theme comments/keywords for our neutral code canvases (at least 4.5:1).
+const codeInk = {
+	light: {
+		'#928374': '#74695d',
+		'#b57614': '#946010',
+		'#79740e': '#6f6a0d',
+		'#7c6f64': '#71655b',
+		'#427b58': '#3c7151',
+	},
+	dark: {
+		'#928374': '#aa9b8b',
+		'#fb4934': '#fc6f5e',
+	},
+};
+
+async function codeTheme(mode) {
+	const { default: theme } = await bundledThemes[`gruvbox-${mode}-hard`]();
+	const foreground = (color) => codeInk[mode][color?.toLowerCase()] ?? color;
+	return {
+		...theme,
+		name: `dynamowaves-${mode}`,
+		tokenColors: theme.tokenColors.map((token) => ({
+			...token,
+			settings: { ...token.settings, foreground: foreground(token.settings.foreground) },
+		})),
+	};
+}
+
 /** @type {ReturnType<typeof createHighlighter> | undefined} */
 let highlighterPromise;
 
 function getHighlighter() {
 	highlighterPromise ??= createHighlighter({
 		langs: [...new Set(Object.values(languages))],
-		themes: ['gruvbox-light-hard', 'gruvbox-dark-hard'],
+		themes: [codeTheme('light'), codeTheme('dark')],
 	});
 
 	return highlighterPromise;
@@ -90,8 +119,8 @@ const config = {
 			const highlightedCode = highlighter.codeToHtml(code, {
 				lang: loadedLanguage,
 				themes: {
-					light: 'gruvbox-light-hard',
-					dark: 'gruvbox-dark-hard',
+					light: 'dynamowaves-light',
+					dark: 'dynamowaves-dark',
 				},
 				defaultColor: false,
 			});

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { waitForWave } from '$lib/waitForWave';
 	import SsrDynamoWave from './SsrDynamoWave.svelte';
 
 	type WaveElement = HTMLElement & {
@@ -8,6 +9,8 @@
 		pause(): void;
 	};
 
+	const lifecycle = new AbortController();
+	let playbackReady = $state(false);
 	let { compact = false }: { compact?: boolean } = $props();
 	let headerWave = $state<WaveElement>();
 	let regenWave = $state<WaveElement>();
@@ -20,24 +23,21 @@
 
 	async function regenerate() {
 		const wave = compact ? headerWave : regenWave;
-		if (!wave || regenerating) return;
+		if (!wave || regenerating || lifecycle.signal.aborted) return;
 
 		regenerating = true;
 		status = 'Generating a new wave.';
 		const duration = reducedMotion ? 1 : compact ? 800 : 500;
 
-		await new Promise<void>((resolve) => {
-			const fallback = window.setTimeout(resolve, duration + 150);
-			wave.addEventListener(
-				'dynamo-wave-complete',
-				() => {
-					window.clearTimeout(fallback);
-					resolve();
-				},
-				{ once: true },
-			);
-			wave.generateNewWave(duration);
-		});
+		const result = await waitForWave(
+			wave, () => wave.generateNewWave(duration), duration + 150, lifecycle.signal,
+		);
+		if (lifecycle.signal.aborted) return;
+		if (result !== 'complete') {
+			status = 'Wave update is taking longer than expected. You can try again.';
+			regenerating = false;
+			return;
+		}
 
 		updateCount += 1;
 		status = `Wave ${updateCount} generated.`;
@@ -45,7 +45,11 @@
 	}
 
 	function play() {
-		if (!playbackWave) return;
+		if (!playbackWave || lifecycle.signal.aborted) return;
+		if (!playbackReady) {
+			status = 'Wave controls are initializing. Try Play again in a moment.';
+			return;
+		}
 		if (reducedMotion) {
 			playbackWave.generateNewWave(1);
 			status = 'Reduced motion is enabled, so the wave changed without continuous animation.';
@@ -78,6 +82,7 @@
 
 		mediaQuery.addEventListener('change', handleMotionPreference);
 		return () => {
+			lifecycle.abort();
 			mediaQuery.removeEventListener('change', handleMotionPreference);
 			playbackWave?.pause();
 		};
@@ -139,6 +144,8 @@
 			<div class="wave-surface">
 				<SsrDynamoWave
 					bind:element={playbackWave}
+					bind:ready={playbackReady}
+					regenerateOnMount={false}
 					class="demo-wave"
 					id="play-example-wave"
 					speed={5000}

@@ -23,11 +23,12 @@
   // load work, where dropped frames read as the animation stuttering.
   onMount(() => {
     if (!animateIn) return;
-    let cancelled = false;
+    const lifecycle = new AbortController();
 
-    whenPageSettled().then(() => {
+    whenPageSettled({ signal: lifecycle.signal }).then((ready) => {
+      if (!ready || lifecycle.signal.aborted) return;
       const anim = baseNib?.getAnimations()[0];
-      if (cancelled || !anim?.effect) return;
+      if (!anim?.effect) return;
       const delay = Number(anim.effect.getTiming().delay ?? 0);
       // Already away on the fallback: restarting now would look like a replay.
       if (Number(anim.currentTime ?? 0) > delay) return;
@@ -37,7 +38,7 @@
     });
 
     return () => {
-      cancelled = true;
+      lifecycle.abort();
     };
   });
 </script>

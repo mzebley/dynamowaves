@@ -30,22 +30,27 @@
     examples: "practicalApplicationHeader",
   };
 
+  const focusCleanups = new Set<() => void>();
+
+  function focusTarget(target: HTMLElement) {
+    if (!target.hasAttribute("tabindex")) {
+      target.setAttribute("tabindex", "-1");
+      const cleanup = () => {
+        target.removeEventListener("blur", cleanup);
+        target.removeAttribute("tabindex");
+        focusCleanups.delete(cleanup);
+      };
+      focusCleanups.add(cleanup);
+      target.addEventListener("blur", cleanup, { once: true });
+    }
+    target.focus({ preventScroll: true });
+  }
+
   function focusSection(id: string, behavior: ScrollBehavior) {
     const target = document.getElementById(legacyTargets[id] ?? id);
     if (!target) return;
-
-    const hadTabindex = target.hasAttribute("tabindex");
-    if (!hadTabindex) target.setAttribute("tabindex", "-1");
     target.scrollIntoView({ behavior, block: "start" });
-    target.focus({ preventScroll: true });
-
-    if (!hadTabindex) {
-      target.addEventListener(
-        "blur",
-        () => target.removeAttribute("tabindex"),
-        { once: true },
-      );
-    }
+    focusTarget(target);
   }
 
   function navigate(event: MouseEvent, id: string) {
@@ -79,29 +84,17 @@
 
     window.scrollTo({ top: 0, behavior });
 
-    if (heading) {
-      const hadTabindex = heading.hasAttribute("tabindex");
-      if (!hadTabindex) heading.setAttribute("tabindex", "-1");
-      heading.focus({ preventScroll: true });
-
-      if (!hadTabindex) {
-        heading.addEventListener(
-          "blur",
-          () => heading.removeAttribute("tabindex"),
-          { once: true },
-        );
-      }
-    }
+    if (heading) focusTarget(heading);
   }
 
   onMount(() => {
     const id = decodeURIComponent(window.location.hash.slice(1));
-    let cancelled = false;
+    const lifecycle = new AbortController();
     let animationFrame = 0;
 
     if (id) {
-      void whenPageSettled().then(() => {
-        if (!cancelled) focusSection(id, "auto");
+      void whenPageSettled({ signal: lifecycle.signal }).then((ready) => {
+        if (ready && !lifecycle.signal.aborted) focusSection(id, "auto");
       });
     }
 
@@ -134,7 +127,8 @@
     });
 
     return () => {
-      cancelled = true;
+      lifecycle.abort();
+      for (const cleanup of focusCleanups) cleanup();
       window.cancelAnimationFrame(animationFrame);
       window.removeEventListener("scroll", queueStickyStateUpdate);
       window.removeEventListener("resize", queueStickyStateUpdate);

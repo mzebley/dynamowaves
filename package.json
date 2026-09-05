@@ -1,6 +1,6 @@
 {
   "name": "dynamowaves",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "type": "module",
   "description": "Lightweight, dependency-free SVG wave templates that dynamically generate themselves on render.",
   "main": "./dist/dynamowaves.cjs",
@@ -21,6 +21,7 @@
   ],
   "scripts": {
     "test": "node --test",
+    "test:browser": "node browser-tests/dynamowaves.browser.js",
     "build": "rollup -c",
     "dev:docs": "vite dev",
     "build:docs": "npm run build && npx zebkit build && vite build",

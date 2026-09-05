@@ -2,7 +2,7 @@
 
 <h2 id="api-reference">API reference</h2>
 
-Version 2.2.0 exposes nine observed attributes, three instance methods, one completion event, and six runtime module exports. Attribute changes take effect after the element is connected: geometry changes rebuild the wave, while speed, animation, and observation changes update their active behavior.
+Version 2.2.1 exposes nine observed attributes, three instance methods, one completion event, and six runtime module exports. Attribute changes take effect after the element is connected: geometry changes rebuild the wave, while speed, animation, and observation changes update their active behavior.
 
 <h3 id="attributes">Attributes</h3>
 
@@ -27,13 +27,13 @@ Version 2.2.0 exposes nine observed attributes, three instance methods, one comp
       <tr>
         <td><code>data-wave-points</code></td>
         <td><code>6</code></td>
-        <td>A numeric string. It is parsed as an integer and clamped to a minimum of <code>2</code>; invalid values use the default.</td>
+        <td>A numeric string. It is parsed as an integer and clamped to <code>2–1000</code>; invalid values use the default.</td>
         <td>Regenerates the current and target paths with the new point count.</td>
       </tr>
       <tr>
         <td><code>data-wave-variance</code></td>
         <td><code>3</code></td>
-        <td>Any finite number, including decimals. Positive values are the useful range for ordinary wave depth.</td>
+        <td>Finite numbers, including decimals, clamped to <code>-100–100</code>. Invalid values use <code>3</code>; ordinary wave depths are much smaller than these safety bounds.</td>
         <td>Regenerates the wave with the new amount of anchor deviation.</td>
       </tr>
       <tr>
@@ -76,7 +76,7 @@ Version 2.2.0 exposes nine observed attributes, three instance methods, one comp
   </table>
 </div>
 
-Geometry changes discard an existing encoded path snapshot because it no longer describes the requested shape. If the wave was looping, it resumes after rebuilding.
+Geometry changes discard an existing encoded path snapshot because it no longer describes the requested shape. Playback intent survives rebuilding, but an explicitly paused wave stays paused. Geometry changes made while detached are applied on reconnection.
 
 ```html
 <dynamo-wave
@@ -170,17 +170,17 @@ The margin uses the same syntax as `IntersectionObserver.rootMargin`, including 
     <tbody>
       <tr>
         <td><code>generateNewWave(duration = 800)</code></td>
-        <td>Morphs once from the displayed path to a new path. Durations below one millisecond, and reduced motion, resolve in one millisecond.</td>
+        <td>Morphs once from the displayed path to a new path. Finite durations below one millisecond clamp to one; non-finite durations use <code>800</code>. Reduced motion uses one millisecond.</td>
         <td>Ignored while another morph or animation frame is active.</td>
       </tr>
       <tr>
         <td><code>play(duration?)</code></td>
-        <td>Starts continuous morphing. A finite positive duration overrides <code>data-wave-speed</code> for that loop.</td>
-        <td>Ignored while already playing, while a one-off morph is active, or while reduced motion is enabled.</td>
+        <td>Starts continuous morphing. A finite positive duration overrides <code>data-wave-speed</code> for that loop and its later resumptions; changing the speed attribute replaces that duration.</td>
+        <td>Ignored while already playing or during a one-off morph. While reduced motion is enabled, records playback intent for when motion is allowed again.</td>
       </tr>
       <tr>
         <td><code>pause()</code></td>
-        <td>Stops a loop and preserves its current tween position for a later <code>play()</code>.</td>
+        <td>Stops a loop and preserves its tween position and duration for a later <code>play()</code>. Explicit pause also cancels any automatic resume intent.</td>
         <td>Cancels an active one-off morph and clears that morph's timeline.</td>
       </tr>
     </tbody>
@@ -264,12 +264,12 @@ These helpers are available from both ESM and CommonJS. A direct browser script 
       </tr>
     </thead>
     <tbody>
-      <tr><td><code>width</code></td><td>Yes</td><td>Numeric width used by the generated coordinate system.</td></tr>
-      <tr><td><code>height</code></td><td>Yes</td><td>Numeric height used by the generated coordinate system.</td></tr>
-      <tr><td><code>points</code></td><td>Yes</td><td>Anchor count. Finite values are floored and clamped to at least <code>2</code>.</td></tr>
-      <tr><td><code>variance</code></td><td>Yes</td><td>Multiplier controlling how far randomized anchors can deviate across the wave depth.</td></tr>
+      <tr><td><code>width</code></td><td>Yes</td><td>Positive finite coordinate width. Invalid or overflow-unsafe values use <code>1440</code>.</td></tr>
+      <tr><td><code>height</code></td><td>Yes</td><td>Positive finite coordinate height. Invalid or overflow-unsafe values use <code>160</code>.</td></tr>
+      <tr><td><code>points</code></td><td>Yes</td><td>Anchor count. Finite values are floored and clamped to <code>2–1000</code>; non-finite values use <code>2</code>.</td></tr>
+      <tr><td><code>variance</code></td><td>Yes</td><td>Anchor deviation multiplier, clamped to <code>-100–100</code>; non-finite values use <code>3</code>.</td></tr>
       <tr><td><code>vertical</code></td><td>No</td><td><code>false</code> for top/bottom geometry; <code>true</code> for left/right geometry.</td></tr>
-      <tr><td><code>random</code></td><td>No</td><td>A function returning a number. Defaults to <code>Math.random</code>; inject a seeded or fixed source for repeatable output.</td></tr>
+      <tr><td><code>random</code></td><td>No</td><td>A function returning a number from <code>0</code> to <code>1</code>. Finite samples are clamped to that range; non-finite samples use <code>0.5</code>. Defaults to <code>Math.random</code>.</td></tr>
       <tr><td><code>startEndZero</code></td><td>No</td><td>Anchors both visible endpoints to the base edge when <code>true</code>.</td></tr>
     </tbody>
   </table>
@@ -392,7 +392,7 @@ const plainSeed = decodeWaveSeed('homepage-hero-v1'); // null
 
 <h4 id="typescript-exports">TypeScript exports</h4>
 
-The package declarations export `DynamoWave`, `DynamoWaveAttributes`, `DynamoWaveCompleteDetail`, `DynamoWaveEventMap`, `WaveDirection`, `WaveGenerationOptions`, `WaveObserverOptions`, `WaveOrientation`, and `WavePoint`. They also add `<dynamo-wave>` to `HTMLElementTagNameMap`, type the completion event on `HTMLElementEventMap`, and provide the custom element's JSX attributes.
+The package declarations export `DynamoWave`, `DynamoWaveAttributes`, `DynamoWaveJSXAttributes`, `DynamoWaveCompleteDetail`, `DynamoWaveEventMap`, `WaveDirection`, `WaveGenerationOptions`, `WaveObserverOptions`, `WaveOrientation`, and `WavePoint`. They also add `<dynamo-wave>` to `HTMLElementTagNameMap`, type the completion event on `HTMLElementEventMap`, and provide global JSX host props including `id`, `class`, `className`, inline styles, refs, ARIA, and data attributes. `DynamoWaveAttributes` remains the wave-specific attribute contract; JSX runtimes with their own namespace need their own intrinsic-element declaration.
 
 <h3 id="styling-layout">Styling and layout</h3>
 
@@ -421,8 +421,8 @@ Style the host rather than depending on the generated `svg` and `path` structure
 - The module can be imported during SSR or in Node without `HTMLElement` or `customElements`. Registration happens only where a browser custom-element registry exists.
 - Server output contains the authored `<dynamo-wave>` host; the SVG is created when the element upgrades in the browser. Reuse a recorded `data-wave-seed` when the first client-rendered shape must be identical across pages or environments.
 - The generated SVG is decorative: it uses `aria-hidden="true"` and `role="presentation"`. Do not use the wave as the only carrier of meaningful information.
-- `prefers-reduced-motion: reduce` prevents continuous playback and reduces one-off morphs to one millisecond. A running authored loop pauses when the preference changes live and resumes when motion is allowed again, unless animation was explicitly disabled in the meantime.
-- Removing an active element cancels its animation frame and disconnects its observers. Reattaching it resumes a loop that had been running; an interrupted one-off morph does not resume.
+- `prefers-reduced-motion: reduce` prevents continuous playback and reduces one-off morphs to one millisecond. A running authored loop pauses when the preference changes live and resumes when motion is allowed again, unless `pause()` or the animation attribute explicitly disabled playback. Enabling reduced motion during a one-off morph finishes its target and dispatches the completion event.
+- Removing an active element cancels its animation frame and disconnects its observers. Reattaching it resumes requested playback; an interrupted one-off morph does not resume. Calling `play()` before connection or while detached records playback intent without scheduling frames; `pause()` clears it, and detached `generateNewWave()` calls are ignored.
 - Changing geometry while a loop is active rebuilds the paths and resumes the loop with the new configuration.
 - The baseline browser requirements are Custom Elements and `requestAnimationFrame`. `IntersectionObserver` is only required for `data-wave-observe`; the wave still renders when observation is unavailable.
 

@@ -60,8 +60,8 @@ import 'dynamowaves';
 ## Data attributes
 | Attribute | Default | Purpose |
 | --- | --- | --- |
-| `data-wave-points` | `6` | Integer anchor count, clamped to at least two. |
-| `data-wave-variance` | `3` | Finite numeric point deviation. |
+| `data-wave-points` | `6` | Integer anchor count, clamped to 2–1000. |
+| `data-wave-variance` | `3` | Finite point deviation, clamped to -100–100. |
 | `data-variance` | _unset_ | Legacy alias for `data-wave-variance`. |
 | `data-wave-seed` | generated | Recorded Base64 path or plain deterministic seed. |
 | `data-start-end-zero` | _false_ | Anchors endpoints on the base edge. |
@@ -69,6 +69,8 @@ import 'dynamowaves';
 | `data-wave-speed` | `7500` | Positive loop duration in milliseconds. |
 | `data-wave-animate` | `false` | The exact string `true` enables automatic playback. |
 | `data-wave-observe` | _unset_ | `once` or `repeat`, with an optional root margin. |
+
+Numeric bounds and lifecycle hardening described here were added in 2.2.1; see [CHANGELOG.md](CHANGELOG.md).
 
 All attributes are observed at runtime: changing one after render re-renders or reconfigures the wave immediately (a running loop resumes with the new settings).
 
@@ -106,6 +108,8 @@ ESM and CommonJS expose the same six names. Direct browser scripts expose them o
 | `play(duration?)` | Start a continuous loop. |
 | `pause()` | Stop a loop or cancel an active one-off morph. |
 
+`pause()` stays authoritative across geometry, connection, and motion-preference changes. A later `play()` resumes a paused loop; detached playback requests schedule no frames until reconnection. Non-finite `generateNewWave()` durations use 800 ms.
+
 `dynamo-wave-complete` fires after a one-off morph and after every completed loop cycle. Its detail is `{ duration, direction: 'horizontal' | 'vertical' }`.
 
 ## Practical ideas
@@ -113,7 +117,7 @@ See [`src/lib/content/examples.md`](src/lib/content/examples.md) or the docs sit
 
 ## Accessibility
 - Generated SVGs are decorative and hidden from assistive technology.
-- Continuous motion stops when reduced motion is enabled; one-off morphs resolve in one millisecond.
+- Continuous motion stops when reduced motion is enabled; new one-off morphs use one millisecond, and active morphs finish immediately.
 - The module imports safely during SSR. Reuse a recorded seed when the first client-rendered shape must be identical.
 
 ## Development
@@ -122,6 +126,9 @@ git clone https://github.com/mzebley/dynamowaves.git
 cd dynamowaves
 npm install
 npm run build
+npm test
+npx playwright install chromium
+npm run test:browser
 ```
 
 `npm run build` remains the publishable library build. The documentation is a

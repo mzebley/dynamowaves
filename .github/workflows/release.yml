@@ -67,6 +67,12 @@ jobs:
       - name: Build the package and documentation
         run: npm run build:docs
 
+      - name: Install Chromium for lifecycle regression checks
+        run: npx playwright install --with-deps chromium
+
+      - name: Test browser lifecycle and seed safety
+        run: npm run test:browser
+
       - name: Check documentation source
         run: npm run check:docs
 

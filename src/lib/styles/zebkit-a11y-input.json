@@ -11,13 +11,13 @@
       "kind": "rules"
     },
     {
-      "digest": "sha256:b9e67f65cfb8b1654ba2d8d40f6146f280cd76bcfa6065d7a98510634e167138",
+      "digest": "sha256:77793b53c6945ff0c6281bc4a8b9d00c918c9a8b9854a0ed05518139e7447ffe",
       "identifier": "zbk-dynamowaves.min.css",
       "kind": "css",
       "theme": "dynamowaves"
     },
     {
-      "digest": "sha256:e127aca551c55f43a9b00262ce200b3a77796025e5e4ca4f5b034e556b01db94",
+      "digest": "sha256:45269f87214046ae2248a1e92c848ea62cb3a4315fb014b6fdb3ec1f34e1d2be",
       "identifier": "zbk-dark.css",
       "kind": "css",
       "theme": "dark"
@@ -131,6 +131,10 @@
             "$type": "color",
             "$value": "{accent-primary.950}"
           },
+          "canvas-emphasis": {
+            "$type": "color",
+            "$value": "{neutral.900}"
+          },
           "canvas-subtle": {
             "$type": "color",
             "$value": "{color.global-black}"
@@ -199,6 +203,10 @@
             "$type": "color",
             "$value": "{color.mint-800}"
           },
+          "900": {
+            "$type": "color",
+            "$value": "{color.mint-900}"
+          },
           "canvas": {
             "$type": "color",
             "$value": "{brand.600}"
@@ -209,7 +217,7 @@
           },
           "canvas-subtle": {
             "$type": "color",
-            "$value": "{brand.100}"
+            "$value": "{brand.900}"
           },
           "ink": {
             "$type": "color",
@@ -545,7 +553,7 @@
           },
           "canvas": {
             "$type": "color",
-            "$value": "{neutral.100}"
+            "$value": "{app.canvas-emphasis}"
           },
           "code-canvas": {
             "$type": "color",
@@ -663,17 +671,6 @@
               ]
             }
           },
-          "chestnut-100": {
-            "$type": "color",
-            "$value": {
-              "colorSpace": "hsl",
-              "components": [
-                26,
-                42,
-                93
-              ]
-            }
-          },
           "chestnut-200": {
             "$type": "color",
             "$value": {
@@ -704,6 +701,17 @@
                 26,
                 42,
                 26
+              ]
+            }
+          },
+          "chestnut-900": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "hsl",
+              "components": [
+                26,
+                42,
+                18
               ]
             }
           },
@@ -871,6 +879,17 @@
                 158,
                 42,
                 26
+              ]
+            }
+          },
+          "mint-900": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "hsl",
+              "components": [
+                158,
+                42,
+                18
               ]
             }
           },
@@ -1102,10 +1121,6 @@
           }
         },
         "zbk-neutral": {
-          "100": {
-            "$type": "color",
-            "$value": "{color.chestnut-100}"
-          },
           "200": {
             "$type": "color",
             "$value": "{color.chestnut-200}"
@@ -1117,6 +1132,10 @@
           "800": {
             "$type": "color",
             "$value": "{color.chestnut-800}"
+          },
+          "900": {
+            "$type": "color",
+            "$value": "{color.chestnut-900}"
           }
         },
         "zbk-p": {
@@ -1864,6 +1883,10 @@
         "$type": "color",
         "$value": "{accent-primary.50}"
       },
+      "canvas-emphasis": {
+        "$type": "color",
+        "$value": "{neutral.100}"
+      },
       "canvas-subtle": {
         "$type": "color",
         "$value": "{color.global-white}"
@@ -2282,7 +2305,7 @@
       },
       "canvas": {
         "$type": "color",
-        "$value": "{neutral.100}"
+        "$value": "{app.canvas-emphasis}"
       },
       "code-canvas": {
         "$type": "color",

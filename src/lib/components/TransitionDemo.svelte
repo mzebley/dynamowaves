@@ -1,11 +1,13 @@
 <script lang="ts">
   import { onMount } from "svelte";
+  import { waitForWave } from "$lib/waitForWave";
   import SsrDynamoWave from "./SsrDynamoWave.svelte";
 
   type WaveElement = HTMLElement & {
     generateNewWave(duration?: number): void;
   };
 
+  const lifecycle = new AbortController();
   const slides = ["Content 1", "Content 2", "Content 3", "Content 4"];
   let wave = $state<WaveElement>();
   let activeIndex = $state(0);
@@ -19,29 +21,16 @@
   );
 
   async function next() {
-    if (busy) return;
+    if (busy || lifecycle.signal.aborted) return;
 
     busy = true;
     activeIndex = activeIndex >= slides.length - 1 ? 0 : activeIndex + 1;
     const duration = reducedMotion ? 1 : 500;
 
-    await new Promise<void>((resolve) => {
-      if (!wave) {
-        resolve();
-        return;
-      }
-
-      const fallback = window.setTimeout(resolve, duration + 150);
-      wave.addEventListener(
-        "dynamo-wave-complete",
-        () => {
-          window.clearTimeout(fallback);
-          resolve();
-        },
-        { once: true },
-      );
-      wave.generateNewWave(duration);
-    });
+    if (wave) {
+      await waitForWave(wave, () => wave?.generateNewWave(duration), duration + 150, lifecycle.signal);
+    }
+    if (lifecycle.signal.aborted) return;
 
     busy = false;
     button?.focus();
@@ -56,8 +45,10 @@
     };
 
     mediaQuery.addEventListener("change", handleMotionPreference);
-    return () =>
+    return () => {
+      lifecycle.abort();
       mediaQuery.removeEventListener("change", handleMotionPreference);
+    };
   });
 </script>
 

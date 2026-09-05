@@ -62,11 +62,3 @@
 >
   Dark mode
 </zbk-toggle>
-
-<style>
-  .theme-toggle {
-    flex: 0 0 auto;
-  }
-
-
-</style>
